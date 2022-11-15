@@ -1,7 +1,10 @@
 package cl.gargolas.web.models;
 
+import javax.persistence.Entity;
+import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
-
+@Entity 
+@Table(name="lugares_Etiquetas")
 public class Lugar_Etiqueta {
 	//instantiate attributes
 	

@@ -9,7 +9,7 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 @Entity
-@Table(name="LugaresInteres")
+@Table(name="lugaresInteres")
 public class LugarInteres {
 	// Instantiate Attributes
 	
