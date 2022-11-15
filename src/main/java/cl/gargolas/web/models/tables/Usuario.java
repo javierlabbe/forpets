@@ -1,4 +1,4 @@
-package cl.gargolas.web.models;
+package cl.gargolas.web.models.tables;
 
 public class Usuario {
 	
