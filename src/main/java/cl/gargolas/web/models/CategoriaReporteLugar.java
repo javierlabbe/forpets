@@ -11,7 +11,7 @@ import javax.validation.constraints.Size;
 
 //Crecion de la clase o entidad
 @Entity
-@Table(name="CategoriasReportesLugares")
+@Table(name="categoriasreporteslugares")
 public class CategoriaReporteLugar {
 	
 	
