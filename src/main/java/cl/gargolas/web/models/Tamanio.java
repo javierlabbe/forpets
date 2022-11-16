@@ -1,5 +1,4 @@
 package cl.gargolas.web.models;
-
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -14,11 +13,11 @@ import javax.persistence.Table;
 import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
-@Table(name = "colores")
-public class Color {
+@Table(name="tamanios")
+public class Tamanio {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer idColor;
+	private Integer idTamanio;
 	private String descripcion;
 	@Column(updatable = false)
 	@DateTimeFormat(pattern="yyyy-MM-dd")
@@ -26,59 +25,42 @@ public class Color {
 	@DateTimeFormat(pattern="yyyy-MM-dd")
 	private Date updatedAt;
 	
-	public Color() {
+	public Tamanio() {
 		super();
 	}
-	
 
-	public Integer getIdColor() {
-		return idColor;
+	public Integer getIdTamanio() {
+		return idTamanio;
 	}
 
-
-
-	public void setIdColor(Integer idColor) {
-		this.idColor = idColor;
+	public void setIdTamanio(Integer idTamanio) {
+		this.idTamanio = idTamanio;
 	}
-
-
 
 	public String getDescripcion() {
 		return descripcion;
 	}
 
-
-
 	public void setDescripcion(String descripcion) {
 		this.descripcion = descripcion;
 	}
-
-
 
 	public Date getCreatedAt() {
 		return createdAt;
 	}
 
-
-
 	public void setCreatedAt(Date createdAt) {
 		this.createdAt = createdAt;
 	}
-
-
 
 	public Date getUpdatedAt() {
 		return updatedAt;
 	}
 
-
-
 	public void setUpdatedAt(Date updatedAt) {
 		this.updatedAt = updatedAt;
 	}
-
-
-
+	
 	@PrePersist
 	protected void onCreate(){
 		this.createdAt = new Date();
@@ -88,5 +70,5 @@ public class Color {
 		protected void onUpdate(){
 		this.updatedAt = new Date();
 		}
+	
 }
-

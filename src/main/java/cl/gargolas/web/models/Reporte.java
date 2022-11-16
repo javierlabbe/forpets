@@ -14,43 +14,42 @@ import javax.persistence.Table;
 import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
-@Table(name = "colores")
-public class Color {
+@Table(name="reportes")
+public class Reporte {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer idColor;
-	private String descripcion;
+	private Integer idReporte;
+	private Integer idCategoria;
 	@Column(updatable = false)
 	@DateTimeFormat(pattern="yyyy-MM-dd")
 	private Date createdAt;
 	@DateTimeFormat(pattern="yyyy-MM-dd")
 	private Date updatedAt;
 	
-	public Color() {
+	public Reporte() {
 		super();
 	}
 	
-
-	public Integer getIdColor() {
-		return idColor;
+	public Integer getIdReporte() {
+		return idReporte;
 	}
 
 
 
-	public void setIdColor(Integer idColor) {
-		this.idColor = idColor;
+	public void setIdReporte(Integer idReporte) {
+		this.idReporte = idReporte;
 	}
 
 
 
-	public String getDescripcion() {
-		return descripcion;
+	public Integer getIdCategoria() {
+		return idCategoria;
 	}
 
 
 
-	public void setDescripcion(String descripcion) {
-		this.descripcion = descripcion;
+	public void setIdCategoria(Integer idCategoria) {
+		this.idCategoria = idCategoria;
 	}
 
 
@@ -81,12 +80,10 @@ public class Color {
 
 	@PrePersist
 	protected void onCreate(){
-		this.createdAt = new Date();
-		}
-
+	this.createdAt = new Date();
+	}
 	@PreUpdate
-		protected void onUpdate(){
-		this.updatedAt = new Date();
-		}
+	protected void onUpdate(){
+	this.updatedAt = new Date();
+	}
 }
-
