@@ -28,19 +28,19 @@ public class Registro_Imagen {
 	//Agregando imagen como FK, relacion manytoOne
 	@JsonIgnore
 	@ManyToOne(fetch = FetchType.EAGER)
-	@Column(name="imagen_id")
+	@JoinColumn(name="imagen_id")
 	private Imagen imagen;
 	
 	//Agregando reporte como FK, relacion ManyToOne
 	@JsonIgnore
 	@ManyToOne(fetch = FetchType.EAGER)
-	@Column(name="reporte_id")
+	@JoinColumn(name="reporte_id")
 	private Reporte reporte;
 	
 	//Agregando lugarInteres como FK, relacion ManyToOne
 	@JsonIgnore
 	@ManyToOne(fetch = FetchType.EAGER)
-	@Column(name="lugarInteres_id")
+	@JoinColumn(name="lugarInteres_id")
 	private LugarInteres lugarInteres;
 	
 	
