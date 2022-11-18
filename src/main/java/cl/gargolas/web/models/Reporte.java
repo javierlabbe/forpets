@@ -10,6 +10,7 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
@@ -25,17 +26,22 @@ public class Reporte {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer idReporte;
-	private Integer idCategoria;
 	@Column(updatable = false)
 	@DateTimeFormat(pattern="yyyy-MM-dd")
 	private Date createdAt;
 	@DateTimeFormat(pattern="yyyy-MM-dd")
 	private Date updatedAt;
 	
-	//relacion ManyToOne
+	//relacion OneToMany
 	@JsonIgnore
-	@OneToMany(mappedBy = "Registro_Imagen",cascade = CascadeType.ALL,fetch = FetchType.LAZY)
+	@OneToMany(mappedBy = "Reporte",cascade = CascadeType.ALL,fetch = FetchType.LAZY)
 	private List<Reporte> reportes;
+	
+	//Agregando CategoriaReporteLugar como FK, relacion ManyToOne
+	@JsonIgnore
+	@ManyToOne(fetch = FetchType.EAGER)
+	@Column(name="CategoriaReporteLugar_id")
+	private CategoriaReporteLugar categoriaReporteLugar;
 	
 	public Reporte() {
 		super();
@@ -50,19 +56,6 @@ public class Reporte {
 	public void setIdReporte(Integer idReporte) {
 		this.idReporte = idReporte;
 	}
-
-
-
-	public Integer getIdCategoria() {
-		return idCategoria;
-	}
-
-
-
-	public void setIdCategoria(Integer idCategoria) {
-		this.idCategoria = idCategoria;
-	}
-
 
 
 	public Date getCreatedAt() {
