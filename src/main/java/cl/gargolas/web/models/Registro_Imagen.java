@@ -1,5 +1,4 @@
 package cl.gargolas.web.models;
-//importaciones
 
 import java.util.Date;
 
@@ -11,26 +10,20 @@ import javax.persistence.Id;
 import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
 import javax.persistence.Table;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
-//Crecion de la clase o entidad
+import com.mysql.cj.jdbc.Blob;
+
 @Entity
-@Table(name="categoriasReportesLugares")
-public class CategoriaReporteLugar {
-	
-	
-	//Intancias de atributos entidad
+@Table(name="registrosImagenes")
+public class RegistroImagen {
 	
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private Integer idCategoria;
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Integer idImagen;
 	
-	@NotNull
-	@Size(min=0, max=201)
-	private String Descripcion;
+	private Blob imagen;
 	
 	@Column(updatable = false)
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
@@ -38,32 +31,27 @@ public class CategoriaReporteLugar {
 
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date updatedAt;
-	
-	//contructores
-	public CategoriaReporteLugar() {
+
+	public RegistroImagen() {
 		super();
 	}
 
+	public Integer getIdImagen() {
+		return idImagen;
+	}
+
+	public void setIdImagen(Integer idImagen) {
+		this.idImagen = idImagen;
+	}
+
+	public Blob getImagen() {
+		return imagen;
+	}
+
+	public void setImagen(Blob imagen) {
+		this.imagen = imagen;
+	}
 	
-
-	// Getter y Setter 
-
-	public Integer getIdCategoria() {
-		return idCategoria;
-	}
-
-	public void setIdCategoria(Integer idCategoria) {
-		this.idCategoria = idCategoria;
-	}
-
-	public String getDescripcion() {
-		return Descripcion;
-	}
-
-	public void setDescripcion(String descripcion) {
-		Descripcion = descripcion;
-	}
-
 	public Date getCreatedAt() {
 		return createdAt;
 	}
@@ -80,7 +68,6 @@ public class CategoriaReporteLugar {
 		this.updatedAt = updatedAt;
 	}
 	
-	
 	@PrePersist
 	protected void onCreate() {
 		this.createdAt = new Date();
@@ -92,9 +79,7 @@ public class CategoriaReporteLugar {
 		this.updatedAt = new Date();
 	}
 	
-
 	
-
 	
 	
 }

@@ -1,5 +1,6 @@
 package cl.gargolas.web.models;
 
+import java.sql.Blob;
 import java.util.Date;
 import java.util.List;
 
@@ -14,87 +15,74 @@ import javax.persistence.OneToMany;
 import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+
+
 @Entity
-@Table(name="reportes")
-public class Reporte {
+@Table(name = "imagenes")
+
+public class Imagen {
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer idReporte;
-	private Integer idCategoria;
+	private Integer idImagen;
+	
+	@NotNull
+	private Blob imagen;
+	
 	@Column(updatable = false)
 	@DateTimeFormat(pattern="yyyy-MM-dd")
 	private Date createdAt;
+
 	@DateTimeFormat(pattern="yyyy-MM-dd")
 	private Date updatedAt;
 	
 	//relacion ManyToOne
 	@JsonIgnore
 	@OneToMany(mappedBy = "Registro_Imagen",cascade = CascadeType.ALL,fetch = FetchType.LAZY)
-	private List<Reporte> reportes;
-	
-	public Reporte() {
+	private List<Imagen> imagenes;
+
+	public Imagen() {
 		super();
 	}
-	
-	public Integer getIdReporte() {
-		return idReporte;
+
+	public Integer getIdImagen() {
+		return idImagen;
 	}
 
-
-
-	public void setIdReporte(Integer idReporte) {
-		this.idReporte = idReporte;
+	public void setIdImagen(Integer idImagen) {
+		this.idImagen = idImagen;
 	}
 
-
-
-	public Integer getIdCategoria() {
-		return idCategoria;
+	public Blob getImagen() {
+		return imagen;
 	}
 
-
-
-	public void setIdCategoria(Integer idCategoria) {
-		this.idCategoria = idCategoria;
+	public void setImagen(Blob imagen) {
+		this.imagen = imagen;
 	}
-
-
-
-	public Date getCreatedAt() {
-		return createdAt;
-	}
-
-
-
-	public void setCreatedAt(Date createdAt) {
-		this.createdAt = createdAt;
-	}
-
-
-
-	public Date getUpdatedAt() {
-		return updatedAt;
-	}
-
-
-
-	public void setUpdatedAt(Date updatedAt) {
-		this.updatedAt = updatedAt;
-	}
-
-
 
 	@PrePersist
-	protected void onCreate(){
-	this.createdAt = new Date();
+	protected void onCreate() {
+		this.createdAt = new Date();
 	}
+
 	@PreUpdate
-	protected void onUpdate(){
-	this.updatedAt = new Date();
+	protected void onUpdate() {
+		this.updatedAt = new Date();
 	}
+
+	public List<Imagen> getImagenes() {
+		return imagenes;
+	}
+
+	public void setImagenes(List<Imagen> imagenes) {
+		this.imagenes = imagenes;
+	}
+	
 }
