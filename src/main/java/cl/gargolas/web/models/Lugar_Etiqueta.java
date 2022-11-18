@@ -2,6 +2,7 @@ package cl.gargolas.web.models;
 
 import java.util.Date;
 
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -15,6 +16,7 @@ import javax.validation.constraints.NotNull;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+//testing
 @Entity 
 @Table(name="lugares_Etiquetas")
 public class Lugar_Etiqueta {
