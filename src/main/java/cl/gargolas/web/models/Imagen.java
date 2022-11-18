@@ -44,7 +44,7 @@ public class Imagen {
 	
 	//relacion ManyToOne
 	@JsonIgnore
-	@OneToMany(mappedBy = "Registro_Imagen",cascade = CascadeType.ALL,fetch = FetchType.LAZY)
+	@OneToMany(mappedBy = "imagen",cascade = CascadeType.ALL,fetch = FetchType.LAZY)
 	private List<Imagen> imagenes;
 
 	public Imagen() {
