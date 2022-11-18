@@ -42,10 +42,10 @@ public class Imagen {
 	@DateTimeFormat(pattern="yyyy-MM-dd")
 	private Date updatedAt;
 	
-	//relacion ManyToOne
+	//relacion OneToMany
 	@JsonIgnore
 	@OneToMany(mappedBy = "imagen",cascade = CascadeType.ALL,fetch = FetchType.LAZY)
-	private List<Imagen> imagenes;
+	private List<Registro_Imagen> registro_imagenes;
 
 	public Imagen() {
 		super();
@@ -77,12 +77,14 @@ public class Imagen {
 		this.updatedAt = new Date();
 	}
 
-	public List<Imagen> getImagenes() {
-		return imagenes;
+	public List<Registro_Imagen> getRegistro_imagenes() {
+		return registro_imagenes;
 	}
 
-	public void setImagenes(List<Imagen> imagenes) {
-		this.imagenes = imagenes;
+	public void setRegistro_imagenes(List<Registro_Imagen> registro_imagenes) {
+		this.registro_imagenes = registro_imagenes;
 	}
+
+
 	
 }
