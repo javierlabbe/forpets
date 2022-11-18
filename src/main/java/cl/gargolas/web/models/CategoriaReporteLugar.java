@@ -2,12 +2,16 @@ package cl.gargolas.web.models;
 //importaciones
 
 import java.util.Date;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
 import javax.persistence.Table;
@@ -15,6 +19,8 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 import org.springframework.format.annotation.DateTimeFormat;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 //Crecion de la clase o entidad
 @Entity
@@ -38,6 +44,12 @@ public class CategoriaReporteLugar {
 
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date updatedAt;
+	
+	//relacion OneToMany
+	@JsonIgnore
+	@OneToMany(mappedBy = "categoriaReporteLugar",cascade = CascadeType.ALL,fetch = FetchType.LAZY)
+	private List<CategoriaReporteLugar> categoriaReporteLugar;
+	
 	
 	//contructores
 	public CategoriaReporteLugar() {
@@ -80,7 +92,6 @@ public class CategoriaReporteLugar {
 		this.updatedAt = updatedAt;
 	}
 	
-	
 	@PrePersist
 	protected void onCreate() {
 		this.createdAt = new Date();
@@ -91,8 +102,20 @@ public class CategoriaReporteLugar {
 	protected void onUpdate() {
 		this.updatedAt = new Date();
 	}
-	
 
+
+
+	public List<CategoriaReporteLugar> getCategoriaReporteLugar() {
+		return categoriaReporteLugar;
+	}
+
+
+
+	public void setCategoriaReporteLugar(List<CategoriaReporteLugar> categoriaReporteLugar) {
+		this.categoriaReporteLugar = categoriaReporteLugar;
+	}
+	
+	
 	
 
 	
