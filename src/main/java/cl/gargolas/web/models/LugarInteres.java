@@ -35,10 +35,6 @@ public class LugarInteres {
 	@Size(min=3, max=31)
 	private String titulo;
 	
-	@NotNull
-	@Size(min=3, max=3)
-	private Integer idCategoria;
-
 	@Column(updatable = false)
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date createdAt;
@@ -80,14 +76,6 @@ public class LugarInteres {
 
 	public void setTitulo(String titulo) {
 		this.titulo = titulo;
-	}
-
-	public Integer getIdCategoria() {
-		return idCategoria;
-	}
-
-	public void setIdCategoria(Integer idCategoria) {
-		this.idCategoria = idCategoria;
 	}
 	
 	public Date getCreatedAt() {
