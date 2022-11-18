@@ -10,6 +10,7 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.PrePersist;
@@ -45,12 +46,12 @@ public class LugarInteres {
 	//relacion ManyToOne
 	@JsonIgnore
 	@OneToMany(mappedBy = "lugarInteres",cascade = CascadeType.ALL,fetch = FetchType.LAZY)
-	private List<LugarInteres> lugaresInteres;
+	private List<Registro_Imagen> registro_imagenes;
 	
 	//Agregando CategoriaReporteLugar como FK, relacion ManyToOne
 	@JsonIgnore
 	@ManyToOne(fetch = FetchType.EAGER)
-	@Column(name="CategoriaReporteLugar_id")
+	@JoinColumn(name="CategoriaReporteLugar_id")
 	private CategoriaReporteLugar categoriaReporteLugar;
 	
 	// empty constructor 
@@ -106,15 +107,14 @@ public class LugarInteres {
 	}
 
 
-
-	public List<LugarInteres> getLugaresInteres() {
-		return lugaresInteres;
+	public List<Registro_Imagen> getRegistro_imagenes() {
+		return registro_imagenes;
 	}
 
 
 
-	public void setLugaresInteres(List<LugarInteres> lugaresInteres) {
-		this.lugaresInteres = lugaresInteres;
+	public void setRegistro_imagenes(List<Registro_Imagen> registro_imagenes) {
+		this.registro_imagenes = registro_imagenes;
 	}
 
 
