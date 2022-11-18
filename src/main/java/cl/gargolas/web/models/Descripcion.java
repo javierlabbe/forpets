@@ -18,7 +18,7 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 import org.springframework.format.annotation.DateTimeFormat;
-
+//testing
 @Entity
 @Table(name = "descripciones")
 public class Descripcion {
