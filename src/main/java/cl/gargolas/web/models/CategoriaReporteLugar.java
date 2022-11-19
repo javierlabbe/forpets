@@ -45,11 +45,15 @@ public class CategoriaReporteLugar {
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date updatedAt;
 	
-	//relacion OneToMany
+	//relacion OneToMany con reporte
 	@JsonIgnore
 	@OneToMany(mappedBy = "categoriaReporteLugar",cascade = CascadeType.ALL,fetch = FetchType.LAZY)
-	private List<CategoriaReporteLugar> categoriaReporteLugar;
+	private List<Reporte> Reportes;
 	
+	//relacion OneToMany con lugarInteres
+	@JsonIgnore
+	@OneToMany(mappedBy = "categoriaReporteLugar",cascade = CascadeType.ALL,fetch = FetchType.LAZY)
+	private List<LugarInteres> lugaresInteres;
 	
 	//contructores
 	public CategoriaReporteLugar() {
@@ -105,16 +109,30 @@ public class CategoriaReporteLugar {
 
 
 
-	public List<CategoriaReporteLugar> getCategoriaReporteLugar() {
-		return categoriaReporteLugar;
+	public List<Reporte> getReportes() {
+		return Reportes;
 	}
 
 
 
-	public void setCategoriaReporteLugar(List<CategoriaReporteLugar> categoriaReporteLugar) {
-		this.categoriaReporteLugar = categoriaReporteLugar;
+	public void setReportes(List<Reporte> reportes) {
+		Reportes = reportes;
 	}
-	
+
+
+
+	public List<LugarInteres> getLugaresInteres() {
+		return lugaresInteres;
+	}
+
+
+
+	public void setLugaresInteres(List<LugarInteres> lugaresInteres) {
+		this.lugaresInteres = lugaresInteres;
+	}
+
+
+
 	
 	
 

@@ -10,6 +10,7 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.PrePersist;
@@ -34,13 +35,13 @@ public class Reporte {
 	
 	//relacion OneToMany
 	@JsonIgnore
-	@OneToMany(mappedBy = "Reporte",cascade = CascadeType.ALL,fetch = FetchType.LAZY)
-	private List<Reporte> reportes;
+	@OneToMany(mappedBy = "reporte",cascade = CascadeType.ALL,fetch = FetchType.LAZY)
+	private List<Registro_Imagen> registro_imagenes;
 	
 	//Agregando CategoriaReporteLugar como FK, relacion ManyToOne
 	@JsonIgnore
 	@ManyToOne(fetch = FetchType.EAGER)
-	@Column(name="CategoriaReporteLugar_id")
+	@JoinColumn(name="CategoriaReporteLugar_id")
 	private CategoriaReporteLugar categoriaReporteLugar;
 	
 	public Reporte() {
@@ -79,8 +80,23 @@ public class Reporte {
 	public void setUpdatedAt(Date updatedAt) {
 		this.updatedAt = updatedAt;
 	}
+	
 
+	public List<Registro_Imagen> getRegistro_imagenes() {
+		return registro_imagenes;
+	}
 
+	public void setRegistro_imagenes(List<Registro_Imagen> registro_imagenes) {
+		this.registro_imagenes = registro_imagenes;
+	}
+
+	public CategoriaReporteLugar getCategoriaReporteLugar() {
+		return categoriaReporteLugar;
+	}
+
+	public void setCategoriaReporteLugar(CategoriaReporteLugar categoriaReporteLugar) {
+		this.categoriaReporteLugar = categoriaReporteLugar;
+	}
 
 	@PrePersist
 	protected void onCreate(){
