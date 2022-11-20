@@ -16,6 +16,8 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 import org.springframework.format.annotation.DateTimeFormat;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 //testing
 public class Ubicacion {
 	
@@ -27,8 +29,9 @@ public class Ubicacion {
 	@Size(min = 10, max = 30)
 	private String descripcion;
 	
+	@JsonIgnore
 	@OneToMany(mappedBy = "ubicacion",cascade = CascadeType.ALL,fetch = FetchType.LAZY)
-	private List<Ubicacion> ubicacion;
+	private List<Usuario> usuario;
 	
 	@Column(updatable = false)
 	@DateTimeFormat(pattern="yyyy-MM-dd")
@@ -59,12 +62,14 @@ public class Ubicacion {
 	}
 
 	
-	public List<Ubicacion> getUbicacion() {
-		return ubicacion;
+	
+
+	public List<Usuario> getUsuario() {
+		return usuario;
 	}
 
-	public void setUbicacion(List<Ubicacion> ubicacion) {
-		this.ubicacion = ubicacion;
+	public void setUsuario(List<Usuario> usuario) {
+		this.usuario = usuario;
 	}
 
 	public Date getCreatedAt() {
