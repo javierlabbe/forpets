@@ -18,6 +18,8 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 import org.springframework.format.annotation.DateTimeFormat;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 //testing
 @Entity
 @Table(name="comentarios")
@@ -31,8 +33,9 @@ public class Comentario {
 	@Size(min=1,max=30)
 	private String descripcion; 
 	
+	@JsonIgnore
 	@OneToMany(mappedBy = "comentario",cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-	private List<Comentario> comentario;
+	private List<Usuario_Reporte> usuario_Reporte ;
 	
 	@Column(updatable = false)
 	@DateTimeFormat(pattern="yyyy-MM-dd")
@@ -63,17 +66,15 @@ public class Comentario {
 	}
 
 	
-	
-	public List<Comentario> getComentario() {
-		return comentario;
+
+	public List<Usuario_Reporte> getUsuario_Reporte() {
+		return usuario_Reporte;
 	}
 
 
-
-	public void setComentario(List<Comentario> comentario) {
-		this.comentario = comentario;
+	public void setUsuario_Reporte(List<Usuario_Reporte> usuario_Reporte) {
+		this.usuario_Reporte = usuario_Reporte;
 	}
-
 
 
 	public Date getCreatedAt() {
