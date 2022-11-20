@@ -18,6 +18,8 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 import org.springframework.format.annotation.DateTimeFormat;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 //testing
 @Entity
 @Table(name="etiquetas")
@@ -38,8 +40,9 @@ public class Etiqueta {
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date updatedAt;
 	
+	@JsonIgnore
 	@OneToMany(mappedBy = "etiqueta",cascade = CascadeType.ALL,fetch = FetchType.LAZY)
-	private List<Etiqueta> etiqueta;
+	private List<Lugar_Etiqueta> lugar_Etiquetas;
 
 	public Etiqueta() {
 		super();
@@ -81,12 +84,14 @@ public class Etiqueta {
 	
 	
 	
-	public List<Etiqueta> getEtiqueta() {
-		return etiqueta;
+	
+
+	public List<Lugar_Etiqueta> getLugar_Etiquetas() {
+		return lugar_Etiquetas;
 	}
 
-	public void setEtiqueta(List<Etiqueta> etiqueta) {
-		this.etiqueta = etiqueta;
+	public void setLugar_Etiquetas(List<Lugar_Etiqueta> lugar_Etiquetas) {
+		this.lugar_Etiquetas = lugar_Etiquetas;
 	}
 
 	@PrePersist
