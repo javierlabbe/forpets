@@ -18,6 +18,8 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 import org.springframework.format.annotation.DateTimeFormat;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 //testing
 @Entity
 @Table(name = "descripciones")
@@ -31,8 +33,17 @@ public class Descripcion {
 	@Size(min = 1, max = 30)
 	private String descripcion;
 
+	@JsonIgnore
 	@OneToMany(mappedBy = "descripcion", cascade = CascadeType.ALL, fetch =FetchType.EAGER )
-	private List<Descripcion> descripccion;
+	private List<Usuario> usuario;
+	
+	@JsonIgnore
+	@OneToMany(mappedBy = "descripcion", cascade = CascadeType.ALL, fetch =FetchType.EAGER )
+	private List<Usuario_Reporte> usuario_Reporte ;
+	
+	@JsonIgnore
+	@OneToMany(mappedBy = "descripcion", cascade = CascadeType.ALL, fetch =FetchType.EAGER )
+	private List<PerfilMascota> perfilMascotas;
 	
 	@Column(updatable = false)
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
@@ -63,12 +74,30 @@ public class Descripcion {
 	
 	
 	
-	public List<Descripcion> getDescripccion() {
-		return descripccion;
+	
+
+	public List<Usuario> getUsuario() {
+		return usuario;
 	}
 
-	public void setDescripccion(List<Descripcion> descripccion) {
-		this.descripccion = descripccion;
+	public void setUsuario(List<Usuario> usuario) {
+		this.usuario = usuario;
+	}
+
+	public List<Usuario_Reporte> getUsuario_Reporte() {
+		return usuario_Reporte;
+	}
+
+	public void setUsuario_Reporte(List<Usuario_Reporte> usuario_Reporte) {
+		this.usuario_Reporte = usuario_Reporte;
+	}
+
+	public List<PerfilMascota> getPerfilMascotas() {
+		return perfilMascotas;
+	}
+
+	public void setPerfilMascotas(List<PerfilMascota> perfilMascotas) {
+		this.perfilMascotas = perfilMascotas;
 	}
 
 	public Date getCreatedAt() {
