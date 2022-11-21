@@ -20,9 +20,20 @@ import javax.validation.constraints.Size;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
 //testing
 @Entity
 @Table(name="comentarios")
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
+@ToString
 public class Comentario {
 	
 	@Id
@@ -44,61 +55,7 @@ public class Comentario {
 	@DateTimeFormat(pattern="yyyy-MM-dd")
 	private Date updatedAt;
 
-	public Comentario() {
-		super();
-	}
 	
-	
-	public Integer getIdComentario() {
-		return idComentario;
-	}
-
-	public void setIdComentario(Integer idComentario) {
-		this.idComentario = idComentario;
-	}
-
-	public String getDescripcion() {
-		return descripcion;
-	}
-
-	public void setDescripcion(String descripcion) {
-		this.descripcion = descripcion;
-	}
-
-	
-
-	public List<Usuario_Reporte> getUsuario_Reporte() {
-		return usuario_Reporte;
-	}
-
-
-	public void setUsuario_Reporte(List<Usuario_Reporte> usuario_Reporte) {
-		this.usuario_Reporte = usuario_Reporte;
-	}
-
-
-	public Date getCreatedAt() {
-		return createdAt;
-	}
-
-
-
-	public void setCreatedAt(Date createdAt) {
-		this.createdAt = createdAt;
-	}
-
-
-
-	public Date getUpdatedAt() {
-		return updatedAt;
-	}
-
-
-
-	public void setUpdatedAt(Date updatedAt) {
-		this.updatedAt = updatedAt;
-	}
-
 	
 	@PrePersist
 	protected void onCreate() {
