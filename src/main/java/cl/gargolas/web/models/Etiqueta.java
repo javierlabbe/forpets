@@ -20,9 +20,21 @@ import javax.validation.constraints.Size;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
 //testing
 @Entity
 @Table(name="etiquetas")
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
+@ToString
+
 public class Etiqueta {
 	
 	@Id
@@ -44,56 +56,7 @@ public class Etiqueta {
 	@OneToMany(mappedBy = "etiqueta",cascade = CascadeType.ALL,fetch = FetchType.LAZY)
 	private List<Lugar_Etiqueta> lugar_Etiquetas;
 
-	public Etiqueta() {
-		super();
-	}
-
-	public Integer getIdEtiqueta() {
-		return idEtiqueta;
-	}
-
-	public void setIdEtiqueta(Integer idEtiqueta) {
-		this.idEtiqueta = idEtiqueta;
-	}
-
-	public String getDescripcion() {
-		return Descripcion;
-	}
-
-	public void setDescripcion(String descripcion) {
-		Descripcion = descripcion;
-		
-		
-	}
 	
-	public Date getCreatedAt() {
-		return createdAt;
-	}
-
-	public void setCreatedAt(Date createdAt) {
-		this.createdAt = createdAt;
-	}
-
-	public Date getUpdatedAt() {
-		return updatedAt;
-	}
-
-	public void setUpdatedAt(Date updatedAt) {
-		this.updatedAt = updatedAt;
-	}
-	
-	
-	
-	
-
-	public List<Lugar_Etiqueta> getLugar_Etiquetas() {
-		return lugar_Etiquetas;
-	}
-
-	public void setLugar_Etiquetas(List<Lugar_Etiqueta> lugar_Etiquetas) {
-		this.lugar_Etiquetas = lugar_Etiquetas;
-	}
-
 	@PrePersist
 	protected void onCreate() {
 		this.createdAt = new Date();
