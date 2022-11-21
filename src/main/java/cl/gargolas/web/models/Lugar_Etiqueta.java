@@ -1,7 +1,7 @@
 package cl.gargolas.web.models;
 
 import java.util.Date;
-
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -16,9 +16,20 @@ import javax.validation.constraints.NotNull;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
 //testing
 @Entity 
 @Table(name="lugares_Etiquetas")
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
+@ToString
 public class Lugar_Etiqueta {
 	//instantiate attributes
 	
@@ -47,62 +58,7 @@ public class Lugar_Etiqueta {
 	@JoinColumn(name="lugar_id")
 	private LugarInteres lugarInteres;
 	
-	//empty constructor
-	public Lugar_Etiqueta() {
-		super();
-	}
- 
-	//Getter y Setter
 	
-	public Integer getIdEtiqueta() {
-		return idEtiqueta;
-	}
-
-	public void setIdEtiqueta(Integer idEtiqueta) {
-		this.idEtiqueta = idEtiqueta;
-	}
-
-	public Integer getIdLugar() {
-		return idLugar;
-	}
-
-	public void setIdLugar(Integer idLugar) {
-		this.idLugar = idLugar;
-	}
-
-	public Date getCreatedAt() {
-		return createdAt;
-	}
-
-	public void setCreatedAt(Date createdAt) {
-		this.createdAt = createdAt;
-	}
-
-	public Date getUpdatedAt() {
-		return updatedAt;
-	}
-
-	public void setUpdatedAt(Date updatedAt) {
-		this.updatedAt = updatedAt;
-	}
-
-	
-	public Etiqueta getEtiqueta() {
-		return etiqueta;
-	}
-
-	public void setEtiqueta(Etiqueta etiqueta) {
-		this.etiqueta = etiqueta;
-	}
-
-	public LugarInteres getLugarInteres() {
-		return lugarInteres;
-	}
-
-	public void setLugarInteres(LugarInteres lugarInteres) {
-		this.lugarInteres = lugarInteres;
-	}
-
 	@PrePersist
 	protected void onCreate() {
 		this.createdAt = new Date();
