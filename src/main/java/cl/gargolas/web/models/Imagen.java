@@ -21,10 +21,21 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
+
 
 
 @Entity
 @Table(name = "imagenes")
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
+@ToString
 
 public class Imagen {
 	
@@ -47,25 +58,6 @@ public class Imagen {
 	@OneToMany(mappedBy = "imagen",cascade = CascadeType.ALL,fetch = FetchType.LAZY)
 	private List<Registro_Imagen> registro_imagenes;
 
-	public Imagen() {
-		super();
-	}
-
-	public Integer getIdImagen() {
-		return idImagen;
-	}
-
-	public void setIdImagen(Integer idImagen) {
-		this.idImagen = idImagen;
-	}
-
-	public Blob getImagen() {
-		return imagen;
-	}
-
-	public void setImagen(Blob imagen) {
-		this.imagen = imagen;
-	}
 
 	@PrePersist
 	protected void onCreate() {
@@ -76,15 +68,6 @@ public class Imagen {
 	protected void onUpdate() {
 		this.updatedAt = new Date();
 	}
-
-	public List<Registro_Imagen> getRegistro_imagenes() {
-		return registro_imagenes;
-	}
-
-	public void setRegistro_imagenes(List<Registro_Imagen> registro_imagenes) {
-		this.registro_imagenes = registro_imagenes;
-	}
-
 
 	
 }

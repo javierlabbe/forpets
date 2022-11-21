@@ -21,8 +21,19 @@ import org.springframework.format.annotation.DateTimeFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.mysql.cj.jdbc.Blob;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
+
 @Entity
 @Table(name="registros_imagenes")
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
+@ToString
 public class Registro_Imagen {
 	
 	//Agregando imagen como FK, relacion manytoOne
@@ -50,30 +61,6 @@ public class Registro_Imagen {
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date updatedAt;
 
-	
-	public Imagen getImagen() {
-		return imagen;
-	}
-
-	public void setImagen(Imagen imagen) {
-		this.imagen = imagen;
-	}
-
-	public Reporte getReporte() {
-		return reporte;
-	}
-
-	public void setReporte(Reporte reporte) {
-		this.reporte = reporte;
-	}
-	
-	public LugarInteres getLugarInteres() {
-		return lugarInteres;
-	}
-
-	public void setLugarInteres(LugarInteres lugarInteres) {
-		this.lugarInteres = lugarInteres;
-	}
 
 	@PrePersist
 	protected void onCreate() {
