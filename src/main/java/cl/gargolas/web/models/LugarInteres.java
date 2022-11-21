@@ -23,8 +23,19 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
+
 @Entity
 @Table(name="lugaresInteres")
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
+@ToString
 public class LugarInteres {
 	// Instantiate Attributes
 	
@@ -50,50 +61,10 @@ public class LugarInteres {
 	
 	//Agregando CategoriaReporteLugar como FK, relacion ManyToOne
 	@JsonIgnore
-	@ManyToOne(fetch = FetchType.EAGER)
+	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name="CategoriaReporteLugar_id")
 	private CategoriaReporteLugar categoriaReporteLugar;
 	
-	// empty constructor 
-	public LugarInteres() {
-		super();
-	}
-
-	
-	
-	//Getter y Setter
-	public Integer getIdLugar() {
-		return idLugar;
-	}
-
-	
-	public void setIdLugar(Integer idLugar) {
-		this.idLugar = idLugar;
-	}
-
-	public String getTitulo() {
-		return titulo;
-	}
-
-	public void setTitulo(String titulo) {
-		this.titulo = titulo;
-	}
-	
-	public Date getCreatedAt() {
-		return createdAt;
-	}
-
-	public void setCreatedAt(Date createdAt) {
-		this.createdAt = createdAt;
-	}
-
-	public Date getUpdatedAt() {
-		return updatedAt;
-	}
-
-	public void setUpdatedAt(Date updatedAt) {
-		this.updatedAt = updatedAt;
-	}
 	
 	@PrePersist
 	protected void onCreate() {
@@ -106,28 +77,4 @@ public class LugarInteres {
 		this.updatedAt = new Date();
 	}
 
-
-	public List<Registro_Imagen> getRegistro_imagenes() {
-		return registro_imagenes;
-	}
-
-
-
-	public void setRegistro_imagenes(List<Registro_Imagen> registro_imagenes) {
-		this.registro_imagenes = registro_imagenes;
-	}
-
-
-
-	public CategoriaReporteLugar getCategoriaReporteLugar() {
-		return categoriaReporteLugar;
-	}
-
-
-
-	public void setCategoriaReporteLugar(CategoriaReporteLugar categoriaReporteLugar) {
-		this.categoriaReporteLugar = categoriaReporteLugar;
-	}
-	
-	
 }
