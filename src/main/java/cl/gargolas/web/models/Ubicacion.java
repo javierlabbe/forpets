@@ -26,7 +26,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
-//testing
+//testing 2
 @Entity
 @Table(name="ubicaciones")
 @Getter
