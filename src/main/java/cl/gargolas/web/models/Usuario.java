@@ -60,10 +60,7 @@ public class Usuario {
 	}
 	
 	
-	@JsonIgnore
-	@ManyToOne(fetch = FetchType.EAGER)
-	@JoinColumn(name = "descripcion_id")
-	private Descripcion descripcion;
+	
 	
 	@JsonIgnore
 	@ManyToOne(fetch = FetchType.EAGER)
