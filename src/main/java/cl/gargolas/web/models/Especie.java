@@ -1,7 +1,6 @@
 package cl.gargolas.web.models;
 
 import java.util.Date;
-
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -18,8 +17,19 @@ import javax.validation.constraints.Size;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
+
 @Entity
 @Table(name="especies")
+@NoArgsConstructor
+@AllArgsConstructor
+@Getter
+@Setter
+@ToString
 public class Especie {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -38,50 +48,6 @@ public class Especie {
 	
 	@DateTimeFormat(pattern="yyyy-MM-dd")
 	private Date updatedAt;
-
-	public Especie() {
-		super();
-	}
-
-	public Long getIdEspecie() {
-		return idEspecie;
-	}
-
-	public void setIdEspecie(Long idEspecie) {
-		this.idEspecie = idEspecie;
-	}
-
-	public String getDescripcion() {
-		return descripcion;
-	}
-
-	public void setDescripcion(String descripcion) {
-		this.descripcion = descripcion;
-	}
-
-	public PerfilMascota getPerfilMascota() {
-		return perfilMascota;
-	}
-
-	public void setPerfilMascota(PerfilMascota perfilMascota) {
-		this.perfilMascota = perfilMascota;
-	}
-
-	public Date getCreatedAt() {
-		return createdAt;
-	}
-
-	public void setCreatedAt(Date createdAt) {
-		this.createdAt = createdAt;
-	}
-
-	public Date getUpdatedAt() {
-		return updatedAt;
-	}
-
-	public void setUpdatedAt(Date updatedAt) {
-		this.updatedAt = updatedAt;
-	}
 	
 	@PrePersist
 	protected void onCreate(){
