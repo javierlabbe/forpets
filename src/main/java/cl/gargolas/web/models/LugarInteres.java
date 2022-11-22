@@ -65,6 +65,8 @@ public class LugarInteres {
 	@JoinColumn(name="CategoriaReporteLugar_id")
 	private CategoriaReporteLugar categoriaReporteLugar;
 	
+	@OneToMany(mappedBy = "registroValoracion_id",cascade = CascadeType.ALL,fetch = FetchType.LAZY)
+	private List<RegistroValoracion> registroValoracions;
 	
 	@PrePersist
 	protected void onCreate() {
