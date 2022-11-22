@@ -2,7 +2,9 @@ package cl.gargolas.web.models;
 
 import java.sql.Blob;
 import java.util.Date;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -11,36 +13,80 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
+
 @Entity
 @Table(name="usuarios")
+@NoArgsConstructor
+@AllArgsConstructor
+@Getter
+@Setter
+@ToString
 public class Usuario {
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long idUsuario;  
+	
+	@NotNull
 	private String nombre;
+	
+	@NotNull
 	private String apellidoPaterno;
+	
+	@NotNull
 	private String apellidoMaterno;
+	
+	@NotNull
 	private Date fechaNacimiento;
+	
+	@NotNull
 	private String rut;
+	
+	@NotNull
 	private String numDireccion;
+	
+	@NotNull
 	private String telefono;
+	
+	@NotNull
 	private String email;
+	
+	@NotNull
 	private String password;
+	
+	@NotNull
 	private String password2; // para confirmar contraseña
+	
+	@NotNull
 	private Blob imagen;
+	
+	@NotNull
 	private Integer idDireccion;
+	
+	@NotNull
 	private Integer idDescripcion;
+	
 	@Column(updatable = false)
 	@DateTimeFormat(pattern="yyyy-MM-dd")
+	
+	@NotNull
 	private Date createdAt;
+	
 	@DateTimeFormat(pattern="yyyy-MM-dd")
 	private Date updatedAt;
 	
@@ -54,148 +100,15 @@ public class Usuario {
 	@JoinColumn(name = "descripcion_id")
 	private Descripcion descripcion;
 	
-	//Constructor vacío
-	public Usuario() {
-		super();
-	}
-	
-	
-	
 	
 	@JsonIgnore
-	@ManyToOne(fetch = FetchType.EAGER)
-	@JoinColumn(name = "usuario_id")
-	private Usuario usuario;
+	@OneToMany(mappedBy = "usuario",cascade = CascadeType.ALL,fetch = FetchType.LAZY)
+	private List<Usuario_Reporte> usuario_Reporte;
+
+	@JsonIgnore
+	@OneToMany(mappedBy = "usuario",cascade = CascadeType.ALL,fetch = FetchType.LAZY)
+	private List<RegistroValoracion> registroValoracion;
 	
-	//Getters y setters
-	public Long getIdUsuario() {
-		return idUsuario;
-	}
-
-	public void setIdUsuario(Long idUsuario) {
-		this.idUsuario = idUsuario;
-	}
-
-	public String getNombre() {
-		return nombre;
-	}
-
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
-	}
-
-	public String getApellidoPaterno() {
-		return apellidoPaterno;
-	}
-
-	public void setApellidoPaterno(String apellidoPaterno) {
-		this.apellidoPaterno = apellidoPaterno;
-	}
-
-	public String getApellidoMaterno() {
-		return apellidoMaterno;
-	}
-
-	public void setApellidoMaterno(String apellidoMaterno) {
-		this.apellidoMaterno = apellidoMaterno;
-	}
-
-	public Date getFechaNacimiento() {
-		return fechaNacimiento;
-	}
-
-	public void setFechaNacimiento(Date fechaNacimiento) {
-		this.fechaNacimiento = fechaNacimiento;
-	}
-
-	public String getRut() {
-		return rut;
-	}
-
-	public void setRut(String rut) {
-		this.rut = rut;
-	}
-
-	public String getNumDireccion() {
-		return numDireccion;
-	}
-
-	public void setNumDireccion(String numDireccion) {
-		this.numDireccion = numDireccion;
-	}
-
-	public String getTelefono() {
-		return telefono;
-	}
-
-	public void setTelefono(String telefono) {
-		this.telefono = telefono;
-	}
-
-	public String getEmail() {
-		return email;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
-	}
-
-	public String getPassword() {
-		return password;
-	}
-
-	public void setPassword(String password) {
-		this.password = password;
-	}
-
-	public String getPassword2() {
-		return password2;
-	}
-
-	public void setPassword2(String password2) {
-		this.password2 = password2;
-	}
-
-	public Blob getImagen() {
-		return imagen;
-	}
-
-	public void setImagen(Blob imagen) {
-		this.imagen = imagen;
-	}
-
-	public Integer getIdDireccion() {
-		return idDireccion;
-	}
-
-	public void setIdDireccion(Integer idDireccion) {
-		this.idDireccion = idDireccion;
-	}
-
-	public Integer getIdDescripcion() {
-		return idDescripcion;
-	}
-
-	public void setIdDescripcion(Integer idDescripcion) {
-		this.idDescripcion = idDescripcion;
-	}
-
-	public Date getCreatedAt() {
-		return createdAt;
-	}
-
-	public void setCreatedAt(Date createdAt) {
-		this.createdAt = createdAt;
-	}
-
-	public Date getUpdatedAt() {
-		return updatedAt;
-	}
-
-	public void setUpdatedAt(Date updatedAt) {
-		this.updatedAt = updatedAt;
-	}
-
 	@PrePersist
 	protected void onCreate(){
 		this.createdAt = new Date();
