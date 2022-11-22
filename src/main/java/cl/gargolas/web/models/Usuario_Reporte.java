@@ -4,9 +4,12 @@ import java.sql.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
 import javax.persistence.Table;
@@ -14,29 +17,44 @@ import javax.validation.constraints.NotNull;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
-@Table(name="usarios_reportes")
+@Table(name = "usarios_reportes")
 public class Usuario_Reporte {
 
-	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private String idComentario;
+	// relacion ManyToOne, esta entidad se quedara con la columna FK
 	
-	@NotNull
-	private Integer idUbicacion;
+	@JsonIgnore
+	@ManyToOne(fetch = FetchType.EAGER)
+	@JoinColumn(name = "comentario_id")
+	private Comentario comentario;
 	
-	@NotNull
-	private Integer idDescripcion;
+	@JsonIgnore
+	@ManyToOne(fetch = FetchType.EAGER)
+	@JoinColumn(name = "ubicacion_id")
+	private Ubicacion ubicacion;
 	
-	@NotNull
-	private Integer idUsuario;
+	@JsonIgnore
+	@ManyToOne(fetch = FetchType.EAGER)
+	@JoinColumn(name = "descripcion_id")
+	private Descripcion descripcion;
 	
-	@NotNull
-	private Integer idReporte;
+	@JsonIgnore
+	@ManyToOne(fetch = FetchType.EAGER)
+	@JoinColumn(name = "reporte_id")
+	private Reporte reporte;
 	
-	@NotNull
-	private Integer idLugar;
+	@JsonIgnore
+	@ManyToOne(fetch = FetchType.EAGER)
+	@JoinColumn(name = "lugar_id")
+	private LugarInteres lugarInteres;
 	
+	@JsonIgnore
+	@ManyToOne(fetch = FetchType.EAGER)
+	@JoinColumn(name = "reporte_id")
+	private Usuario usuario;
+
 	@Column(updatable = false)
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date createdAt;
@@ -44,83 +62,110 @@ public class Usuario_Reporte {
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date updatedAt;
 
+	// relacion ManyToOne, esta entidad se quedara con la columna FK
+	@JsonIgnore
+	@ManyToOne(fetch = FetchType.EAGER)
+	@JoinColumn(name = "etiqueta_id")
+	private Etiqueta etiqueta;
+
+	
 	public Usuario_Reporte() {
 		super();
 	}
 
-	public String getIdComentario() {
-		return idComentario;
+
+	public Comentario getComentario() {
+		return comentario;
 	}
 
-	public void setIdComentario(String idComentario) {
-		this.idComentario = idComentario;
+
+	public void setComentario(Comentario comentario) {
+		this.comentario = comentario;
 	}
 
-	public Integer getIdUbicacion() {
-		return idUbicacion;
+
+	public Ubicacion getUbicacion() {
+		return ubicacion;
 	}
 
-	public void setIdUbicacion(Integer idUbicacion) {
-		this.idUbicacion = idUbicacion;
+
+	public void setUbicacion(Ubicacion ubicacion) {
+		this.ubicacion = ubicacion;
 	}
 
-	public Integer getIdDescripcion() {
-		return idDescripcion;
+
+	public Descripcion getDescripcion() {
+		return descripcion;
 	}
 
-	public void setIdDescripcion(Integer idDescripcion) {
-		this.idDescripcion = idDescripcion;
+
+	public void setDescripcion(Descripcion descripcion) {
+		this.descripcion = descripcion;
 	}
 
-	public Integer getIdUsuario() {
-		return idUsuario;
+
+	public Reporte getReporte() {
+		return reporte;
 	}
 
-	public void setIdUsuario(Integer idUsuario) {
-		this.idUsuario = idUsuario;
+
+	public void setReporte(Reporte reporte) {
+		this.reporte = reporte;
 	}
 
-	public Integer getIdReporte() {
-		return idReporte;
+
+	public LugarInteres getLugar() {
+		return lugarInteres;
 	}
 
-	public void setIdReporte(Integer idReporte) {
-		this.idReporte = idReporte;
+
+	public void setLugar(LugarInteres lugar) {
+		this.lugarInteres = lugar;
 	}
 
-	public Integer getIdLugar() {
-		return idLugar;
+
+	public Usuario getUsuario() {
+		return usuario;
 	}
 
-	public void setIdLugar(Integer idLugar) {
-		this.idLugar = idLugar;
+
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
 	}
+
 
 	public Date getCreatedAt() {
 		return createdAt;
 	}
 
+
 	public void setCreatedAt(Date createdAt) {
 		this.createdAt = createdAt;
 	}
+
 
 	public Date getUpdatedAt() {
 		return updatedAt;
 	}
 
+
 	public void setUpdatedAt(Date updatedAt) {
 		this.updatedAt = updatedAt;
 	}
 
-	@PrePersist
-	protected void onCreate() {
-		this.createdAt = new Date(idDescripcion);
+
+	public Etiqueta getEtiqueta() {
+		return etiqueta;
 	}
 
-	@PreUpdate
-	protected void onUpdate() {
-		this.updatedAt = new Date(idDescripcion);
 
+	public void setEtiqueta(Etiqueta etiqueta) {
+		this.etiqueta = etiqueta;
 	}
+
 	
+	
+	
+	
+
 }
