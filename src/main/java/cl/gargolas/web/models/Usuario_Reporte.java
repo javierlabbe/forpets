@@ -1,7 +1,5 @@
 package cl.gargolas.web.models;
 
-
-
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -64,10 +62,7 @@ public class Usuario_Reporte {
 	private Usuario usuario;
 
 	// relacion ManyToOne, esta entidad se quedara con la columna FK
-	@JsonIgnore
-	@ManyToOne(fetch = FetchType.EAGER)
-	@JoinColumn(name = "etiqueta_id")
-	private Etiqueta etiqueta;
+	
 
 	@Column(updatable = false)
 	@DateTimeFormat(pattern="yyyy-MM-dd") 
