@@ -21,8 +21,20 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
+
+
 @Entity
 @Table(name="ciudades")
+@AllArgsConstructor
+@NoArgsConstructor
+@ToString
+@Getter
+@Setter
 public class Ciudad {
 	
 	@Id
@@ -54,49 +66,6 @@ public class Ciudad {
 	@OneToMany(mappedBy = "ciudad", fetch = FetchType.EAGER)
 	private List<Comuna> comuna;
 
-	public Ciudad() {
-		super();
-	}
-
-	public Integer getIdCiudad() {
-		return idCiudad;
-	}
-
-	public void setIdCiudad(Integer idCiudad) {
-		this.idCiudad = idCiudad;
-	}
-
-	public String getDescripcion() {
-		return descripcion;
-	}
-
-	public void setDescripcion(String descripcion) {
-		this.descripcion = descripcion;
-	}
-
-	public Integer getIdRegion() {
-		return idRegion;
-	}
-
-	public void setIdRegion(Integer idRegion) {
-		this.idRegion = idRegion;
-	}
-
-	public Date getCreatedAt() {
-		return createdAt;
-	}
-
-	public void setCreatedAt(Date createdAt) {
-		this.createdAt = createdAt;
-	}
-
-	public Date getUpdatedAt() {
-		return updatedAt;
-	}
-
-	public void setUpdatedAt(Date updatedAt) {
-		this.updatedAt = updatedAt;
-	}
 	
 	@PrePersist
 	protected void onCreate() {
