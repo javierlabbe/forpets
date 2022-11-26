@@ -1,15 +1,17 @@
 package cl.gargolas.web.models;
 
-import java.sql.Date;
+
+
+import java.util.Date;
 
 import javax.persistence.Column;
-import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
 import javax.persistence.Table;
+
 import org.springframework.format.annotation.DateTimeFormat;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -24,8 +26,8 @@ import lombok.ToString;
 @Table(name = "usarios_reportes")
 @Getter
 @Setter
-@AllArgsConstructor
 @NoArgsConstructor
+@AllArgsConstructor
 @ToString
 public class Usuario_Reporte {
 
@@ -61,32 +63,27 @@ public class Usuario_Reporte {
 	@JoinColumn(name = "reporte_id")
 	private Usuario usuario;
 
-	@Column(updatable = false)
-	@DateTimeFormat(pattern = "yyyy-MM-dd")
-	private Date createdAt;
-
-	@DateTimeFormat(pattern = "yyyy-MM-dd")
-	private Date updatedAt;
-
 	// relacion ManyToOne, esta entidad se quedara con la columna FK
 	@JsonIgnore
 	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "etiqueta_id")
 	private Etiqueta etiqueta;
 
-	
-
-
+	@Column(updatable = false)
+	@DateTimeFormat(pattern="yyyy-MM-dd") 
+	private Date createdAt;
+ 
+	@DateTimeFormat(pattern="yyyy-MM-dd")
+	private Date updatedAt;
+ 
 	@PrePersist
-	protected void onCreate() {
-		this.createdAt = new Date();
+	protected void onCreate(){
+		this.setUpdatedAt(new Date());
 	}
-
-	
+  
 	@PreUpdate
-	//inserta la fecha del momento que se esta actualizando
-	protected void onUpdate() {
-		this.updatedAt = new Date();
+	protected void onUpdate(){
+		this.setUpdatedAt(new Date());
 	}
 
 	
