@@ -21,7 +21,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 //testing
-@Entity 
+//@Entity Consultar con profesor. Toda entidad debe llevar ID ?, es necesario entity en la tabla de relacion?
 @Table(name="lugares_Etiquetas")
 @Getter
 @Setter
@@ -30,13 +30,6 @@ import lombok.ToString;
 @ToString
 public class Lugar_Etiqueta {
 	//instantiate attributes
-	
-	@NotNull
-	private Integer  idEtiqueta;
-	
-	@NotNull
-	private Integer idLugar;
-	
 	@Column(updatable = false)
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date createdAt;
