@@ -9,6 +9,7 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.PrePersist;
@@ -58,7 +59,7 @@ public class Ciudad {
 	//Relacion manytoone de ciudad region
 	@JsonIgnore
 	@ManyToOne(fetch = FetchType.EAGER)
-	@Column(name="region_id")
+	@JoinColumn(name="region_id")
 	private Region region;
 	
 	//Relacion OneToMany de ciudad a comuna
