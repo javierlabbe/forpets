@@ -3,7 +3,6 @@ package cl.gargolas.web.models;
 import java.util.Date;
 import java.util.List;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -26,6 +25,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
+
 //testing
 @Entity
 @Table(name="comentarios")
@@ -41,12 +41,10 @@ public class Comentario {
 	private Integer idComentario;
 	
 	@NotNull
-	@Size(min=1,max=30)
+	@Size(min=0,max=30)
 	private String descripcion; 
 	
-	@JsonIgnore
-	@OneToMany(mappedBy = "comentario",cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-	private List<Usuario_Reporte> usuario_Reporte ;
+	
 	
 	@Column(updatable = false)
 	@DateTimeFormat(pattern="yyyy-MM-dd")
@@ -67,4 +65,7 @@ public class Comentario {
 		this.updatedAt = new Date();
 	}
 	
+	@JsonIgnore
+	@OneToMany(mappedBy = "comentario", fetch = FetchType.EAGER)
+	private List<Usuario_Reporte> usuario_Reporte;
 }
