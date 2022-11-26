@@ -9,6 +9,7 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.PrePersist;
@@ -56,7 +57,7 @@ public class Direccion {
 	//Relacion manytoone entre direccion a comuna
 	@JsonIgnore
 	@ManyToOne(fetch = FetchType.EAGER)
-	@Column(name="comuna_id")
+	@JoinColumn(name="comuna_id")
 	private Comuna comuna;
 
 	//Relacion onetomany entre direccion y usuario
