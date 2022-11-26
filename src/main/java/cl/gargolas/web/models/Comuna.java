@@ -62,7 +62,8 @@ public class Comuna {
 	@JsonIgnore
 	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name="ciudad_id")
-	private List<Ciudad> ciudad;
+	//private List<Ciudad> ciudad; por qué lista? debería ser una ciudad
+	private Ciudad ciudad;
 	
 	//Relacion onetomany de comuna a direccion
 	@JsonIgnore
