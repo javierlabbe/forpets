@@ -1,5 +1,7 @@
 package cl.gargolas.web.models;
 
+import java.util.List;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -34,5 +36,5 @@ public class Sexo {
 	private String descripcion;
 	
 	@OneToMany(mappedBy = "sexo", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-	private PerfilMascota perfilMascota;
+	private List<PerfilMascota> perfilMascota;
 }
