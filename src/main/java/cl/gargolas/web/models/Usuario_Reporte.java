@@ -7,13 +7,26 @@ import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.PrePersist;
+import javax.persistence.PreUpdate;
 import javax.persistence.Table;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
-@Entity
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
+
+//@Entity
 @Table(name = "usarios_reportes")
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
+@ToString
 public class Usuario_Reporte {
 
 	// relacion ManyToOne, esta entidad se quedara con la columna FK
@@ -62,98 +75,18 @@ public class Usuario_Reporte {
 	private Etiqueta etiqueta;
 
 	
-	public Usuario_Reporte() {
-		super();
+
+
+	@PrePersist
+	protected void onCreate() {
+		this.createdAt = new Date();
 	}
 
-
-	public Comentario getComentario() {
-		return comentario;
-	}
-
-
-	public void setComentario(Comentario comentario) {
-		this.comentario = comentario;
-	}
-
-
-	public Ubicacion getUbicacion() {
-		return ubicacion;
-	}
-
-
-	public void setUbicacion(Ubicacion ubicacion) {
-		this.ubicacion = ubicacion;
-	}
-
-
-	public Descripcion getDescripcion() {
-		return descripcion;
-	}
-
-
-	public void setDescripcion(Descripcion descripcion) {
-		this.descripcion = descripcion;
-	}
-
-
-	public Reporte getReporte() {
-		return reporte;
-	}
-
-
-	public void setReporte(Reporte reporte) {
-		this.reporte = reporte;
-	}
-
-
-	public LugarInteres getLugar() {
-		return lugarInteres;
-	}
-
-
-	public void setLugar(LugarInteres lugar) {
-		this.lugarInteres = lugar;
-	}
-
-
-	public Usuario getUsuario() {
-		return usuario;
-	}
-
-
-	public void setUsuario(Usuario usuario) {
-		this.usuario = usuario;
-	}
-
-
-	public Date getCreatedAt() {
-		return createdAt;
-	}
-
-
-	public void setCreatedAt(Date createdAt) {
-		this.createdAt = createdAt;
-	}
-
-
-	public Date getUpdatedAt() {
-		return updatedAt;
-	}
-
-
-	public void setUpdatedAt(Date updatedAt) {
-		this.updatedAt = updatedAt;
-	}
-
-
-	public Etiqueta getEtiqueta() {
-		return etiqueta;
-	}
-
-
-	public void setEtiqueta(Etiqueta etiqueta) {
-		this.etiqueta = etiqueta;
+	
+	@PreUpdate
+	//inserta la fecha del momento que se esta actualizando
+	protected void onUpdate() {
+		this.updatedAt = new Date();
 	}
 
 	
