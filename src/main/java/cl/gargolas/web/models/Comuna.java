@@ -9,6 +9,7 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.PrePersist;
@@ -21,8 +22,19 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
+
 @Entity
 @Table(name = "comunas")
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
+@ToString
 public class Comuna {
 
 	@Id
@@ -49,65 +61,15 @@ public class Comuna {
 	//Relacion manytoone de comuna a ciudad
 	@JsonIgnore
 	@ManyToOne(fetch = FetchType.EAGER)
-	@Column(name="ciudad_id")
-	private Ciudad ciudad;
+	@JoinColumn(name="ciudad_id")
+	private List<Ciudad> ciudad;
 	
 	//Relacion onetomany de comuna a direccion
 	@JsonIgnore
 	@OneToMany(mappedBy = "comuna",fetch = FetchType.EAGER)
 	private List<Direccion> direccion;
 
-	public Comuna() {
-		super();
-	}
-
-	public Integer getIdComuna() {
-		return idComuna;
-	}
-
-	public void setIdComuna(Integer idComuna) {
-		this.idComuna = idComuna;
-	}
-
-	public String getDescripcion() {
-		return descripcion;
-	}
-
-	public void setDescripcion(String descripcion) {
-		this.descripcion = descripcion;
-	}
-
-	public Integer getIdCiudad() {
-		return idCiudad;
-	}
-
-	public void setIdCiudad(Integer idCiudad) {
-		this.idCiudad = idCiudad;
-	}
-
-	public Integer getIdRegion() {
-		return idRegion;
-	}
-
-	public void setIdRegion(Integer idRegion) {
-		this.idRegion = idRegion;
-	}
-
-	public Date getCreatedAt() {
-		return createdAt;
-	}
-
-	public void setCreatedAt(Date createdAt) {
-		this.createdAt = createdAt;
-	}
-
-	public Date getUpdatedAt() {
-		return updatedAt;
-	}
-
-	public void setUpdatedAt(Date updatedAt) {
-		this.updatedAt = updatedAt;
-	}
+	
 
 	@PrePersist
 	protected void onCreate() {
