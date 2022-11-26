@@ -1,6 +1,8 @@
 package cl.gargolas.web.models;
 
 import java.util.Date;
+import java.util.List;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -40,7 +42,7 @@ public class Especie {
 	private String descripcion;
 	
 	@OneToMany(mappedBy = "especie", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-	private PerfilMascota perfilMascota;
+	private List<PerfilMascota> perfilMascota;
 	
 	@Column(updatable = false)
 	@DateTimeFormat(pattern="yyyy-MM-dd") 
