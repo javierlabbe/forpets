@@ -10,6 +10,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
 import javax.persistence.Table;
@@ -66,6 +67,7 @@ public class Comentario {
 	}
 	
 	@JsonIgnore
-	@OneToMany(mappedBy = "comentario", fetch = FetchType.EAGER)
+	@OneToMany(mappedBy="comentario", fetch = FetchType.EAGER)
 	private List<Usuario_Reporte> usuario_Reporte;
 }
+

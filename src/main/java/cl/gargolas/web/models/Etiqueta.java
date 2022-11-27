@@ -52,9 +52,7 @@ public class Etiqueta {
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date updatedAt;
 	
-	@JsonIgnore
-	@OneToMany(mappedBy = "etiqueta",cascade = CascadeType.ALL,fetch = FetchType.LAZY)
-	private List<Lugar_Etiqueta> lugar_Etiquetas;
+	
 
 	
 	@PrePersist
@@ -68,5 +66,8 @@ public class Etiqueta {
 		this.updatedAt = new Date();
 	}
 	
+	@JsonIgnore
+	@OneToMany(mappedBy = "etiqueta",fetch = FetchType.LAZY)
+	private List<Lugar_Etiqueta> lugar_Etiquetas;
 
 }
