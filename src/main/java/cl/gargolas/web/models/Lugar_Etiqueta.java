@@ -4,6 +4,9 @@ import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.PrePersist;
@@ -21,14 +24,17 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 //testing
-//@Entity Consultar con profesor. Toda entidad debe llevar ID ?, es necesario entity en la tabla de relacion?
-@Table(name="lugares_Etiquetas")
+@Entity 
+@Table(name="lugares_etiqueta")
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
 public class Lugar_Etiqueta {
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Integer idLugarEtiqueta;
 	//instantiate attributes
 	@Column(updatable = false)
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
@@ -46,7 +52,7 @@ public class Lugar_Etiqueta {
 	//relacion ManyToOne, esta entidad se quedara con la columna FK 
 	@JsonIgnore
 	@ManyToOne(fetch = FetchType.EAGER)
-	@JoinColumn(name="lugar_id")
+	@JoinColumn(name="lugarInteres_id")
 	private LugarInteres lugarInteres;
 	
 	

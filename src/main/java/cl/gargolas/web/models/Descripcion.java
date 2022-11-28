@@ -17,6 +17,8 @@ import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
+import org.hibernate.annotations.LazyCollection;
+import org.hibernate.annotations.LazyCollectionOption;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -45,15 +47,15 @@ public class Descripcion {
 	private String descripcion;
 
 	@JsonIgnore
-	@OneToMany(mappedBy = "descripcion", cascade = CascadeType.ALL, fetch =FetchType.EAGER )
+	@OneToMany(mappedBy = "descripcion", cascade = CascadeType.ALL, fetch =FetchType.LAZY )
 	private List<Usuario> usuario;
 	
 	@JsonIgnore
-	@OneToMany(mappedBy = "descripcion", cascade = CascadeType.ALL, fetch =FetchType.EAGER )
+	@OneToMany(mappedBy = "descripcion", cascade = CascadeType.ALL, fetch =FetchType.LAZY )
 	private List<Usuario_Reporte> usuario_Reporte ;
 	
 	@JsonIgnore
-	@OneToMany(mappedBy = "descripcion", cascade = CascadeType.ALL, fetch =FetchType.EAGER )
+	@OneToMany(mappedBy = "descripcion", cascade = CascadeType.ALL, fetch =FetchType.LAZY )
 	private List<PerfilMascota> perfilMascotas;
 	
 	@Column(updatable = false)

@@ -21,7 +21,7 @@ import lombok.Setter;
 import lombok.ToString;
 
 @Entity
-@Table(name="valoraciones")
+@Table(name = "valoraciones")
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
@@ -30,12 +30,13 @@ import lombok.ToString;
 public class Valoracion {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long idValoracion;  
-	
+	private Long idValoracion;
+
 	@NotNull
 	private Integer puntuacion;
 
 	@JsonIgnore
-	@OneToMany(mappedBy = "valoracion",cascade = CascadeType.ALL,fetch = FetchType.LAZY)
-	private List<RegistroValoracion> registroValoracion; 
+	@OneToMany(mappedBy = "valoracion", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	private List<RegistroValoracion> registroValoracion;
+
 }
