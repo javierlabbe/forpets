@@ -17,8 +17,6 @@ import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
-import org.hibernate.annotations.LazyCollection;
-import org.hibernate.annotations.LazyCollectionOption;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -28,7 +26,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
-//testing
+
 @Entity
 @Table(name = "descripciones")
 @Getter
@@ -37,7 +35,6 @@ import lombok.ToString;
 @NoArgsConstructor
 @ToString
 public class Descripcion {
-
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer idDescripcion;
@@ -65,9 +62,6 @@ public class Descripcion {
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date updatedAt;
 
-	
-
-	
 	@PrePersist
 	protected void onCreate() {
 		this.createdAt = new Date();

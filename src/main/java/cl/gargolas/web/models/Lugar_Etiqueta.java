@@ -12,8 +12,6 @@ import javax.persistence.ManyToOne;
 import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
 import javax.persistence.Table;
-import javax.validation.constraints.NotNull;
-
 import org.springframework.format.annotation.DateTimeFormat;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -35,7 +33,7 @@ public class Lugar_Etiqueta {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer idLugarEtiqueta;
-	//instantiate attributes
+
 	@Column(updatable = false)
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date createdAt;
@@ -43,18 +41,15 @@ public class Lugar_Etiqueta {
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date updatedAt;
 
-	//relacion ManyToOne, esta entidad se quedara con la columna FK 
 	@JsonIgnore
 	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name="etiqueta_id")
 	private Etiqueta etiqueta;
 	
-	//relacion ManyToOne, esta entidad se quedara con la columna FK 
 	@JsonIgnore
 	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name="lugarInteres_id")
 	private LugarInteres lugarInteres;
-	
 	
 	@PrePersist
 	protected void onCreate() {
@@ -66,7 +61,5 @@ public class Lugar_Etiqueta {
 	protected void onUpdate() {
 		this.updatedAt = new Date();
 	}
-
-
 	
 }

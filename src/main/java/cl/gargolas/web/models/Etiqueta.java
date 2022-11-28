@@ -3,7 +3,6 @@ package cl.gargolas.web.models;
 import java.util.Date;
 import java.util.List;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -26,7 +25,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
-//testing
+
 @Entity
 @Table(name="etiquetas")
 @Getter
@@ -36,7 +35,6 @@ import lombok.ToString;
 @ToString
 
 public class Etiqueta {
-	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer idEtiqueta;
@@ -67,5 +65,4 @@ public class Etiqueta {
 		this.updatedAt = new Date();
 	}
 	
-
 }

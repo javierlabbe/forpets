@@ -1,9 +1,6 @@
 package cl.gargolas.web.models;
 
 import java.util.Date;
-import java.util.List;
-
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -12,7 +9,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
 import javax.persistence.Table;
@@ -43,9 +39,6 @@ public class Reporte {
 	@DateTimeFormat(pattern="yyyy-MM-dd")
 	private Date updatedAt;
 	
-
-	
-	//Agregando CategoriaReporteLugar como FK, relacion ManyToOne
 	@JsonIgnore
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name="CategoriaReporteLugar_id")
@@ -59,4 +52,5 @@ public class Reporte {
 	protected void onUpdate(){
 	this.updatedAt = new Date();
 	}
+	
 }

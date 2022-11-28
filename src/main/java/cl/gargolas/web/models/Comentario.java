@@ -9,9 +9,7 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
-import javax.persistence.ManyToOne;
 import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
 import javax.persistence.Table;
@@ -28,7 +26,6 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
-//testing
 @Entity
 @Table(name = "comentarios")
 @Getter
@@ -48,15 +45,6 @@ public class Comentario {
 	@JsonIgnore
 	@OneToMany(mappedBy = "comentario", fetch = FetchType.EAGER)
 	private List<Usuario_Reporte> usuario_reporte;
-
-	/*
-	 * @JsonIgnore
-	 * 
-	 * @ManyToOne(fetch = FetchType.EAGER)
-	 * 
-	 * @JoinColumn(name = "usuario_reporte_id") private Usuario_Reporte
-	 * usuario_reporte;
-	 */
 
 	@Column(updatable = false)
 	@DateTimeFormat(pattern = "yyyy-MM-dd")

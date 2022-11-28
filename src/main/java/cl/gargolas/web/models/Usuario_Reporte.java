@@ -1,8 +1,6 @@
 package cl.gargolas.web.models;
 
 import java.util.Date;
-import java.util.List;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -11,7 +9,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
 import javax.persistence.Table;
@@ -37,19 +34,11 @@ public class Usuario_Reporte {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer idUsuarioReporte;
-	// relacion ManyToOne, esta entidad se quedara con la columna FK
 
 	@JsonIgnore
 	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "comentario_id")
 	private Comentario comentario;
-
-	/*
-	 * @JsonIgnore
-	 * 
-	 * @OneToMany(mappedBy = "usuario_reporte", fetch = FetchType.EAGER) private
-	 * List<Comentario> comentario;
-	 */
 
 	@JsonIgnore
 	@ManyToOne(fetch = FetchType.EAGER)
@@ -75,8 +64,6 @@ public class Usuario_Reporte {
 	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "usuario_id")
 	private Usuario usuario;
-
-	// relacion ManyToOne, esta entidad se quedara con la columna FK
 
 	@Column(updatable = false)
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
