@@ -57,7 +57,6 @@ public class Lugar_Etiqueta {
 	}
 
 	@PreUpdate
-	//inserta la fecha del momento que se esta actualizando
 	protected void onUpdate() {
 		this.updatedAt = new Date();
 	}
