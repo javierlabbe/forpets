@@ -19,7 +19,7 @@ import lombok.Setter;
 import lombok.ToString;
 
 @Entity
-@Table(name="valoraciones")
+@Table(name="registroValoraciones")
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
