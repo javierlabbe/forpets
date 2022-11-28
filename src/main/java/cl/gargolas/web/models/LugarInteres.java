@@ -60,11 +60,13 @@ public class LugarInteres {
 	@JoinColumn(name="CategoriaReporteLugar_id")
 	private CategoriaReporteLugar categoriaReporteLugar;
 	
-
-	
 	@JsonIgnore
 	@OneToMany(mappedBy = "lugarInteres",fetch = FetchType.LAZY)
 	private List<Lugar_Etiqueta> lugar_etiqueta;
+	
+	@JsonIgnore
+	@OneToMany(mappedBy = "lugarInteres", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	private List<RegistroValoracion> registroValoracion;
 	
 	@PrePersist
 	protected void onCreate() {

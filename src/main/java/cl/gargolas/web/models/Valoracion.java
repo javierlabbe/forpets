@@ -35,11 +35,8 @@ public class Valoracion {
 	@NotNull
 	private Integer puntuacion;
 
-	/*
-	 * @JsonIgnore
-	 * 
-	 * @OneToMany(mappedBy = "valoracion", cascade = CascadeType.ALL, fetch =
-	 * FetchType.LAZY) private List<RegistroValoracion> registroValoracion;
-	 */
+	@JsonIgnore
+	@OneToMany(mappedBy = "valoracion", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	private List<RegistroValoracion> registroValoracion;
 
 }
