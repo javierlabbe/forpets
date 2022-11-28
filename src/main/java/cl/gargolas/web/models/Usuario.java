@@ -17,6 +17,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 import javax.validation.constraints.NotNull;
 
 import org.springframework.format.annotation.DateTimeFormat;
@@ -58,9 +59,6 @@ public class Usuario {
 	private String rut;
 	
 	@NotNull
-	private String numDireccion;
-	
-	@NotNull
 	private String telefono;
 	
 	@NotNull
@@ -70,21 +68,14 @@ public class Usuario {
 	private String password;
 	
 	@NotNull
+	@Transient
 	private String password2; // para confirmar contraseña
 	
 	@NotNull
 	private Blob imagen;
 	
-	@NotNull
-	private Integer idDireccion;
-	
-	@NotNull
-	private Integer idDescripcion;
-	
 	@Column(updatable = false)
 	@DateTimeFormat(pattern="yyyy-MM-dd")
-	
-	@NotNull
 	private Date createdAt;
 	
 	@DateTimeFormat(pattern="yyyy-MM-dd")
@@ -103,7 +94,7 @@ public class Usuario {
 	
 	@JsonIgnore
 	@OneToMany(mappedBy = "usuario",cascade = CascadeType.ALL,fetch = FetchType.LAZY)
-	private List<Usuario_Reporte> usuario_Reporte;
+	private List<Usuario_Reporte> usuario_reporte;
 
 	@JsonIgnore
 	@OneToMany(mappedBy = "usuario",cascade = CascadeType.ALL,fetch = FetchType.LAZY)
