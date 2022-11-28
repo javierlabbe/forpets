@@ -37,7 +37,7 @@ public class RangoEtario {
 	
 	private String descripcion;
 	
-	@OneToMany(mappedBy = "rangoEtareo", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	@OneToMany(mappedBy = "rangoEtario", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	private List<PerfilMascota> perfilMascota;
 	
 	@Column(updatable = false)
