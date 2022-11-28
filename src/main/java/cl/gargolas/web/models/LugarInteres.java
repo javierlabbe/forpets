@@ -66,7 +66,11 @@ public class LugarInteres {
 	private CategoriaReporteLugar categoriaReporteLugar;
 	
 	@OneToMany(mappedBy = "registroValoracion_id",cascade = CascadeType.ALL,fetch = FetchType.LAZY)
-	private List<RegistroValoracion> registroValoracions;
+	private List<RegistroValoracion> registroValoracion;
+	
+	@JsonIgnore
+	@OneToMany(mappedBy = "lugarInteres",fetch = FetchType.LAZY)
+	private List<Lugar_Etiqueta> lugar_etiqueta;
 	
 	@PrePersist
 	protected void onCreate() {
