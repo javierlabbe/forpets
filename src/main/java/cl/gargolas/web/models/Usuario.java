@@ -42,44 +42,35 @@ public class Usuario {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long idUsuario;  
 	
-	@NotNull
+	//@NotNull
 	private String nombre;
 	
-	@NotNull
+	//@NotNull
 	private String apellidoPaterno;
 	
-	@NotNull
+	//@NotNull
 	private String apellidoMaterno;
 	
-	@NotNull
+	//@NotNull
 	private Date fechaNacimiento;
 	
-	@NotNull
+	//@NotNull
 	private String rut;
-	
-	@NotNull
-	private String numDireccion;
-	
-	@NotNull
+
+	//@NotNull
 	private String telefono;
 	
-	@NotNull
+	//@NotNull
 	private String email;
 	
-	@NotNull
+	//@NotNull
 	private String password;
 	
-	@NotNull
-	private String password2; // para confirmar contraseña
+	//@NotNull
+	//private String password2; // para confirmar contraseña
 	
-	@NotNull
-	private Blob imagen;
-	
-	@NotNull
-	private Integer idDireccion;
-	
-	@NotNull
-	private Integer idDescripcion;
+	//@NotNull
+	private Blob imagen;	
 	
 	@Column(updatable = false)
 	@DateTimeFormat(pattern="yyyy-MM-dd")
@@ -100,14 +91,17 @@ public class Usuario {
 	@JoinColumn(name = "descripcion_id")
 	private Descripcion descripcion;
 	
+	@JsonIgnore
+	@ManyToOne(fetch = FetchType.EAGER)
+	@JoinColumn(name = "ubicacion_id")
+	private Ubicacion ubicacion;
+	
 	
 	@JsonIgnore
 	@OneToMany(mappedBy = "usuario",cascade = CascadeType.ALL,fetch = FetchType.LAZY)
 	private List<Usuario_Reporte> usuario_Reporte;
 
-	@JsonIgnore
-	@OneToMany(mappedBy = "usuario",cascade = CascadeType.ALL,fetch = FetchType.LAZY)
-	private List<RegistroValoracion> registroValoracion;
+
 	
 	@PrePersist
 	protected void onCreate(){

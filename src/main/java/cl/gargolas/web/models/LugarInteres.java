@@ -53,20 +53,14 @@ public class LugarInteres {
 
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date updatedAt;
-	
-	//relacion ManyToOne
-	@JsonIgnore
-	@OneToMany(mappedBy = "lugarInteres",cascade = CascadeType.ALL,fetch = FetchType.LAZY)
-	private List<Registro_Imagen> registro_imagenes;
-	
+		
 	//Agregando CategoriaReporteLugar como FK, relacion ManyToOne
 	@JsonIgnore
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name="CategoriaReporteLugar_id")
 	private CategoriaReporteLugar categoriaReporteLugar;
 	
-	@OneToMany(mappedBy = "registroValoracion_id",cascade = CascadeType.ALL,fetch = FetchType.LAZY)
-	private List<RegistroValoracion> registroValoracion;
+
 	
 	@JsonIgnore
 	@OneToMany(mappedBy = "lugarInteres",fetch = FetchType.LAZY)

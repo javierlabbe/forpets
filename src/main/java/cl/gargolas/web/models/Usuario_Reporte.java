@@ -39,17 +39,17 @@ public class Usuario_Reporte {
 	private Integer idUsuarioReporte;
 	// relacion ManyToOne, esta entidad se quedara con la columna FK
 
+	@JsonIgnore
+	@ManyToOne(fetch = FetchType.EAGER)
+	@JoinColumn(name = "comentario_id")
+	private Comentario comentario;
+
 	/*
 	 * @JsonIgnore
 	 * 
-	 * @ManyToOne(fetch = FetchType.EAGER)
-	 * 
-	 * @JoinColumn(name = "comentario_id") private Comentario comentario;
+	 * @OneToMany(mappedBy = "usuario_reporte", fetch = FetchType.EAGER) private
+	 * List<Comentario> comentario;
 	 */
-
-	@JsonIgnore
-	@OneToMany(mappedBy = "usuario_reporte", fetch = FetchType.EAGER)
-	private List<Comentario> comentario;
 
 	@JsonIgnore
 	@ManyToOne(fetch = FetchType.EAGER)
@@ -73,7 +73,7 @@ public class Usuario_Reporte {
 
 	@JsonIgnore
 	@ManyToOne(fetch = FetchType.EAGER)
-	@JoinColumn(name = "reporte_id")
+	@JoinColumn(name = "usuario_id")
 	private Usuario usuario;
 
 	// relacion ManyToOne, esta entidad se quedara con la columna FK

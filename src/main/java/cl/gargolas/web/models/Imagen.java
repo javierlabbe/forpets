@@ -53,12 +53,7 @@ public class Imagen {
 	@DateTimeFormat(pattern="yyyy-MM-dd")
 	private Date updatedAt;
 	
-	//relacion OneToMany
-	@JsonIgnore
-	@OneToMany(mappedBy = "imagen",cascade = CascadeType.ALL,fetch = FetchType.LAZY)
-	private List<Registro_Imagen> registro_imagenes;
-
-
+	//relacion OneTo
 	@PrePersist
 	protected void onCreate() {
 		this.createdAt = new Date();

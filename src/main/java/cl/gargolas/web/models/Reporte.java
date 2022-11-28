@@ -43,10 +43,7 @@ public class Reporte {
 	@DateTimeFormat(pattern="yyyy-MM-dd")
 	private Date updatedAt;
 	
-	//relacion OneToMany
-	@JsonIgnore
-	@OneToMany(mappedBy = "reporte",cascade = CascadeType.ALL,fetch = FetchType.LAZY)
-	private List<Registro_Imagen> registro_imagenes;
+
 	
 	//Agregando CategoriaReporteLugar como FK, relacion ManyToOne
 	@JsonIgnore
