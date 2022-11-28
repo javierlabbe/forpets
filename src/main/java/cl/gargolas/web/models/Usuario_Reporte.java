@@ -58,7 +58,7 @@ public class Usuario_Reporte {
 	
 	@JsonIgnore
 	@ManyToOne(fetch = FetchType.EAGER)
-	@JoinColumn(name = "reporte_id")
+	@JoinColumn(name = "usuario_id")
 	private Usuario usuario;
 
 	// relacion ManyToOne, esta entidad se quedara con la columna FK
