@@ -42,11 +42,7 @@ public class Ubicacion {
 	
 	@NotNull
 	@Size(min = 10, max = 30)
-	private String descripcion;
-	
-	@JsonIgnore
-	@OneToMany(mappedBy = "ubicacion",cascade = CascadeType.ALL,fetch = FetchType.LAZY)
-	private List<Usuario> usuario;
+	private String descripcion;	
 	
 	@Column(updatable = false)
 	@DateTimeFormat(pattern="yyyy-MM-dd")
