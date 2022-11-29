@@ -36,7 +36,6 @@ import lombok.ToString;
 @Getter
 @Setter
 public class Region {
-	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer idRegion;
@@ -45,20 +44,17 @@ public class Region {
 	@Size(min=1,max=30)
 	private String descripcion;
 	
-	@Column(updatable = false)
-	@DateTimeFormat(pattern = "yyyy-MM-dd")
-	private Date createdAt;
-
-	@DateTimeFormat(pattern = "yyyy-MM-dd")
-	private Date updatedAt;
-	
-	//Relacion OneToMany de region a ciudad
 	@JsonIgnore
 	@OneToMany(mappedBy = "region",fetch = FetchType.EAGER)
 	private List<Ciudad> ciudad;
 	
+	@Column(updatable = false)
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
+	private Date createdAt;
 	
-
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
+	private Date updatedAt;
+	
 	@PrePersist
 	protected void onCreate() {
 		this.createdAt = new Date();
@@ -67,7 +63,6 @@ public class Region {
 	@PreUpdate
 	protected void onUpdate() {
 		this.updatedAt = new Date();
-
 	}
 	
 }

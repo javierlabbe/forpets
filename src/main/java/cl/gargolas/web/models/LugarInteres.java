@@ -37,8 +37,6 @@ import lombok.ToString;
 @NoArgsConstructor
 @ToString
 public class LugarInteres {
-	// Instantiate Attributes
-	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer idLugar;
@@ -46,15 +44,7 @@ public class LugarInteres {
 	@NotNull
 	@Size(min=3, max=31)
 	private String titulo;
-	
-	@Column(updatable = false)
-	@DateTimeFormat(pattern = "yyyy-MM-dd")
-	private Date createdAt;
-
-	@DateTimeFormat(pattern = "yyyy-MM-dd")
-	private Date updatedAt;
 		
-	//Agregando CategoriaReporteLugar como FK, relacion ManyToOne
 	@JsonIgnore
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name="CategoriaReporteLugar_id")
@@ -68,13 +58,19 @@ public class LugarInteres {
 	@OneToMany(mappedBy = "lugarInteres", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	private List<RegistroValoracion> registroValoracion;
 	
+	@Column(updatable = false)
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
+	private Date createdAt;
+	
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
+	private Date updatedAt;
+	
 	@PrePersist
 	protected void onCreate() {
 		this.createdAt = new Date();
 	}
 
 	@PreUpdate
-	//inserta la fecha del momento que se esta actualizando
 	protected void onUpdate() {
 		this.updatedAt = new Date();
 	}

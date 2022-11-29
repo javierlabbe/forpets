@@ -33,24 +33,27 @@ public class Reporte {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer idReporte;
-	@Column(updatable = false)
-	@DateTimeFormat(pattern="yyyy-MM-dd")
-	private Date createdAt;
-	@DateTimeFormat(pattern="yyyy-MM-dd")
-	private Date updatedAt;
 	
 	@JsonIgnore
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name="CategoriaReporteLugar_id")
 	private CategoriaReporteLugar categoriaReporteLugar;
 
+	@Column(updatable = false)
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
+	private Date createdAt;
+
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
+	private Date updatedAt;
+
 	@PrePersist
-	protected void onCreate(){
-	this.createdAt = new Date();
+	protected void onCreate() {
+		this.createdAt = new Date();
 	}
+
 	@PreUpdate
-	protected void onUpdate(){
-	this.updatedAt = new Date();
+	protected void onUpdate() {
+		this.updatedAt = new Date();
 	}
 	
 }

@@ -53,5 +53,5 @@ public class Ubicacion {
 	protected void onUpdate() {
 		this.updatedAt = new Date();
 	}
-	
+
 }

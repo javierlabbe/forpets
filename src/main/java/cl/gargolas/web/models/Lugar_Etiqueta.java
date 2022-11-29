@@ -21,7 +21,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
-//testing
+
 @Entity 
 @Table(name="lugares_etiqueta")
 @Getter
@@ -34,13 +34,6 @@ public class Lugar_Etiqueta {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer idLugarEtiqueta;
 
-	@Column(updatable = false)
-	@DateTimeFormat(pattern = "yyyy-MM-dd")
-	private Date createdAt;
-
-	@DateTimeFormat(pattern = "yyyy-MM-dd")
-	private Date updatedAt;
-
 	@JsonIgnore
 	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name="etiqueta_id")
@@ -50,7 +43,13 @@ public class Lugar_Etiqueta {
 	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name="lugarInteres_id")
 	private LugarInteres lugarInteres;
+		
+	@Column(updatable = false)
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
+	private Date createdAt;
 	
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
+	private Date updatedAt;
 	@PrePersist
 	protected void onCreate() {
 		this.createdAt = new Date();

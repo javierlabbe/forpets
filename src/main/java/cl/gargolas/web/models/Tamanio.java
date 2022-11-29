@@ -1,4 +1,5 @@
 package cl.gargolas.web.models;
+
 import java.util.Date;
 import java.util.List;
 
@@ -23,7 +24,7 @@ import lombok.Setter;
 import lombok.ToString;
 
 @Entity
-@Table(name="tamanios")
+@Table(name = "tamanios")
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
@@ -33,26 +34,26 @@ public class Tamanio {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer idTamanio;
-	
+
 	private String descripcion;
-	
+
 	@OneToMany(mappedBy = "tamanio", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	private List<PerfilMascota> perfilMascota;
-	
+
 	@Column(updatable = false)
-	@DateTimeFormat(pattern="yyyy-MM-dd")
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date createdAt;
-	
-	@DateTimeFormat(pattern="yyyy-MM-dd")
-	private Date updatedAt;	
-	
+
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
+	private Date updatedAt;
+
 	@PrePersist
-	protected void onCreate(){
+	protected void onCreate() {
 		this.createdAt = new Date();
-		}
+	}
 
 	@PreUpdate
-		protected void onUpdate(){
+	protected void onUpdate() {
 		this.updatedAt = new Date();
-		}	
+	}
 }

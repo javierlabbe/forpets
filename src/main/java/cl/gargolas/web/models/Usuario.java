@@ -38,7 +38,6 @@ import lombok.ToString;
 @Setter
 @ToString
 public class Usuario {
-	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long idUsuario;  
@@ -70,17 +69,10 @@ public class Usuario {
 
 	@NotNull
 	@Transient
-	private String password2; // para confirmar contraseña
+	private String password2; 
 	
 	@NotNull
 	private Blob imagen;
-	
-	@Column(updatable = false)
-	@DateTimeFormat(pattern="yyyy-MM-dd")
-	private Date createdAt;
-	
-	@DateTimeFormat(pattern="yyyy-MM-dd")
-	private Date updatedAt;
 	
 	@JsonIgnore
 	@ManyToOne(fetch = FetchType.EAGER)
@@ -101,6 +93,13 @@ public class Usuario {
 	@OneToMany(mappedBy = "usuario",cascade = CascadeType.ALL,fetch = FetchType.LAZY)
 	private List<Usuario_Reporte> usuario_reporte;
 
+	@Column(updatable = false)
+	@DateTimeFormat(pattern="yyyy-MM-dd")
+	private Date createdAt;
+	
+	@DateTimeFormat(pattern="yyyy-MM-dd")
+	private Date updatedAt;
+
 	@PrePersist
 	protected void onCreate(){
 		this.createdAt = new Date();
@@ -111,5 +110,4 @@ public class Usuario {
 		this.updatedAt = new Date();
 		}
 	
-
 }

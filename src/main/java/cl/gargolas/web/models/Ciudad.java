@@ -28,26 +28,33 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
-
 @Entity
-@Table(name="ciudades")
+@Table(name = "ciudades")
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
 @Getter
 @Setter
 public class Ciudad {
-	
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer idCiudad;
-	
+
 	@NotNull
-	@Size(min=1,max=30)
+	@Size(min = 1, max = 30)
 	private String descripcion;
-	
+
 	@NotNull
 	private Integer idRegion;
+
+	@JsonIgnore
+	@ManyToOne(fetch = FetchType.EAGER)
+	@JoinColumn(name = "region_id")
+	private Region region;
+
+	@JsonIgnore
+	@OneToMany(mappedBy = "ciudad", fetch = FetchType.EAGER)
+	private List<Comuna> comuna;
 
 	@Column(updatable = false)
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
@@ -55,19 +62,7 @@ public class Ciudad {
 
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date updatedAt;
-	
-	//Relacion manytoone de ciudad region
-	@JsonIgnore
-	@ManyToOne(fetch = FetchType.EAGER)
-	@JoinColumn(name="region_id")
-	private Region region;
-	
-	//Relacion OneToMany de ciudad a comuna
-	@JsonIgnore
-	@OneToMany(mappedBy = "ciudad", fetch = FetchType.EAGER)
-	private List<Comuna> comuna;
 
-	
 	@PrePersist
 	protected void onCreate() {
 		this.createdAt = new Date();
@@ -76,6 +71,5 @@ public class Ciudad {
 	@PreUpdate
 	protected void onUpdate() {
 		this.updatedAt = new Date();
-	
 	}
 }

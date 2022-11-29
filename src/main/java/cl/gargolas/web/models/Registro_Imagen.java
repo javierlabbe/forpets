@@ -25,7 +25,7 @@ import lombok.Setter;
 import lombok.ToString;
 
 @Entity
-@Table(name="registros_imagenes")
+@Table(name = "registros_imagenes")
 @Getter
 @Setter
 @AllArgsConstructor
@@ -35,32 +35,27 @@ public class Registro_Imagen {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long idRegistroImagen;
-	
-	//Agregando imagen como FK, relacion manytoOne
+
 	@JsonIgnore
 	@ManyToOne(fetch = FetchType.EAGER)
-	@JoinColumn(name="imagen_id")
+	@JoinColumn(name = "imagen_id")
 	private Imagen imagen;
-	
-	//Agregando reporte como FK, relacion ManyToOne
+
 	@JsonIgnore
 	@ManyToOne(fetch = FetchType.EAGER)
-	@JoinColumn(name="reporte_id")
+	@JoinColumn(name = "reporte_id")
 	private Reporte reporte;
-	
-	//Agregando lugarInteres como FK, relacion ManyToOne
+
 	@JsonIgnore
 	@ManyToOne(fetch = FetchType.EAGER)
-	@JoinColumn(name="lugarInteres_id")
+	@JoinColumn(name = "lugarInteres_id")
 	private LugarInteres lugarInteres;
-	
-	
+
 	@Column(updatable = false)
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date createdAt;
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date updatedAt;
-
 
 	@PrePersist
 	protected void onCreate() {
@@ -68,9 +63,8 @@ public class Registro_Imagen {
 	}
 
 	@PreUpdate
-	//inserta la fecha del momento que se esta actualizando
 	protected void onUpdate() {
 		this.updatedAt = new Date();
 	}
-		
+
 }

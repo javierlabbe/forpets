@@ -33,7 +33,6 @@ import lombok.ToString;
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
-
 public class Etiqueta {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -43,24 +42,23 @@ public class Etiqueta {
 	@Size(min=0,max=200)
 	private String Descripcion;
 	
-	@Column(updatable = false)
-	@DateTimeFormat(pattern = "yyyy-MM-dd")
-	private Date createdAt;
-
-	@DateTimeFormat(pattern = "yyyy-MM-dd")
-	private Date updatedAt;
-	
 	@JsonIgnore
 	@OneToMany(mappedBy = "etiqueta",fetch = FetchType.LAZY)
 	private List<Lugar_Etiqueta> lugar_etiqueta;
 		
+	@Column(updatable = false)
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
+	private Date createdAt;
+	
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
+	private Date updatedAt;
+	
 	@PrePersist
 	protected void onCreate() {
 		this.createdAt = new Date();
 	}
 
 	@PreUpdate
-	//inserta la fecha del momento que se esta actualizando
 	protected void onUpdate() {
 		this.updatedAt = new Date();
 	}
