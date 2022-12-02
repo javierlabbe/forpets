@@ -32,7 +32,7 @@ import lombok.ToString;
 public class Reporte {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer idReporte;
+	private Long idReporte;
 	
 	@JsonIgnore
 	@ManyToOne(fetch = FetchType.LAZY)

@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import cl.gargolas.web.models.Color;
 import cl.gargolas.web.models.Usuario;
 import cl.gargolas.web.repositories.UsuarioRepository;
 
@@ -27,20 +28,19 @@ public class UsuarioServiceImpl implements UsuarioService { //Logica de negocio
 
 	@Override
 	public String actualizarUsuario(Usuario usuario) {
-		
+		Boolean existe = usuarioRepository.existsById(usuario.getIdUsuario());
 		return null;
 	}
 
 	@Override
 	public Usuario obtenerUsuario(Long id) {
-		// TODO Auto-generated method stub
-		return null;
+		//Boolean exist = usuarioRepository.existsById(id);
+		return usuarioRepository.findById(id).get();
 	}
 
 	@Override
 	public List<Usuario> obtenerListaUsuarios() {
-		// TODO Auto-generated method stub
-		return null;
+		return usuarioRepository.findAll();
 	}
 
 }
