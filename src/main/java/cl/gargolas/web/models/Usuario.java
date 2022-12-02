@@ -67,11 +67,11 @@ public class Usuario {
 	//@NotNull
 	private String password;
 
-	@NotNull
+	//@NotNull
 	@Transient
 	private String password2; 
 	
-	@NotNull
+	//@NotNull
 	private Blob imagen;
 	
 	@JsonIgnore
