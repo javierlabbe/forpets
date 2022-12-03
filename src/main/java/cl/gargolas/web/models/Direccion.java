@@ -38,7 +38,7 @@ import lombok.ToString;
 public class Direccion {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private Integer idDireccion;
+	private Long idDireccion;
 	
 	@NotNull
 	@Size(min=1,max=30)
@@ -47,15 +47,6 @@ public class Direccion {
 	@NotNull
 	@Size(min=1,max=10)
 	private String numeroDireccion;
-	
-	@NotNull
-	private Integer idComuna;
-	
-	@NotNull
-	private Integer idCiudad;
-	
-	@NotNull
-	private Integer idRegion;
 	
 	@JsonIgnore
 	@ManyToOne(fetch = FetchType.EAGER)

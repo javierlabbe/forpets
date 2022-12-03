@@ -38,7 +38,7 @@ import lombok.ToString;
 public class Region {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private Integer idRegion;
+	private Long idRegion;
 	
 	@NotNull
 	@Size(min=1,max=30)

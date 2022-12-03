@@ -24,7 +24,7 @@ import lombok.Setter;
 import lombok.ToString;
 
 @Entity
-@Table(name = "usarios_reportes")
+@Table(name = "usuarios_reportes")
 @Getter
 @Setter
 @NoArgsConstructor
@@ -33,7 +33,7 @@ import lombok.ToString;
 public class Usuario_Reporte {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer idUsuarioReporte;
+	private Long idUsuarioReporte;
 
 	@JsonIgnore
 	@ManyToOne(fetch = FetchType.EAGER)

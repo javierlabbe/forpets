@@ -38,14 +38,11 @@ import lombok.ToString;
 public class Ciudad {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer idCiudad;
+	private Long idCiudad;
 
 	@NotNull
 	@Size(min = 1, max = 30)
 	private String descripcion;
-
-	@NotNull
-	private Integer idRegion;
 
 	@JsonIgnore
 	@ManyToOne(fetch = FetchType.EAGER)
