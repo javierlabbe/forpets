@@ -33,7 +33,7 @@ import lombok.ToString;
 public class RangoEtario {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer idRangoEtario;
+	private Long idRangoEtario;
 
 	private String descripcion;
 

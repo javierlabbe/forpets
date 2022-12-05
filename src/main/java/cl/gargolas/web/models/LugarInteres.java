@@ -39,7 +39,7 @@ import lombok.ToString;
 public class LugarInteres {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private Integer idLugar;
+	private Long idLugar;
 	
 	@NotNull
 	@Size(min=3, max=31)

@@ -36,7 +36,7 @@ import lombok.ToString;
 public class Etiqueta {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer idEtiqueta;
+	private Long idEtiqueta;
 	
 	@NotNull
 	@Size(min=0,max=200)

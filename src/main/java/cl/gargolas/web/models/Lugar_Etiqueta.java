@@ -32,7 +32,7 @@ import lombok.ToString;
 public class Lugar_Etiqueta {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer idLugarEtiqueta;
+	private Long idLugarEtiqueta;
 
 	@JsonIgnore
 	@ManyToOne(fetch = FetchType.EAGER)
