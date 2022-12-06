@@ -35,7 +35,7 @@ import lombok.ToString;
 public class Color {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer idColor;
+	private Long idColor;
 	
 	private String descripcion;
 	

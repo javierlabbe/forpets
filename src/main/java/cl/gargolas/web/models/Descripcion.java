@@ -37,7 +37,7 @@ import lombok.ToString;
 public class Descripcion {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer idDescripcion;
+	private Long idDescripcion;
 
 	@NotNull
 	@Size(min = 1, max = 30)

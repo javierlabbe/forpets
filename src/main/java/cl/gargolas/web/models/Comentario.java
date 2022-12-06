@@ -36,7 +36,7 @@ import lombok.ToString;
 public class Comentario {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer idComentario;
+	private Long idComentario;
 
 	@NotNull
 	@Size(min = 0, max = 30)
@@ -44,7 +44,7 @@ public class Comentario {
 
 	@JsonIgnore
 	@OneToMany(mappedBy = "comentario", fetch = FetchType.EAGER)
-	private List<Usuario_Reporte> usuario_reporte;
+	private List<Comentario> comentario;
 
 	@Column(updatable = false)
 	@DateTimeFormat(pattern = "yyyy-MM-dd")

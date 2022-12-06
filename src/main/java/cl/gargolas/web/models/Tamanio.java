@@ -33,7 +33,7 @@ import lombok.ToString;
 public class Tamanio {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer idTamanio;
+	private Long idTamanio;
 
 	private String descripcion;
 
