@@ -3,43 +3,43 @@ package cl.gargolas.web.services;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import cl.gargolas.web.models.Valoracion;
 import cl.gargolas.web.repositories.TamanioRepository;
 import cl.gargolas.web.repositories.ValoracionRepository;
 
+@Service
 public class ValoracionServiceImpl implements ValoracionService {
 	@Autowired
 	private ValoracionRepository valoracionRepository;
 	
 	@Override
 	public Boolean guardarValoracion(Valoracion valoracion) {
-		// TODO Auto-generated method stub
+		valoracionRepository.save(valoracion);
 		return null;
 	}
 
 	@Override
 	public String eliminarValoracion(Long id) {
-		// TODO Auto-generated method stub
+		valoracionRepository.deleteById(id);
 		return null;
 	}
 
 	@Override
 	public String actualizarValoracion(Valoracion valoracion) {
-		// TODO Auto-generated method stub
+		Boolean existe = valoracionRepository.existsById(valoracion.getIdValoracion());
 		return null;
 	}
 
 	@Override
 	public Valoracion obtenerValoracion(Long id) {
-		// TODO Auto-generated method stub
-		return null;
+		return valoracionRepository.findById(id).get();
 	}
 
 	@Override
 	public List<Valoracion> obtenerListaValoracion() {
-		// TODO Auto-generated method stub
-		return null;
+		return valoracionRepository.findAll();
 	}
 
 }
