@@ -36,7 +36,7 @@ import lombok.ToString;
 public class Imagen {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer idImagen;
+	private Long idImagen;
 	
 	@NotNull
 	private Blob imagen;

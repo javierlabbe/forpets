@@ -31,7 +31,7 @@ import lombok.ToString;
 public class Ubicacion {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer idUbicacion;
+	private Long idUbicacion;
 
 	@NotNull
 	@Size(min = 10, max = 30)
