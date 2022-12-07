@@ -9,10 +9,10 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
     <script src="https://kit.fontawesome.com/64af136b72.js" crossorigin="anonymous"></script>
-    <link href="/assets/CSS/styles.css" rel="stylesheet">
+    <link href="/assets/CSS/styles" rel="stylesheet">
     <style>
         body {
-            background-image: url("../assets/img/Foto_home.png");
+            background-image: url('assets/img/luis.jpeg');
             background-repeat: no-repeat;
         }
 
@@ -36,7 +36,7 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <!-- Navbar brand -->
             <a class="navbar-brand mt-2 mt-lg-0" href="#">
-                <img src="../assets/img/logonegro" height="20" alt="LogoNegro"
+                <img src="/img/logonegro" height="20" alt="LogoNegro"
                     loading="lazy" />
             </a>
             <!-- Left links -->
