@@ -29,7 +29,7 @@
     <div class="container-fluid">
         <a class="navbar-brand" href="#">
             <!--IR AL HOME en href-->
-            <img src="assets/img/logonegro" height="40px" alt="forpets Logo" loading="lazy" style="margin-top: -1px;" />
+            <img src="/assets/img/logonegro" height="40px" alt="forpets Logo" loading="lazy" style="margin-top: -1px;" />
         </a>
 
         <!-- Toggle button -->
@@ -51,8 +51,6 @@
                 <li class="nav-item">
                     <a class="nav-link" href="#">Hacer Reporte</a>
                 </li>
-            </ul>
-            </li>
             </ul>
 
             <!-- Left links -->
@@ -82,58 +80,68 @@
                     <div div class="row align-items-start" id="rowform">
                         <div class="col">
                             <label for="nombre" class="form-label">Nombre</label>
-                            <input type="text" class="form-control" id="nombre">
+                            <input type="text" class="form-control" id="nombre" name="nombre">
                             <div class="form-text">Ingrese su nombre</div>
                         </div>
                         <div class="col">
                             <label for="apellido1" class="form-label">Primer apellido</label>
-                            <input type="text" class="form-control" id="apellido1">
+                            <input type="text" class="form-control" id="apellido1" name="apellido1">
                             <div class="form-text">Ingrese su primer apellido</div>
                         </div>
                         <div class="col">
                             <label for="apellido2" class="form-label">Segundo apellido</label>
-                            <input type="text" class="form-control" id="apellido2">
+                            <input type="text" class="form-control" id="apellido2" name="apellido2">
                             <div class="form-text">Ingrese su segundo apellido</div>
                         </div>
                     </div>
                     <div div class="row align-items-start" id="rowform">
-                        <div class="col-4">
+                        <div class="col">
                             <label for="rut" class="form-label">Rut</label>
-                            <input type="text" class="form-control" id="rut">
+                            <input type="text" class="form-control" id="rut" name="rut">
                             <div class="form-text">Ingrese su rut</div>
                         </div>
                         <div class="col">
                             <label for="birthday" class="form-label">Fecha de nacimiento</label>
-                            <input type="date" class="form-control" id="birthday">
+                            <input type="date" class="form-control" id="birthday" name="birthday">
                             <div class="form-text">Ingrese fecha de nacimiento</div>
-                        </div>
-                    </div>
-                    <div div class="row align-items-start" id="rowform">
-                        <div class="col-4">
-                            <label for="email" class="form-label">Email</label>
-                            <input type="email" class="form-control" id="email">
-                            <div class="form-text">Ingrese su email</div>
                         </div>
                         <div class="col">
                             <label for="telefono" class="form-label">Teléfono</label>
-                            <input type="text" class="form-control" id="telefono">
+                            <input type="text" class="form-control" id="telefono" name="telefono">
                             <div class="form-text">Ingrese su teléfono</div>
                         </div>
                     </div>
                     <div div class="row align-items-start" id="rowform">
                         <div class="col">
+                            <label for="email" class="form-label">Email</label>
+                            <input type="email" class="form-control" id="email" name="email">
+                            <div class="form-text">Ingrese su email</div>
+                        </div>
+                        <div class="col">
+                            <label for="password" class="form-label">Contraseña</label>
+                            <input type="password" class="form-control" id="password" name="pass1">
+                            <div class="form-text">Ingrese su contraseña</div>
+                        </div>
+                        <div class="col">
+                            <label for="password2" class="form-label">Confirmar contraseña</label>
+                            <input type="password" class="form-control" id="password2" name="pass2">
+                            <div class="form-text">Confirme su contraseña</div>
+                        </div>
+                    </div>
+                    <div div class="row align-items-start" id="rowform">
+                        <div class="col">
                             <label for="calle" class="form-label">Calle</label>
-                            <input type="text" class="form-control" id="calle">
+                            <input type="text" class="form-control" id="calle" name="calle">
                             <div class="form-text">Ingrese su calle</div>
                         </div>
                         <div class="col">
                             <label for="numDir" class="form-label">Número</label>
-                            <input type="number" class="form-control" id="numDir">
+                            <input type="number" class="form-control" id="numDir" name="numDir">
                             <div class="form-text">Ingrese número de dirección</div>
                         </div>
                         <div class="col">
                             <label for="comuna" class="form-label">Comuna</label>
-                            <select class="form-select" aria-label="Default select example" id="comuna">
+                            <select class="form-select" aria-label="Default select example" id="comuna" name="comuna">
                                 <option selected>Seleccione comuna</option>
                                 <option value="1">One</option>
                                 <option value="2">Two</option>
@@ -144,16 +152,16 @@
                     <div div class="row align-items-start" id="rowform">
                         <div class="col-4">
                             <label for="ciudad" class="form-label">Ciudad</label>
-                            <select class="form-select" aria-label="Default select example" id="ciudad">
+                            <select class="form-select" aria-label="Default select example" id="ciudad" name="ciudad">
                                 <option selected>Seleccione ciudad</option>
                                 <option value="1">One</option>
                                 <option value="2">Two</option>
                                 <option value="3">Three</option>
                             </select>
                         </div>
-                        <div class="col">
+                        <div class="col-4">
                             <label for="region" class="form-label">Región</label>
-                            <select class="form-select" aria-label="Default select example" id="region">
+                            <select class="form-select" aria-label="Default select example" id="region" name="region">
                                 <option selected>Seleccione región</option>
                                 <option value="1">One</option>
                                 <option value="2">Two</option>
@@ -167,7 +175,7 @@
             </div>
         </div>
     </div>
-    </div>
+    
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js "
         integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4 "
@@ -200,7 +208,7 @@
                 <img src="/assets/img/logoverde" alt="" style="height: 50px;">
             </div>
             <div class="text-center text-dark p-3" style="background-color: rgba(0, 0, 0, 0.2);">
-                <p style="color:#C6D166 ;">FortPets©2022</p>
+                <p style="color:#C6D166 ;">ForPets©2022</p>
             </div>
         </div>
     </div>
