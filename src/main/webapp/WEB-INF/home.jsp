@@ -26,93 +26,80 @@
     </style>
 </head>
 
-<nav class="navbar navbar-expand-lg navbar-light" style="margin-bottom:25px;background-color: #48C6AF;">
-    <!-- Container wrapper -->
-    <div class="container-fluid" >
-           <!-- Toggle button -->
-           <button
-             class="navbar-toggler"
-             type="button"
-             data-mdb-toggle="collapse"
-             data-mdb-target="#navbarSupportedContent"
-             aria-controls="navbarSupportedContent"
-             aria-expanded="false"
-             aria-label="Toggle navigation"
-             
-           >
-             <i class="fas fa-bars"></i>
-           </button>
-       
-           <!-- Collapsible wrapper -->
-           <div class="collapse navbar-collapse" id="navbarSupportedContent">
-             <!-- Navbar brand -->
-             <a class="navbar-brand mt-2 mt-lg-0" href="#">
-               <img
-                 src="/assets/img/logonegro"
-                 alt="Logo ForPets"
-                 loading="lazy"
-                 style="height:40px;"
-               />
-             </a>
-             <!-- Left links -->
-             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-               <li class="nav-item">
-                 <a class="nav-link" style="font-weight: bold; " href="#">Nosotros</a>
-               </li>
-               
-             </ul>
-             <!-- Left links -->
-           </div>
-           <!-- Collapsible wrapper -->
-       
-           <!-- Right elements -->
-           <div class="d-flex align-items-center">
-             <!-- Icon -->
-             <a class="text-reset me-3" href="#">
-               
-             </a>
-  			  <ul
-                 class="dropdown-menu dropdown-menu-end"
-                 aria-labelledby="navbarDropdownMenuAvatar"
-               >
-                 <li>
-                   <a class="dropdown-item" href="#">My profile</a>
-                 </li>
-                 <li>
-                   <a class="dropdown-item" href="#">Settings</a>
-                 </li>
-                 <li>
-                   <a class="dropdown-item" href="#">Logout</a>
-                 </li>
-               </ul>
-             </div>
-           </div>
-           <!-- Right elements -->
-         </div>
-         <div class="row">
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg" style="background-color: #48C6AF; height: 120px;">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">
+            <!--IR AL HOME en href-->
+            <img src="/assets/img/logonegro" height="40px" alt="forpets Logo" loading="lazy" style="margin-top: -1px;" />
+        </a>
+
+        <!-- Toggle button -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- Collapsible wrapper -->
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <!-- Left links -->
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Ver Mapa</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Hacer Reporte</a>
+                </li>
+            </ul>
+
+            <!-- Left links -->
+
+            <div class="d-flex align-items-center">
+            <div class="row">
            <div class="col">
-             <button type="button" class="btn btn-primary" id="BotonNav1" >Iniciar Sesion</button>
-           </div>
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#ModalForm" id="BotonNav1">Iniciar sesión</button>
+                <div class="modal fade" id="ModalForm" tabindex="-1" aria-labelledby="ModalFormLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered">
+                      <div class="modal-content">
+                        <div class="modal-body">
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            <div class="form-area" style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
+                                <h1 class="text-center">Hola nuevamente!</h1>
+                                <form>
+                                    <div class="mb-3 mt-4" style="color:black;">
+                                        <label for="exampleInputEmail1" class="form-label">Email</label>
+                                        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                                    </div>
+                                    <div class="mb-3" style="color:black;">
+                                        <label for="exampleInputPassword1" class="form-label">Contraseña</label>
+                                        <input type="password" class="form-control" id="exampleInputPassword1">
+                                    </div>
+                                    <button type="submit" class="btn mt-3" id="BotonNav2">Acceder</button>
+                                    <br><hr>
+                                    <p style="font-weight:bold; color:black;">No estás registradx?    <a href="#">Regístrate</a></p>
+                                </form>
+                            </div>
+                        </div>
+                      </div>
+                    </div>
          </div>
-  
-         <div class="col">
-          <div class="col">
-            <button type="button" class="btn btn-primary" id="BotonNav" style="margin-right:10px;">Registrate</button>
-          </div>
+                <button type="button" class="btn btn-primary" id="BotonNav1">Registrarse</button>
+            </div>
         </div>
-                <!-- Container wrapper -->
-         
-  </nav>
+    </div>
+</nav>
+<!-- Navbar -->
  
 
 <body>
 <div>
-    <button type="button" class="btn btn-secondary" 
-    style="background-color: #48C6AF; margin-top: 390px; margin-left: 100px; margin-bottom: 280px; color: #004445; 
-    font-weight: bold; font-size: 24px;">Regístrate!</button>
+    <button type="button" class="btn btn-primary" id="BotonBody">Regístrate!</button>
 </div>
 </body>
-<footer class="text-center text-white" style="background-color: #004445; margin-top: 50px; ">
+<footer class="text-center text-white" style="background-color: #004445; margin-top: 20px; ">
 	<div class="container-fluid">
 	    <div class="row">
 	      <div class="col">

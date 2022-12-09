@@ -41,8 +41,8 @@ color: #48C6AF;
     --bs-btn-active-color: #004445;
     --bs-btn-active-bg: #C6D166;
     --bs-btn-active-border-color: #C6D166;
-    width:160px; margin-right: 5px;
-    margin-right: 5px;
+    width:130px; margin-right: 5px;
+    margin-right: 16px;
 }
 
 #BotonNav2{
@@ -61,3 +61,49 @@ color: #48C6AF;
     width:120px; margin-right: 5px;
     margin-right: 10px;
 }
+
+#BotonBody{
+	--bs-btn-font-weight: 600;
+    --bs-btn-color: #004445;
+    --bs-btn-bg: #C6D166;
+    --bs-btn-border-color: #C6D166;
+    --bs-btn-border-radius: .5rem;
+    --bs-btn-hover-color: #C6D166;
+    --bs-btn-hover-bg: #7c8343a4;
+    --bs-btn-hover-border-color: #7c8343a4;
+    --bs-btn-focus-shadow-rgb: var(--bd-violet-rgb);
+    --bs-btn-active-color: #C6D166;
+    --bs-btn-active-bg:#004445 ;
+    --bs-btn-active-border-color: #C6D166;
+	margin-top: 390px;
+	margin-left: 100px;
+	margin-bottom: 270px;
+	font-weight: bold;
+	font-size: 24px;
+	
+}
+
+     
+
+  .modal-body {
+    padding: 0;
+  }
+  .btn-close {
+    position: absolute;
+    right: 0;
+    padding: 1em;
+  }
+  .form-area h1 {
+    font-size: 2.3em;
+    font-weight: bold;
+    color:black;
+  }
+  .form-area {
+	padding: 3em;
+	background-color:white;
+  }
+  .btn-close{
+  	color:black;
+  }
+  
+  
