@@ -11,7 +11,7 @@
     <script src="https://kit.fontawesome.com/64af136b72.js" crossorigin="anonymous"></script>
    <link href="/Assets/CSS/stylesHome.css" rel="stylesheet">
  
-    <style>
+    <!--style>
         body {
             background-image: url("/assets/img/Foto_home.png");
             background-repeat: no-repeat;
@@ -23,11 +23,11 @@
             margin:0%;
             padding:0%;
         }
-    </style>
+    </style-->
 </head>
 
 <!-- Navbar -->
-<nav class="navbar navbar-expand-lg" style="background-color: #48C6AF; height: 120px;">
+<nav class="navbar navbar-expand-lg" style="background-color: #48C6AF; height: 120px; " >
     <div class="container-fluid">
         <a class="navbar-brand" href="#">
             <!--IR AL HOME en href-->
@@ -45,13 +45,7 @@
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <!-- Left links -->
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Ver Mapa</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Hacer Reporte</a>
+                    <a class="nav-link active" aria-current="page" href="#"><strong>Nosotros</strong></a>
                 </li>
             </ul>
 
@@ -79,7 +73,7 @@
                                     </div>
                                     <button type="submit" class="btn mt-3" id="BotonNav2">Acceder</button>
                                     <br><hr>
-                                    <p style="font-weight:bold; color:black;">No estás registradx?    <a href="#">Regístrate</a></p>
+                                    <p style="font-weight:bold; color:black;">¿No estás registrada/o?<a href="#">Regístrate</a></p>
                                 </form>
                             </div>
                         </div>
@@ -95,11 +89,38 @@
  
 
 <body>
-<div>
-    <button type="button" class="btn btn-primary" id="BotonBody">Regístrate!</button>
+<div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="true">
+  <div class="carousel-indicators">
+
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+  </div>
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="/assets/img/gato_home.png" class="d-block w-100" alt="Foto gato" >
+    </div>
+    <div class="carousel-item">
+      <img src="/assets/img/Foto_home.png" class="d-block w-100" alt="Foto perro">
+    </div>
+    <div class="carousel-item">
+      <img src="/assets/img/conejo_home.png" class="d-block w-100" alt="Foto conejo">
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
 </div>
+<!--div>
+    <button type="button" class="btn btn-primary" id="BotonBody">Regístrate!</button>
+</div-->
 </body>
-<footer class="text-center text-white" style="background-color: #004445; margin-top: 20px; ">
+<footer class="text-center text-white" style="background-color: #004445; ">
 	<div class="container-fluid">
 	    <div class="row">
 	      <div class="col">
