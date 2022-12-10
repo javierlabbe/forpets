@@ -73,11 +73,11 @@
                 </button>
             </div>
             <div class="col">
-                <div div class="row align-items-start" id="rowform">
+                <div class="row align-items-start" id="rowform">
                     <h3>Crear tu cuenta de Forpets</h3>
                 </div>
                 <form action="/registro/usuario" method="post">
-                    <div div class="row align-items-start" id="rowform">
+                    <div class="row align-items-start" id="rowform">
                         <div class="col">
                             <label for="nombre" class="form-label">Nombre</label>
                             <input type="text" class="form-control" id="nombre" name="nombre">
@@ -94,7 +94,7 @@
                             <div class="form-text">Ingrese su segundo apellido</div>
                         </div>
                     </div>
-                    <div div class="row align-items-start" id="rowform">
+                    <div class="row align-items-start" id="rowform">
                         <div class="col">
                             <label for="rut" class="form-label">Rut</label>
                             <input type="text" class="form-control" id="rut" name="rut">
@@ -111,7 +111,7 @@
                             <div class="form-text">Ingrese su teléfono</div>
                         </div>
                     </div>
-                    <div div class="row align-items-start" id="rowform">
+                    <div class="row align-items-start" id="rowform">
                         <div class="col">
                             <label for="email" class="form-label">Email</label>
                             <input type="email" class="form-control" id="email" name="email">
@@ -128,7 +128,7 @@
                             <div class="form-text">Confirme su contraseña</div>
                         </div>
                     </div>
-                    <div div class="row align-items-start" id="rowform">
+                    <div class="row align-items-start" id="rowform">
                         <div class="col">
                             <label for="calle" class="form-label">Calle</label>
                             <input type="text" class="form-control" id="calle" name="calle">
@@ -149,7 +149,7 @@
                             </select>
                         </div>
                     </div>
-                    <div div class="row align-items-start" id="rowform">
+                    <div class="row align-items-start" id="rowform">
                         <div class="col-4">
                             <label for="ciudad" class="form-label">Ciudad</label>
                             <select class="form-select" aria-label="Default select example" id="ciudad" name="ciudad">
@@ -169,8 +169,9 @@
                             </select>
                         </div>
                     </div>
-                    <div div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
                         <input type="submit" class="btn btn-outline-primary" value="Continuar">
+                	</div>
                 </form>
             </div>
         </div>
