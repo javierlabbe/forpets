@@ -29,16 +29,16 @@ import lombok.Setter;
 import lombok.ToString;
 
 @Entity
-@Table(name = "ciudades")
+@Table(name = "provincias")
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
 @Getter
 @Setter
-public class Ciudad {
+public class Provincia {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long idCiudad;
+	private Long idProvincia;
 
 	@NotNull
 	@Size(min = 1, max = 30)
@@ -50,7 +50,7 @@ public class Ciudad {
 	private Region region;
 
 	@JsonIgnore
-	@OneToMany(mappedBy = "ciudad", fetch = FetchType.EAGER)
+	@OneToMany(mappedBy = "provincia", fetch = FetchType.EAGER)
 	private List<Comuna> comuna;
 
 	@Column(updatable = false)

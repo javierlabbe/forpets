@@ -41,12 +41,12 @@ public class Region {
 	private Long idRegion;
 	
 	@NotNull
-	@Size(min=1,max=30)
+	@Size(min=1,max=100)
 	private String descripcion;
 	
 	@JsonIgnore
 	@OneToMany(mappedBy = "region",fetch = FetchType.EAGER)
-	private List<Ciudad> ciudad;
+	private List<Provincia> provincia;
 	
 	@Column(updatable = false)
 	@DateTimeFormat(pattern = "yyyy-MM-dd")

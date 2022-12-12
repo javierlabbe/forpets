@@ -46,9 +46,9 @@ public class Comuna {
 
 	@JsonIgnore
 	@ManyToOne(fetch = FetchType.EAGER)
-	@JoinColumn(name="ciudad_id")
-	//private List<Ciudad> ciudad; por qué lista? debería ser una ciudad
-	private Ciudad ciudad;
+	@JoinColumn(name="provincia_id")
+	//private List<Provincia> provincia; por qué lista? debería ser una provincia
+	private Provincia provincia;
 	
 	@JsonIgnore
 	@OneToMany(mappedBy = "comuna",fetch = FetchType.EAGER)
