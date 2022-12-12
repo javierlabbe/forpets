@@ -52,10 +52,10 @@ public class PerfilMascota {
 	@JoinColumn(name = "raza_id")
 	private Raza raza;
  
-	@JsonIgnore
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "especie_id")
-	private Especie especie;
+	//@JsonIgnore
+	//@ManyToOne(fetch = FetchType.LAZY)
+	//@JoinColumn(name = "especie_id")
+	//private Especie especie;
  
 	@JsonIgnore
 	@ManyToOne(fetch = FetchType.LAZY)

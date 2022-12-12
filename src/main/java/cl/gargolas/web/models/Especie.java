@@ -19,6 +19,8 @@ import javax.validation.constraints.Size;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -41,8 +43,12 @@ public class Especie {
 	@Size(min=3,max=15)
 	private String descripcion;
 	
-	@OneToMany(mappedBy = "especie", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-	private List<PerfilMascota> perfilMascota;
+	//@JsonIgnore
+	//@OneToMany(mappedBy = "especie",fetch = FetchType.EAGER)
+	//private List<Raza> raza;
+	
+	//@OneToMany(mappedBy = "especie", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	//private List<PerfilMascota> perfilMascota;
 	
 	@Column(updatable = false)
 	@DateTimeFormat(pattern="yyyy-MM-dd") 
