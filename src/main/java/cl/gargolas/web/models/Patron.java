@@ -38,7 +38,7 @@ public class Patron {
 	private Long idPatron;
 	
 	@NotNull
-	@Size(min=3,max=15)
+	@Size(min=3,max=25)
 	private String descripcion;
 	
 	@OneToMany(mappedBy = "patron", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
