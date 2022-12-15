@@ -2,100 +2,62 @@
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
-
 <head>
-    <meta charset="UTF-8">
-    <title>Home</title>
+<meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Perfil</title>
+     <!--Bootstrap-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+
+    <link href="/assets/css/stylesHome.css" rel="stylesheet">
+
     <script src="https://kit.fontawesome.com/64af136b72.js" crossorigin="anonymous"></script>
-    <link href="/assets/CSS/styles.css" rel="stylesheet">
-    <style>
+	    <style>
         body {
             background-color:white
         }
     </style>
 </head>
 
-<header class="navbar navbar-expand-lg navbar-light" style="background-color: #48C6AF;">
-    <!-- Container wrapper -->
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg" style="background-color: #48C6AF; height: 120px;">
     <div class="container-fluid">
+        <a class="navbar-brand" href="#">
+            <!--IR AL HOME en href-->
+            <img src="../assets/img/logonegro" height="40px" alt="forpets Logo" loading="lazy" style="margin-top: -1px;" />
+        </a>
+
         <!-- Toggle button -->
-        <button class="navbar-toggler" type="button" data-mdb-toggle="collapse"
-            data-mdb-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-            aria-label="Toggle navigation">
-            <i class="fas fa-bars"></i>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
         </button>
 
         <!-- Collapsible wrapper -->
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <!-- Navbar brand -->
-            <a class="navbar-brand mt-2 mt-lg-0" href="#">
-                <img src="../assets/img/logonegro" height="20" alt="LogoNegro"
-                    loading="lazy" />
-            </a>
-            <!-- Left links -->
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <!-- Left links -->
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Ir a Home</a>
+                    <a class="nav-link active" aria-current="page" href="#">Home</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">Ver Mapa</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Reporte</a>
+                    <a class="nav-link" href="#">Hacer Reporte</a>
                 </li>
             </ul>
+
             <!-- Left links -->
-        </div>
-        <!-- Collapsible wrapper -->
-
-        <!-- Right elements -->
-        <div class="d-flex align-items-center">
-
-            <!-- Notifications -->
-            <div class="dropdown">
-                <a class="text-reset me-3 dropdown-toggle hidden-arrow" href="#" id="navbarDropdownMenuLink"
-                    role="button" data-mdb-toggle="dropdown" aria-expanded="false">
-                    <i class="fas fa-bell"></i>
-                    <span class="badge rounded-pill badge-notification bg-danger">1</span>
-                </a>
-                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">
-                    <li>
-                        <a class="dropdown-item" href="#">Some news</a>
-                    </li>
-                    <li>
-                        <a class="dropdown-item" href="#">Another news</a>
-                    </li>
-                    <li>
-                        <a class="dropdown-item" href="#">Something else here</a>
-                    </li>
-                </ul>
-            </div>
-            <!-- Avatar -->
-            <div class="dropdown">
-                <a class="dropdown-toggle d-flex align-items-center hidden-arrow" href="#" id="navbarDropdownMenuAvatar"
-                    role="button" data-mdb-toggle="dropdown" aria-expanded="false">
-                    <img src="https://mdbcdn.b-cdn.net/img/new/avatars/2.webp" class="rounded-circle" height="25"
-                        alt="Black and White Portrait of a Man" loading="lazy" />
-                </a>
-                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuAvatar">
-                    <li>
-                        <a class="dropdown-item" href="#">My profile</a>
-                    </li>
-                    <li>
-                        <a class="dropdown-item" href="#">Settings</a>
-                    </li>
-                    <li>
-                        <a class="dropdown-item" href="#">Logout</a>
-                    </li>
-                </ul>
+            <div class="d-flex align-items-center">
+                <button type="button" class="btn btn-primary" id="BotonNav1">Cerrar Sesión</button>
             </div>
         </div>
-        <!-- Right elements -->
     </div>
-    <!-- Container wrapper -->
-</header>
+</nav>
+<!-- Navbar -->
 
 
 <body>
@@ -127,10 +89,10 @@
                         <br>
                         <h4>Francisca Lazo</h4>
                         <!-- Linkedin -->
-                        <a class="btn btn-link btn-floating btn-lg text-dark m-1" href="#!" role="button"
+                        <a class="btn btn-link btn-floating btn-lg text-dark m-1" href="https://www.linkedin.com/in/francisca-lazo-cerpa/" role="button"
                         data-mdb-ripple-color="dark"><i class="fab fa-linkedin"></i></a>
                         <!-- Github -->
-                        <a class="btn btn-link btn-floating btn-lg text-dark m-1" href="#!" role="button"
+                        <a class="btn btn-link btn-floating btn-lg text-dark m-1" href="https://github.com/FranMarvelous" role="button"
                         data-mdb-ripple-color="dark"><i class="fab fa-github"></i></a>
                     </center>
                     </div>
@@ -141,10 +103,12 @@
                         <br>
                         <h4>Javier Labbé</h4>
                         <!-- Linkedin -->
-                        <a class="btn btn-link btn-floating btn-lg text-dark m-1" href="#!" role="button"
+                        <a class="btn btn-link btn-floating btn-lg text-dark m-1" href="https://www.linkedin.com/in/labbejavier/
+" role="button"
                         data-mdb-ripple-color="dark"><i class="fab fa-linkedin"></i></a>
                         <!-- Github -->
-                        <a class="btn btn-link btn-floating btn-lg text-dark m-1" href="#!" role="button"
+                        <a class="btn btn-link btn-floating btn-lg text-dark m-1" href="https://github.com/javierlabbe
+" role="button"
                         data-mdb-ripple-color="dark"><i class="fab fa-github"></i></a>
                     </center>
                     </div>
@@ -157,10 +121,10 @@
                         <br>
                         <h4>Luis Serrano</h4>
                         <!-- Linkedin -->
-                        <a class="btn btn-link btn-floating btn-lg text-dark m-1" href="#!" role="button"
+                        <a class="btn btn-link btn-floating btn-lg text-dark m-1" href="https://www.linkedin.com/in/luis-israel-serrano-miranda-888aa61b9/" role="button"
                         data-mdb-ripple-color="dark"><i class="fab fa-linkedin"></i></a>
                         <!-- Github -->
-                        <a class="btn btn-link btn-floating btn-lg text-dark m-1" href="#!" role="button"
+                        <a class="btn btn-link btn-floating btn-lg text-dark m-1" href="https://github.com/luisserranom" role="button"
                         data-mdb-ripple-color="dark"><i class="fab fa-github"></i></a>
                         </center>
                     </div>
@@ -171,10 +135,10 @@
                         <br>
                         <h4>Rocio Quezada</h4>
                         <!-- Linkedin -->
-                        <a class="btn btn-link btn-floating btn-lg text-dark m-1" href="#!" role="button"
+                        <a class="btn btn-link btn-floating btn-lg text-dark m-1" href="https://www.linkedin.com/in/rocio-jiresh-quezada-rodriguez-436008256/" role="button"
                         data-mdb-ripple-color="dark"><i class="fab fa-linkedin"></i></a>
                         <!-- Github -->
-                        <a class="btn btn-link btn-floating btn-lg text-dark m-1" href="#!" role="button"
+                        <a class="btn btn-link btn-floating btn-lg text-dark m-1" href="https://github.com/RocioQ01" role="button"
                         data-mdb-ripple-color="dark"><i class="fab fa-github"></i></a>
                         </center>
                     </div>
