@@ -65,8 +65,8 @@
 </nav>
 <body>
     <div class="container-fluid text-center-sm" >
-      <div class="row" style="border: 0.1px solid black;">
-        <div class="col" style="height: 600px; border: 0.1px solid black;"  >
+      <div class="row">
+        <div class="col" style="height: 600px;"  >
           <!--Reporte-->
           <!--Inicio Buscador-->
           <div class="col" >
@@ -135,17 +135,199 @@
 
         </div>
         <div class="col-8" style="height: 600px;">
-          <div id='map' style="width: 100%; height: 100%; background-color:rgb(255, 255, 255); border: 0.1px solid black;">
-            <button type="button" class="btn btn" data-bs-toggle="modal" style="background-color: #C6D166;" data-bs-target="#exampleModal">
-    			Agregar ubicación
-			</button>
-			<button type="button" class="btn btn" data-bs-toggle="modal" style="background-color: #C6D166;" data-bs-target="#exampleModal">
-   	 			Crear reporte
-			</button>
+          <div id='map'>
           </div>
         </div>
       </div>
     </div>
+	
+	<div class="row">
+		<div class="col">
+		
+		<!-- Button trigger modal -->
+<button type="button" class="btn btn" data-bs-toggle="modal" style="background-color: #004445;color: #C6D166;" data-bs-target="#exampleModal">
+    Crear reporte
+</button>
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+    <div class="modal-content">
+        <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Crear reporte</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <!-- Datos -->
+            <div class="container-fluid">
+                <div class="row-4 align-items-center">
+                    <div class="col-4">
+                    <img src="/assets/img/cat.png" class="rounded-circle mx-auto d-block"
+                    alt="Foto de la mascota" style="border: 1px solid; border-color: rgb(143, 142, 142); width: 200px;">
+                    <button class="btn btn" type="button" style="background-color: #C6D166; margin-top: 20px;">Escoger mascota desde perfil</button>
+                    <button class="btn btn" type="button" style="background-color: #C6D166; margin-top: 10px;">Cargar imagenes de mascota</button>
+            </div>
+                </div>
+        
+                        <div class="row align-items-start">
+                            <div class="col-4">
+                                <label for="reporte" class="form-label"><b>Título de reporte</b>
+                                    <input class="form-control" type="text" id="reporte" name="reporte" style="width: 230px;" placeholder="Ej: Busco/Encontré">
+                                    <span class="small" style="color: gray;">Ingrese título para su reporte</span>
+                                    </label>
+                        </div>
+                        <div class="col-4">
+                            <label for="form-label" id="seleccion"><b>Tipo reporte</b></label>
+                            <select class="form-select" aria-label="Default select example">
+                                <option selected>Seleccione tipo reporte</option>
+                                <option value="1"></option>
+                                <option value="2"></option>
+                                <option value="3"></option>
+                            </select>
+                            <span class="small" style="color: gray;">Escoge un tipo de reporte</span>
+                        </div>
+                        </div>
+                        <div class="row align-items-start">
+                            <div class="col-4">
+                                <label for="reporte" class="form-label"><b>Nombre mascota</b>
+                                    <input class="form-control" type="text" id="reporte" name="reporte" style="width: 230px;" placeholder="Ej: Michito">
+                                    <span class="small" style="color: gray;">Ingrese nombre de la mascota</span>
+                                    </label>
+                        </div>
+                        <div class="col-4">
+                            <label for="reporte" class="form-label"><b>Nº Chip</b>
+                                <input class="form-control" type="text" id="reporte" name="reporte" style="width: 230px;" placeholder="Ej: 123456789012345">
+                                <span class="small" style="color: gray;">Ingrese número de chip (Opcional)</span>
+                                </label>
+                        </div>
+                        <div class="col-4">
+                            <label for="form-label" id="seleccion"><b>Especie</b></label>
+                            <select class="form-select" aria-label="Default select example">
+                                <option selected>Seleccione especie de la mascota</option>
+                                <option value="1"></option>
+                                <option value="2"></option>
+                                <option value="3"></option>
+                            </select>
+                            <span class="small" style="color: gray;">Escoge la especie de su mascota</span>
+                        </div>
+                        </div>
+                        <div class="row align-items-start">
+                            <div class="col">
+                                <label for="form-label" id="seleccion"><b>Raza</b></label>
+                            <select class="form-select" aria-label="Default select example">
+                                <option selected>Seleccione raza de la mascota</option>
+                                <option value="1"></option>
+                                <option value="2"></option>
+                                <option value="3"></option>
+                            </select>
+                            <span class="small" style="color: gray;">Escoge la raza de su mascota</span>
+                            </div>
+                            <div class="col">
+                                <label for="form-label" id="seleccion"><b>Patrón</b></label>
+                            <select class="form-select" aria-label="Default select example">
+                                <option selected>Seleccione un patrón de su mascota</option>
+                                <option value="1"></option>
+                                <option value="2"></option>
+                                <option value="3"></option>
+                            </select>
+                            <span class="small" style="color: gray;">Escoge un patrón de pelaje/plumaje</span>
+                            </div>
+                            <div class="col">
+                                <label for="form-label" id="seleccion"><b>Tamaño</b></label>
+                            <select class="form-select" aria-label="Default select example">
+                                <option selected>Seleccione tamaño de su mascota</option>
+                                <option value="1"></option>
+                                <option value="2"></option>
+                                <option value="3"></option>
+                            </select>
+                            <span class="small" style="color: gray;">Escoge el tamaño de su mascota</span>
+                            </div>
+                        </div>
+                            <div class="row align-items-start">
+                                <div class="col">
+                                    <label for="exampleFormControlTextarea1" class="form-label"><b>Descripción</b></label>
+                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"
+                            placeholder="Escribe las características de tu mascota aquí..." style="width: 740px;"></textarea>
+                            <span class="small" style="color: gray;">Describe detalladamete a tu mascota</span>
+                                </div>
+                            </div>
+        </div>
+        <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+        <button type="button" class="btn btn" style="background-color: #C6D166;">Enviar</button>
+        </div>
+    </div>
+    </div>
+</div>
+		
+		</div>
+	
+	<div class="col">
+	
+	<!-- Button trigger modal -->
+<button type="button" class="btn btn" data-bs-toggle="modal" style="background-color: #004445;color: #C6D166;" data-bs-target="#exampleModal1">
+    Agregar ubicación
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+    <div class="modal-content">
+        <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">¡Comparte un lugar!</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <div class="container-fluid">
+                <div class="row align-items-start">
+                    <div class="col">
+                        <label for="" class="col-form-label"><b>Nombre del lugar</b>
+                            <input class="form-control" type="text" id="" name=""
+                            style="width: 430px;" placeholder="Ej: Parque Inés de Suárez">
+                        </label>
+                    <!--=====================================-->
+                    <div class="col">
+                    <label for="Especie class col-form-label" id="seleccion"><b>Categoría</b></label>
+                <select class="form-select" aria-label="Default select example" style="width: 430px;">
+                    <option class="form-control" selected>Seleccione categoría</option>
+                    <option class="form-control" value="Especie"></option>
+                    <option class="form-control" value="Especie"></option>
+                    <option class="form-control" value="Especie"></option>
+                </select>
+                    </div>
+                    <!--=====================================-->
+                        <label for="" class="col-form-label"><b>Dirección</b>
+                            <input class="form-control" type="text" id="" name=""
+                            style="width: 430px;" placeholder="Ej: Antonio varas 1510,Providencia,Región Metropolitana">
+                        </label>
+                    <!--=====================================-->
+                        <label for="" class="col-form-label"><b>Horario</b>
+                                <input class="form-control" type="text" id="" name=""
+                                style="width: 430px;" placeholder="Ej: Lunes a sábado de 09:00 a 18:00">
+                        </label>
+                    <!--=====================================-->
+                    <label class="control-label">Select File</label>
+                    <input id="input-b5" name="input-b5[]" type="file" multiple>
+                    <script>
+                    $(document).ready(function() {
+                    $("#input-b5").fileinput({showCaption: false, dropZoneEnabled: false});
+                    });
+                    </script>
+                    </div>
+                </div>
+            </div>
+            </div>
+        <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+        <button type="button" class="btn btn" style="background-color: #C6D166;">Enviar</button>
+        </div>
+    </div>
+    </div>
+</div>
+	
+	</div>
+	
+	</div>
+    
 
 </body>
 <footer class="text-center text-white" style="background-color: #004445; margin-top: 50px; ">
@@ -186,5 +368,5 @@
 integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
 crossorigin="anonymous">
 </script>
-<script src="<c:url value="/resources/static/assets/js/maps.js" />"></script>
+<script src="/assets/js/maps.js"></script>
 </html>
