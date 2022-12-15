@@ -27,7 +27,7 @@ public class ComunaServiceImpl implements ComunaService{
 
 	@Override
 	public String actualizarComuna(Comuna comuna) {
-		Boolean existe = comunaRepository.existsById(comuna.getIdComuna());
+		Boolean existe = comunaRepository.existsById(comuna.getId());
 		return null;
 	}
 

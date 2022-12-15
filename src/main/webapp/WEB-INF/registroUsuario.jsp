@@ -129,40 +129,40 @@
                         </div>
                     </div>
                     <div class="row align-items-start" id="rowform">
-                        <div class="col">
+                        <div class="col-4">
                             <label for="calle" class="form-label">Calle</label>
                             <input type="text" class="form-control" id="calle" name="calle">
                             <div class="form-text">Ingrese su calle</div>
                         </div>
-                        <div class="col">
+                        <div class="col-4">
                             <label for="numDir" class="form-label">Número</label>
                             <input type="number" class="form-control" id="numDir" name="numDir">
                             <div class="form-text">Ingrese número de dirección</div>
                         </div>
-                        <div class="col">
-                            <label for="comuna" class="form-label">Comuna</label>
-                            <select class="form-select" aria-label="Default select example" id="comuna" name="comuna">
-                                <option selected>Seleccione comuna</option>
-                                <option value="1">One</option>
-                                <option value="2">Two</option>
-                                <option value="3">Three</option>
-                            </select>
-                        </div>
                     </div>
                     <div class="row align-items-start" id="rowform">
+	                        <div class="col-4">
+	                            <label for="region" class="form-label">Región</label>
+	                            <select class="form-select" aria-label="Default select example" id="region" name="region">
+	                                <option selected>Seleccione región</option>
+	                                <c:forEach var="region" items="${listaRegiones}">
+					 					<option value="${region.id}">${region.descripcion}</option>			  
+					 				</c:forEach>
+	                            </select>
+	                        </div>
+	                        <div class="col">
+	                            <label for="comuna" class="form-label">Comuna</label>
+	                            <select type="submit" class="form-select" aria-label="Default select example" id="comuna" name="comuna">
+	                                <option selected>Seleccione comuna</option>
+	                                <c:forEach var="comuna" items="${listaComunas}">
+					 					<option value="${comuna.id}">${comuna.descripcion}</option>			  
+					 				</c:forEach>
+	                            </select>
+	                        </div>
                         <div class="col-4">
-                            <label for="ciudad" class="form-label">Ciudad</label>
+                            <label for="provincia" class="form-label">Provincia</label>
                             <select class="form-select" aria-label="Default select example" id="ciudad" name="ciudad">
                                 <option selected>Seleccione ciudad</option>
-                                <option value="1">One</option>
-                                <option value="2">Two</option>
-                                <option value="3">Three</option>
-                            </select>
-                        </div>
-                        <div class="col-4">
-                            <label for="region" class="form-label">Región</label>
-                            <select class="form-select" aria-label="Default select example" id="region" name="region">
-                                <option selected>Seleccione región</option>
                                 <option value="1">One</option>
                                 <option value="2">Two</option>
                                 <option value="3">Three</option>

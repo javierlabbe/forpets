@@ -51,7 +51,7 @@ public class Provincia {
 
 	@JsonIgnore
 	@OneToMany(mappedBy = "provincia", fetch = FetchType.EAGER)
-	private List<Comuna> comuna;
+	private List<Comuna> comunas;
 
 	@Column(updatable = false)
 	@DateTimeFormat(pattern = "yyyy-MM-dd")

@@ -38,7 +38,7 @@ import lombok.ToString;
 public class Comuna {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long idComuna;
+	private Long id;
 
 	@NotNull
 	@Size(min = 1, max = 30)

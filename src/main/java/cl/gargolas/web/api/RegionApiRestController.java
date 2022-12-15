@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import cl.gargolas.web.models.Comuna;
+import cl.gargolas.web.models.Provincia;
 import cl.gargolas.web.models.Region;
 import cl.gargolas.web.services.RegionServiceImpl;
 
@@ -44,5 +46,17 @@ public class RegionApiRestController {
 	@GetMapping("/listar/regiones") 
 	public List<Region> obtenerListaRegiones() {
 		return regionServiceImpl.obtenerListaRegiones();
+	}
+	
+	@GetMapping("/lista/provincias")
+	public List<Provincia> listaProvincias(@RequestParam(value="id", required = false)Long id) {
+		Region region = regionServiceImpl.obtenerRegion(id);
+		List<Provincia> provincias = region.getProvincias();
+		return provincias;
+	}
+	
+	@GetMapping("/lista/comunas")
+	public List<Comuna> listaComunas(@RequestParam(value="id", required = false)Long id) {
+		return regionServiceImpl.obtenerListaComunas(id);
 	}
 }

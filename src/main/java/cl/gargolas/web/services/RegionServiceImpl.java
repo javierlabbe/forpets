@@ -1,10 +1,13 @@
 package cl.gargolas.web.services;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import cl.gargolas.web.models.Comuna;
+import cl.gargolas.web.models.Provincia;
 import cl.gargolas.web.models.Region;
 import cl.gargolas.web.repositories.RegionRepository;
 
@@ -28,7 +31,7 @@ public class RegionServiceImpl implements RegionService{
 
 	@Override
 	public String actualizarRegion(Region region) {
-		Boolean existe = regionRepository.existsById(region.getIdRegion());
+		Boolean existe = regionRepository.existsById(region.getId());
 		return null;
 	}
 
@@ -41,5 +44,19 @@ public class RegionServiceImpl implements RegionService{
 	@Override
 	public List<Region> obtenerListaRegiones() {
 		return regionRepository.findAll();
+	}
+
+	@Override
+	public List<Comuna> obtenerListaComunas(Long id) {
+		Region region = regionRepository.findById(id).get();
+		List<Provincia> provincias = region.getProvincias();
+		List<Comuna> comunas = new ArrayList<Comuna>();
+		for (Provincia provincia : provincias) {
+			List<Comuna> comunasProvincia = provincia.getComunas();
+			for (Comuna comunaProvincia : comunasProvincia) {
+				comunas.add(comunaProvincia);
+			}
+		}
+		return comunas;
 	}
 }

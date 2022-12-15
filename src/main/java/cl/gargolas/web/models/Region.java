@@ -38,15 +38,15 @@ import lombok.ToString;
 public class Region {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private Long idRegion;
+	private Long id;
 	
 	@NotNull
 	@Size(min=1,max=100)
 	private String descripcion;
 	
 	@JsonIgnore
-	@OneToMany(mappedBy = "region",fetch = FetchType.EAGER)
-	private List<Provincia> provincia;
+	@OneToMany(mappedBy = "region",fetch = FetchType.LAZY)
+	private List<Provincia> provincias;
 	
 	@Column(updatable = false)
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
@@ -56,13 +56,13 @@ public class Region {
 	private Date updatedAt;
 	
 	@PrePersist
-	protected void onCreate() {
-		this.createdAt = new Date();
+	protected void onCreate(){
+		this.setUpdatedAt(new Date());
 	}
-
+	
 	@PreUpdate
-	protected void onUpdate() {
-		this.updatedAt = new Date();
+	protected void onUpdate(){
+		this.setUpdatedAt(new Date());
 	}
 	
 }
