@@ -10,7 +10,8 @@
  integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
      
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
-<link href="Style.css" rel="stylesheet"> 
+<link href="Style.css" rel="stylesheet">
+<link href="/assets/css/mapaStyle.css" rel="stylesheet">
 
 <style>
 *{
@@ -134,8 +135,14 @@
 
         </div>
         <div class="col-8" style="height: 600px;">
-          <div id='map' style="width: 100%; height: 100%; background-color:rgb(255, 255, 255); border: 0.1px solid black;"></div>
-          
+          <div id='map' style="width: 100%; height: 100%; background-color:rgb(255, 255, 255); border: 0.1px solid black;">
+            <button type="button" class="btn btn" data-bs-toggle="modal" style="background-color: #C6D166;" data-bs-target="#exampleModal">
+    			Agregar ubicación
+			</button>
+			<button type="button" class="btn btn" data-bs-toggle="modal" style="background-color: #C6D166;" data-bs-target="#exampleModal">
+   	 			Crear reporte
+			</button>
+          </div>
         </div>
       </div>
     </div>
@@ -179,6 +186,5 @@
 integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
 crossorigin="anonymous">
 </script>
-<script src="maps.js"></script>
-<script type="text/javascript " src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.0.1/mdb.min.js "></script>
+<script src="<c:url value="/resources/static/assets/js/maps.js" />"></script>
 </html>
