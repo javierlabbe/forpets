@@ -1,7 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
-<html>
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
@@ -11,19 +12,6 @@
     <script src="https://kit.fontawesome.com/64af136b72.js" crossorigin="anonymous"></script>
    <link href="/Assets/CSS/stylesHome.css" rel="stylesheet">
  
-    <!--style>
-        body {
-            background-image: url("/assets/img/Foto_home.png");
-            background-repeat: no-repeat;
-            background-attachment:scroll;
-			background-size:contain;
-        }
-
-        *{
-            margin:0%;
-            padding:0%;
-        }
-    </style-->
 </head>
 
 <!-- Navbar -->
@@ -45,7 +33,7 @@
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <!-- Left links -->
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#"><strong>Nosotros</strong></a>
+                    <a class="nav-link active" aria-current="page" href="/registro/equipo"><strong>Nosotros</strong></a>
                 </li>
             </ul>
 
@@ -62,25 +50,35 @@
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                             <div class="form-area" style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
                                 <h1 class="text-center">Hola nuevamente!</h1>
+								<c:if test="${msgError!=null}">
+			    	    			<div class="alert alert-danger" role="alert">
+										<c:out value="${msgError}"></c:out>
+									</div>
+			    				</c:if>
+						    	<c:if test="${msgOk!=null}">
+						    		<div class="alert alert-success" role="alert">
+										<c:out value="${msgOk}"></c:out>
+									</div>
+						    	</c:if>
                                 <form>
                                     <div class="mb-3 mt-4" style="color:black;">
                                         <label for="exampleInputEmail1" class="form-label">Email</label>
-                                        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                                        <input type="email" class="form-control" id="mail" placeholder="Ingresa tu email" required="required">
                                     </div>
                                     <div class="mb-3" style="color:black;">
                                         <label for="exampleInputPassword1" class="form-label">Contraseña</label>
-                                        <input type="password" class="form-control" id="exampleInputPassword1">
+                                        <input type="password" class="form-control" id="password" placeholder="Ingresa tu contraseña" required="required">
                                     </div>
-                                    <button type="submit" class="btn mt-3" id="BotonNav2">Acceder</button>
+                                    <a type="submit" class="btn mt-3" id="BotonNav2" href="/mapa/mapaPrincipal">Acceder</a>
                                     <br><hr>
-                                    <p style="font-weight:bold; color:black;">¿No estás registrada/o?<a href="#">Regístrate</a></p>
+                                    <p style="font-weight:bold; color:black;">¿No estás registrada/o?<a href="/registro/usuario"> Regístrate</a></p>
                                 </form>
                             </div>
                         </div>
                       </div>
                     </div>
          </div>
-                <button type="button" class="btn btn-primary" id="BotonNav1">Registrarse</button>
+                <a type="button" class="btn btn-primary" id="BotonNav1" href="/registro/usuario">Registrarse</a>
             </div>
         </div>
     </div>

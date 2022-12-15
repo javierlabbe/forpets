@@ -2,6 +2,7 @@ package cl.gargolas.web.services;
 
 import java.util.List;
 
+import org.mindrot.jbcrypt.BCrypt;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,8 +17,16 @@ public class UsuarioServiceImpl implements UsuarioService { //Logica de negocio
 	
 	@Override
 	public Boolean guardarUsuario(Usuario usuario) {
-		usuarioRepository.save(usuario);
-		return null;
+		Usuario retornoUsuario = usuarioRepository.findByEmail(usuario.getEmail());
+		
+		if(retornoUsuario == null) {
+			String passHashed= BCrypt.hashpw(usuario.getPassword(), BCrypt.gensalt());
+			usuario.setPassword(passHashed);
+			usuarioRepository.save(usuario);
+			return true;
+		}else {
+			return false;
+		}
 	}
 
 	@Override
@@ -42,5 +51,22 @@ public class UsuarioServiceImpl implements UsuarioService { //Logica de negocio
 	public List<Usuario> obtenerListaUsuarios() {
 		return usuarioRepository.findAll();
 	}
+	
+	//validación para login
+	@Override
+	public Boolean ingresoUsuario(String email, String password) {
+		Usuario usuario = usuarioRepository.findByEmail(email);
+		if(usuario!= null) {
+			boolean resultadoPwd = BCrypt.checkpw(password,usuario.getPassword());
+			if(resultadoPwd) { 
+				return true;
+			}else {
+				return false;
+			}
+			}else {
+			return false;
+		}
+	}
+
 
 }

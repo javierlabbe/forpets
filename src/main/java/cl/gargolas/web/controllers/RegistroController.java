@@ -57,4 +57,9 @@ public class RegistroController {
 		usuarioServiceImpl.guardarUsuario(usuario);
 		return "home.jsp";
 	}
+	
+	@GetMapping("/equipo") 
+	public String equipo() {
+		return "equipo.jsp";
+	}
 }

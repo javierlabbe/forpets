@@ -7,5 +7,6 @@ import cl.gargolas.web.models.Usuario;
 
 @Repository
 public interface UsuarioRepository extends JpaRepository<Usuario, Long>{
-	//Aqui realizamos CRUD y trabajamos con BD
+	//validación para login:
+	Usuario findByEmail(String email);
 }
