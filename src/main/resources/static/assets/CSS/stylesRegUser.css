@@ -1,0 +1,33 @@
+@charset "UTF-8";
+
+#BotonBody{
+	--bs-btn-font-weight: 600;
+    --bs-btn-color: #004445;
+    --bs-btn-bg: #C6D166;
+    --bs-btn-border-color: #C6D166;
+    --bs-btn-border-radius: .5rem;
+    --bs-btn-hover-color: #C6D166;
+    --bs-btn-hover-bg: #7c8343a4;
+    --bs-btn-hover-border-color: #7c8343a4;
+    --bs-btn-focus-shadow-rgb: var(--bd-violet-rgb);
+    --bs-btn-active-color: #C6D166;
+    --bs-btn-active-bg:#004445 ;
+    --bs-btn-active-border-color: #C6D166;
+
+}
+
+#selectFile{
+	--bs-btn-font-weight: 600;
+    --bs-btn-color: #004445;
+    --bs-btn-bg: #C6D166;
+    --bs-btn-border-color: #C6D166;
+    --bs-btn-border-radius: .5rem;
+    --bs-btn-hover-color: #C6D166;
+    --bs-btn-hover-bg: #7c8343a4;
+    --bs-btn-hover-border-color: #7c8343a4;
+    --bs-btn-focus-shadow-rgb: var(--bd-violet-rgb);
+    --bs-btn-active-color: #C6D166;
+    --bs-btn-active-bg:#004445 ;
+    --bs-btn-active-border-color: #C6D166;
+	width:80%;
+}
