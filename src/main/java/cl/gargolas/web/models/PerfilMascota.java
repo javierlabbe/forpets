@@ -1,6 +1,7 @@
 package cl.gargolas.web.models;
  
-import java.sql.Blob;
+
+
 import java.util.Date;
  
 import javax.persistence.Column;
@@ -18,7 +19,8 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
  
 import org.springframework.format.annotation.DateTimeFormat;
- 
+import org.springframework.web.multipart.MultipartFile;
+
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import lombok.AllArgsConstructor;
@@ -39,13 +41,13 @@ public class PerfilMascota {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long idPerfilMascota;
  
-	@NotNull
+	//@NotNull
 	@Size(min=1,max=15, message= "Error en el ingreso del nombre")
 	private String nombre;
  
-	private Integer nChip;
+	private String nChip;
  
-	private Blob imagen; //importo java.sql
+	private String imagen; //importo java.sql
  
 	@JsonIgnore
 	@ManyToOne(fetch = FetchType.LAZY)
@@ -108,6 +110,8 @@ public class PerfilMascota {
 	protected void onUpdate(){
 		this.setUpdatedAt(new Date());
 	}
+
+	
  
 }
  
