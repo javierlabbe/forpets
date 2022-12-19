@@ -17,6 +17,7 @@ import cl.gargolas.web.models.Direccion;
 import cl.gargolas.web.models.Region;
 import cl.gargolas.web.models.Usuario;
 import cl.gargolas.web.services.ComunaServiceImpl;
+import cl.gargolas.web.services.DireccionServiceImpl;
 import cl.gargolas.web.services.RegionServiceImpl;
 import cl.gargolas.web.services.UsuarioServiceImpl;
 
@@ -31,6 +32,9 @@ public class RegistroController {
 	
 	@Autowired
 	ComunaServiceImpl comunaServiceImpl;
+	
+	@Autowired
+	DireccionServiceImpl direccionServiceImpl;
 	
 	@GetMapping("/usuario")
 	public String mostrarformulario(Model model) {
@@ -59,13 +63,15 @@ public class RegistroController {
 			,@RequestParam("comuna") Long id_comuna 
 			, Model model) {
 		
+		
 		if (pass1.equals(pass2)) {
-			
-			Comuna comuna = new Comuna();
+			Comuna comuna = comunaServiceImpl.obtenerComuna(id_comuna);
 			Direccion direccion = new Direccion();
+			
+			direccion.setComuna(comuna);
 			direccion.setNombreCalle(calle);
 			direccion.setNumeroDireccion(numDir);
-			direccion.setComuna(comuna);
+			direccionServiceImpl.guardarDireccion(direccion);
 			
 			Usuario usuario = new Usuario();
 			usuario.setNombre(nombre);
@@ -82,7 +88,7 @@ public class RegistroController {
 			Boolean resultado = usuarioServiceImpl.guardarUsuario(usuario);
 			
 			if (resultado) {
-				return "#"; //para ir al login
+				return "home.jsp"; //para ir al login
 			} else {
 				model.addAttribute("msgError", "Email o Rut registrado.");
 				return "registroUsuario.jsp";

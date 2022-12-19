@@ -3,6 +3,7 @@ package cl.gargolas.web.models;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -50,7 +51,7 @@ public class Provincia {
 	private Region region;
 
 	@JsonIgnore
-	@OneToMany(mappedBy = "provincia", fetch = FetchType.EAGER)
+	@OneToMany(mappedBy = "provincia", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	private List<Comuna> comunas;
 
 	@Column(updatable = false)
