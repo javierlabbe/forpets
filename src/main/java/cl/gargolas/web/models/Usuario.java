@@ -93,6 +93,10 @@ public class Usuario {
 	@OneToMany(mappedBy = "usuario",cascade = CascadeType.ALL,fetch = FetchType.LAZY)
 	private List<Usuario_Reporte> usuario_reporte;
 
+	@JsonIgnore
+	@OneToMany(mappedBy = "usuario", fetch = FetchType.LAZY)
+	private List<PerfilMascota> perfilMascota;
+	
 	@Column(updatable = false)
 	@DateTimeFormat(pattern="yyyy-MM-dd")
 	private Date createdAt;
