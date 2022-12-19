@@ -1,17 +1,31 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
 	rel="stylesheet"
 	integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
 	crossorigin="anonymous">
+	
 <script src="https://kit.fontawesome.com/67de54155a.js"
 	crossorigin="anonymous"></script>
+	
+<link href="/assets/css/stylesHome.css" rel="stylesheet">
+	
 <title>Registro Mascota</title>
+
+<script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
+    <!--css bootstrap-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+
 </head>
 
 <!-- Navbar -->
@@ -19,7 +33,7 @@
 	style="background-color: #48C6AF; height: 120px;">
 	<div class="container-fluid">
 		<a class="navbar-brand" href="#"> <!--IR AL HOME en href--> <img
-			src="assets/img/logo.png" height="40px" alt="forpets Logo"
+			src="/assets/img/logonegro" height="40px" alt="forpets Logo"
 			loading="lazy" style="margin-top: -1px;" />
 		</a>
 
@@ -46,7 +60,7 @@
 			<!-- Left links -->
 			<div class="d-flex align-items-center">
 				<button type="button" class="btn btn-primary" id="BotonNav1">Cerrar
-					Sesión</button>
+					SesiÃ³n</button>
 			</div>
 		</div>
 	</div>
@@ -54,167 +68,181 @@
 <!-- Navbar -->
 
 <body>
-	<!--=============COLUMNA UNO=============-->
-	<div class="container-fluid">
-		<div class="row">
-			<div class="col-4 text-center">
-				<img src="assets/img/cat.png" class="rounded-circle mx-auto d-block"
-					alt="Foto perfil gato"
-					style="margin-top: 50px; border: 1px solid; border-color: rgb(143, 142, 142); width: 230px;">
-				<button class="btn btn" type="button"
-					style="background-color: #C6D166; margin-top: 50px;">Sube
-					tu foto de perfil</button>
-			</div>
-			<div class="col">
-				<div class="row">
-					<p style="margin-top: 45px;">
-					<h1>Registro mascota</h1>
-					</p>
+	<form action="/registro/guardarmascota" method="post" action="/upload/form" >
+		
+		<!--<c:out value="${Error}"></c:out>-->
+		<c:if test="${Error!=null}"> 
+			    		<div class="alert alert-danger" role="alert">
+							<c:out value="${Error}"></c:out> 
+						</div>
+			    	</c:if>
+		
+		<!--=============COLUMNA UNO=============-->
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-4 text-center">
+					<img src="/assets/img/PerfilMascota.png" class="rounded-circle mx-auto d-block"
+						alt="Foto perfil gato"
+						style="margin-top: 50px; border: 1px solid; border-color: rgb(143, 142, 142); width: 230px;">
+						<br>
+					<!-- Button trigger modal -->
+					<div class="input-group mb-3">
+					  <input type="file" class="form-control" id="inputGroupFile01" id="imagen" name="imagen">
+					</div>
+					
+					
 				</div>
-				<!--=============COLUMNA DOS=============-->
-				<div class="row">
-					<div class="col">
-						<label for="Nombre" class="col-form-label"><b>Nombre:</b>
-							<input class="form-control" type="text" id="nombre" name="nombre"
-							placeholder="Ej: Copito"> </label>
+				<div class="col">
+					<div class="row">
+						<p style="margin-top: 45px;">
+						<h1>Registro mascota</h1>
+						</p>
 					</div>
-					<div class="col">
-						<label for="Especie class col-form-label" id="seleccion"><b>Especie:</b></label>
-						<select class="form-select" aria-label="Default select example"
-							style="width: 250px;">
-							<option class="form-control" selected>Seleccione especie</option>
-							<option class="form-control" value="Especie"></option>
-							<option class="form-control" value="Especie"></option>
-							<option class="form-control" value="Especie"></option>
-						</select>
-					</div>
-					<div class="col">
-						<label for="Especie class col-form-label" id="seleccion"><b>Sexo:</b></label>
-						<select class="form-select" aria-label="Default select example"
-							style="width: 250px;">
-							<option class="form-control" selected>Seleccione sexo</option>
-							<option class="form-control" value="Especie">Macho</option>
-							<option class="form-control" value="Especie">Hembra</option>
-						</select>
-					</div>
-				</div>
-				<!--=============COLUMNA TRES=============-->
-				<div class="row">
-					<div class="col">
-						<label for="Nº Chip" class="col-form-label"><b>Nº
-								Chip:</b> <input class="form-control" type="text" id="Nº Chip"
-							name="Nº Chip" placeholder="Ej: 123456789012345"> </label>
-					</div>
-					<div class="col">
-						<label for="Especie class col-form-label" id="seleccion"><b>Rango
-								etario:</b></label> <select class="form-select"
-							aria-label="Default select example" style="width: 250px;">
-							<option class="form-control" selected>Seleccione rango
-								etario</option>
-							<option class="form-control" value="Especie">Cachorro</option>
-							<option class="form-control" value="Especie">Adulto</option>
-							<option class="form-control" value="Especie">Senior</option>
-						</select>
-					</div>
-					<div class="col">
-						<label for="Especie class col-form-label" id="seleccion"><b>Raza:</b></label>
-						<select class="form-select" aria-label="Default select example"
-							style="width: 250px;">
-							<option class="form-control" selected>Seleccione raza</option>
-							<option class="form-control" value="Especie"></option>
-							<option class="form-control" value="Especie"></option>
-							<option class="form-control" value="Especie"></option>
-						</select>
-					</div>
-				</div>
-				<!--=============COLUMNA CUATRO=============-->
-				<div class="row">
-					<div class="col">
-						<label for="Color" class="col-form-label"><b>Color:</b> <input
-							class="form-control" type="text" id="Color" name="Color"
-							placeholder="Ej: Gris"> </label>
-					</div>
-					<div class="col">
-						<label for="Especie class col-form-label" id="seleccion"><b>Patrón:</b></label>
-						<select class="form-select" aria-label="Default select example"
-							style="width: 250px;">
-							<option class="form-control" selected>Seleccione patrón
-								de pelaje</option>
-							<option class="form-control" value="Especie"></option>
-							<option class="form-control" value="Especie"></option>
-							<option class="form-control" value="Especie"></option>
-						</select>
-					</div>
-					<div class="col">
-						<label for="Especie class col-form-label" id="seleccion"><b>Tamaño:</b></label>
-						<select class="form-select" aria-label="Default select example"
-							style="width: 250px;">
-							<option class="form-control" selected>Seleccione tamaño</option>
-							<option class="form-control" value="Especie">Pequeño</option>
-							<option class="form-control" value="Especie">Mediano</option>
-							<option class="form-control" value="Especie">Grande</option>
-						</select>
-					</div>
-				</div>
-				<!--=============COLUMNA CINCO=============-->
-				<div class="row">
-					<div class="col">
-						<label for="exampleFormControlTextarea1" class="form-label"><b>Descripción:</b></label>
-						<textarea class="form-control" id="exampleFormControlTextarea1"
-							rows="3"
-							placeholder="Escribe sus características especiales aquí..."
-							style="width: 910px;"></textarea>
-					</div>
-					<!--=============COLUMNA BOTÓN=============-->
+					<!--=============COLUMNA DOS=============-->
 					<div class="row">
 						<div class="col">
-							<button class="btn btn" type="button"
-								style="background-color: #C6D166; margin-top: 50px;">Continuar</button>
+							<label for="nombre" class="col-form-label"><b>Nombre:</b>
+								<input class="form-control" type="text" id="nombre" name="nombre"
+								placeholder="Ej: Copito" required style="padding-left:-1000px;"> </label>
+						</div>
+						<div class="col">
+							<label for="especie" class="col-form-label" id="seleccion"><b>Especie:</b></label>
+							<select class="form-select" aria-label="Default select example" id="especie" name="especie"style="width: 250px;">
+								<option class="form-control" value=0>Seleccione especie</option>
+								<c:forEach var="especie" items="${listaEspecies}">
+				 					<option value="${especie.idEspecie}">${especie.descripcion}</option>			  
+				 				</c:forEach>
+							</select>
+						</div>
+						<div class="col">
+							<label for="sexo" class="col-form-label" id="seleccion"><b>Sexo:</b></label>
+							<select class="form-select" aria-label="Default select example" id="sexo" name="sexo" style="width: 250px;">
+								<option class="form-control" value=0>Seleccione sexo</option>
+								<c:forEach var="sexo" items="${listaSexos}">
+				 					<option value="${sexo.idSexo}">${sexo.descripcion}</option>			  
+				 				</c:forEach>
+							</select>
+						</div>
+					</div>
+					<!--=============COLUMNA TRES=============-->
+					<div class="row">
+						<div class="col">
+							<label for="nChip" class="col-form-label">
+								<b>NÂº Chip:</b>
+							</label>
+							<input class="form-control" type="text" id="nChip" name="nChip" placeholder="Ej: 123456789012345" required>
+						</div>
+						<div class="col">
+							<label for="rangoEtario" class="col-form-label" id="seleccion"><b>Rangoetario:</b></label> 
+							<select class="form-select" aria-label="Default select example" id="rangoEtario" name="rangoEtario" style="width: 250px;">
+								<option class="form-control" value=0>Seleccione rango etario</option>
+								<c:forEach var="rangoEtario" items="${listaRangosEtarios}">
+				 					<option value="${rangoEtario.idRangoEtario}">${rangoEtario.descripcion}</option>			  
+				 				</c:forEach>
+							</select>
+						</div>
+						<div class="col">
+							<label for="raza" class="col-form-label" id="seleccion"><b>Raza:</b></label>
+							<select class="form-select" aria-label="Default select example" id="raza" name="raza" style="width: 250px;">
+								<option class="form-control" value=0>Seleccione raza</option>
+								<c:forEach var="raza" items="${listaRazas}">
+				 					<option value="${raza.idRaza}">${raza.descripcion}</option>			  
+				 				</c:forEach>
+							</select>
+						</div>
+					</div>
+					<!--=============COLUMNA CUATRO=============-->
+					<div class="row">
+						<div class="col">
+							<label for="color" class="col-form-label" id="seleccion"><b>Color:</b> 
+							</label>
+							<select class="form-select" aria-label="Default select example" id="color" name="color" style="width: 250px;">
+								<option class="form-control" value=0>Seleccione color principal</option>
+								<c:forEach var="color" items="${listaColores}">
+				 					<option value="${color.idColor}">${color.descripcion}</option>			  
+				 				</c:forEach>
+							</select>
+						</div>
+						<div class="col">
+							<label for="patron" class="col-form-label" id="seleccion"><b>PatrÃ³n:</b></label>
+							<select class="form-select" aria-label="Default select example" id="patron" name="patron" style="width: 250px;">
+								<option class="form-control" value=0>Seleccione patrÃ³n de pelaje</option>
+								<c:forEach var="patron" items="${listaPatrones}">
+				 					<option value="${patron.idPatron}">${patron.descripcion}</option>			  
+				 				</c:forEach>
+							</select>
+						</div>
+						<div class="col">
+							<label for="tamanio" class="col-form-label" id="seleccion"><b>TamaÃ±o:</b></label>
+							<select class="form-select" aria-label="Default select example" id="tamanio" name="tamanio" style="width: 250px;">
+								<option class="form-control" value=0>Seleccione tamaÃ±o</option>
+								<c:forEach var="tamanio" items="${listaTamanios}">
+				 					<option value="${tamanio.idTamanio}">${tamanio.descripcion}</option>			  
+				 				</c:forEach>
+							</select>
+						</div>
+					</div>
+					<!--=============COLUMNA CINCO=============-->
+					<div class="row">
+						<div class="col">
+							<label for="descripcion" class="form-label"><b>DescripciÃ³n:</b></label>
+							<textarea class="form-control" id="descripcion" name="descripcion"
+								rows="3"
+								placeholder="Escribe sus caracterÃ­sticas especiales aquÃ­..."
+								style="width: 910px;"></textarea>
+						</div>
+						<!--=============COLUMNA BOTÃ“N=============-->
+						<div class="row">
+							<div class="col">
+								<input  type="submit" class="btn btn-outline-primary btn-lg" value="Enviar" required>
+								
+							</div>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-	</div>
+	</form>
 </body>
 <!-- FOOTER -->
-<footer class="text-center text-white"
-	style="background-color: #004445; margin-top: 50px;">
-	<div class="container-fluid">
-		<div class="row">
-			<div class="col">
-				<!-- Grid container -->
-				<div class="container pt-4">
-					<!-- Section: Social media -->
-					<section class="mb-4">
-						<!-- Facebook -->
-						<a class="btn btn-link btn-floating btn-lg text-dark m-1"
-							href="#!" role="button" data-mdb-ripple-color="dark"><i
-							class="fab fa-facebook-f" style="color: #C6D166;"></i></a>
-						<!-- Twitter -->
-						<a class="btn btn-link btn-floating btn-lg text-dark m-1"
-							href="#!" role="button" data-mdb-ripple-color="dark"><i
-							class="fab fa-twitter" style="color: #C6D166;"></i></a>
-						<!-- Instagram -->
-						<a class="btn btn-link btn-floating btn-lg text-dark m-1"
-							href="#!" role="button"><i
-							class="fab fa-instagram" style="color: #C6D166;"></i> </a>
-						<h6 style="color: #C6D166;">¡Síguenos!</h6>
-				</div>
-			</div>
-			<div class="col">
-				<img src="assets/img/logo1.png" alt="" style="height: 130px;">
-			</div>
-			<div class="text-center text-dark p-3"
-				style="background-color: rgba(0, 0, 0, 0.2);">
-				<p style="color: #C6D166;">FortPets©2022</p>
-			</div>
-		</div>
-	</div>
+<footer class="text-center text-white" style="background-color: #004445; margin-top: 50px; ">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col">
+                <!-- Grid container -->
+                <div class="container pt-4">
+                    <!-- Section: Social media -->
+                    <section class="mb-4">
+                        <!-- Facebook -->
+                        <a class="btn btn-link btn-floating btn-lg text-dark m-1" href="#!" role="button"
+                            data-mdb-ripple-color="dark"><i class="fab fa-facebook-f" style="color: #C6D166;"></i></a>
+                        <!-- Twitter -->
+                        <a class="btn btn-link btn-floating btn-lg text-dark m-1" href="#!" role="button"
+                            data-mdb-ripple-color="dark"><i class="fab fa-twitter" style="color: #C6D166;"></i></a>
+                        <!-- Instagram -->
+                        <a class="btn btn-link btn-floating btn-lg text-dark m-1" href="#!" role="button"><i
+                                class="fab fa-instagram" style="color: #C6D166;"></i>
+                        </a>
+                        <h6 style="color:#C6D166 ;">Â¡SÃ­guenos!</h6>
+
+                </div>
+            </div>
+            <div class="col" style="margin-left: 200px; margin-top: 35px;">
+                <img src="/assets/img/logoverde" alt="" style="height: 50px;">
+            </div>
+            <div class="text-center text-dark p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+                <p style="color:#C6D166 ;">ForPetsÂ©2022</p>
+            </div>
+        </div>
+    </div>
 </footer>
+
 <!-- FOOTER -->
-<script
-	src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
 	integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
-	crossorigin="anonymous"></script>
+	crossorigin="anonymous">
+</script>
+
+
 </html>
