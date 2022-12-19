@@ -54,7 +54,7 @@ public class RegistroController {
 			,@RequestParam("pass2") String pass2
 			,@RequestParam("telefono") String telefono
 			,@RequestParam("calle") String calle
-			,@RequestParam("numDir") Long numDir
+			,@RequestParam("numDir") String numDir
 			,@RequestParam("region") Long id_region
 			,@RequestParam("comuna") Long id_comuna 
 			, Model model) {

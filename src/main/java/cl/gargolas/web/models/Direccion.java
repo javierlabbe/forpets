@@ -46,7 +46,7 @@ public class Direccion {
 	
 	@NotNull
 	@Size(min=1,max=10)
-	private Long numeroDireccion;
+	private String numeroDireccion;
 	
 	@JsonIgnore
 	@ManyToOne(fetch = FetchType.EAGER)
