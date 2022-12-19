@@ -44,13 +44,7 @@
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <!-- Left links -->
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">LINK 2</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">LINK 3</a>
+                    <a class="nav-link active" aria-current="page" href="http://localhost:9082/home">Home</a>
                 </li>
             </ul>
 
@@ -89,8 +83,6 @@
                         <input type="text" class="form-control" id="nombre" name="nombre" required>
                         <div class="form-text">Ingrese su nombre</div>
                     </div>
-                </div>
-                <div class="row align-items-start" id="rowform">
                     <div class="col-4">
                         <label for="apellido1" class="form-label">Primer apellido</label>
                         <input type="text" class="form-control" id="apellido1" name="apellido1" required>
@@ -112,30 +104,6 @@
                         <label for="rut" class="form-label">Rut</label>
                         <input type="text" class="form-control" id="rut" name="rut" required>
                         <div class="form-text">Ingrese su rut</div>
-                    </div>
-                </div>
-                <div class="row align-items-start" id="rowform">
-                    <div class="col-4">
-                        <label for="telefono" class="form-label">Teléfono</label>
-                        <input type="text" class="form-control" id="telefono" name="telefono" required>
-                        <div class="form-text">Ingrese su teléfono</div>
-                    </div>
-                    <div class="col-4">
-                        <label for="email" class="form-label">Email</label>
-                        <input type="email" class="form-control" id="email" name="email" required>
-                        <div class="form-text">Ingrese su email</div>
-                    </div>
-                </div>
-                <div class="row align-items-start" id="rowform">
-                    <div class="col-4">
-                        <label for="password" class="form-label">Contraseña</label>
-                        <input type="password" class="form-control" id="password" name="pass1" required>
-                        <div class="form-text">Ingrese su contraseña</div>
-                    </div>
-                    <div class="col-4">
-                        <label for="password2" class="form-label">Confirmar contraseña</label>
-                        <input type="password" class="form-control" id="password2" name="pass2" required>
-                        <div class="form-text">Confirme su contraseña</div>
                     </div>
                 </div>
                 <div class="row align-items-start" id="rowform">
@@ -169,6 +137,30 @@
 	 						</c:forEach>
                          </select>
                      </div>             
+                </div>
+                <div class="row align-items-start" id="rowform">
+                    <div class="col-4">
+                        <label for="telefono" class="form-label">Teléfono</label>
+                        <input type="text" class="form-control" id="telefono" name="telefono" required>
+                        <div class="form-text">Ingrese su teléfono</div>
+                    </div>
+                    <div class="col-4">
+                        <label for="email" class="form-label">Email</label>
+                        <input type="email" class="form-control" id="email" name="email" required>
+                        <div class="form-text">Ingrese su email</div>
+                    </div>
+                </div>
+                <div class="row align-items-start" id="rowform">
+                    <div class="col-4">
+                        <label for="password" class="form-label">Contraseña</label>
+                        <input type="password" class="form-control" id="password" name="pass1" required>
+                        <div class="form-text">Ingrese su contraseña</div>
+                    </div>
+                    <div class="col-4">
+                        <label for="password2" class="form-label">Confirmar contraseña</label>
+                        <input type="password" class="form-control" id="password2" name="pass2" required>
+                        <div class="form-text">Confirme su contraseña</div>
+                    </div>
                 </div>
                 <div class="d-grid gap-2 d-md-flex justify-content-md-end">
                     <input type="submit" class="btn btn-primary" value="Continuar" id="BotonBody">
