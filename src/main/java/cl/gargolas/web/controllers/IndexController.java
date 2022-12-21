@@ -36,8 +36,10 @@ public class IndexController {
 
 //Validación para login
 	@PostMapping("/login")
-	public String ingresoUsuario(@ModelAttribute("email") String email,
-			@ModelAttribute("password") String password, Model model, HttpSession session) {
+	public String ingresoUsuario(@RequestParam("email") String email,
+			@RequestParam("password") String password
+			, Model model
+			, HttpSession session) {
 		
 		Boolean resultadoLogin = usuarioServiceImpl.ingresoUsuario(email, password);
 		

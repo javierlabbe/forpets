@@ -74,12 +74,12 @@
     	</c:if>
             
             <div class="form-outline mb-4">
-              <input type="email" id="email" class="form-control form-control-lg" required placeholder="Ingresa tu email"/>
+              <input type="email" id="email" class="form-control form-control-lg" required placeholder="Ingresa tu email" name="email"/>
               <label class="form-label" for="email">Email</label>
             </div>
 
             <div class="form-outline mb-4">
-              <input type="password" id="password" class="form-control form-control-lg" required placeholder="Ingresa tu contraseña"/>
+              <input type="password" id="password" class="form-control form-control-lg" required placeholder="Ingresa tu contraseña" name="password"/>
               <label class="form-label" for="password">Contraseña</label>
             </div>
 

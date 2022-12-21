@@ -86,7 +86,7 @@ public class RegistroController {
 			Boolean resultado = usuarioServiceImpl.guardarUsuario(usuario);
 			
 			if (resultado) {
-				return "redirect::/home/login";
+				return "redirect:/index/login";
 			} else {
 				model.addAttribute("msgError", "Email o Rut registrado.");
 				return "registroUsuario.jsp";
