@@ -3,6 +3,7 @@ package cl.gargolas.web.models;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -46,7 +47,7 @@ public class Direccion {
 	
 	@NotNull
 	@Size(min=1,max=10)
-	private Long numeroDireccion;
+	private String numeroDireccion;
 	
 	@JsonIgnore
 	@ManyToOne(fetch = FetchType.EAGER)
@@ -54,7 +55,7 @@ public class Direccion {
 	private Comuna comuna;
 
 	@JsonIgnore
-	@OneToMany(mappedBy = "direccion", fetch = FetchType.EAGER)
+	@OneToMany(mappedBy = "direccion",cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	private List<Usuario> usuario;
 
 	@Column(updatable = false)

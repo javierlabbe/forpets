@@ -9,4 +9,6 @@ import cl.gargolas.web.models.Usuario;
 public interface UsuarioRepository extends JpaRepository<Usuario, Long>{
 	//validación para login:
 	Usuario findByEmail(String email);
+
+	Usuario findByRut(String rut);
 }

@@ -28,7 +28,7 @@
 
 
 </head>
-<nav class="navbar navbar-expand-lg" style="background-color: #48C6AF; height: 120px;">
+<nav class="navbar navbar-expand-lg" style="background-color: #48C6AF; height: 90px;">
     <div class="container-fluid">
         <a class="navbar-brand" href="#">
             <!--IR AL HOME en href-->
@@ -46,13 +46,7 @@
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <!-- Left links -->
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Ver Mapa</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Hacer Reporte</a>
+                    <a class="nav-link active" aria-current="page" href="http://localhost:9082/home"><b>Home</b></a>
                 </li>
             </ul>
 
@@ -69,85 +63,256 @@
         <div class="col" style="height: 600px;"  >
           <!--Reporte-->
           <!--Inicio Buscador-->
-          <div class="col" >
+        <div class="col">
             <div class="input-group">
-              <div class="form-outline">
-                <input type="search" id="form1" class="form-control" />
-              </div>
-              
+            <div class="form-outline">
+                <input type="search" id="form1" class="form-control" style="width: 400px; margin-top: 15px;" placeholder="¿Qué buscas?"/>
+                <div class="dropdown mt-3">
+                    <button class="btn btn dropdown-toggle" type="button" data-bs-toggle="dropdown" style="background-color: #C6D166;">
+                    Filtrar
+                    </button>
+                    <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="#">Parques</a></li>
+                    <li><a class="dropdown-item" href="#">Peluquerias caninas</a></li>
+                    <li><a class="dropdown-item" href="#">Reportes</a></li>
+                    <li><a class="dropdown-item" href="#">Tienda de mascotas</a></li>
+                    <li><a class="dropdown-item" href="#">Veterinarias</a></li>
+                    </ul>
+                </div>
             </div>
-          </div>
-          <!--Fin Buscador-->
-
-          
-          <!--Inicio Filtro-->
-          <div class="row"  >
-            <div class="col"  >
-              <svg  xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-filter-square-fill" viewBox="0 0 16 16">
-                <path d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm.5 5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1 0-1zM4 8.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm2 3a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 0 1h-3a.5.5 0 0 1-.5-.5z"/>
-              </svg>
             </div>
-          </div>
-          <!--fin Filtro-->
-          
+        </div><br>
+        <!--Fin Buscador-->
           
           <div class="row" style="background-color:rgb(255, 255, 255);">
 
-            <!-- parte imagen de Reporte-->
-            <div class="col" style="border: 0.1 solid black;">
-              <img
-                  src="https://cdn-icons-png.flaticon.com/512/1976/1976784.png"
-                  class="rounded-circle"
-                  height="90"
-                  alt="Black and White Portrait of a Man"
-                  loading="lazy"
-                  
+            <!-- ==IMAGEN VETERINARIA== -->
+            <div class="col-3">
+            <img
+                src="/assets/img/VETERINARIA.png"
+                class="rounded-circle"
+                height="70" style="margin-top: 5px; margin-left: 10px"
+                alt="Black and White Portrait of a Man"
+                loading="lazy"
+                
                 />
             </div>
-            <!-- Fin parte imagen de Reporte-->
+            <!-- ==FIN IMAGEN VETERINARIA==-->
 
-            <!-- parte Titulo de Reporte-->
-            <div class="col" style="background-color:rgb(255, 255, 255);">
-              <table>
+            <!-- ==TITULO VETERINARIA== -->
+            <div class="col-8">
+            <table>
                 <thead>
-                  <tr>
+                <tr>
                     <th>
-                      <h3>Titulo zona</h3>
+                    <h6>Veterinaria Patitas Suaves</h6>
                     </th>
-                  </tr>
+                </tr>
                 </thead>
                 <tbody>
-                  <tr>
+                <tr>
                     <th>
-                      <h6>Lorem ipsum dolor sit amet. </h6>
+                    <h6 style="color:rgb(143, 142, 142)">Alonso de Córdova #2445,</h6>
                     </th>
-                  </tr>
+            </tr>
                 </tbody>
 
-              </table>
-              
-              <h6>Lorem ipsum dolor sit amet. 
-                </h6>
+            </table>
+            
+            <h6 style="color:rgb(143, 142, 142)">Providencia</h6>
             </div>
-            <!-- parte Titulo de Reporte-->
-          </div>
-          <!--Fin Reporte-->
+            <!-- ==FIN TITULO VETERINARIA== -->
+        </div><hr>
+        <!-- ==FIN REPORTE== -->
+
+        <div class="row" style="background-color:rgb(255, 255, 255);">
+
+            <!-- ==IMAGEN PARQUE== -->
+            <div class="col-3">
+            <img
+                src="/assets/img/PARQUE.png"
+                class="rounded-circle"
+                height="70" style="margin-top: 5px; margin-left: 10px"
+                alt="Black and White Portrait of a Man"
+                loading="lazy"
+                
+                />
+            </div>
+            <!-- ==FIN IMAGEN PARQUE==-->
+
+            <!-- ==TITULO PARQUE== -->
+            <div class="col-8">
+            <table>
+                <thead>
+                <tr>
+                    <th>
+                    <h6>Parque para perritos</h6>
+                    </th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <th>
+                    <h6 style="color:rgb(143, 142, 142)">Alonso de Córdova #2475,</h6>
+                    </th>
+            </tr>
+                </tbody>
+
+            </table>
+            
+            <h6 style="color:rgb(143, 142, 142)">Providencia</h6>
+            </div>
+            <!-- ==FIN TITULO PARQUE== -->
+        </div><hr>
+        <!-- ==FIN REPORTE== -->
+
+        <div class="row" style="background-color:rgb(255, 255, 255);">
+
+            <!-- ==IMAGEN COMIDA== -->
+            <div class="col-3">
+            <img
+                src="/assets/img/COMIDA.png"
+                class="rounded-circle"
+                height="70" style="margin-top: 5px; margin-left: 10px"
+                alt="Black and White Portrait of a Man"
+                loading="lazy"
+                
+                />
+            </div>
+            <!-- ==FIN IMAGEN COMIDA==-->
+
+            <!-- ==TITULO COMIDA== -->
+            <div class="col-8">
+            <table>
+                <thead>
+                <tr>
+                    <th>
+                    <h6>Alimento para mascotas</h6>
+                    </th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <th>
+                    <h6 style="color:rgb(143, 142, 142)">Cerro el plomo #257,</h6>
+                    </th>
+            </tr>
+                </tbody>
+
+            </table>
+            
+            <h6 style="color:rgb(143, 142, 142)">Providencia</h6>
+            </div>
+            <!-- ==FIN TITULO COMIDA== -->
+        </div><hr>
+        <!-- ==FIN REPORTE== -->
+
+        <div class="row" style="background-color:rgb(255, 255, 255);">
+
+            <!-- ==IMAGEN PELUQUERIA CANINA== -->
+            <div class="col-3">
+            <img
+                src="/assets/img/PELUQUERIA CANINA.png"
+                class="rounded-circle"
+                height="70" style="margin-top: 5px; margin-left: 10px"
+                alt="Black and White Portrait of a Man"
+                loading="lazy"
+                
+                />
+            </div>
+            <!-- ==FIN IMAGEN PELUQUERIA CANINA==-->
+
+            <!-- ==TITULO PELUQUERIA CANINA== -->
+            <div class="col-8">
+            <table>
+                <thead>
+                <tr>
+                    <th>
+                    <h6>Peluqueria canina J&M</h6>
+                    </th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <th>
+                    <h6 style="color:rgb(143, 142, 142)">Cerro Blanco #242,</h6>
+                    </th>
+            </tr>
+                </tbody>
+
+            </table>
+            
+            <h6 style="color:rgb(143, 142, 142)">Providencia</h6>
+            </div>
+            <!-- ==FIN TITULO PELUQUERIA CANINA== -->
+        </div><hr>
+        <!-- ==FIN REPORTE== -->
+
+        <div class="row" style="background-color:rgb(255, 255, 255);">
+
+            <!-- ==IMAGEN TIENDA== -->
+            <div class="col-3">
+            <img
+                src="/assets/img/JUGUETE.png"
+                class="rounded-circle"
+                height="70" style=" margin-left: 10px"
+                alt="Black and White Portrait of a Man"
+                loading="lazy"
+                
+                />
+            </div>
+            <!-- ==FIN IMAGEN TIENDA==-->
+
+            <!-- ==TITULO TIENDA== -->
+            <div class="col-8">
+            <table>
+                <thead>
+                <tr>
+                    <th>
+                    <h6>Tienda de mascotas</h6>
+                    </th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <th>
+                    <h6 style="color:rgb(143, 142, 142)">Manquehue #565,</h6>
+                    </th>
+            </tr>
+                </tbody>
+
+            </table>
+            
+            <h6 style="color:rgb(143, 142, 142)">Providencia</h6>
+            </div>
+            <!-- ==FIN TITULO TIENDA== -->
+        </div><hr>
+        <!-- ==FIN REPORTE== -->
 
         </div>
-        <div class="col-8" style="height: 600px;">
+        <div class="col-8" style="height: 690px;">
           <div id='map'>
           </div>
         </div>
       </div>
-    </div>
+    </div><br>
 	
-	<div class="row">
-		<div class="col">
+<!-- ==CREAR REPORTE== -->
+	<div class="row-align-items-end">
+		<div class="col text-end">
 		
 		<!-- Button trigger modal -->
 <button type="button" class="btn btn" data-bs-toggle="modal" style="background-color: #004445;color: #C6D166;" data-bs-target="#exampleModal">
     Crear reporte
 </button>
+
+<button type="button" class="btn btn" data-bs-toggle="modal" style="background-color: #004445;color: #C6D166; margin-right: 10px;" data-bs-target="#exampleModal1">
+    Agregar ubicación
+</div>
+</div>
+
+<div class="row">
+		<div class="col">
 <!-- Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg modal-dialog-centered">
@@ -159,24 +324,26 @@
         <div class="modal-body">
             <!-- Datos -->
             <div class="container-fluid">
-                <div class="row-4 align-items-center">
-                    <div class="col-4">
+                <div class="row align-items-center">
+                    <div class="col text-center">
                     <img src="/assets/img/cat.png" class="rounded-circle mx-auto d-block"
                     alt="Foto de la mascota" style="border: 1px solid; border-color: rgb(143, 142, 142); width: 200px;">
-                    <button class="btn btn" type="button" style="background-color: #C6D166; margin-top: 20px;">Escoger mascota desde perfil</button>
-                    <button class="btn btn" type="button" style="background-color: #C6D166; margin-top: 10px;">Cargar imagenes de mascota</button>
+                    <div class="mb-3">
+  <label for="formFile" class="form-label"><b>Seleccione imagen de mascota</b></label>
+  <input class="form-control" type="file" id="formFile">
+</div>
             </div>
-                </div>
+                </div><br>
         
                         <div class="row align-items-start">
-                            <div class="col-4">
+                            <div class="col align-items-end">
                                 <label for="reporte" class="form-label"><b>Título de reporte</b>
-                                    <input class="form-control" type="text" id="reporte" name="reporte" style="width: 230px;" placeholder="Ej: Busco/Encontré">
+                                    <input class="form-control" type="text" id="tituloReporte" name="tituloReporte" style="width: 505px;" placeholder="Ej: Busco/Encontré mascota">
                                     <span class="small" style="color: gray;">Ingrese título para su reporte</span>
                                     </label>
                         </div>
                         <div class="col-4">
-                            <label for="form-label" id="seleccion"><b>Tipo reporte</b></label>
+                            <label for="form-label" id="TipoReporte"><b>Tipo reporte</b></label>
                             <select class="form-select" aria-label="Default select example">
                                 <option selected>Seleccione tipo reporte</option>
                                 <option value="1"></option>
@@ -189,13 +356,13 @@
                         <div class="row align-items-start">
                             <div class="col-4">
                                 <label for="reporte" class="form-label"><b>Nombre mascota</b>
-                                    <input class="form-control" type="text" id="reporte" name="reporte" style="width: 230px;" placeholder="Ej: Michito">
+                                    <input class="form-control" type="text" id="reporte" name="reporte" style="width: 240px;" placeholder="Ej: Michito">
                                     <span class="small" style="color: gray;">Ingrese nombre de la mascota</span>
                                     </label>
                         </div>
                         <div class="col-4">
                             <label for="reporte" class="form-label"><b>Nº Chip</b>
-                                <input class="form-control" type="text" id="reporte" name="reporte" style="width: 230px;" placeholder="Ej: 123456789012345">
+                                <input class="form-control" type="text" id="reporte" name="reporte" style="width: 240px;" placeholder="Ej: 123456789012345">
                                 <span class="small" style="color: gray;">Ingrese número de chip (Opcional)</span>
                                 </label>
                         </div>
@@ -224,7 +391,7 @@
                             <div class="col">
                                 <label for="form-label" id="seleccion"><b>Patrón</b></label>
                             <select class="form-select" aria-label="Default select example">
-                                <option selected>Seleccione un patrón de su mascota</option>
+                                <option selected>Seleccione patrón de su mascota</option>
                                 <option value="1"></option>
                                 <option value="2"></option>
                                 <option value="3"></option>
@@ -246,7 +413,7 @@
                                 <div class="col">
                                     <label for="exampleFormControlTextarea1" class="form-label"><b>Descripción</b></label>
                             <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"
-                            placeholder="Escribe las características de tu mascota aquí..." style="width: 740px;"></textarea>
+                            placeholder="Escribe las características de tu mascota aquí..." style="width: 775px;"></textarea>
                             <span class="small" style="color: gray;">Describe detalladamete a tu mascota</span>
                                 </div>
                             </div>
@@ -260,14 +427,13 @@
 </div>
 		
 		</div>
-	
-	<div class="col">
-	
-	<!-- Button trigger modal -->
-<button type="button" class="btn btn" data-bs-toggle="modal" style="background-color: #004445;color: #C6D166;" data-bs-target="#exampleModal1">
-    Agregar ubicación
-</button>
+	</div>
+    </div>
+    
+    <!-- ==AGREGAR UBICACIÓN== -->
 
+<div class="row">
+		<div class="col">
 <!-- Modal -->
 <div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
@@ -327,7 +493,6 @@
 	</div>
 	
 	</div>
-    
 
 </body>
 <footer class="text-center text-white" style="background-color: #004445; margin-top: 50px; ">
