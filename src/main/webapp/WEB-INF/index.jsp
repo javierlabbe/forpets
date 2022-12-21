@@ -33,7 +33,7 @@
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <!-- Left links -->
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="/registro/equipo"><strong>Nosotros</strong></a>
+                    <a class="nav-link active" aria-current="page" href="/index/nosotros"><strong>Nosotros</strong></a>
                 </li>
             </ul>
 

@@ -65,5 +65,10 @@ public class IndexController {
 		}
 		return "redirect:/index/login";
 	}
-	
+
+	//mostrando equipo.jsp
+	@GetMapping("/nosotros")
+	public String equipo(){
+		return "equipo.jsp";
+	}
 }
