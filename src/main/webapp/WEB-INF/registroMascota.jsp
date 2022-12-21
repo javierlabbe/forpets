@@ -68,7 +68,7 @@
 <!-- Navbar -->
 
 <body>
-	<form action="/registro/guardarmascota" method="post" action="/upload/form" >
+	<form action="/registro/mascotas" method="post" action="/upload/form" >
 		
 		<!--<c:out value="${Error}"></c:out>-->
 		<c:if test="${Error!=null}"> 
@@ -205,7 +205,7 @@
 	</form>
 </body>
 <!-- FOOTER -->
-<footer class="text-center text-white" style="background-color: #004445; margin-top: 50px; ">
+<footer class="text-center text-white" style="background-color: #004445; margin-top:200px; ">
     <div class="container-fluid">
         <div class="row">
             <div class="col">
