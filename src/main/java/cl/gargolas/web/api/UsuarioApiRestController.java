@@ -42,9 +42,9 @@ public class UsuarioApiRestController {
 	}
 	
 	
-	@GetMapping("/listar/tamanio") 
-	public List<Usuario> obtenerListaUsuarios() {
-		return usuarioServiceImpl.obtenerListaUsuarios();
+	@GetMapping("/listar/usuario") 
+	public List<Usuario> listarUsuarios() {
+		return usuarioServiceImpl.listarUsuarios();
 	}
 
 }

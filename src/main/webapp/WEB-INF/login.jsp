@@ -6,18 +6,19 @@
 
 <head>
     <meta charset="UTF-8">
+    <title>LogIn</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
     <script src="https://kit.fontawesome.com/64af136b72.js" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" crossorigin="anonymous" async></script>
    <link href="/Assets/CSS/stylesHome.css" rel="stylesheet">
-   <title>Home</title>
  
 </head>
 
 <!-- Navbar -->
 <nav class="navbar navbar-expand-lg" style="background-color: #48C6AF; height: 120px; " >
     <div class="container-fluid">
-        <a class="navbar-brand" href="#">
+        <a class="navbar-brand" href="/home">
             <!--IR AL HOME en href-->
             <img src="/assets/img/logonegro" height="40px" alt="forpets Logo" loading="lazy" style="margin-top: -1px;" />
         </a>
@@ -42,10 +43,7 @@
             <div class="d-flex align-items-center">
             <div class="row">
            <div class="col">
-           		 <!-- BOTONES -->
-                <a class="btn btn-primary" href="/index/login" role="button" id="BotonNav1">Iniciar sesión</a>
-                <a class="btn btn-primary" href="/registro/usuario" role="button" id="BotonNav1">Registrarse</a>
-                <!-- BOTONES -->
+                <a type="button" class="btn btn-primary" id="BotonNav1" href="/registro/usuario">Registrarse</a>
             </div>
         </div>
     </div>
@@ -54,38 +52,59 @@
  
 
 <body>
-<div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="true">
-  <div class="carousel-indicators">
 
-    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+<section class="vh-100">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-sm-6 text-black">
+
+        <div class="px-5 ms-xl-4">
+          <i class="fas fa-crow fa-2x me-3 pt-5 mt-xl-4" style="color: #709085;"></i>
+          <img class="h1 fw-bold mb-0" src="/assets/img/logonegro" height="50px" alt="forpets Logo" loading="lazy"/>
+        </div>
+        <div class="d-flex align-items-center h-custom-2 px-5 ms-xl-4 mt-5 pt-5 pt-xl-0 mt-xl-n5">
+
+		
+		<form action="/home/login" method="POST" style="width: 23rem; height: 800px;">
+		   <h3 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Hola nuevamente!</h3>
+		   		    	<c:if test="${msgError!=null}">
+    		<div class="alert alert-danger" role="alert" style="font-size:16px">
+				<c:out value="${msgError}"></c:out>
+			</div>
+    	</c:if>
+            
+            <div class="form-outline mb-4">
+              <input type="email" id="email" class="form-control form-control-lg" required placeholder="Ingresa tu email"/>
+              <label class="form-label" for="email">Email</label>
+            </div>
+
+            <div class="form-outline mb-4">
+              <input type="password" id="password" class="form-control form-control-lg" required placeholder="Ingresa tu contraseña"/>
+              <label class="form-label" for="password">Contraseña</label>
+            </div>
+
+            <div class="pt-1 mb-4">
+            <button type="submit" class="btn mt-3" id="BotonNav2" value="enviar" >Ingresar</button>
+            <p>¿Aún no eres parte de la comunidad? <a href="/registro/usuario" class="link-info">Únete</a></p>
+            </div>
+
+            <!-- p class="small mb-5 pb-lg-2"><a class="text-muted" href="#!">Forgot password?</a></p>-->
+
+          </form>
+
+        </div>
+
+      </div>
+      <div class="col-sm-6 px-0 d-none d-sm-block">
+        <img src="/assets/img/perritoLogin.jpg"
+          alt="Login image" class="w-100 vh-100" style="object-fit: cover; object-position:right ;">
+      </div>
+    </div>
   </div>
-  <div class="carousel-inner">
-    <div class="carousel-item active">
-      <img src="/assets/img/gato_home.png" class="d-block w-100" alt="Foto gato" >
-    </div>
-    <div class="carousel-item">
-      <img src="/assets/img/Foto_home.png" class="d-block w-100" alt="Foto perro">
-    </div>
-    <div class="carousel-item">
-      <img src="/assets/img/conejo_home.png" class="d-block w-100" alt="Foto conejo">
-    </div>
-  </div>
-  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Previous</span>
-  </button>
-  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Next</span>
-  </button>
-</div>
-<!--div>
-    <button type="button" class="btn btn-primary" id="BotonBody">Regístrate!</button>
-</div-->
+</section>
+
 </body>
-<footer class="text-center text-white" style="background-color: #004445; ">
+<footer class="text-center text-white" style="background-color: #004445; margin-top:0%">
 	<div class="container-fluid">
 	    <div class="row">
 	      <div class="col">

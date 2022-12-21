@@ -6,11 +6,11 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Home</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
     <script src="https://kit.fontawesome.com/64af136b72.js" crossorigin="anonymous"></script>
    <link href="/Assets/CSS/stylesHome.css" rel="stylesheet">
+   <title>Home</title>
  
 </head>
 
@@ -42,43 +42,10 @@
             <div class="d-flex align-items-center">
             <div class="row">
            <div class="col">
-                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#ModalForm" id="BotonNav1">Iniciar sesión</button>
-                <div class="modal fade" id="ModalForm" tabindex="-1" aria-labelledby="ModalFormLabel" aria-hidden="true">
-                    <div class="modal-dialog modal-dialog-centered">
-                      <div class="modal-content">
-                        <div class="modal-body">
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                            <div class="form-area" style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
-                                <h1 class="text-center">Hola nuevamente!</h1>
-								<c:if test="${msgError!=null}">
-			    	    			<div class="alert alert-danger" role="alert">
-										<c:out value="${msgError}"></c:out>
-									</div>
-			    				</c:if>
-						    	<c:if test="${msgOk!=null}">
-						    		<div class="alert alert-success" role="alert">
-										<c:out value="${msgOk}"></c:out>
-									</div>
-						    	</c:if>
-                                <form>
-                                    <div class="mb-3 mt-4" style="color:black;">
-                                        <label for="exampleInputEmail1" class="form-label">Email</label>
-                                        <input type="email" class="form-control" id="mail" placeholder="Ingresa tu email" required="required">
-                                    </div>
-                                    <div class="mb-3" style="color:black;">
-                                        <label for="exampleInputPassword1" class="form-label">Contraseña</label>
-                                        <input type="password" class="form-control" id="password" placeholder="Ingresa tu contraseña" required="required">
-                                    </div>
-                                    <a type="submit" class="btn mt-3" id="BotonNav2" href="/mapa/mapaPrincipal">Acceder</a>
-                                    <br><hr>
-                                    <p style="font-weight:bold; color:black;">¿No estás registrada/o?<a href="/registro/usuario"> Regístrate</a></p>
-                                </form>
-                            </div>
-                        </div>
-                      </div>
-                    </div>
-         </div>
-                <a type="button" class="btn btn-primary" id="BotonNav1" href="/registro/usuario">Registrarse</a>
+           		 <!-- BOTONES -->
+                <a class="btn btn-primary" href="/index/logout" role="button" id="BotonNav1">Cerrar sesión</a>
+
+                <!-- BOTONES -->
             </div>
         </div>
     </div>

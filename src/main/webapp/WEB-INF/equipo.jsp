@@ -6,7 +6,7 @@
 <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mi Perfil</title>
+    <title>Equipo</title>
      <!--Bootstrap-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
@@ -24,7 +24,7 @@
 <!-- Navbar -->
 <nav class="navbar navbar-expand-lg" style="background-color: #48C6AF; height: 120px;">
     <div class="container-fluid">
-        <a class="navbar-brand" href="#">
+        <a class="navbar-brand" href="/home">
             <!--IR AL HOME en href-->
             <img src="../assets/img/logonegro" height="40px" alt="forpets Logo" loading="lazy" style="margin-top: -1px;" />
         </a>
@@ -40,10 +40,10 @@
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <!-- Left links -->
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">Home</a>
+                    <a class="nav-link active" aria-current="page" href="/home">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Ver Mapa</a>
+                    <a class="nav-link" href="/mapa/mapaPrincipal">Ver Mapa</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">Hacer Reporte</a>
@@ -144,10 +144,10 @@
                     </div>
                 </div>
             </div>
-            <div class="col" style="background-color: white; height: 800px">
-            <center><h1>Nuestra Misión</h1></center>
+            <div class="col" style="background-color: white; height: 800px; align-items:center; justify-content:center;" >
+            <h1 align=center>Nuestra Misión</h1>
             <br>
-            <pre style="text-align:justify; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
+         <pre align=center style="text-align:center; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-size: 16px;">
                 El principal objetivo de ForPets es ayudar a toda persona 
             tutora de una mascota, en diferentes áreas de interés.
             

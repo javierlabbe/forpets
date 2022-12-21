@@ -6,7 +6,6 @@ import org.mindrot.jbcrypt.BCrypt;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import cl.gargolas.web.models.Color;
 import cl.gargolas.web.models.Usuario;
 import cl.gargolas.web.repositories.UsuarioRepository;
 
@@ -48,7 +47,7 @@ public class UsuarioServiceImpl implements UsuarioService { //Logica de negocio
 	}
 
 	@Override
-	public List<Usuario> obtenerListaUsuarios() {
+	public List<Usuario> listarUsuarios() {
 		return usuarioRepository.findAll();
 	}
 	
@@ -64,9 +63,12 @@ public class UsuarioServiceImpl implements UsuarioService { //Logica de negocio
 				return false;
 			}
 			}else {
-			return false;
+				return false;
 		}
 	}
-
+	@Override
+	public Usuario obtenerUsuarioEmail(String email) {
+		return usuarioRepository.findByEmail(email);
+	}
 
 }
