@@ -21,6 +21,9 @@
         #rowform {
             margin-bottom: 10px;
         }
+        #birthday {
+            width: 48%;
+        }
     </style>
 
 </head>
