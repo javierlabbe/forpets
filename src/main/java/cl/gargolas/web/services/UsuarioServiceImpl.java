@@ -17,8 +17,7 @@ public class UsuarioServiceImpl implements UsuarioService { //Logica de negocio
 	@Override
 	public Boolean guardarUsuario(Usuario usuario) {
 		Usuario retornoUsuario = usuarioRepository.findByEmail(usuario.getEmail());
-		Usuario retornoUsuario2 = usuarioRepository.findByRut(usuario.getRut());
-		if(retornoUsuario == null && retornoUsuario2 == null) {
+		if(retornoUsuario == null) {
 			String passHashed= BCrypt.hashpw(usuario.getPassword(), BCrypt.gensalt());
 			usuario.setPassword(passHashed);
 			usuarioRepository.save(usuario);
