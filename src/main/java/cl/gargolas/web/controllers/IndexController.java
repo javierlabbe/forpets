@@ -57,7 +57,6 @@ public class IndexController {
 		}
 	}
 
-	
 	//LOGOUT
 	@RequestMapping("/logout")
 	public String logout(HttpSession session) {

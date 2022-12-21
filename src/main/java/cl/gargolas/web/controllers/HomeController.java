@@ -26,7 +26,7 @@ public class HomeController {
 	@GetMapping("")
 	public String login(Model model, HttpSession session) {
 
-		if(session.getAttribute("usuarioId")!=null) {
+		if(session.getAttribute("idUsuario")!=null) {
 			
 			//datos de la session
 			String email = (String) session.getAttribute("emailUsuario");
