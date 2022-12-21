@@ -39,7 +39,7 @@ public class HomeController {
 			return "home.jsp";
 
 		}else {
-			return "redirect:/home/login";
+			return "redirect:/index/login";
 		}
 	}
 }	

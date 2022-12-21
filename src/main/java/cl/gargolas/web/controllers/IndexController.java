@@ -23,7 +23,7 @@ public class IndexController {
 	UsuarioServiceImpl usuarioServiceImpl;
 	
 	@GetMapping("")
-	public String home() {
+	public String index() {
 		return "index.jsp";
 	}
 	
