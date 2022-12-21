@@ -36,7 +36,7 @@ import cl.gargolas.web.services.SexoServiceImpl;
 import cl.gargolas.web.services.TamanioServiceImpl;
 
 @Controller
-@RequestMapping("/registro")
+@RequestMapping("/registro/mascotas")
 public class RegistroMascotaController {
 	
 	@Autowired
@@ -71,7 +71,7 @@ public class RegistroMascotaController {
 	
 	
 	
-	@GetMapping("/mascotas")
+	@GetMapping("")
 	public String ComboBoxDatos(Model model) {
 		List<Especie> listaEspecies = especieServiceImpl.obtenerListaEspecies();
 		List<Sexo> listaSexos = sexoServiceImpl.obtenerListaSexo();
@@ -95,7 +95,7 @@ public class RegistroMascotaController {
 	
 	
 	
-	@PostMapping("/guardarmascota")
+	@PostMapping("")
 	public String guardarRegistro(@RequestParam("nombre") String nombre
 		,@RequestParam("sexo") Long sexo //a, long por que es el id que estamos obteniendo atraves de los values
 		,@RequestParam("nChip") String nChip
@@ -108,6 +108,8 @@ public class RegistroMascotaController {
 		,@RequestParam("imagen") String imagen
 		, Model model) {
 		
+		ComboBoxDatos(model);
+
 		if(  rangoEtario == 0 || 
 				raza == 0 || color == 0 || patron  == 0 ||
 				tamanio == 0  || sexo == 0) {
