@@ -75,7 +75,7 @@ public class RegistroController {
 			
 			Usuario usuario = new Usuario();
 			usuario.setNombre(nombre);
-			usuario.setApellidoPaterno(apellidos);
+			usuario.setApellidos(apellidos);
 			usuario.setFechaNacimiento(birthday);
 			usuario.setEmail(email);
 			usuario.setPassword(pass1);

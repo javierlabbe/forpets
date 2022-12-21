@@ -59,9 +59,9 @@
 
 <body>
 	<div class="container-fluid">
-	    <div class="row justify-content-center align-items-center">
+	    <div class="row" style="display: grid; place-content: center;">
 	        <form action="/registro/usuario" method="post" enctype="multipart/form-data">
-	        	<div class="card" style="margin-top: 2%; width: 33%">
+	        	<div class="card" style="margin-top: 2%;">
 		            <div class="card-body">
 		                <div class="row align-items-start" id="rowform">
 		                    <h3>Crear tu cuenta de Forpets</h3>

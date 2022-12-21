@@ -46,19 +46,12 @@ public class Usuario {
 	private String nombre;
 	
 	//@NotNull
-	private String apellidoPaterno;
-	
-	//@NotNull
-	private String apellidoMaterno;
-	
+	private String apellidos;
+		
 	//@NotNull
 	private Date fechaNacimiento;
 	
 	//@NotNull
-	private String rut;
-
-	//@NotNull
-
 	private String telefono;
 	
 	//@NotNull
@@ -70,10 +63,6 @@ public class Usuario {
 	//@NotNull
 	@Transient
 	private String password2; 
-	
-	//@NotNull
-	@Column(name="fotoPerfil", length= Integer.MAX_VALUE, nullable = true)
-	private byte[] imagen;
 	
 	@JsonIgnore
 	@ManyToOne(fetch = FetchType.EAGER)
