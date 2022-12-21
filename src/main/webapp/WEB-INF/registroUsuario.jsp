@@ -44,7 +44,7 @@
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <!-- Left links -->
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="http://localhost:9082/home">Home</a>
+                    <a class="nav-link active" aria-current="page" href="http://localhost:9082/index">Home</a>
                 </li>
             </ul>
 
@@ -58,118 +58,103 @@
 <!-- Navbar -->
 
 <body>
-    <div class="container-fluid">
-        <div class="row align-items-start" style="margin-top: 2%; padding-right: 5%;">
-            <div class="col-4 text-center" style=" height: 600px;">
-                <img class="rounded-circle mx-auto d-block" src="https://cdn-icons-png.flaticon.com/512/149/149071.png"
-                    width="200px" height="200px" style="margin: 0% 0% 5% 0%;">
-                <label for="selectFile" class="form-label"><h3>Foto de Perfil</h3></label>
-                <input type="file" class="form-control mx-auto d-block" id="selectFile" name="fotoPerfil">
-            </div>
-            <div class="col">
-                <div class="row align-items-start" id="rowform">
-                    <h3>Crear tu cuenta de Forpets</h3>
-                    
-                    <c:if test="${msgError!=null}"> 
-			    		<div class="alert alert-danger" role="alert">
-							<c:out value="${msgError}"></c:out> 
-						</div>
-			    	</c:if>
-                </div>
-            <form action="/registro/usuario" method="post">
-                <div class="row align-items-start" id="rowform">
-                    <div class="col-4">
-                        <label for="nombre" class="form-label">Nombre</label>
-                        <input type="text" class="form-control" id="nombre" name="nombre" required>
-                        <div class="form-text">Ingrese su nombre</div>
-                    </div>
-                    <div class="col-4">
-                        <label for="apellido1" class="form-label">Primer apellido</label>
-                        <input type="text" class="form-control" id="apellido1" name="apellido1" required>
-                        <div class="form-text">Ingrese su primer apellido</div>
-                    </div>
-                    <div class="col-4">
-                        <label for="apellido2" class="form-label">Segundo apellido</label>
-                        <input type="text" class="form-control" id="apellido2" name="apellido2" required>
-                        <div class="form-text">Ingrese su segundo apellido</div>
-                    </div>
-                </div>
-                <div class="row align-items-start" id="rowform">
-                    <div class="col-4">
-                        <label for="birthday" class="form-label">Fecha de nacimiento</label>
-                        <input type="date" class="form-control" id="birthday" name="birthday" required>
-                        <div class="form-text">Ingrese fecha de nacimiento</div>
-                    </div>
-                    <div class="col-4">
-                        <label for="rut" class="form-label">Rut</label>
-                        <input type="text" class="form-control" id="rut" name="rut" required>
-                        <div class="form-text">Ingrese su rut</div>
-                    </div>
-                </div>
-                <div class="row align-items-start" id="rowform">
-                    <div class="col-4">
-                        <label for="calle" class="form-label">Calle</label>
-                        <input type="text" class="form-control" id="calle" name="calle" required>
-                        <div class="form-text">Ingrese su calle</div>
-                    </div>
-                    <div class="col-4">
-                        <label for="numDir" class="form-label">Número</label>
-                        <input type="text" class="form-control" id="numDir" name="numDir" required>
-                        <div class="form-text">Ingrese número de dirección</div>
-                    </div>
-                </div>
-                <div class="row align-items-start" id="rowform">
-                     <div class="col-4">
-                         <label for="region" class="form-label">Región</label>
-                         <select class="form-select" aria-label="Default select example" id="region" name="region">
-                            <option selected>Seleccione región</option>
-                            <c:forEach var="region" items="${listaRegiones}">
-	 							<option value="${region.id}">${region.descripcion}</option>			  
-	 						</c:forEach>
-                         </select>
-                     </div>
-                     <div class="col-4">
-                         <label for="comuna" class="form-label">Comuna</label>
-                         <select class="form-select" aria-label="Default select example" id="comuna" name="comuna"  >
-                            <option selected>Seleccione comuna</option>
-                            <c:forEach var="comuna" items="${listaComunas}">
-	 							<option value="${comuna.id}">${comuna.descripcion}</option>			  
-	 						</c:forEach>
-                         </select>
-                     </div>             
-                </div>
-                <div class="row align-items-start" id="rowform">
-                    <div class="col-4">
-                        <label for="telefono" class="form-label">Teléfono</label>
-                        <input type="text" class="form-control" id="telefono" name="telefono" required>
-                        <div class="form-text">Ingrese su teléfono</div>
-                    </div>
-                    <div class="col-4">
-                        <label for="email" class="form-label">Email</label>
-                        <input type="email" class="form-control" id="email" name="email" required>
-                        <div class="form-text">Ingrese su email</div>
-                    </div>
-                </div>
-                <div class="row align-items-start" id="rowform">
-                    <div class="col-4">
-                        <label for="password" class="form-label">Contraseña</label>
-                        <input type="password" class="form-control" id="password" name="pass1" required>
-                        <div class="form-text">Ingrese su contraseña</div>
-                    </div>
-                    <div class="col-4">
-                        <label for="password2" class="form-label">Confirmar contraseña</label>
-                        <input type="password" class="form-control" id="password2" name="pass2" required>
-                        <div class="form-text">Confirme su contraseña</div>
-                    </div>
-                </div>
-                <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                    <input type="submit" class="btn btn-primary" value="Continuar" id="BotonBody">
-            	</div>
-            </form>
-            </div>
-        </div>
+	<div class="container-fluid">
+	    <div class="row justify-content-center align-items-center">
+	        <form action="/registro/usuario" method="post" enctype="multipart/form-data">
+	        	<div class="card" style="margin-top: 2%; width: 33%">
+		            <div class="card-body">
+		                <div class="row align-items-start" id="rowform">
+		                    <h3>Crear tu cuenta de Forpets</h3>
+		                    
+		                    <c:if test="${msgError!=null}"> 
+					    		<div class="alert alert-danger" role="alert">
+									<c:out value="${msgError}"></c:out> 
+								</div>
+					    	</c:if>
+		                </div>
+		                <div class="row align-items-start" id="rowform">
+		                    <div class="col">
+		                        <label for="nombre" class="form-label">Nombre</label>
+		                        <input type="text" class="form-control" id="nombre" name="nombre" required>
+		                        <div class="form-text">Ingrese su nombre</div>
+		                    </div>
+		                    <div class="col">
+		                        <label for="apellidos" class="form-label">Apellidos</label>
+		                        <input type="text" class="form-control" id="apellidos" name="apellidos" required>
+		                        <div class="form-text">Ingrese su primer apellido</div>
+		                    </div>
+		                </div>
+		                <div class="row align-items-start" id="rowform">
+		                    <div class="col">
+		                        <label for="birthday" class="form-label">Fecha de nacimiento</label>
+		                        <input type="date" class="form-control" id="birthday" name="birthday" required>
+		                        <div class="form-text">Ingrese fecha de nacimiento</div>
+		                    </div>
+		                </div>
+		                <div class="row align-items-start" id="rowform">
+		                    <div class="col">
+		                        <label for="calle" class="form-label">Calle</label>
+		                        <input type="text" class="form-control" id="calle" name="calle" required>
+		                        <div class="form-text">Ingrese su calle</div>
+		                    </div>
+		                    <div class="col">
+		                        <label for="numDir" class="form-label">Número</label>
+		                        <input type="text" class="form-control" id="numDir" name="numDir" required>
+		                        <div class="form-text">Ingrese número de dirección</div>
+		                    </div>
+		                </div>
+		                <div class="row align-items-start" id="rowform">
+		                     <div class="col">
+		                         <label for="region" class="form-label">Región</label>
+		                         <select class="form-select" aria-label="Default select example" id="region" name="region">
+		                            <option selected>Seleccione región</option>
+		                            <c:forEach var="region" items="${listaRegiones}">
+			 							<option value="${region.id}">${region.descripcion}</option>			  
+			 						</c:forEach>
+		                         </select>
+		                     </div>
+		                     <div class="col">
+		                         <label for="comuna" class="form-label">Comuna</label>
+		                         <select class="form-select" aria-label="Default select example" id="comuna" name="comuna"  >
+		                            <option selected>Seleccione comuna</option>
+		                            <c:forEach var="comuna" items="${listaComunas}">
+			 							<option value="${comuna.id}">${comuna.descripcion}</option>			  
+			 						</c:forEach>
+		                         </select>
+		                     </div>             
+		                </div>
+		                <div class="row align-items-start" id="rowform">
+		                    <div class="col">
+		                        <label for="telefono" class="form-label">Teléfono</label>
+		                        <input type="text" class="form-control" id="telefono" name="telefono" required>
+		                        <div class="form-text">Ingrese su teléfono</div>
+		                    </div>
+		                    <div class="col">
+		                        <label for="email" class="form-label">Email</label>
+		                        <input type="email" class="form-control" id="email" name="email" required>
+		                        <div class="form-text">Ingrese su email</div>
+		                    </div>
+		                </div>
+		                <div class="row align-items-start" id="rowform">
+		                    <div class="col">
+		                        <label for="password" class="form-label">Contraseña</label>
+		                        <input type="password" class="form-control" id="password" name="pass1" required>
+		                        <div class="form-text">Ingrese su contraseña</div>
+		                    </div>
+		                    <div class="col">
+		                        <label for="password2" class="form-label">Confirmar contraseña</label>
+		                        <input type="password" class="form-control" id="password2" name="pass2" required>
+		                        <div class="form-text">Confirme su contraseña</div>
+		                    </div>
+		                </div>
+		                <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+		                    <input type="submit" class="btn btn-primary" value="Continuar" id="BotonBody">
+		            	</div>
+		            </div>
+	        	</div>
+	        </form>
+	    </div>
     </div>
-    
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js "
         integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4 "

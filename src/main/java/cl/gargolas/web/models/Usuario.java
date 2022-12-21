@@ -72,7 +72,8 @@ public class Usuario {
 	private String password2; 
 	
 	//@NotNull
-	private Blob imagen;
+	@Column(name="fotoPerfil", length= Integer.MAX_VALUE, nullable = true)
+	private byte[] imagen;
 	
 	@JsonIgnore
 	@ManyToOne(fetch = FetchType.EAGER)
