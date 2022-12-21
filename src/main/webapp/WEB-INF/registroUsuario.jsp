@@ -24,6 +24,10 @@
         #birthday {
             width: 48%;
         }
+        
+        body{
+        background-image: url('/assets/img/fondogris.png');
+        }
     </style>
 
 </head>

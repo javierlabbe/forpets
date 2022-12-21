@@ -65,7 +65,7 @@
         <div class="d-flex align-items-center h-custom-2 px-5 ms-xl-4 mt-5 pt-5 pt-xl-0 mt-xl-n5">
 
 		
-		<form action="/home/login" method="POST" style="width: 23rem; height: 800px;">
+		<form action="/index/login" method="POST" style="width: 23rem; height: 800px;">
 		   <h3 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Hola nuevamente!</h3>
 		   		    	<c:if test="${msgError!=null}">
     		<div class="alert alert-danger" role="alert" style="font-size:16px">
