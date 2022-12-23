@@ -70,4 +70,14 @@ public class UsuarioServiceImpl implements UsuarioService { //Logica de negocio
 		return usuarioRepository.findByEmail(email);
 	}
 
+	@Override
+	public Boolean fotoPerfil(Long id) {
+		Usuario usuario = usuarioRepository.findById(id).get();
+		if (usuario.getFoto() != null) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+
 }

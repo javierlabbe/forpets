@@ -155,7 +155,7 @@
 		                    </div>
 		                </div>
 		                <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-		                    <input type="submit" class="btn btn-primary" value="Continuar" id="BotonBody">
+		                    <input type="submit" class="btn btn-primary" value="Continuar" id="botonBody">
 		            	</div>
 		            </div>
 	        	</div>

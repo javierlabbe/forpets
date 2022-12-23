@@ -41,4 +41,13 @@ public class DireccionServiceImpl implements DireccionService{
 	public List<Direccion> obetenerListaDirecciones() {
 		return direccionRepository.findAll();
 	}
+	
+	@Override
+	public String toString(Long id) {
+		Direccion direccion = direccionRepository.findById(id).get();
+		return direccion.getNombreCalle()+" "
+				+direccion.getNumeroDireccion()+" "
+				+direccion.getComuna().getDescripcion()+", "
+				+direccion.getComuna().getProvincia().getRegion().getDescripcion();
+	}
 }

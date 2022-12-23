@@ -46,5 +46,10 @@ public class UsuarioApiRestController {
 	public List<Usuario> listarUsuarios() {
 		return usuarioServiceImpl.listarUsuarios();
 	}
+	
+	@GetMapping("/existimg")
+	public Boolean existImg(Long id) {
+		return usuarioServiceImpl.fotoPerfil(id);
+	}
 
 }

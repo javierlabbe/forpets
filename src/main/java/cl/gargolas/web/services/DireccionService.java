@@ -10,4 +10,5 @@ public interface DireccionService {
 	public String actualizarDireccion(Direccion direccion);
 	public Direccion obtenerDireccion(Long id);
 	public List<Direccion> obetenerListaDirecciones();
+	String toString(Long id);
 }

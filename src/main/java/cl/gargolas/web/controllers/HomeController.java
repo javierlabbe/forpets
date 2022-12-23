@@ -42,4 +42,19 @@ public class HomeController {
 			return "redirect:/index/login";
 		}
 	}
+	
+	@GetMapping("/perfil")
+	public String perfilUser(HttpSession session, Model model) {
+		Long idUsuario = (Long) session.getAttribute("idUsuario");
+		Usuario user = usuarioServiceImpl.obtenerUsuario(idUsuario);
+		model.addAttribute("nameUser", user.getNombre()+" "+user.getApellidos());
+		model.addAttribute("emailUser", user.getEmail());
+		model.addAttribute("celUser", user.getTelefono());
+		model.addAttribute("dirUser", 
+				user.getDireccion().getNombreCalle()+
+				" "+user.getDireccion().getNumeroDireccion()+
+				", "+user.getDireccion().getComuna().getDescripcion()+
+				", "+user.getDireccion().getComuna().getProvincia().getRegion().getDescripcion());
+		return "perfilUsuario.jsp";
+	}
 }	

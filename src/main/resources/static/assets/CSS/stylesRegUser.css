@@ -1,6 +1,6 @@
 @charset "UTF-8";
 
-#BotonBody{
+#botonBody{
 	--bs-btn-font-weight: 600;
     --bs-btn-color: #004445;
     --bs-btn-bg: #C6D166;
