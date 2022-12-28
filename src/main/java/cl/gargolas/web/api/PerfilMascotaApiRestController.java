@@ -46,4 +46,9 @@ public class PerfilMascotaApiRestController {
 	public List<PerfilMascota> obtenerListaPerfilMascotaes() {
 		return perfilMascotaServiceImpl.obtenerListaPerfilMascota();
 	}
+	
+	@GetMapping("/existImgMascota")
+	public Boolean existImgMascota(Long id) {
+		return perfilMascotaServiceImpl.fotoPerfil(id);
+	}
 }

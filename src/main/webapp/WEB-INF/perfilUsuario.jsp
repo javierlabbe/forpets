@@ -94,7 +94,7 @@
                 </div>
                  <div class="row align-items-start" id="rowform">
 	                 <div class="col-4">
-	                     <select class="form-select" aria-label="Default select example" id="region" name="region">
+	                     <select class="form-select" aria-label="Default select example" id="mascotas" name="mascotas">
                         	<c:forEach var="perfilMascota" items="${listaMascotas}">
 								<option value="${perfilMascota.id}">${perfilMascota.nombre}</option>			  
 							</c:forEach>
@@ -113,30 +113,52 @@
         </div>
     </div>
     
-    <script >
+    <script>
     
-	    var usuarioId = <c:out value="${idUser}"/>
+	    var usuarioId = <c:out value="${idUser}"/>;
+	    var mascotaId = document.getElementById("mascotas").value;
 	    
-		    $(document).ready(function(){
-		    	
-		      	$.ajax({
-		            method: "get",
-		            url: "/apiUsuario/existimg",
-		            data: { id : usuarioId },
-		            success: function (data) {	    
-		            	let existFotoPerfil = data;
-		            	$("#divPerfil").find("img").remove();
-		            	if (existFotoPerfil) {
-		            		$("#divPerfil").prepend('<img class="rounded-circle mx-auto d-block" src="data:image/jpeg;base64,${fotoPerfil}" alt="${userName}" width="200px" height="200px" style="margin: 0% 0% 5% 0%;">');
-		            	} else {
-		            		$("#divPerfil").prepend('<img class="rounded-circle mx-auto d-block" src="/assets/img/usuario.png" width="200px" height="200px" style="margin: 0% 0% 5% 0%;">'); 		            		
-		            	}
-		            }	      		      
-		        });
-		    	  $("#botonBody").click(function(){
-		    		  console.log(usuarioId);
-		    	  });
-		    	});
+    	$("#mascotas")
+		  .change(function(){
+			mascotaId = document.getElementById("mascotas").value;
+			console.log(mascotaId);})
+	    
+	    $(document).ready(function(){
+	      	$.ajax({
+	            method: "get",
+	            url: "/apiUsuario/existImgUser",
+	            data: { id : usuarioId },
+	            success: function (data) {	    
+	            	let existFotoPerfil = data;
+	            	$("#divPerfil").find("img").remove();
+	            	if (existFotoPerfil) {
+	            		$("#divPerfil").prepend('<img class="rounded-circle mx-auto d-block" src="data:image/jpeg;base64,${fotoPerfil}" alt="${userName}" width="200px" height="200px" style="margin: 0% 0% 5% 0%;">');
+	            	} else {
+	            		$("#divPerfil").prepend('<img class="rounded-circle mx-auto d-block" src="/assets/img/usuario.png" width="200px" height="200px" style="margin: 0% 0% 5% 0%;">'); 		            		
+	            	}
+	            }      		      
+	        });
+	      	
+	      	$.ajax({
+	            method: "get",
+	            url: "/apiUsuario/existImgMascota",
+	            data: { id : mascotaId },
+	            success: function (data) {	    
+	            	let existFotoPerfil = data;
+	            	$("#rowForm").find("img").remove();
+	            	if (existFotoPerfil) {
+	            		$("#rowForm").prepend('<img class="rounded-circle mx-auto d-block" src="data:image/jpeg;base64,${fotoPerfil}" alt="${userName}" width="200px" height="200px" style="margin: 0% 0% 5% 0%;">');
+	            	} else {
+	            		$("#rowForm").prepend('<img class="rounded-circle mx-auto d-block" src="/assets/img/mascotaGenerico.png" width="200px" height="200px" style="margin: 0% 0% 5% 0%;">'); 		            		
+	            	}
+	            }      		      
+	        });
+	      	
+	    	  $("#botonBody").click(function(){
+	    		  console.log(usuarioId);
+	    	  });
+	    	  
+	    	});
     
     </script>
     	
