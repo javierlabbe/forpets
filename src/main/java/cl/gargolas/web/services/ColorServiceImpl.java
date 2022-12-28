@@ -42,4 +42,5 @@ public class ColorServiceImpl implements ColorService { //Logica de negocio
 		return colorRepository.findAll();
 	}
 
+	
 }
