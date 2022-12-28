@@ -49,7 +49,10 @@ public class PerfilMascotaServiceImpl implements PerfilMascotaService{
 	
 	@Override
 	public List<PerfilMascota> obtenerListaPerfilMascota() {
+		
 		return perfilMascotaRepository.findAll();
 	}
+
+	
 
 }
