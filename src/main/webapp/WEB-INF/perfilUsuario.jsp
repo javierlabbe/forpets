@@ -55,7 +55,7 @@
 
             <!-- Left links -->
             <div class="d-flex align-items-center">
-                <button type="button" class="btn btn-primary" id="BotonNav1" href="/index/logout">Cerrar Sesión</button>
+                <a class="btn btn-primary" href="/index/logout" role="button" id="BotonNav1">Cerrar sesión</a>
             </div>
         </div>
     </div>
@@ -101,8 +101,8 @@
 	                     </select>
 	                 </div>
 	            </div>
-                <div class="row align-items-start" id="rowFoto" >
-                	<img src="https://images.pexels.com/photos/1490908/pexels-photo-1490908.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" id="fotoMascota">
+                <div class="row align-items-start" id="rowFotoMascota" >
+                	<img src="" id="fotoMascota">
                 </div>
                 <div class="row align-items-center">
                 	<div class="col">
@@ -114,51 +114,60 @@
     </div>
     
     <script>
-    
+    	//Definicion de variables
 	    var usuarioId = <c:out value="${idUser}"/>;
 	    var mascotaId = document.getElementById("mascotas").value;
 	    
+	    //Definicion de funciones
+	    function fotoMascota() {
+			return	$.ajax({
+			            method: "get",
+			            url: "/apiPerfilMascota/existImgMascota",
+			            data: { id : mascotaId },
+			            success: function (data) {	    
+			            	let existFotoPerfil = data;
+			            	$("#rowFotoMascota").find("img").remove();
+			            	if (existFotoPerfil) {
+			            		$("#rowFotoMascota").prepend('<img class="rounded-circle mx-auto d-block" src="data:image/jpeg;base64,${fotoPerfil}" alt="${userName}" width="200px" height="200px" style="margin: 0% 0% 5% 0%;">');
+			            	} else {
+			            		$("#rowFotoMascota").prepend('<img class="rounded-circle mx-auto d-block" src="/assets/img/mascotaGenerico.png" id="fotoMascota">'); 		            		
+			            	}
+			            }      		      
+			        });
+	    }
+	    
+	    function fotoUsuario() {
+	    	return $.ajax({
+			            method: "get",
+			            url: "/apiUsuario/existImgUser",
+			            data: { id : usuarioId },
+			            success: function (data) {	    
+			            	let existFotoPerfil = data;
+			            	$("#divPerfil").find("img").remove();
+			            	if (existFotoPerfil) {
+			            		$("#divPerfil").prepend('<img class="rounded-circle mx-auto d-block" src="data:image/jpeg;base64,${fotoPerfil}" alt="${userName}" width="200px" height="200px" style="margin: 0% 0% 5% 0%;">');
+			            	} else {
+			            		$("#divPerfil").prepend('<img class="rounded-circle mx-auto d-block" src="/assets/img/usuario.png" width="200px" height="200px" style="margin: 0% 0% 5% 0%;">'); 		            		
+			            	}
+			            }      		      
+			        });
+	    }
+	    
+	    //JQuery
     	$("#mascotas")
 		  .change(function(){
-			mascotaId = document.getElementById("mascotas").value;
-			console.log(mascotaId);})
+			  fotoMascota();
+			;})
 	    
 	    $(document).ready(function(){
-	      	$.ajax({
-	            method: "get",
-	            url: "/apiUsuario/existImgUser",
-	            data: { id : usuarioId },
-	            success: function (data) {	    
-	            	let existFotoPerfil = data;
-	            	$("#divPerfil").find("img").remove();
-	            	if (existFotoPerfil) {
-	            		$("#divPerfil").prepend('<img class="rounded-circle mx-auto d-block" src="data:image/jpeg;base64,${fotoPerfil}" alt="${userName}" width="200px" height="200px" style="margin: 0% 0% 5% 0%;">');
-	            	} else {
-	            		$("#divPerfil").prepend('<img class="rounded-circle mx-auto d-block" src="/assets/img/usuario.png" width="200px" height="200px" style="margin: 0% 0% 5% 0%;">'); 		            		
-	            	}
-	            }      		      
-	        });
-	      	
-	      	$.ajax({
-	            method: "get",
-	            url: "/apiUsuario/existImgMascota",
-	            data: { id : mascotaId },
-	            success: function (data) {	    
-	            	let existFotoPerfil = data;
-	            	$("#rowForm").find("img").remove();
-	            	if (existFotoPerfil) {
-	            		$("#rowForm").prepend('<img class="rounded-circle mx-auto d-block" src="data:image/jpeg;base64,${fotoPerfil}" alt="${userName}" width="200px" height="200px" style="margin: 0% 0% 5% 0%;">');
-	            	} else {
-	            		$("#rowForm").prepend('<img class="rounded-circle mx-auto d-block" src="/assets/img/mascotaGenerico.png" width="200px" height="200px" style="margin: 0% 0% 5% 0%;">'); 		            		
-	            	}
-	            }      		      
-	        });
-	      	
+	      	fotoMascota();
+	    	fotoUsuario();
+	    	
 	    	  $("#botonBody").click(function(){
 	    		  console.log(usuarioId);
 	    	  });
 	    	  
-	    	});
+	    });
     
     </script>
     	

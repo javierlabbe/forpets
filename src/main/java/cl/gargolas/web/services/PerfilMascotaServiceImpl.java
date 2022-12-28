@@ -57,7 +57,7 @@ public class PerfilMascotaServiceImpl implements PerfilMascotaService{
 	@Override
 	public Boolean fotoPerfil(Long id) {
 		PerfilMascota perfilMascota = perfilMascotaRepository.findById(id).get();
-		if (perfilMascota.getImagen() != null) {
+		if (perfilMascota.getFoto() != null) {
 			return true;
 		} else {
 			return false;

@@ -48,13 +48,13 @@ public class HomeController {
 		Usuario user = usuarioServiceImpl.obtenerUsuario(idUsuario);
 		List<PerfilMascota> listaMascotas = user.getPerfilMascota();
 		
-		String fotoPerfil = "";
+		String fotoPerfilUser = "";
 		byte[] imagenFotoPerfil = (byte[]) user.getFoto();
 		if (imagenFotoPerfil != null) {
-			fotoPerfil = Base64.getEncoder().encodeToString(imagenFotoPerfil);
+			fotoPerfilUser = Base64.getEncoder().encodeToString(imagenFotoPerfil);
 		}
 		
-		model.addAttribute("fotoPerfil", fotoPerfil);
+		model.addAttribute("fotoPerfil", fotoPerfilUser);
 		model.addAttribute("idUser", idUsuario);
 		model.addAttribute("nameUser", user.getNombre()+" "+user.getApellidos());
 		model.addAttribute("emailUser", user.getEmail());

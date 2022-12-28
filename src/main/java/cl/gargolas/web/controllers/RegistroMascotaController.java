@@ -141,7 +141,7 @@ public class RegistroMascotaController {
 		perfilMascota.setPatron(patronId);
 		perfilMascota.setTamanio(tamanioId);
 		perfilMascota.setDescripcion(descripcion2);//guardamos en base de datos el id del objeto descripcion del perfil mascota
-		perfilMascota.setImagen(imagen);
+		//perfilMascota.setFoto(imagen);
 		perfilMascota.setSexo(sexoId);
 		
 		

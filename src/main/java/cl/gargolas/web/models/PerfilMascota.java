@@ -47,7 +47,8 @@ public class PerfilMascota {
  
 	private String nChip;
  
-	private String imagen; //importo java.sql
+	@Column(name="foto", length= Integer.MAX_VALUE,nullable= true)
+	private byte[] foto;
  
 	@JsonIgnore
 	@ManyToOne(fetch = FetchType.LAZY)
