@@ -1,5 +1,22 @@
 @charset "UTF-8";
 
+#BotonNav1{
+    --bs-btn-font-weight: 600;
+    --bs-btn-color: #C6D166;
+    --bs-btn-bg:#004445 ;
+    --bs-btn-border-color: #004445;
+    --bs-btn-border-radius: .5rem;
+    --bs-btn-hover-color: #C6D166;
+    --bs-btn-hover-bg: #015b5c;
+    --bs-btn-hover-border-color: #015b5c;
+    --bs-btn-focus-shadow-rgb: var(--bd-violet-rgb);
+    --bs-btn-active-color: #004445;
+    --bs-btn-active-bg: #C6D166;
+    --bs-btn-active-border-color: #C6D166;
+    width:130px; margin-right: 5px;
+    margin-right: 16px;
+}
+
 #botonBody{
 	--bs-btn-font-weight: 600;
     --bs-btn-color: #004445;
@@ -30,4 +47,18 @@
     --bs-btn-active-bg:#004445 ;
     --bs-btn-active-border-color: #C6D166;
 	width:80%;
+}
+
+#rowFoto {
+  display: inline-block;
+  position: lative;
+  width: 200px;
+  height: 200px;
+}
+
+#fotoMascota {
+  width: auto;
+  height: 100%;
+  border-radius: 50%;
+  padding: 10px;
 }

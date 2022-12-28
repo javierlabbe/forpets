@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import cl.gargolas.web.models.Tamanio;
+import cl.gargolas.web.models.PerfilMascota;
 import cl.gargolas.web.models.Usuario;
 import cl.gargolas.web.services.UsuarioServiceImpl;
 
@@ -50,6 +50,12 @@ public class UsuarioApiRestController {
 	@GetMapping("/existimg")
 	public Boolean existImg(Long id) {
 		return usuarioServiceImpl.fotoPerfil(id);
+	}
+	
+	@GetMapping("/mascotas")
+	public List<PerfilMascota> listaMascotas(Long id) {
+		Usuario user = usuarioServiceImpl.obtenerUsuario(id);
+		return user.getPerfilMascota();
 	}
 
 }

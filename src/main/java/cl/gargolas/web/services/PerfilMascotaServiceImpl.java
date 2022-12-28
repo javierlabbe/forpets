@@ -27,7 +27,7 @@ public class PerfilMascotaServiceImpl implements PerfilMascotaService{
 
 	@Override
 	public String actualizarPerfilMascota(PerfilMascota perfilMascota) {
-		Boolean existe = perfilMascotaRepository.existsById(perfilMascota.getIdPerfilMascota()); //aqui o en repository?
+		Boolean existe = perfilMascotaRepository.existsById(perfilMascota.getId()); //aqui o en repository?
 		if (existe) {
 			perfilMascotaRepository.save(perfilMascota);
 		} else {

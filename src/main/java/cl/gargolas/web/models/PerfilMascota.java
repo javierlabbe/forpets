@@ -39,7 +39,7 @@ import lombok.ToString;
 public class PerfilMascota {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long idPerfilMascota;
+	private Long id;
  
 	//@NotNull
 	@Size(min=1,max=15, message= "Error en el ingreso del nombre")
