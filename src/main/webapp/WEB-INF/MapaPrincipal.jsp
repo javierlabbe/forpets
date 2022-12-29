@@ -58,7 +58,7 @@
 
 			<!-- Left links -->
 			<div class="d-flex align-items-center">
-				<a class="btn btn-primary" href="http://localhost:9082/index"
+				<a class="btn btn-primary" href="#"
 					role="button" id="BotonNav1">Cerrar sesión</a>
 			</div>
 		</div>
