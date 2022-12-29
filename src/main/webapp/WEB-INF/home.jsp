@@ -9,15 +9,15 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
     <script src="https://kit.fontawesome.com/64af136b72.js" crossorigin="anonymous"></script>
-   <link href="/Assets/CSS/stylesHome.css" rel="stylesheet">
+   <link href="/Assets/CSS/HomeStyles.css" rel="stylesheet">
    <title>Home</title>
  
 </head>
 
 <!-- Navbar -->
-<nav class="navbar navbar-expand-lg" style="background-color: #48C6AF; height: 120px; " >
+<nav class="navbar navbar-expand-lg" style="background-color: #48C6AF; height: 120px;" >
     <div class="container-fluid">
-        <a class="navbar-brand" href="#">
+        <a class="navbar-brand" href="home">
             <!--IR AL HOME en href-->
             <img src="/assets/img/logonegro" height="40px" alt="forpets Logo" loading="lazy" style="margin-top: -1px;" />
         </a>
@@ -33,8 +33,11 @@
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <!-- Left links -->
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="/registro/equipo"><strong>Nosotros</strong></a>
+                    <a class="nav-link" aria-current="page" href="/index/nosotros"><strong>Nosotros</strong></a>
                 </li>
+                <li>
+                <a class="nav-link" aria-current="page" href="/mapa/mapaPrincipal"><strong>Ver mapa</strong></a>
+              	</li>
             </ul>
 
             <!-- Left links -->

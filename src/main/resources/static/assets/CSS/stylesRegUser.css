@@ -17,17 +17,18 @@
 }
 
 #selectFile{
-	--bs-btn-font-weight: 600;
-    --bs-btn-color: #004445;
-    --bs-btn-bg: #C6D166;
-    --bs-btn-border-color: #C6D166;
+    --bs-btn-font-weight: 600;
+    --bs-btn-color: #C6D166;
+    --bs-btn-bg:#004445 ;
+    --bs-btn-border-color: #004445;
     --bs-btn-border-radius: .5rem;
     --bs-btn-hover-color: #C6D166;
-    --bs-btn-hover-bg: #7c8343a4;
-    --bs-btn-hover-border-color: #7c8343a4;
+    --bs-btn-hover-bg: #015b5c;
+    --bs-btn-hover-border-color: #015b5c;
     --bs-btn-focus-shadow-rgb: var(--bd-violet-rgb);
-    --bs-btn-active-color: #C6D166;
-    --bs-btn-active-bg:#004445 ;
+    --bs-btn-active-color: #004445;
+    --bs-btn-active-bg: #C6D166;
     --bs-btn-active-border-color: #C6D166;
-	width:80%;
+    width: 80%;
 }
+
