@@ -11,10 +11,16 @@
      <!--Bootstrap-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
-
-    <link href="/assets/css/stylesHome.css" rel="stylesheet">
-
+	
+	<!-- CSS -->
+	<link href="/assets/css/stylesRegUser.css" rel="stylesheet">
+    
+    <!-- JQUERY -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    
     <script src="https://kit.fontawesome.com/64af136b72.js" crossorigin="anonymous"></script>
+     
+
 
 </head>
 
@@ -23,7 +29,7 @@
     <div class="container-fluid">
         <a class="navbar-brand" href="#">
             <!--IR AL HOME en href-->
-            <img src="assets/img/logonegro" height="40px" alt="forpets Logo" loading="lazy" style="margin-top: -1px;" />
+            <img src="/assets/img/logonegro" height="40px" alt="forpets Logo" loading="lazy" style="margin-top: -1px;" />
         </a>
 
         <!-- Toggle button -->
@@ -49,7 +55,7 @@
 
             <!-- Left links -->
             <div class="d-flex align-items-center">
-                <button type="button" class="btn btn-primary" id="BotonNav1">Cerrar Sesión</button>
+                <a class="btn btn-primary" href="/index/logout" role="button" id="BotonNav1">Cerrar sesión</a>
             </div>
         </div>
     </div>
@@ -59,52 +65,112 @@
 <body>
 <div class="container-fluid">
         <div class="row align-items-start" style="margin-top: 2%; padding-right: 5%;">
-            <div class="col-4 text-center" style=" height: 600px;">
-                <img class="rounded-circle mx-auto d-block" src="https://images.pexels.com/photos/91227/pexels-photo-91227.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" width="200px" height="200px" style="margin: 0% 0% 5% 0%;">
+            <div class="col-4 text-center" style=" height: 600px;" id="divPerfil">
+                <img class="rounded-circle mx-auto d-block" src="" width="200px" height="200px" style="margin: 0% 0% 5% 0%;" id="fotoPerfil">
                 <div class="d-grid gap-2 col-6 mx-auto">
-                    <button type="button" class="btn btn-primary " id="prueba">
-                        Editar Foto de Perfil
+                    <button type="button" class="btn btn-primary" id="botonBody">
+                        Cambiar Foto de Perfil
                     </button>
-                    <button type="button" class="btn btn-primary " id="prueba">
-                        Editar Información
+                    <button type="button" class="btn btn-primary" id="botonBody">
+                        Editar
                     </button>
-                    <button type="button" class="btn btn-primary " id="prueba">
+                    <button type="button" class="btn btn-primary" id="botonBody">
                         Añadir Mascota
                     </button>
                 </div>
             </div>
             <div class="col">
-                <div div class="row align-items-start" id="rowform">
+                <div class="row align-items-start" id="rowform">
                     <h3>Mi Perfil</h3>
                 </div>
-                <div div class="row align-items-start" id="rowform">
-                    <p>Diego Riquelme Sotomayor</p>
-                    <p>12.345.678-9</p>
-                    <p>driquelme@example.com</p>
-                    <p>+56 9 1234 5678</p>
-                    <p>Eleuterio Ramírez #1170, Santiago, Región Metropolitana</p>
+                <div class="row align-items-start" id="rowform">
+                    <p><c:out value="${nameUser}"></c:out></p>
+                    <p><c:out value="${emailUser}"></c:out></p>
+                    <p><c:out value="${celUser}"></c:out></p>
+                    <p><c:out value="${dirUser}"></c:out>.</p>
                 </div>
-                <div div class="row align-items-start" id="rowform">
+                <div class="row align-items-start" id="rowform">
                     <h3>Mis Mascotas</h3>
                 </div>
-                <div div class="row align-items-start" id="rowform">
-                    <div class="col text-center">
-                        <img class="rounded-circle mx-auto d-block" src="https://images.pexels.com/photos/1490908/pexels-photo-1490908.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" width="100px" height="100px" style="margin: 0% 0% 5% 0%;">
-                        <button type="button" class="btn btn-primary">Ver más</button>
-                    </div>
-                    <div class="col text-center">
-                        <img class="rounded-circle mx-auto d-block" src="https://images.pexels.com/photos/20787/pexels-photo.jpg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" width="100px" height="100px" style="margin: 0% 0% 5% 0%;">
-                        <button type="button" class="btn btn-primary">Ver más</button>
-                    </div>
-                    <div class="col text-center">
-                        <img class="rounded-circle mx-auto d-block" src="https://images.pexels.com/photos/4520480/pexels-photo-4520480.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" width="100px" height="100px" style="margin: 0% 0% 5% 0%;">
-                        <button type="button" class="btn btn-primary">Ver más</button>
-                    </div>
+                 <div class="row align-items-start" id="rowform">
+	                 <div class="col-4">
+	                     <select class="form-select" aria-label="Default select example" id="mascotas" name="mascotas">
+                        	<c:forEach var="perfilMascota" items="${listaMascotas}">
+								<option value="${perfilMascota.id}">${perfilMascota.nombre}</option>			  
+							</c:forEach>
+	                     </select>
+	                 </div>
+	            </div>
+                <div class="row align-items-start" id="rowFotoMascota" >
+                	<img src="" id="fotoMascota">
+                </div>
+                <div class="row align-items-center">
+                	<div class="col">
+                		<button type="button" class="btn btn-primary" id="botonBody" style="width: 20%">Ver más</button>
+                	</div>	
                 </div>
             </div>
         </div>
     </div>
     
+    <script>
+    	//Definicion de variables
+	    var usuarioId = <c:out value="${idUser}"/>;
+	    var mascotaId = document.getElementById("mascotas").value;
+	    
+	    //Definicion de funciones
+	    function fotoMascota() {
+			return	$.ajax({
+			            method: "get",
+			            url: "/apiPerfilMascota/existImgMascota",
+			            data: { id : mascotaId },
+			            success: function (data) {	    
+			            	let existFotoPerfil = data;
+			            	$("#rowFotoMascota").find("img").remove();
+			            	if (existFotoPerfil) {
+			            		$("#rowFotoMascota").prepend('<img class="rounded-circle mx-auto d-block" src="data:image/jpeg;base64,${fotoPerfil}" alt="${userName}" width="200px" height="200px" style="margin: 0% 0% 5% 0%;">');
+			            	} else {
+			            		$("#rowFotoMascota").prepend('<img class="rounded-circle mx-auto d-block" src="/assets/img/mascotaGenerico.png" id="fotoMascota">'); 		            		
+			            	}
+			            }      		      
+			        });
+	    }
+	    
+	    function fotoUsuario() {
+	    	return $.ajax({
+			            method: "get",
+			            url: "/apiUsuario/existImgUser",
+			            data: { id : usuarioId },
+			            success: function (data) {	    
+			            	let existFotoPerfil = data;
+			            	$("#divPerfil").find("img").remove();
+			            	if (existFotoPerfil) {
+			            		$("#divPerfil").prepend('<img class="rounded-circle mx-auto d-block" src="data:image/jpeg;base64,${fotoPerfil}" alt="${userName}" width="200px" height="200px" style="margin: 0% 0% 5% 0%;">');
+			            	} else {
+			            		$("#divPerfil").prepend('<img class="rounded-circle mx-auto d-block" src="/assets/img/usuario.png" width="200px" height="200px" style="margin: 0% 0% 5% 0%;">'); 		            		
+			            	}
+			            }      		      
+			        });
+	    }
+	    
+	    //JQuery
+    	$("#mascotas")
+		  .change(function(){
+			  fotoMascota();
+			;})
+	    
+	    $(document).ready(function(){
+	      	fotoMascota();
+	    	fotoUsuario();
+	    	
+	    	  $("#botonBody").click(function(){
+	    		  console.log(usuarioId);
+	    	  });
+	    	  
+	    });
+    
+    </script>
+    	
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js "
         integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4 "
         crossorigin="anonymous "></script>

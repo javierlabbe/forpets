@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import cl.gargolas.web.models.PerfilMascota;
+import cl.gargolas.web.models.Usuario;
 import cl.gargolas.web.repositories.PerfilMascotaRepository;
 
 @Service
@@ -27,7 +28,7 @@ public class PerfilMascotaServiceImpl implements PerfilMascotaService{
 
 	@Override
 	public String actualizarPerfilMascota(PerfilMascota perfilMascota) {
-		Boolean existe = perfilMascotaRepository.existsById(perfilMascota.getIdPerfilMascota()); //aqui o en repository?
+		Boolean existe = perfilMascotaRepository.existsById(perfilMascota.getId()); //aqui o en repository?
 		if (existe) {
 			perfilMascotaRepository.save(perfilMascota);
 		} else {
@@ -49,7 +50,20 @@ public class PerfilMascotaServiceImpl implements PerfilMascotaService{
 	
 	@Override
 	public List<PerfilMascota> obtenerListaPerfilMascota() {
+		
 		return perfilMascotaRepository.findAll();
 	}
+	
+	@Override
+	public Boolean fotoPerfil(Long id) {
+		PerfilMascota perfilMascota = perfilMascotaRepository.findById(id).get();
+		if (perfilMascota.getFoto() != null) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+
+	
 
 }

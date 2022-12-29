@@ -10,4 +10,5 @@ public interface PerfilMascotaService {
 	public String actualizarPerfilMascota(PerfilMascota perfilMascota);
 	public PerfilMascota obtenerPerfilMascota(Long id);
 	public List<PerfilMascota> obtenerListaPerfilMascota();
+	Boolean fotoPerfil(Long id);
 }

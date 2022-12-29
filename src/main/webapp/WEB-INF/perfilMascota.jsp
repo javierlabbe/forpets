@@ -1,4 +1,6 @@
-
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -46,7 +48,7 @@
 			<!-- Left links -->
 			<div class="d-flex align-items-center">
 				<button type="button" class="btn btn-primary" id="BotonNav1">Cerrar
-					Sesión</button>
+					SesiÃ³n</button>
 			</div>
 		</div>
 	</div>
@@ -71,41 +73,39 @@
 						<h1>Perfil mascota</h1>
 						</p>
 						<p>
-						<h6>Copito, cachorro</h6>
+						<h6>Nombre Mascota: <c:out value="${NombreMascota}"></c:out></h6>
 						</p>
 						<p>
-						<h6>Nº Chip: 123456789012345</h6>
+							<h6>Numero Chip: <c:out value="${NChip}"></c:out></h6>
 						</p>
 						<p>
-						<h6>Especie: Gato</h6>
+							<h6>Especie: <c:out value="${Especie}"></c:out></h6>
 						</p>
 						<p>
-						<h6>Color/es: Naranjo claro</h6>
+							<h6>Color: <c:out value="${Color}"></c:out></h6>
 						</p>
 						<p>
-						<h6>Tamaño: Mediano</h6>
+						<h6>TamaÃ±o: <c:out value="${Tamanio}"></c:out></h6>
 						</p>
 						<p>
-						<h6>Raza: N/A</h6>
+						<h6>Raza: <c:out value="${Raza}"></c:out></h6>
 						</p>
 						<p>
-						<h6>Patrón: Color sólido</h6>
+						<h6>PatrÃ³n: <c:out value="${Patron}"></c:out></h6>
 						</p>
 						<p>
-						<h6>Sexo: Macho</h6>
+						<h6>Sexo: <c:out value="${Sexo}"></c:out></h6>
 						</p>
+						<!--  <p><c:out value="${Apellido}"></c:out></p> -->
 					</div>
 				</div>
 				<div class="row">
 					<div class="col">
 						<p>
-						<h1>Mis caractetísticas</h1>
+						<h1>Mis caractetÃ­sticas</h1>
 						</p>
 						<p>
-						<h6>Estoy inscrito en el registro civil de mascotas y tengo
-							chip, estoy castrado. Soy asustadizo, no me gustan las manos y
-							siempre me escondo de las personas. Tengo una marca en mi oreja
-							derecha, la punta de mi cola es blanca y mis ojos son amarillos.
+						<h6><c:out value="${Descripcion}"></c:out>
 						</h6>
 						</p>
 					</div>
@@ -140,7 +140,7 @@
 						<a class="btn btn-link btn-floating btn-lg text-dark m-1"
 							href="#!" role="button"><i
 							class="fab fa-instagram" style="color: #C6D166;"></i> </a>
-						<h6 style="color: #C6D166;">¡Síguenos!</h6>
+						<h6 style="color: #C6D166;">Â¡SÃ­guenos!</h6>
 				</div>
 			</div>
 			<div class="col">
@@ -148,7 +148,7 @@
 			</div>
 			<div class="text-center text-dark p-3"
 				style="background-color: rgba(0, 0, 0, 0.2);">
-				<p style="color: #C6D166;">FortPets©2022</p>
+				<p style="color: #C6D166;">FortPetsÂ©2022</p>
 			</div>
 		</div>
 	</div>

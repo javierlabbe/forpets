@@ -1,5 +1,6 @@
 package cl.gargolas.web.api;
 
+import java.util.Base64;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -45,5 +46,16 @@ public class PerfilMascotaApiRestController {
 	@GetMapping("/listar/perfilMascota") 
 	public List<PerfilMascota> obtenerListaPerfilMascotaes() {
 		return perfilMascotaServiceImpl.obtenerListaPerfilMascota();
+	}
+	
+	@GetMapping("/existImgMascota")
+	public String existImgMascota(Long id) {
+		PerfilMascota mascota = perfilMascotaServiceImpl.obtenerPerfilMascota(id);
+		String fotoPerfilMascota = "";
+		byte[] imagenFotoPerfil = (byte[]) mascota.getFoto();
+		if (imagenFotoPerfil != null) {
+			fotoPerfilMascota = Base64.getEncoder().encodeToString(imagenFotoPerfil);
+		}
+		return fotoPerfilMascota;
 	}
 }

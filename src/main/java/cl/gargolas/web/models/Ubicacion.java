@@ -34,6 +34,12 @@ public class Ubicacion {
 	private Long idUbicacion;
 
 	@NotNull
+	private Float latitud;
+	
+	@NotNull
+	private Float longitud;
+	
+	@NotNull
 	@Size(min = 10, max = 30)
 	private String descripcion;
 

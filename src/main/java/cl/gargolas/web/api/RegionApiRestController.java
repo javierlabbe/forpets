@@ -3,10 +3,13 @@ package cl.gargolas.web.api;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import cl.gargolas.web.models.Comuna;
@@ -43,7 +46,7 @@ public class RegionApiRestController {
 		Region region = regionServiceImpl.obtenerRegion(id);
 		return region.toString();
 	}
-	@GetMapping("/listar/regiones") 
+	@GetMapping("/lista/regiones") 
 	public List<Region> obtenerListaRegiones() {
 		return regionServiceImpl.obtenerListaRegiones();
 	}
@@ -55,8 +58,8 @@ public class RegionApiRestController {
 		return provincias;
 	}
 	
-	@GetMapping("/lista/comunas")
-	public List<Comuna> listaComunas(@RequestParam(value="id", required = false)Long id) {
+	@RequestMapping(value = "/obtenercomunas", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+	public @ResponseBody List<Comuna> findAllByRegion(@RequestParam(value="id",required = false) Long id) {
 		return regionServiceImpl.obtenerListaComunas(id);
-	}
+		}
 }

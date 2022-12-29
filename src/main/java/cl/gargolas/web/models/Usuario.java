@@ -64,6 +64,9 @@ public class Usuario {
 	@Transient
 	private String password2; 
 	
+	@Column(name="foto", length= Integer.MAX_VALUE,nullable= true)
+	private byte[] foto;
+	
 	@JsonIgnore
 	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "direccion_id")

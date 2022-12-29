@@ -15,6 +15,9 @@
 
     <script src="https://kit.fontawesome.com/64af136b72.js" crossorigin="anonymous"></script>
     
+    <!-- JQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    
     <style>
         #rowform {
             margin-bottom: 10px;
@@ -153,13 +156,39 @@
 		                    </div>
 		                </div>
 		                <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-		                    <input type="submit" class="btn btn-primary" value="Continuar" id="BotonBody">
+		                    <input type="submit" class="btn btn-primary" value="Continuar" id="botonBody">
 		            	</div>
 		            </div>
 	        	</div>
 	        </form>
 	    </div>
     </div>
+    
+	<script>
+		$('select[name="region"]').on('change', function() {
+		    let regionId = $(this).val();
+		        $.ajax({
+		            method: "get",
+		            url: "/apiRegion/obtenercomunas",
+		            dataType: 'json',
+		            data: { id : regionId },
+		            success: function (data) {
+		    
+		            	$("#comuna").find("option").remove();
+		            	$("#comuna").append('<option value="0">Seleccione comuna</option>');  
+		           for (var i = 0; i < data.length; i++) {
+					
+					 $("#comuna").append('<option value='+data[i].id+'>'+data[i].descripcion+'</option>');  
+				}
+		                
+		            }
+		        
+		      
+		        });
+		//cierre jquery
+		    });
+
+	</script>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js "
         integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4 "

@@ -39,7 +39,7 @@ import lombok.ToString;
 public class PerfilMascota {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long idPerfilMascota;
+	private Long id;
  
 	//@NotNull
 	@Size(min=1,max=15, message= "Error en el ingreso del nombre")
@@ -47,7 +47,8 @@ public class PerfilMascota {
  
 	private String nChip;
  
-	private String imagen; //importo java.sql
+	@Column(name="foto", length= Integer.MAX_VALUE,nullable= true)
+	private byte[] foto;
  
 	@JsonIgnore
 	@ManyToOne(fetch = FetchType.LAZY)
