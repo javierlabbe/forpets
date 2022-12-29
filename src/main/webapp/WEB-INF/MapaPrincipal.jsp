@@ -131,9 +131,6 @@
                             <label for="form-label" id="TipoReporte"><b>Tipo reporte</b></label>
                             <select class="form-select" aria-label="Default select example">
                                 <option selected>Seleccione tipo reporte</option>
-                                <c:forEach var="reporte" items="${listaReportes}">
-			 							<option value="${reporte.id}">${reporte.descripcion}</option>			  
-			 						</c:forEach>
                             </select>
                         </div>
                         </div>
@@ -157,9 +154,6 @@
                             <label for="especie" id="seleccion"><b>Especie</b></label>
                             <select class="form-select" aria-label="Default select example">
                                 <option selected>Seleccione especie de la mascota</option>
-                                <c:forEach var="especie" items="${listaEspecies}">
-			 							<option value="${especie.id}">${especie.descripcion}</option>			  
-			 						</c:forEach>
                             </select>
                         </div>
                         </div>
@@ -171,9 +165,6 @@
                                 <label for="raza" id="seleccion"><b>Raza</b></label>
                             <select class="form-select" aria-label="Default select example">
                                 <option selected>Seleccione raza de la mascota</option>
-                                <c:forEach var="raza" items="${listaRazas}">
-			 							<option value="${raza.id}">${raza.descripcion}</option>			  
-			 						</c:forEach>
                             </select>
                             </div>
                             <div class="col">
@@ -181,17 +172,12 @@
                             <select class="form-select" aria-label="Default select example">
                                 <option selected>Seleccione patrón de su mascota</option>
                                 <c:forEach var="patron" items="${listaPatrones}">
-			 							<option value="${patron.id}">${patron.descripcion}</option>			  
-			 						</c:forEach>
                             </select>
                             </div>
                             <div class="col">
                                 <label for="tamaño" id="seleccion"><b>Tamaño</b></label>
                             <select class="form-select" aria-label="Default select example">
                                 <option selected>Seleccione tamaño de su mascota</option>
-                                <c:forEach var="tamanio" items="${listaTamanios}">
-			 							<option value="${tamanio.id}">${tamanio.descripcion}</option>			  
-			 						</c:forEach>
                             </select>
                             </div>
                         </div>
@@ -245,9 +231,6 @@
 										style="width: 470px;">
 										<option class="form-control" selected>Seleccione
 											categoría</option>
-											<c:forEach var="categoria" items="${listaCategorias}">
-			 							<option value="${categoria.id}">${categoria.descripcion}</option>			  
-			 						</c:forEach>
 									</select>
 								</div>
 								<!--=====================================->

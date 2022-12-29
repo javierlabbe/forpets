@@ -25,18 +25,5 @@ public class MapaPrincipalController {
 	public String mostrarMapaPrincipal() {
 		return "MapaPrincipal.jsp";
 	}
-	@GetMapping("")
-	public String mostrarReporte(Model model) {
-		//List<Especie> listaEspecies = especieServiceImpl.obtenerListaEspecies();
-		//List<Raza> listaRazas = razaServiceImpl.obtenerListaRazas();
-		//List<Color> listaColores = colorServiceImpl.obtenerListaColores();
-		//List<Tamanio> listaTamanios = tamanioServiceImpl.obtenerListaTamanios();
-		
-		//model.addAttribute("listaEspecies", listaEspecies);
-		//model.addAttribute("listaRazas", listaRazas);
-		//model.addAttribute("listaColor", listaColores);
-		//model.addAttribute("listaTamanios", listaTamanios);
-		return "MapaPrincipal.jsp";
-	}
 }
 
