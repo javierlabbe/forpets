@@ -118,7 +118,7 @@ public class RegistroMascotaController {
 		
 		
 		//Rescatar Id usuario
-		//Long idUsuario = (Long) session.getAttribute("idUsuario");
+		Long idUsuario = (Long) session.getAttribute("idUsuario");
 		
 		
 		ComboBoxDatos(model);
@@ -134,7 +134,7 @@ public class RegistroMascotaController {
 		Descripcion descripcion2 = new Descripcion(); //creamos objeto para  pasar string
 		descripcion2.setDescripcion(descripcion); //pasamos string al objeto descripcion2
 		
-		//Usuario usuario = usuarioServiceImpl.obtenerUsuario(idUsuario);
+		Usuario usuario = usuarioServiceImpl.obtenerUsuario(idUsuario);
 		Sexo sexoId = sexoServiceImpl.obtenerSexo(sexo); //a
 		RangoEtario rangoEtarioId = rangoEtarioServiceImpl.obtenerRangoEtario(rangoEtario);
 		Raza razaId = razaServiceImpl.obtenerRaza(raza);
@@ -146,7 +146,7 @@ public class RegistroMascotaController {
 		
 		
 		PerfilMascota perfilMascota = new PerfilMascota();
-		//perfilMascota.setId(idUsuario);
+		perfilMascota.setUsuario(usuario);
 		perfilMascota.setNombre(nombre);
 		perfilMascota.setNChip(nChip);
 		perfilMascota.setRangoEtario(rangoEtarioId);
