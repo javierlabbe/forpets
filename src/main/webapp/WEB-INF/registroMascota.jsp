@@ -238,20 +238,21 @@
 </footer>
 
 <script>
-		$('select[name="raza"]').on('change', function() {
-		    let regionId = $(this).val();
+		$('select[name="especie"]').on('change', function() {
+		    let especieId = $(this).val();
+		    console.log(especieId)
 		        $.ajax({
 		            method: "get",
 		            url: "/apiEspecie/obtenerRaza",
 		            dataType: 'json',
-		            data: { id : regionId },
+		            data: { id : especieId },
 		            success: function (data) {
 		    
-		            	$("#especie").find("option").remove();
-		            	$("#especie").append('<option value="0">Seleccione especie</option>');  
+		            	$("#raza").find("option").remove();
+		            	$("#raza").append('<option value="0">Seleccione raza</option>');  
 		           for (var i = 0; i < data.length; i++) {
 					
-					 $("#especie").append('<option value='+data[i].id+'>'+data[i].descripcion+'</option>');  
+					 $("#raza").append('<option value='+data[i].id+'>'+data[i].descripcion+'</option>');  
 				}
 		                
 		            }
