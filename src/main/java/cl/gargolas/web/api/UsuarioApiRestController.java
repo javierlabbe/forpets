@@ -30,8 +30,9 @@ public class UsuarioApiRestController {
 	}
 
 	@RequestMapping("/actualizar")
-	public String actualizarUsuario(@RequestBody Usuario usuario) { 
-		usuarioServiceImpl.actualizarUsuario(usuario);
+	public String actualizarUsuario(@RequestParam(value = "id", required = false) Long id) { 
+		Usuario user = usuarioServiceImpl.obtenerUsuario(id);
+		usuarioServiceImpl.actualizarUsuario(user);
 		return "Usuario actualizado";
 	}
 	

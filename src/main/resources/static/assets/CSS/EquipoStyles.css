@@ -82,3 +82,22 @@ h4 {
   text-shadow: 0 .05rem .1rem rgba(0, 0, 0, .5);
 
 }
+
+ /*
+ * Footer
+ */
+ 
+ /* unvisited link */
+.link1:link {
+  color: #C6D166;
+}
+
+/* visited link */
+ .link1:visited {
+  color: #48C6AF;
+}
+
+/* mouse over link */
+ .link1:hover {
+  color: hotpink;
+}

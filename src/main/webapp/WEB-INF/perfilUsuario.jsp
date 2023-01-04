@@ -7,7 +7,7 @@
 <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mi Perfil</title>
+    <title>Perfil</title>
      <!--Bootstrap-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
@@ -27,7 +27,7 @@
 <!-- Navbar -->
 <nav class="navbar navbar-expand-lg" style="background-color: #48C6AF; height: 120px;">
     <div class="container-fluid">
-        <a class="navbar-brand" href="#">
+        <a class="navbar-brand" href="/home">
             <!--IR AL HOME en href-->
             <img src="/assets/img/logonegro" height="40px" alt="forpets Logo" loading="lazy" style="margin-top: -1px;" />
         </a>
@@ -43,10 +43,10 @@
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <!-- Left links -->
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">Home</a>
+                    <a class="nav-link active" aria-current="page" href="/home">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Ver Mapa</a>
+                    <a class="nav-link" href="/mapa/mapaPrincipal">Ver Mapa</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">Hacer Reporte</a>
@@ -65,13 +65,108 @@
 <body>
 <div class="container-fluid">
         <div class="row align-items-start" style="margin-top: 2%; padding-right: 5%;">
-            <div class="col-4 text-center" style=" height: 600px;" id="divPerfil">
-                <img class="rounded-circle mx-auto d-block" src="" width="200px" height="200px" style="margin: 0% 0% 5% 0%;" id="fotoPerfil">
-                <div class="d-grid gap-2 col-6 mx-auto">
-                    <button type="button" class="btn btn-primary" id="botonBody">
-                        Cambiar Foto de Perfil
-                    </button>
-                    <button type="button" class="btn btn-primary" id="botonBody">
+            <div class="col-4" style=" height: 600px;" id="divPerfil1">
+                <div class="row text-center">
+	                
+	                <!-- Button trigger modal -->
+					<button type="button" class="btn btn-primary" id="divPerfil" data-bs-toggle="modal" data-bs-target="#fotoUserModal" style="margin: 0px; background-color: transparent; border: none;">
+					  <img class="rounded-circle mx-auto d-block" src="" width="200px" height="200px" style="margin: 0% 0% 5% 0%;" id="fotoPerfil">
+					</button>				
+					
+					<!-- Modal Foto Perfil -->
+					<div class="modal fade" id="fotoUserModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+					  <div class="modal-dialog">
+					    <div class="modal-content">
+					      <div class="modal-header">
+					        <h1 class="modal-title fs-5" id="exampleModalLabel">Foto del Perfil</h1>
+					        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+					      </div>
+					      <div class="modal-body" id="fotoUserBodyModal">
+					      </div>
+					      <form action="/home/perfil" method="post" enctype="multipart/form-data">
+						      <div class="modal-footer">
+						        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+								<label class="btn btn-primary" for="inputGroupFile01">Editar</label>
+								<input type="file" class="form-control" id="inputGroupFile01" style="display: none" name="fotoPerfilUser">
+						        <button type="submit" class="btn btn-primary">Save changes</button>
+						      </div>
+					      </form>
+					    </div>
+					  </div>
+					</div>
+					<!-- Fin modal -->         
+                </div>
+                     
+                <div class="d-grid gap-2 row mx-auto">
+                
+                	<!-- Modal editar Perfil -->
+					<div class="modal fade" id="perfilUserModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+					  <div class="modal-dialog">
+					    <div class="modal-content">
+					      <div class="modal-header">
+					        <h1 class="modal-title fs-5" id="exampleModalLabel">Editar Perfil</h1>
+					        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+					      </div>
+					      <form action="/home/perfil" method="post" enctype="multipart/form-data">
+					      <div class="modal-body" id="fotoUserBodyModal">
+			                <div class="row align-items-start" id="rowform">
+			                    <div class="col">
+			                        <label for="nombre" class="form-label">Nombre</label>
+			                        <input type="text" class="form-control" id="nombre" name="nombre" required>
+			                        <div class="form-text">Ingrese su nombre</div>
+			                    </div>
+			                </div>
+			                <div class="row align-items-start" id="rowform">
+			                    <div class="col">
+			                        <label for="apellidos" class="form-label">Apellidos</label>
+			                        <input type="text" class="form-control" id="apellidos" name="apellidos" required>
+			                        <div class="form-text">Ingrese su primer apellido</div>
+			                    </div>
+			                </div>
+			                <div class="row align-items-start" id="rowform">
+			                    <div class="col">
+			                        <label for="calle" class="form-label">Calle</label>
+			                        <input type="text" class="form-control" id="calle" name="calle" required>
+			                        <div class="form-text">Ingrese su calle</div>
+			                    </div>
+			                    <div class="col">
+			                        <label for="numDir" class="form-label">Número</label>
+			                        <input type="text" class="form-control" id="numDir" name="numDir" required>
+			                        <div class="form-text">Ingrese número de dirección</div>
+			                    </div>
+			                </div>
+			                <div class="row align-items-start" id="rowform">
+			                     <div class="col">
+			                         <label for="region" class="form-label">Región</label>
+			                         <select class="form-select" aria-label="Default select example" id="region" name="region">
+			                            <option selected>Seleccione región</option>
+			                            <c:forEach var="region" items="${listaRegiones}">
+				 							<option value="${region.id}">${region.descripcion}</option>			  
+				 						</c:forEach>
+			                         </select>
+			                     </div>
+			                     <div class="col">
+			                         <label for="comuna" class="form-label">Comuna</label>
+			                         <select class="form-select" aria-label="Default select example" id="comuna" name="comuna"  >
+			                            <option selected>Seleccione comuna</option>
+			                            <c:forEach var="comuna" items="${listaComunas}">
+				 							<option value="${comuna.id}">${comuna.descripcion}</option>			  
+				 						</c:forEach>
+			                         </select>
+			                     </div>             
+			                </div>
+					      </div>
+						      <div class="modal-footer">
+						        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+						        <button type="submit" class="btn btn-primary">Guardar</button>
+						      </div>
+					      </form>
+					    </div>
+					  </div>
+					</div>
+					<!-- Fin modal --> 
+                  
+                    <button type="button" class="btn btn-primary" id="botonBody" data-bs-toggle="modal" data-bs-target="#perfilUserModal">
                         Editar
                     </button>
                     <button type="button" class="btn btn-primary" id="botonBody">
@@ -146,8 +241,10 @@
 			            	$("#divPerfil").find("img").remove();
 			            	if (existFotoPerfil) {
 			            		$("#divPerfil").prepend('<img class="rounded-circle mx-auto d-block" src="data:image/jpeg;base64,${fotoPerfil}" alt="${userName}" width="200px" height="200px" style="margin: 0% 0% 5% 0%;">');
+			            		$("#fotoUserBodyModal").prepend('<img class="rounded-circle mx-auto d-block" src="data:image/jpeg;base64,${fotoPerfil}" alt="${userName}" width="200px" height="200px" style="margin: 0% 0% 5% 0%;">');
 			            	} else {
 			            		$("#divPerfil").prepend('<img class="rounded-circle mx-auto d-block" src="/assets/img/usuario.png" width="200px" height="200px" style="margin: 0% 0% 5% 0%;">'); 		            		
+			            		$("#fotoUserBodyModal").prepend('<img class="rounded-circle mx-auto d-block" src="/assets/img/usuario.png" width="200px" height="200px" style="margin: 0% 0% 5% 0%;">');
 			            	}
 			            }      		      
 			        });
@@ -168,6 +265,29 @@
 	    	  });
 	    	  
 	    });
+	    
+		$('select[name="region"]').on('change', function() {
+		    let regionId = $(this).val();
+		        $.ajax({
+		            method: "get",
+		            url: "/apiRegion/obtenercomunas",
+		            dataType: 'json',
+		            data: { id : regionId },
+		            success: function (data) {
+		    
+		            	$("#comuna").find("option").remove();
+		            	$("#comuna").append('<option value="0">Seleccione comuna</option>');  
+		           for (var i = 0; i < data.length; i++) {
+					
+					 $("#comuna").append('<option value='+data[i].id+'>'+data[i].descripcion+'</option>');  
+				}
+		                
+		            }
+		        
+		      
+		        });
+		//cierre jquery
+		    });
     
     </script>
     	

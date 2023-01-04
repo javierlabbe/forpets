@@ -98,42 +98,55 @@
 	          <!-- Section: Social media -->
 	          <section class="mb-4">
 	            <!-- Facebook -->
-	            <a
-	              class="btn btn-link btn-floating btn-lg text-dark m-1"
-	              href="#!"
-	              role="button"
-	              data-mdb-ripple-color="dark"
-	              ><i class="fab fa-facebook-f" style="color: #C6D166;"></i
-	            ></a>
-	            <!-- Twitter -->
-	            <a
-	              class="btn btn-link btn-floating btn-lg text-dark m-1"
-	              href="#!"
-	              role="button"
-	              data-mdb-ripple-color="dark"
-	              ><i class="fab fa-twitter" style="color: #C6D166;"></i
-	            ></a>
-	            <!-- Instagram -->
-	            <a
-	              class="btn btn-link btn-floating btn-lg text-dark m-1"
-	              href="#!"
-	              role="button"
-	              
-	              ><i class="fab fa-instagram" style="color: #C6D166;"></i>
-	              </a>
-	          <h6 style="color:#C6D166 ;">¡Síguenos!</h6>
-	          
+        <ul class="nav flex-column" >
+          <li class="nav-item">
+            <span class="footer-title" style="color: #C6D166; font-size: 20px" align="left"><strong>Links de interés</strong></span>
+          </li>
+          <li class="nav-item">
+            <a class="link1"  href="https://www.chileatiende.gob.cl/fichas/51436-ley-de-tenencia-responsable-de-mascotas-y-animales-de-compania-ley-cholito">Ley tenencia responsable</a>
+          </li>
+          <li class="nav-item">
+            <a class="link1"  href="https://registratumascota.cl/inicio.xhtml">Registro nacional de mascotas</a>
+          </li>
+          <li class="nav-item">
+            <span class="footer-title" style="color: #C6D166;font-size: 20px" align="left"><strong>Contacto y ayuda</strong></span>
+          </li>
+          <li class="nav-item" >
+            <a class="link1" href="mailto:holaforpets@gmail.com?Subject=Hola%20ForPets!"><i class="fas fa-envelope"></i>holaforpets@gmail.com</a>
+          </li>
+        </ul>
 	        </div>
 	      </div>
 	      <div class="col" style="margin-left: 200px; margin-top: 35px;">
 	        <img src="/assets/img/logoverde" alt="" style="height: 50px;">
+	       <div> 
+	        <ul class="list-inline social-buttons" style=" margin-top: 35px;">
+          <li class="list-inline-item">
+            <a href="#">
+            <i class="fab fa-twitter" style="color: #C6D166;"></i>
+          </a>
+          </li>
+          <li class="list-inline-item">
+            <a href="#">
+            <i class="fab fa-facebook-f" style="color: #C6D166;"></i>
+          </a>
+          </li>
+          <li class="list-inline-item">
+            <a href="#">
+            <i class="fab fa-linkedin-in" style="color: #C6D166;"></i>
+          </a>
+          </li>
+        </ul>
+        </div>
 	      </div>
 	      <div class="text-center text-dark p-3" style="background-color: rgba(0, 0, 0, 0.2);">
-	        <p style="color:#C6D166 ;">FortPets©2022</p>
+	                <span class="copyright quick-links" style="color:#C6D166 ;">Copyright &copy; Forpets <script>document.write(new Date().getFullYear())</script>
+        </span>
 	      </div>
 	    </div>
     </div>
   </footer>
+  
 
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"

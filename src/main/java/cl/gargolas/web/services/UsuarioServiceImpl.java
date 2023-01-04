@@ -36,7 +36,11 @@ public class UsuarioServiceImpl implements UsuarioService { //Logica de negocio
 	@Override
 	public String actualizarUsuario(Usuario usuario) {
 		Boolean existe = usuarioRepository.existsById(usuario.getIdUsuario());
-		return null;
+		if (existe) {
+			usuarioRepository.save(usuario);
+			return "Perfil actualizado";
+		}
+		return "No se actualizo el perfil";
 	}
 
 	@Override
