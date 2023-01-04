@@ -43,9 +43,9 @@ public class Especie {
 	@Size(min=3,max=15)
 	private String descripcion;
 	
-	//@JsonIgnore
-	//@OneToMany(mappedBy = "especie",fetch = FetchType.EAGER)
-	//private List<Raza> raza;
+	@JsonIgnore
+	@OneToMany(mappedBy = "especie",fetch = FetchType.EAGER)
+	private List<Raza> raza;
 	
 	//@OneToMany(mappedBy = "especie", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	//private List<PerfilMascota> perfilMascota;
