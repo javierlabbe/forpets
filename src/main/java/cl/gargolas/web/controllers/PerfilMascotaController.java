@@ -4,6 +4,8 @@ package cl.gargolas.web.controllers;
 
 
 
+import java.util.Base64;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -69,16 +71,19 @@ public class PerfilMascotaController {
 	
 	@GetMapping("")
 	public String mostrarPerfilMascota(Model model, HttpSession session) {
-		Long idMascotaSeleccionada = 2L;
+		Long idMascotaSeleccionada = 1L;
 		Long idUsuario = (Long) session.getAttribute("idUsuario");
 		Usuario usuario = usuarioServiceImpl.obtenerUsuario(idUsuario);
 		PerfilMascota perfilMascota = perfilMascotaServiceImpl.obtenerPerfilMascota(idMascotaSeleccionada);
-		//Long idColor = perfilMascota.getColor();
-		//Color color = colorServiceImpl.obtenerColor();
-		//List<PerfilMascota> ListaMascota = usuario.getPerfilMascota();
 		
 		
-		//model.addAttribute("Apellido",usuario.getApellidos());
+		String fotoPerfilMascota = "";
+		byte[] imagenFotoPerfil = (byte[]) perfilMascota.getFoto();
+		if (imagenFotoPerfil != null) {
+			fotoPerfilMascota = Base64.getEncoder().encodeToString(imagenFotoPerfil);
+		}
+		
+		model.addAttribute("fotoPerfilMascota", fotoPerfilMascota);
 		model.addAttribute("NombreMascota", perfilMascota.getNombre());
 		model.addAttribute("NChip",perfilMascota.getNChip());
 		model.addAttribute("Especie", perfilMascota.getRaza().getEspecie().getDescripcion());
@@ -88,6 +93,8 @@ public class PerfilMascotaController {
 		model.addAttribute("Patron", perfilMascota.getPatron().getDescripcion());
 		model.addAttribute("Sexo", perfilMascota.getSexo().getDescripcion());
 		model.addAttribute("Descripcion", perfilMascota.getDescripcion().getDescripcion());
+		
+		model.addAttribute("idMascota", idMascotaSeleccionada);
 		
 		
 		return "perfilMascota.jsp";
