@@ -6,6 +6,8 @@ package cl.gargolas.web.controllers;
 
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -24,6 +26,7 @@ import cl.gargolas.web.models.RangoEtario;
 import cl.gargolas.web.models.Raza;
 import cl.gargolas.web.models.Sexo;
 import cl.gargolas.web.models.Tamanio;
+import cl.gargolas.web.models.Usuario;
 import cl.gargolas.web.services.ColorServiceImpl;
 import cl.gargolas.web.services.DescripcionServiceImpl;
 import cl.gargolas.web.services.EspecieServiceImpl;
@@ -34,6 +37,7 @@ import cl.gargolas.web.services.RangoEtarioServiceImpl;
 import cl.gargolas.web.services.RazaServiceImpl;
 import cl.gargolas.web.services.SexoServiceImpl;
 import cl.gargolas.web.services.TamanioServiceImpl;
+import cl.gargolas.web.services.UsuarioServiceImpl;
 
 @Controller
 @RequestMapping("/registro/mascotas")
@@ -69,10 +73,13 @@ public class RegistroMascotaController {
 	@Autowired
 	EspecieServiceImpl especieServiceImpl;
 	
+	@Autowired
+	UsuarioServiceImpl usuarioServiceImpl;
 	
 	
 	@GetMapping("")
 	public String ComboBoxDatos(Model model) {
+		
 		List<Especie> listaEspecies = especieServiceImpl.obtenerListaEspecies();
 		List<Sexo> listaSexos = sexoServiceImpl.obtenerListaSexo();
 		List<RangoEtario> listaRangosEtarios = rangoEtarioServiceImpl.obtenerListaRangoEtario();
@@ -105,8 +112,14 @@ public class RegistroMascotaController {
 		,@RequestParam("patron") Long patron
 		,@RequestParam("tamanio") Long tamanio
 		,@RequestParam("descripcion") String descripcion
-		,@RequestParam("imagen") String imagen
-		, Model model) {
+		,@RequestParam("foto") byte[] foto
+		, Model model
+		, HttpSession session) {
+		
+		
+		//Rescatar Id usuario
+		//Long idUsuario = (Long) session.getAttribute("idUsuario");
+		
 		
 		ComboBoxDatos(model);
 
@@ -121,7 +134,7 @@ public class RegistroMascotaController {
 		Descripcion descripcion2 = new Descripcion(); //creamos objeto para  pasar string
 		descripcion2.setDescripcion(descripcion); //pasamos string al objeto descripcion2
 		
-		
+		//Usuario usuario = usuarioServiceImpl.obtenerUsuario(idUsuario);
 		Sexo sexoId = sexoServiceImpl.obtenerSexo(sexo); //a
 		RangoEtario rangoEtarioId = rangoEtarioServiceImpl.obtenerRangoEtario(rangoEtario);
 		Raza razaId = razaServiceImpl.obtenerRaza(raza);
@@ -133,6 +146,7 @@ public class RegistroMascotaController {
 		
 		
 		PerfilMascota perfilMascota = new PerfilMascota();
+		//perfilMascota.setId(idUsuario);
 		perfilMascota.setNombre(nombre);
 		perfilMascota.setNChip(nChip);
 		perfilMascota.setRangoEtario(rangoEtarioId);
@@ -143,6 +157,7 @@ public class RegistroMascotaController {
 		perfilMascota.setDescripcion(descripcion2);//guardamos en base de datos el id del objeto descripcion del perfil mascota
 		//perfilMascota.setFoto(imagen);
 		perfilMascota.setSexo(sexoId);
+		perfilMascota.setFoto(foto);
 		
 		
 		
