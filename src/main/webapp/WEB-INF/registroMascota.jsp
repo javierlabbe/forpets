@@ -18,7 +18,7 @@
 <script src="https://kit.fontawesome.com/67de54155a.js"
 	crossorigin="anonymous"></script>
 	
-<link href="/assets/css/stylesHome.css" rel="stylesheet">
+<link href="/assets/css/stylesRegUser.css" rel="stylesheet">
 	
 <title>Registro Mascota</title>
 
@@ -87,7 +87,7 @@
 						<br>
 					<!-- Button trigger modal -->
 					<div class="input-group mb-3">
-					  <input type="file" class="form-control" id="inputGroupFile01" id="imagen" name="imagen">
+					  <input type="file" class="form-control" id="inputGroupFile01" id="foto" name="foto">
 					</div>
 					
 					
@@ -236,6 +236,32 @@
         </div>
     </div>
 </footer>
+
+<script>
+		$('select[name="raza"]').on('change', function() {
+		    let regionId = $(this).val();
+		        $.ajax({
+		            method: "get",
+		            url: "/apiEspecie/obtenerRaza",
+		            dataType: 'json',
+		            data: { id : regionId },
+		            success: function (data) {
+		    
+		            	$("#especie").find("option").remove();
+		            	$("#especie").append('<option value="0">Seleccione especie</option>');  
+		           for (var i = 0; i < data.length; i++) {
+					
+					 $("#especie").append('<option value='+data[i].id+'>'+data[i].descripcion+'</option>');  
+				}
+		                
+		            }
+		        
+		      
+		        });
+		//cierre jquery
+		    });
+
+	</script>
 
 <!-- FOOTER -->
 
