@@ -11,14 +11,14 @@
         integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
     <script src="https://kit.fontawesome.com/64af136b72.js" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" crossorigin="anonymous" async></script>
-   <link href="/Assets/CSS/stylesHome.css" rel="stylesheet">
+   <link href="/Assets/CSS/LoginStyles.css" rel="stylesheet">
  
 </head>
 
 <!-- Navbar -->
 <nav class="navbar navbar-expand-lg" style="background-color: #48C6AF; height: 120px; " >
     <div class="container-fluid">
-        <a class="navbar-brand" href="/home">
+        <a class="navbar-brand" href="/index">
             <!--IR AL HOME en href-->
             <img src="/assets/img/logonegro" height="40px" alt="forpets Logo" loading="lazy" style="margin-top: -1px;" />
         </a>
@@ -34,7 +34,7 @@
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <!-- Left links -->
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="/registro/equipo"><strong>Nosotros</strong></a>
+                    <a class="nav-link" aria-current="page" href="/index/login"><strong>Nosotros</strong></a>
                 </li>
             </ul>
 
