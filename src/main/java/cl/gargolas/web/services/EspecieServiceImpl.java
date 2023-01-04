@@ -1,11 +1,13 @@
 package cl.gargolas.web.services;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import cl.gargolas.web.models.Especie;
+import cl.gargolas.web.models.Raza;
 import cl.gargolas.web.repositories.EspecieRepository;
 
 @Service
@@ -50,6 +52,14 @@ public class EspecieServiceImpl implements EspecieService {
 	@Override
 	public List<Especie> obtenerListaEspecies() {
 		return especieRepository.findAll();
+	}
+	
+	@Override
+	public List<Raza> listaRazas(Long id){
+		Especie especie = especieRepository.findById(id).get();
+		List<Raza> razas = especie.getRaza();
+		
+		return razas;
 	}
 	
 }
