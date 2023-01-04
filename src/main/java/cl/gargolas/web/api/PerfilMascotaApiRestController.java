@@ -58,4 +58,9 @@ public class PerfilMascotaApiRestController {
 		}
 		return fotoPerfilMascota;
 	}
+	
+	@GetMapping("/existImgPets")
+	public Boolean existImgPets(Long id) {
+		return perfilMascotaServiceImpl.fotoPerfil(id);
+	}
 }
