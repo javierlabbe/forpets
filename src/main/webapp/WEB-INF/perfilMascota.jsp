@@ -7,13 +7,18 @@
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link
-	href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
-	rel="stylesheet"
-	integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
-	crossorigin="anonymous">
-<script src="https://kit.fontawesome.com/67de54155a.js"
-	crossorigin="anonymous"></script>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+	
+<!-- CSS -->
+<link href="/assets/css/stylesRegUser.css" rel="stylesheet">
+   
+<!-- JQUERY -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+
+<script src="https://kit.fontawesome.com/64af136b72.js" crossorigin="anonymous"></script>
+
 <title>Perfil mascota</title>
 </head>
 <!-- Navbar -->
@@ -21,7 +26,7 @@
 	style="background-color: #48C6AF; height: 120px;">
 	<div class="container-fluid">
 		<a class="navbar-brand" href="#"> <!--IR AL HOME en href--> <img
-			src="assets/img/logo.png" height="40px" alt="forpets Logo"
+			src="/assets/img/logonegro" height="40px" alt="forpets Logo"
 			loading="lazy" style="margin-top: -1px;" />
 		</a>
 
@@ -57,10 +62,10 @@
 <body>
 	<div class="container-fluid">
 		<div class="row">
-			<div class="col-4 text-center">
-				<img src="assets/img/Gato.jpg"
-					class="rounded-circle mx-auto d-block" alt="Foto perfil gato"
-					style="margin-top: 50px; border: 1px solid; border-color: rgb(143, 142, 142); width: 230px;">
+			<div class="col-4 text-center" id="FotoM">
+				<img src=""
+					class="rounded-circle mx-auto d-block" alt="Foto perfil mascota"
+					style="margin-top: 50px; border: 1px solid; border-color: rgb(143, 142, 142); width: 230px;" id="FotoM">
 				<button class="btn btn" type="button"
 					style="background-color: #C6D166; margin-top: 50px;">Sube
 					tu foto de perfil</button>
@@ -119,41 +124,76 @@
 	</div>
 </body>
 <!-- FOOTER -->
-<footer class="text-center text-white"
-	style="background-color: #004445; margin-top: 50px;">
-	<div class="container-fluid">
-		<div class="row">
-			<div class="col">
-				<!-- Grid container -->
-				<div class="container pt-4">
-					<!-- Section: Social media -->
-					<section class="mb-4">
-						<!-- Facebook -->
-						<a class="btn btn-link btn-floating btn-lg text-dark m-1"
-							href="#!" role="button" data-mdb-ripple-color="dark"><i
-							class="fab fa-facebook-f" style="color: #C6D166;"></i></a>
-						<!-- Twitter -->
-						<a class="btn btn-link btn-floating btn-lg text-dark m-1"
-							href="#!" role="button" data-mdb-ripple-color="dark"><i
-							class="fab fa-twitter" style="color: #C6D166;"></i></a>
-						<!-- Instagram -->
-						<a class="btn btn-link btn-floating btn-lg text-dark m-1"
-							href="#!" role="button"><i
-							class="fab fa-instagram" style="color: #C6D166;"></i> </a>
-						<h6 style="color: #C6D166;">¡Síguenos!</h6>
-				</div>
-			</div>
-			<div class="col">
-				<img src="assets/img/logo1.png" alt="" style="height: 130px;">
-			</div>
-			<div class="text-center text-dark p-3"
-				style="background-color: rgba(0, 0, 0, 0.2);">
-				<p style="color: #C6D166;">FortPets©2022</p>
-			</div>
-		</div>
-	</div>
+<footer class="text-center text-white" style="background-color: #004445; margin-top:200px; ">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col">
+                <!-- Grid container -->
+                <div class="container pt-4">
+                    <!-- Section: Social media -->
+                    <section class="mb-4">
+                        <!-- Facebook -->
+                        <a class="btn btn-link btn-floating btn-lg text-dark m-1" href="#!" role="button"
+                            data-mdb-ripple-color="dark"><i class="fab fa-facebook-f" style="color: #C6D166;"></i></a>
+                        <!-- Twitter -->
+                        <a class="btn btn-link btn-floating btn-lg text-dark m-1" href="#!" role="button"
+                            data-mdb-ripple-color="dark"><i class="fab fa-twitter" style="color: #C6D166;"></i></a>
+                        <!-- Instagram -->
+                        <a class="btn btn-link btn-floating btn-lg text-dark m-1" href="#!" role="button"><i
+                                class="fab fa-instagram" style="color: #C6D166;"></i>
+                        </a>
+                        <h6 style="color:#C6D166 ;">¡Síguenos!</h6>
+
+                </div>
+            </div>
+            <div class="col" style="margin-left: 200px; margin-top: 35px;">
+                <img src="/assets/img/logoverde" alt="" style="height: 50px;">
+            </div>
+            <div class="text-center text-dark p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+                <p style="color:#C6D166 ;">ForPets©2022</p>
+            </div>
+        </div>
+    </div>
 </footer>
 <!-- FOOTER -->
+<script>
+	//Definicion de variables
+	var mascotaId = <c:out value="${idMascota}"/>
+	//console.log(mascotaId);
+	
+	//Definicion de funciones
+	function fotoMascota() {
+		return	$.ajax({
+		            method: "get",
+		            url: "/apiPerfilMascota/existImgPets",
+		            data: { id : mascotaId },
+		            success: function (data) {	    
+		            	let existFotoPerfil = data;
+		            	console.log(existFotoPerfil)
+		            	$("#FotoM").find("img").remove();
+		            	if (existFotoPerfil) {
+		            		$("#FotoM").prepend('<img class="rounded-circle mx-auto d-block" src="data:image/jpeg;base64,${fotoPerfilMascota}" alt="a" width="200px" height="200px" style="margin: 0% 0% 5% 0%;">');
+		            	} else {
+		            		$("#FotoM").prepend('<img class="rounded-circle mx-auto d-block" src="/assets/img/mascotaGenerico.png" id="FotoM">'); 		            		
+		            	}
+		            }      		      
+		        });
+    }
+	
+	//JQuery
+	
+    
+    $(document).ready(function(){
+      	fotoMascota();
+      	
+    	
+    	
+    	  $("#botonBody").click(function(){
+    		  console.log(usuarioId);
+    	  });
+    	  
+    });
+</script>
 <script
 	src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
 	integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
