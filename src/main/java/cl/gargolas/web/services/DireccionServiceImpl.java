@@ -28,7 +28,12 @@ public class DireccionServiceImpl implements DireccionService{
 	@Override
 	public String actualizarDireccion(Direccion direccion) {
 		Boolean existe = direccionRepository.existsById(direccion.getIdDireccion());
-		return null;
+		if (existe) {
+			direccionRepository.save(direccion);
+			return "Dirección actualizada"; 
+		} else {
+			return "Dirección no actualizada";
+		}
 	}
 
 	@Override
