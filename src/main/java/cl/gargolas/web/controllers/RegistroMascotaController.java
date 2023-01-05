@@ -40,7 +40,7 @@ import cl.gargolas.web.services.TamanioServiceImpl;
 import cl.gargolas.web.services.UsuarioServiceImpl;
 
 @Controller
-@RequestMapping("/registro/mascotas")
+@RequestMapping("/registro/mascota")
 public class RegistroMascotaController {
 	
 	@Autowired
