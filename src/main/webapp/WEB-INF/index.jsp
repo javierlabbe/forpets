@@ -11,7 +11,24 @@
     <script src="https://kit.fontawesome.com/64af136b72.js" crossorigin="anonymous"></script>
    <link href="/Assets/CSS/IndexStyles.css" rel="stylesheet">
    <title>Index</title>
- 
+ 	<!-- TIPOGRAFIAS -->
+ 	<link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Baloo' rel='stylesheet'>
+    <!-- TIPOGRAFIAS -->
+ 	    <style>
+        body {
+            background-color:white;
+            font-family: 'Poppins';
+            background-image: url('/assets/img/fondogris.png');
+        }
+        
+        h4 {
+        	font-family:'Baloo';
+        	text-shadow: 0 .05rem .1rem rgba(0, 0, 0, .5);
+        	font-size: 45px;
+        	margin-top: 35px;	
+        }
+    </style>
 </head>
 
 <!-- Navbar -->
@@ -58,6 +75,7 @@
  
 
 <body>
+<!-- CARRUSEL -->
 <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="true">
   <div class="carousel-indicators">
 
@@ -85,10 +103,62 @@
     <span class="visually-hidden">Next</span>
   </button>
 </div>
-<!--div>
-    <button type="button" class="btn btn-primary" id="BotonBody">Regístrate!</button>
-</div-->
+<!-- CARRUSEL -->
+
+	<h4 align=center>¿Qué puedo hacer en ForPets?</h4>
+
+<!-- TARJETAS -->
+	<div class="container-fluid">
+    <div class="row">
+    <div class="col" style="margin-bottom: 35px; margin-top: 35px; margin-left: 40px;">
+		<div class="card" style="width: 18rem;">
+  			<img src="/assets/img/elemento5.PNG" class="card-img-top" alt="foto elemento">
+  		<div class="card-body">
+    		<h5 class="card-title"><strong>Reportar una mascota perdida</strong></h5>
+   			<p class="card-text">Si extraviaste a tu mascota y necesitas ayuda,
+         puedes reportarla para que la comunidad acceda a la información y se inicie la cadena de búsqueda.</p>
+    		<a href="/index/login" class="btn btn-primary" id="BotonNav1">Reportar</a>
+  		</div>
+		</div>
+	</div>
+	<div class="col" style="margin-bottom: 35px; margin-top: 35px;">
+		<div class="card" style="width: 18rem;">
+  			<img src="/assets/img/elemento3.PNG" class="card-img-top" alt="foto elemento">
+  		<div class="card-body">
+    		<h5 class="card-title"><strong>Agregar lugar de interés</strong></h5>
+   			<p class="card-text">Si conoces algún sitio relacionado con mascotas, venta de artículos, servicios, parques petfriendly, entre otros,
+   			puedes compartirla con la comunidad!</p>
+    		<a href="/index/login" class="btn btn-primary" id="BotonNav1">Agregar lugar</a>
+  		</div>
+		</div>
+	</div>
+	<div class="col" style="margin-bottom: 35px; margin-top: 35px;">
+		<div class="card" style="width: 18rem;" >
+  			<img src="/assets/img/elemento4.PNG" class="card-img-top" alt="foto elemento" style="width: 16.5rem;">
+  		<div class="card-body">
+    		<h5 class="card-title"><strong>Reportar una mascota encontrada</strong></h5>
+   			<p class="card-text">En caso de que hayas encontrado una mascota que parezca pertenecer a una familia,
+         puedes reportarla para que la comunidad acceda a la información y se inicie la cadena de búsqueda.</p>
+    		<a href="/index/login" class="btn btn-primary" id="BotonNav1">Reportar</a>
+  		</div>
+		</div>
+	</div>
+		<div class="col" style="margin-bottom: 35px; margin-top: 35px;">
+		<div class="card" style="width: 18rem;">
+  			<img src="/assets/img/elemento6.PNG" class="card-img-top" alt="foto elemento" style="width: 15rem;">
+  		<div class="card-body">
+    		<h5 class="card-title"><strong>Encontrar lugar de interés</strong></h5>
+   			<p class="card-text">Explora el mapa para encontrar lugares exclusivos y relacionados con tu mascota,
+   			podrás además ver las referencias de los usuarios que han visitado los sitios, y la valoración.</p>
+    		<a href="/index/login" class="btn btn-primary" id="BotonNav1">Explorar mapa</a>
+  		</div>
+		</div>
+	</div>
+	</div>
+	</div>
+<!-- TARJETAS -->
 </body>
+
 <footer class="text-center text-white" style="background-color: #004445; ">
 	<div class="container-fluid">
 	    <div class="row">
@@ -100,19 +170,19 @@
 	            <!-- Facebook -->
         <ul class="nav flex-column" >
           <li class="nav-item">
-            <span class="footer-title" style="color: #C6D166; font-size: 20px" align="left"><strong>Links de interés</strong></span>
+            <span class="footer-title" style="color: #C6D166; font-size: 16px" align="left"><strong>Links de interés</strong></span>
           </li>
           <li class="nav-item">
-            <a class="link1"  href="https://www.chileatiende.gob.cl/fichas/51436-ley-de-tenencia-responsable-de-mascotas-y-animales-de-compania-ley-cholito">Ley tenencia responsable</a>
+            <a class="link1"  style="font-size: 13px" href="https://www.chileatiende.gob.cl/fichas/51436-ley-de-tenencia-responsable-de-mascotas-y-animales-de-compania-ley-cholito">Ley tenencia responsable</a>
           </li>
           <li class="nav-item">
-            <a class="link1"  href="https://registratumascota.cl/inicio.xhtml">Registro nacional de mascotas</a>
+            <a class="link1"  style="font-size: 13px" href="https://registratumascota.cl/inicio.xhtml">Registro nacional de mascotas</a>
           </li>
           <li class="nav-item">
-            <span class="footer-title" style="color: #C6D166;font-size: 20px" align="left"><strong>Contacto y ayuda</strong></span>
+            <span class="footer-title" style="color: #C6D166;font-size: 16px" align="left"><strong>Contacto</strong></span>
           </li>
           <li class="nav-item" >
-            <a class="link1" href="mailto:holaforpets@gmail.com?Subject=Hola%20ForPets!"><i class="fas fa-envelope"></i>holaforpets@gmail.com</a>
+            <a class="link1" style="font-size: 13px" href="mailto:holaforpets@gmail.com?Subject=Hola%20ForPets!"><i class="fas fa-envelope"></i>holaforpets@gmail.com</a>
           </li>
         </ul>
 	        </div>

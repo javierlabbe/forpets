@@ -10,23 +10,29 @@
      <!--Bootstrap-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
-
+		
     <link href="/assets/css/EquipoStyles.css" rel="stylesheet">
 
     <script src="https://kit.fontawesome.com/64af136b72.js" crossorigin="anonymous"></script>
+    
+ 	<!-- TIPOGRAFIAS -->
+ 	<link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Baloo' rel='stylesheet'>
+    <!-- TIPOGRAFIAS -->
 	    <style>
         body {
-            background-color:white
+            background-color:white;
+            font-family: 'Poppins';
         }
     </style>
 </head>
 
 <!-- Navbar -->
-<nav class="navbar navbar-expand-lg" style="background-color: #48C6AF; height: 120px;">
+<nav class="navbar navbar-expand-lg" style="background-color: #48C6AF; height: 120px;" >
     <div class="container-fluid">
         <a class="navbar-brand" href="/home">
             <!--IR AL HOME en href-->
-            <img src="../assets/img/logonegro" height="40px" alt="forpets Logo" loading="lazy" style="margin-top: -1px;" />
+            <img src="/assets/img/logonegro" height="40px" alt="forpets Logo" loading="lazy" style="margin-top: -1px;" />
         </a>
 
         <!-- Toggle button -->
@@ -40,16 +46,40 @@
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <!-- Left links -->
                 <li class="nav-item">
-                    <a class="nav-link" aria-current="page" href="/home">Home</a>
+                    <a class="nav-link" aria-current="page" href="/index/nosotros"><strong>Nosotros</strong></a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/mapa/mapaPrincipal">Ver Mapa</a>
-                </li>
+                <li>
+                <a class="nav-link" aria-current="page" href="/mapa/mapaPrincipal"><strong>Ver mapa</strong></a>
+              	</li>
+              	                <li>
+                <a class="nav-link" aria-current="page" href="/home/perfil"><strong>Mi perfil</strong></a>
+              	</li>
             </ul>
 
             <!-- Left links -->
+
             <div class="d-flex align-items-center">
-                <button type="button" class="btn btn-primary" id="BotonNav1">Cerrar Sesión</button>
+            <div class="row">
+           <div class="col">
+           		 <!-- BOTONES -->
+           		 <button type="button" class="btn btn-primary" id="BotonNav1" data-bs-toggle="modal" data-bs-target="#modalCierreSesión">Cerrar sesión</button>
+					<div class="modal fade" id="modalCierreSesión" tabindex="-1" aria-labelledby="modalLogout" aria-hidden="true">
+					  <div class="modal-dialog">
+					    <div class="modal-content">
+					      <div class="modal-header">
+					        <h6 class="modal-title fs-5" id="modalLogout">Cerrando sesión...</h6>
+					        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+					      </div>
+					      <div class="modal-body" id="modalLogout" >
+					      </div>
+					      	<h3  style="margin-left:20%; margin-bottom:20px" >¿Deseas cerrar sesión?</h3>
+					     	<a class="btn btn-primary" href="/index/logout" role="button" id="BotonNav1" style="margin-left:35%; margin-bottom:10px;">Cerrar sesión</a>
+					    	<a class="btn btn-primary" type="button" id="BotonNav1" data-bs-dismiss="modal" style="margin-left:35%; margin-bottom:20px;">Permanecer</a>
+					    </div>
+					  </div>
+					</div>
+					<!-- Fin modal -->         
+                <!-- BOTONES -->
             </div>
         </div>
     </div>
@@ -144,14 +174,14 @@
             <div class="col" style="background-color: white; height: 800px; align-items:center; justify-content:center;" >
             <h1 align=center>Nuestra Misión</h1>
             <br>
-         <pre align=center style="text-align:center; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-size: 16px;">
+         <pre align=center style="text-align:center; font-size: 16px; margin-top:45px;">
                 El principal objetivo de ForPets es ayudar a toda persona 
             tutora de una mascota, en diferentes áreas de interés.
             
             Nuestro proyecto nace desde la problemática de perder un miembro
             importante de la familia, como lo son las mascotas.
             Buscamos como equipo ofrecer una solución digital para buscar y
-            encontrar a las mascotas perdidas a nuestro al rededor mediante reportes,
+            encontrar a las mascotas perdidas a nuestro alrededor mediante reportes,
             con el objetivo de conformar una red de apoyo y de rastreo para
             que la búsqueda se realice de manera más rápida y eficaz, complementándose 
             con el antiguo método de búsqueda de voz-a-voz o la cartelería en la calle.
@@ -160,7 +190,7 @@
             para la comunidad, promueva la tenencia responsable, y que se genere
             una red de apoyo efectiva y amistosa.
 
-            Les invitamos a registrarse y acceder a la comunidad!
+            ¡Les invitamos a registrarse y acceder a la comunidad!
 
             - ForPets, Santiago de Chile, 2022.
             </pre>
@@ -181,19 +211,19 @@
 	            <!-- Facebook -->
         <ul class="nav flex-column" >
           <li class="nav-item">
-            <span class="footer-title" style="color: #C6D166; font-size: 20px" align="left"><strong>Links de interés</strong></span>
+            <span class="footer-title" style="color: #C6D166; font-size: 16px" align="left"><strong>Links de interés</strong></span>
           </li>
           <li class="nav-item">
-            <a class="link1"  href="https://www.chileatiende.gob.cl/fichas/51436-ley-de-tenencia-responsable-de-mascotas-y-animales-de-compania-ley-cholito">Ley tenencia responsable</a>
+            <a class="link1"  style="font-size: 13px" href="https://www.chileatiende.gob.cl/fichas/51436-ley-de-tenencia-responsable-de-mascotas-y-animales-de-compania-ley-cholito" target="_blank" rel="noopener noreferrer">Ley tenencia responsable</a>
           </li>
           <li class="nav-item">
-            <a class="link1"  href="https://registratumascota.cl/inicio.xhtml">Registro nacional de mascotas</a>
+            <a class="link1"  style="font-size: 13px" href="https://registratumascota.cl/inicio.xhtml" target="_blank" rel="noopener noreferrer">Registro nacional de mascotas</a>
           </li>
           <li class="nav-item">
-            <span class="footer-title" style="color: #C6D166;font-size: 20px" align="left"><strong>Contacto y ayuda</strong></span>
+            <span class="footer-title" style="color: #C6D166;font-size: 16px" align="left"><strong>Contacto</strong></span>
           </li>
           <li class="nav-item" >
-            <a class="link1" href="mailto:holaforpets@gmail.com?Subject=Hola%20ForPets!"><i class="fas fa-envelope"></i>holaforpets@gmail.com</a>
+            <a class="link1" style="font-size: 13px" href="mailto:holaforpets@gmail.com?Subject=Hola%20ForPets!"><i class="fas fa-envelope"></i>holaforpets@gmail.com</a>
           </li>
         </ul>
 	        </div>
