@@ -68,7 +68,7 @@
 <!-- Navbar -->
 
 <body>
-	<form action="/registro/mascotas" method="post" action="/upload/form" >
+	<form action="/registro/mascota" method="post" action="/upload/form" >
 		
 		<!--<c:out value="${Error}"></c:out>-->
 		<c:if test="${Error!=null}"> 
