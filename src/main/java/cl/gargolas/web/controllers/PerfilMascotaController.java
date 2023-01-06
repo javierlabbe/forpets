@@ -5,6 +5,7 @@ package cl.gargolas.web.controllers;
 
 
 import java.util.Base64;
+import java.util.List;
 
 import javax.servlet.http.HttpSession;
 
@@ -71,33 +72,46 @@ public class PerfilMascotaController {
 	
 	@GetMapping("")
 	public String mostrarPerfilMascota(Model model, HttpSession session) {
-		Long idMascotaSeleccionada = 1L;
-		Long idUsuario = (Long) session.getAttribute("idUsuario");
-		Usuario usuario = usuarioServiceImpl.obtenerUsuario(idUsuario);
-		PerfilMascota perfilMascota = perfilMascotaServiceImpl.obtenerPerfilMascota(idMascotaSeleccionada);
 		
 		
-		String fotoPerfilMascota = "";
-		byte[] imagenFotoPerfil = (byte[]) perfilMascota.getFoto();
-		if (imagenFotoPerfil != null) {
-			fotoPerfilMascota = Base64.getEncoder().encodeToString(imagenFotoPerfil);
+		
+		if(session.getAttribute("idUsuario")!=null) {
+			
+			Long idMascotaSeleccionada = 1L;
+			Long idUsuario = (Long) session.getAttribute("idUsuario");
+			Usuario usuario = usuarioServiceImpl.obtenerUsuario(idUsuario);
+			PerfilMascota perfilMascota = perfilMascotaServiceImpl.obtenerPerfilMascota(idMascotaSeleccionada);
+			
+			
+			String fotoPerfilMascota = "";
+			byte[] imagenFotoPerfil = (byte[]) perfilMascota.getFoto();
+			if (imagenFotoPerfil != null) {
+				fotoPerfilMascota = Base64.getEncoder().encodeToString(imagenFotoPerfil);
+			}
+			
+			model.addAttribute("FotoM", fotoPerfilMascota);
+			model.addAttribute("NombreMascota", perfilMascota.getNombre().toLowerCase());
+			model.addAttribute("NChip",perfilMascota.getNChip().toLowerCase());
+			model.addAttribute("Especie", perfilMascota.getRaza().getEspecie().getDescripcion().toLowerCase());
+			model.addAttribute("Color", perfilMascota.getColor().getDescripcion().toLowerCase());
+			model.addAttribute("Tamanio", perfilMascota.getTamanio().getDescripcion().toLowerCase());
+			model.addAttribute("Raza",perfilMascota.getRaza().getDescripcion().toLowerCase());
+			model.addAttribute("Patron", perfilMascota.getPatron().getDescripcion().toLowerCase());
+			model.addAttribute("Sexo", perfilMascota.getSexo().getDescripcion().toLowerCase());
+			model.addAttribute("Descripcion", perfilMascota.getDescripcion().getDescripcion().toLowerCase());
+			
+			model.addAttribute("idMascota", idMascotaSeleccionada);
+			
+			
+			return "perfilMascota.jsp";
+			
+
+		}else {
+			
+			return "redirect:/index/login";
+		
 		}
 		
-		model.addAttribute("fotoPerfilMascota", fotoPerfilMascota);
-		model.addAttribute("NombreMascota", perfilMascota.getNombre());
-		model.addAttribute("NChip",perfilMascota.getNChip());
-		model.addAttribute("Especie", perfilMascota.getRaza().getEspecie().getDescripcion());
-		model.addAttribute("Color", perfilMascota.getColor().getDescripcion());
-		model.addAttribute("Tamanio", perfilMascota.getTamanio().getDescripcion());
-		model.addAttribute("Raza",perfilMascota.getRaza().getDescripcion());
-		model.addAttribute("Patron", perfilMascota.getPatron().getDescripcion());
-		model.addAttribute("Sexo", perfilMascota.getSexo().getDescripcion());
-		model.addAttribute("Descripcion", perfilMascota.getDescripcion().getDescripcion());
-		
-		model.addAttribute("idMascota", idMascotaSeleccionada);
-		
-		
-		return "perfilMascota.jsp";
 		
 	}
 	
