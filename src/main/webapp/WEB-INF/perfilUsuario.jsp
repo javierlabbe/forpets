@@ -169,7 +169,7 @@
                     </a>
                 </div>
             </div>
-            <div class="col">
+            <div class="col" id="rigthCol">
                 <div class="row align-items-start" id="rowform">
                     <h3>Mi Perfil</h3>
                 </div>
@@ -182,40 +182,21 @@
                 <div class="row align-items-start" id="rowform">
                     <h3>Mis Mascotas</h3>
                 </div>
-	                 <form action="/perfilMascota" method="post" enctype="multipart/form-data">
-		                 <div class="row align-items-start" id="rowform">
-			                 <div class="col-4">
-			                     <select class="form-select" aria-label="Default select example" id="mascotas" name="idMascota">
-		                        	<c:forEach var="perfilMascota" items="${listaMascotas}">
-										<option value="${perfilMascota.id}">${perfilMascota.nombre}</option>			  
-									</c:forEach>
-			                     </select>
-			                 </div>
-			            </div>
-		                <div class="row align-items-start" id="rowFotoMascota" >
-		                	<img src="" id="fotoMascota">
-		                </div>
-		                <div class="row align-items-center">
-		                	<div class="col">
-		                		<button type="submit" class="btn btn-primary" id="botonBody" style="width: 20%">Ver más</button>
-		                	</div>
-		                </div>
-                	</form>	
+
             </div>
         </div>
     </div>
     
     <script>
     	//Definicion de variables
-	    var usuarioId = <c:out value="${idUser}"/>;
-	    var mascotaId = document.getElementById("mascotas").value;
-	    
+	    var usuarioId = ${idUser}
+
 	    //Definicion de funciones
 	    function fotoMascota() {
 			return	$.ajax({
 			            method: "get",
 			            url: "/apiPerfilMascota/existImgMascota",
-			            data: { id : mascotaId },
+			            data: { id : document.getElementById("mascotas").value },
 			            success: function (data) {	    
 			            	let existFotoPerfil = data;
 			            	$("#rowFotoMascota").find("img").remove();
@@ -240,7 +221,7 @@
 			            		$("#divPerfil").prepend('<img role="button"  data-bs-toggle="modal" data-bs-target="#fotoUserModal" class="rounded-circle mx-auto d-block" src="data:image/jpeg;base64,${fotoPerfil}" alt="${userName}" style="margin: 0% 0% 5% 0%;width: 200px;">');
 			            		$("#fotoUserBodyModal").prepend('<img class="rounded-circle mx-auto d-block" src="data:image/jpeg;base64,${fotoPerfil}" alt="${userName}" width="200px" height="200px" style="margin: 0% 0% 5% 0%;">');
 			            	} else {
-			            		$("#divPerfil").prepend('<img class="rounded-circle mx-auto d-block" src="/assets/img/usuario.png" width="200px" height="200px" style="margin: 0% 0% 5% 0%;">'); 		            		
+			            		$("#divPerfil").prepend('<img role="button"  data-bs-toggle="modal" data-bs-target="#fotoUserModal" class="rounded-circle mx-auto d-block" src="/assets/img/usuario.png" alt="${userName}" style="margin: 0% 0% 5% 0%;width: 200px;">'); 		            		
 			            		$("#fotoUserBodyModal").prepend('<img class="rounded-circle mx-auto d-block" src="/assets/img/usuario.png" width="200px" height="200px" style="margin: 0% 0% 5% 0%;">');
 			            	}
 			            }      		      
@@ -254,11 +235,44 @@
 			;})
 	    
 	    $(document).ready(function(){
-	      	fotoMascota();
 	    	fotoUsuario();
+   		  	$.getJSON( "/apiUsuario/listaMascotas", {id: usuarioId} ,function( data ) {
+   			  console.log(data.length)
+   			  if (data.length > 0) {
+   				let string = '\
+	   				<form action="/perfilMascota" method="post" enctype="multipart/form-data">\
+		                 <div class="row align-items-start" id="rowform">\
+			                 <div class="col-4">\
+			                     <select class="form-select" aria-label="Default select example" id="mascotas" name="idMascota">\
+		                        	<c:forEach var="perfilMascota" items="${listaMascotas}">\
+										<option value="${perfilMascota.id}">${perfilMascota.nombre}</option>			  \
+									</c:forEach>\
+			                     </select>\
+			                 </div>\
+			            </div>\
+		                <div class="row align-items-start" id="rowFotoMascota" >\
+		                	<img src="" id="fotoMascota">\
+		                </div>\
+		                <div class="row align-items-center">\
+		                	<div class="col">\
+		                		<button type="submit" class="btn btn-primary" id="botonBody" style="width: 20%">Ver más</button>\
+		                	</div>\
+		                </div>\
+	           		</form>'
+   					
+   				$("#rigthCol").append(string);
+   			  } else {
+   				let string = '<p>Aun no cuentas con mascotas añadidas. ¡Añade tu primera mascota haciendo click en "Añadir Mascota"!</p>'
+   				$("#rigthCol").append();
+   			  }
+   			})
+   			.done(function() {
+   		  		fotoMascota();
+   		  	});
+   		      
 	    	
-	    	  $("#botonBody").click(function(){
-	    		  console.log(usuarioId);
+	    	  $("#botonBody").click(function(){	
+	    		  console.log();
 	    	  });
 	    	  
 	    });

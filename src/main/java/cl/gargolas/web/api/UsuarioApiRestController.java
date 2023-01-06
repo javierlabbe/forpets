@@ -3,10 +3,13 @@ package cl.gargolas.web.api;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import cl.gargolas.web.models.PerfilMascota;
@@ -55,6 +58,12 @@ public class UsuarioApiRestController {
 	
 	@GetMapping("/mascotas")
 	public List<PerfilMascota> listaMascotas(Long id) {
+		Usuario user = usuarioServiceImpl.obtenerUsuario(id);
+		return user.getPerfilMascota();
+	}
+	
+	@RequestMapping(value = "/listaMascotas", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+	public @ResponseBody List<PerfilMascota> jsonMascotas(@RequestParam(value="id",required = false) Long id) {
 		Usuario user = usuarioServiceImpl.obtenerUsuario(id);
 		return user.getPerfilMascota();
 	}

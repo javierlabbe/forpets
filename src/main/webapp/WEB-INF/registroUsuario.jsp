@@ -23,7 +23,7 @@
             margin-bottom: 10px;
         }
         #birthday {
-            width: 48%;
+            width: 100%;
         }
         
         body{

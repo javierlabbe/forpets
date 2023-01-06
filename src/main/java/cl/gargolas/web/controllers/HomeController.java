@@ -42,20 +42,9 @@ public class HomeController {
 	
 //Http Session y control de acceso:
 	@GetMapping("")
-	public String login(Model model, HttpSession session) {
-
-		if(session.getAttribute("idUsuario")!=null) {
-			
-			//datos de la session
-			String email = (String) session.getAttribute("emailUsuario");
-			Long idUsuario = (Long) session.getAttribute("idUsuario");
-			//obtener y almacenar en variable
-			List<Usuario> listaUsuarios= usuarioServiceImpl.listarUsuarios();
-			//pasar lista de usuarios al jsp
-			model.addAttribute("usuarios", listaUsuarios);
-			
+	public String login(HttpSession session) {
+		if(session.getAttribute("idUsuario") != null) {
 			return "home.jsp";
-
 		}else {
 			return "redirect:/index/login";
 		}
@@ -64,44 +53,52 @@ public class HomeController {
 	@GetMapping("/perfil")
 	public String perfilUser(HttpSession session, Model model) {
 		Long idUsuario = (Long) session.getAttribute("idUsuario");
-		Usuario user = usuarioServiceImpl.obtenerUsuario(idUsuario);
-		List<PerfilMascota> listaMascotas = user.getPerfilMascota();
-		List<Region> listaRegiones = regionServiceImpl.obtenerListaRegiones();
-		List<Comuna> listaComunas = comunaServiceImpl.obtenerListaComunas();
-		
-		String fotoPerfilUser = "";
-		byte[] imagenFotoPerfil = (byte[]) user.getFoto();
-		if (imagenFotoPerfil != null) {
-			fotoPerfilUser = Base64.getEncoder().encodeToString(imagenFotoPerfil);
+		if(idUsuario != null) {
+			Usuario user = usuarioServiceImpl.obtenerUsuario(idUsuario);
+			List<PerfilMascota> listaMascotas = user.getPerfilMascota();
+			List<Region> listaRegiones = regionServiceImpl.obtenerListaRegiones();
+			List<Comuna> listaComunas = comunaServiceImpl.obtenerListaComunas();
+			
+			String fotoPerfilUser = "";
+			byte[] imagenFotoPerfil = (byte[]) user.getFoto();
+			if (imagenFotoPerfil != null) {
+				fotoPerfilUser = Base64.getEncoder().encodeToString(imagenFotoPerfil);
+			}
+			
+			model.addAttribute("listaRegiones", listaRegiones);
+			model.addAttribute("listaComunas", listaComunas);
+			model.addAttribute("fotoPerfil", fotoPerfilUser);
+			model.addAttribute("idUser", idUsuario);
+			model.addAttribute("nameUser", user.getNombre());
+			model.addAttribute("lastNameUser", user.getApellidos());
+			model.addAttribute("emailUser", user.getEmail());
+			model.addAttribute("celUser", user.getTelefono());
+			model.addAttribute("calleUser", user.getDireccion().getNombreCalle());
+			model.addAttribute("numDirUser", user.getDireccion().getNumeroDireccion());
+			model.addAttribute("comunaUser", user.getDireccion().getComuna().getDescripcion());
+			model.addAttribute("regionUser", user.getDireccion().getComuna().getProvincia().getRegion().getDescripcion());
+			model.addAttribute("listaMascotas", listaMascotas);
+			return "perfilUsuario.jsp"; 
+		} else {
+			return "redirect:/index/login";
 		}
-		
-		model.addAttribute("listaRegiones", listaRegiones);
-		model.addAttribute("listaComunas", listaComunas);
-		model.addAttribute("fotoPerfil", fotoPerfilUser);
-		model.addAttribute("idUser", idUsuario);
-		model.addAttribute("nameUser", user.getNombre());
-		model.addAttribute("lastNameUser", user.getApellidos());
-		model.addAttribute("emailUser", user.getEmail());
-		model.addAttribute("celUser", user.getTelefono());
-		model.addAttribute("calleUser", user.getDireccion().getNombreCalle());
-		model.addAttribute("numDirUser", user.getDireccion().getNumeroDireccion());
-		model.addAttribute("comunaUser", user.getDireccion().getComuna().getDescripcion());
-		model.addAttribute("regionUser", user.getDireccion().getComuna().getProvincia().getRegion().getDescripcion());
-		model.addAttribute("listaMascotas", listaMascotas);
-		return "perfilUsuario.jsp";
 	}
 	
 	@PostMapping("/perfil")
 	public String editarPerfil(final @RequestParam("fotoPerfilUser") MultipartFile foto
 			, HttpSession session) throws IOException {
 		Long idUsuario = (Long) session.getAttribute("idUsuario");
-		Usuario user = usuarioServiceImpl.obtenerUsuario(idUsuario);
-		byte[] imagenUser = foto.getBytes();
-		
-		user.setFoto(imagenUser);
-		usuarioServiceImpl.actualizarUsuario(user);
-		
-		return "redirect:/home/perfil";
+		if (idUsuario != null) {
+			Usuario user = usuarioServiceImpl.obtenerUsuario(idUsuario);
+			byte[] imagenUser = foto.getBytes();
+			
+			user.setFoto(imagenUser);
+			usuarioServiceImpl.actualizarUsuario(user);
+			
+			return "redirect:/home/perfil";
+		} else {
+			return "redirect:/index/login";
+		}
 	}
 	
 	@PostMapping("/actualizar/perfil")
@@ -114,26 +111,30 @@ public class HomeController {
 			,HttpSession session) {
 		
 		Long idUsuario = (Long) session.getAttribute("idUsuario");
-		Usuario user = usuarioServiceImpl.obtenerUsuario(idUsuario);
-		Direccion direccion = user.getDireccion();
+		if (idUsuario != null) {
+			Usuario user = usuarioServiceImpl.obtenerUsuario(idUsuario);
+			Direccion direccion = user.getDireccion();
+			
+			if (nombre.isBlank() == false) {
+				user.setNombre(nombre);
+			} 
+			if (apellidos.isBlank() == false) {
+				user.setApellidos(apellidos);
+			}
+			if (calle.isBlank() == false & numDir.isBlank() == false & id_region != 0L & id_comuna != 0L) {
+				direccion.setNumeroDireccion(numDir);
+				direccion.setComuna(comunaServiceImpl.obtenerComuna(id_comuna));
+				direccion.setNombreCalle(calle);
+				direccionServiceImpl.actualizarDireccion(direccion);
+				user.setDireccion(direccion);
+			}
+			
+			usuarioServiceImpl.actualizarUsuario(user);
 		
-		if (nombre.isBlank() == false) {
-			user.setNombre(nombre);
-		} 
-		if (apellidos.isBlank() == false) {
-			user.setApellidos(apellidos);
+			return "redirect:/home/perfil";
+		} else {
+			return "redirect:/index/login";
 		}
-		if (calle.isBlank() == false & numDir.isBlank() == false & id_region != 0L & id_comuna != 0L) {
-			direccion.setNumeroDireccion(numDir);
-			direccion.setComuna(comunaServiceImpl.obtenerComuna(id_comuna));
-			direccion.setNombreCalle(calle);
-			direccionServiceImpl.actualizarDireccion(direccion);
-			user.setDireccion(direccion);
-		}
-		
-		usuarioServiceImpl.actualizarUsuario(user);
-	
-		return "redirect:/home/perfil";
 	}
 	
 }	
