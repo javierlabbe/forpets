@@ -64,14 +64,9 @@
 
 <body>
 <div class="container-fluid">
-        <div class="row align-items-start" style="margin-top: 2%; padding-right: 5%;">
+        <div class="row" style="margin-top: 2%; padding-right: 5%;">
             <div class="col-4" style=" height: 600px;" id="divPerfil1">
-                <div class="row text-center">
-	                
-	                <!-- Button trigger modal -->
-					<button type="button" class="btn btn-primary" id="divPerfil" data-bs-toggle="modal" data-bs-target="#fotoUserModal" style="margin: 0px; background-color: transparent; border: none;">
-					  <img class="rounded-circle mx-auto d-block" src="" width="200px" height="200px" style="margin: 0% 0% 5% 0%;" id="fotoPerfil">
-					</button>				
+                <div class="row justify-content-center" id="divPerfil">
 					
 					<!-- Modal Foto Perfil -->
 					<div class="modal fade" id="fotoUserModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -85,10 +80,9 @@
 					      </div>
 					      <form action="/home/perfil" method="post" enctype="multipart/form-data">
 						      <div class="modal-footer">
-						        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-								<label class="btn btn-primary" for="inputGroupFile01">Editar</label>
+								<label class="btn btn-primary" id="buttonModal" for="inputGroupFile01">Editar</label>
 								<input type="file" class="form-control" id="inputGroupFile01" style="display: none" name="fotoPerfilUser">
-						        <button type="submit" class="btn btn-primary">Save changes</button>
+						        <button type="submit" class="btn btn-primary" id="buttonModal">Guardar</button>
 						      </div>
 					      </form>
 					    </div>
@@ -97,7 +91,7 @@
 					<!-- Fin modal -->         
                 </div>
                      
-                <div class="d-grid gap-2 row mx-auto">
+                <div class="row gap-2 justify-content-center" style="flex-direction: column; align-items: center;">
                 
                 	<!-- Modal editar Perfil -->
 					<div class="modal fade" id="perfilUserModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -105,33 +99,33 @@
 					    <div class="modal-content">
 					      <div class="modal-header">
 					        <h1 class="modal-title fs-5" id="exampleModalLabel">Editar Perfil</h1>
-					        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+					        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" ></button>
 					      </div>
-					      <form action="/home/perfil" method="post" enctype="multipart/form-data">
+					      <form action="/home/actualizar/perfil" method="post" enctype="multipart/form-data">
 					      <div class="modal-body" id="fotoUserBodyModal">
 			                <div class="row align-items-start" id="rowform">
 			                    <div class="col">
 			                        <label for="nombre" class="form-label">Nombre</label>
-			                        <input type="text" class="form-control" id="nombre" name="nombre" required>
+			                        <input type="text" class="form-control" id="nombre" name="nombre" placeholder="${nameUser}">
 			                        <div class="form-text">Ingrese su nombre</div>
 			                    </div>
 			                </div>
 			                <div class="row align-items-start" id="rowform">
 			                    <div class="col">
 			                        <label for="apellidos" class="form-label">Apellidos</label>
-			                        <input type="text" class="form-control" id="apellidos" name="apellidos" required>
+			                        <input type="text" class="form-control" id="apellidos" name="apellidos" placeholder="${lastNameUser}">
 			                        <div class="form-text">Ingrese su primer apellido</div>
 			                    </div>
 			                </div>
 			                <div class="row align-items-start" id="rowform">
 			                    <div class="col">
 			                        <label for="calle" class="form-label">Calle</label>
-			                        <input type="text" class="form-control" id="calle" name="calle" required>
+			                        <input type="text" class="form-control" id="calle" name="calle" placeholder="${calleUser}">
 			                        <div class="form-text">Ingrese su calle</div>
 			                    </div>
 			                    <div class="col">
 			                        <label for="numDir" class="form-label">Número</label>
-			                        <input type="text" class="form-control" id="numDir" name="numDir" required>
+			                        <input type="text" class="form-control" id="numDir" name="numDir" placeholder="${numDirUser}">
 			                        <div class="form-text">Ingrese número de dirección</div>
 			                    </div>
 			                </div>
@@ -139,7 +133,7 @@
 			                     <div class="col">
 			                         <label for="region" class="form-label">Región</label>
 			                         <select class="form-select" aria-label="Default select example" id="region" name="region">
-			                            <option selected>Seleccione región</option>
+			                            <option value="0" selected>Seleccione región</option>
 			                            <c:forEach var="region" items="${listaRegiones}">
 				 							<option value="${region.id}">${region.descripcion}</option>			  
 				 						</c:forEach>
@@ -148,7 +142,7 @@
 			                     <div class="col">
 			                         <label for="comuna" class="form-label">Comuna</label>
 			                         <select class="form-select" aria-label="Default select example" id="comuna" name="comuna"  >
-			                            <option selected>Seleccione comuna</option>
+			                            <option value="0" selected>Seleccione comuna</option>
 			                            <c:forEach var="comuna" items="${listaComunas}">
 				 							<option value="${comuna.id}">${comuna.descripcion}</option>			  
 				 						</c:forEach>
@@ -157,8 +151,8 @@
 			                </div>
 					      </div>
 						      <div class="modal-footer">
-						        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-						        <button type="submit" class="btn btn-primary">Guardar</button>
+				
+						        <button type="submit" class="btn btn-primary" id="buttonModal">Guardar</button>
 						      </div>
 					      </form>
 					    </div>
@@ -169,9 +163,10 @@
                     <button type="button" class="btn btn-primary" id="botonBody" data-bs-toggle="modal" data-bs-target="#perfilUserModal">
                         Editar
                     </button>
-                    <button type="button" class="btn btn-primary" id="botonBody">
+                    
+                    <a role="button" class="btn btn-primary" id="botonBody" href="/registro/mascota">
                         Añadir Mascota
-                    </button>
+                    </a>
                 </div>
             </div>
             <div class="col">
@@ -179,10 +174,10 @@
                     <h3>Mi Perfil</h3>
                 </div>
                 <div class="row align-items-start" id="rowform">
-                    <p><c:out value="${nameUser}"></c:out></p>
+                    <p><c:out value="${nameUser} ${lastNameUser}"></c:out></p>
                     <p><c:out value="${emailUser}"></c:out></p>
                     <p><c:out value="${celUser}"></c:out></p>
-                    <p><c:out value="${dirUser}"></c:out>.</p>
+                    <p><c:out value="${calleUser} #${numDirUser}, ${comunaUser}, ${regionUser}."></c:out></p>
                 </div>
                 <div class="row align-items-start" id="rowform">
                     <h3>Mis Mascotas</h3>
@@ -240,7 +235,7 @@
 			            	let existFotoPerfil = data;
 			            	$("#divPerfil").find("img").remove();
 			            	if (existFotoPerfil) {
-			            		$("#divPerfil").prepend('<img class="rounded-circle mx-auto d-block" src="data:image/jpeg;base64,${fotoPerfil}" alt="${userName}" width="200px" height="200px" style="margin: 0% 0% 5% 0%;">');
+			            		$("#divPerfil").prepend('<img role="button"  data-bs-toggle="modal" data-bs-target="#fotoUserModal" class="rounded-circle mx-auto d-block" src="data:image/jpeg;base64,${fotoPerfil}" alt="${userName}" style="margin: 0% 0% 5% 0%;width: 200px;">');
 			            		$("#fotoUserBodyModal").prepend('<img class="rounded-circle mx-auto d-block" src="data:image/jpeg;base64,${fotoPerfil}" alt="${userName}" width="200px" height="200px" style="margin: 0% 0% 5% 0%;">');
 			            	} else {
 			            		$("#divPerfil").prepend('<img class="rounded-circle mx-auto d-block" src="/assets/img/usuario.png" width="200px" height="200px" style="margin: 0% 0% 5% 0%;">'); 		            		

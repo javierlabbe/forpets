@@ -14,13 +14,14 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
-import org.springframework.web.multipart.MultipartFile;
 
 import cl.gargolas.web.models.Comuna;
+import cl.gargolas.web.models.Direccion;
 import cl.gargolas.web.models.PerfilMascota;
 import cl.gargolas.web.models.Region;
 import cl.gargolas.web.models.Usuario;
 import cl.gargolas.web.services.ComunaServiceImpl;
+import cl.gargolas.web.services.DireccionServiceImpl;
 import cl.gargolas.web.services.RegionServiceImpl;
 import cl.gargolas.web.services.UsuarioServiceImpl;
 
@@ -35,6 +36,9 @@ public class HomeController {
 	
 	@Autowired
 	ComunaServiceImpl comunaServiceImpl;
+	
+	@Autowired
+	DireccionServiceImpl direccionServiceImpl;
 	
 //Http Session y control de acceso:
 	@GetMapping("")
@@ -75,14 +79,14 @@ public class HomeController {
 		model.addAttribute("listaComunas", listaComunas);
 		model.addAttribute("fotoPerfil", fotoPerfilUser);
 		model.addAttribute("idUser", idUsuario);
-		model.addAttribute("nameUser", user.getNombre()+" "+user.getApellidos());
+		model.addAttribute("nameUser", user.getNombre());
+		model.addAttribute("lastNameUser", user.getApellidos());
 		model.addAttribute("emailUser", user.getEmail());
 		model.addAttribute("celUser", user.getTelefono());
-		model.addAttribute("dirUser", 
-				user.getDireccion().getNombreCalle()+
-				" "+user.getDireccion().getNumeroDireccion()+
-				", "+user.getDireccion().getComuna().getDescripcion()+
-				", "+user.getDireccion().getComuna().getProvincia().getRegion().getDescripcion());
+		model.addAttribute("calleUser", user.getDireccion().getNombreCalle());
+		model.addAttribute("numDirUser", user.getDireccion().getNumeroDireccion());
+		model.addAttribute("comunaUser", user.getDireccion().getComuna().getDescripcion());
+		model.addAttribute("regionUser", user.getDireccion().getComuna().getProvincia().getRegion().getDescripcion());
 		model.addAttribute("listaMascotas", listaMascotas);
 		return "perfilUsuario.jsp";
 	}
@@ -97,6 +101,38 @@ public class HomeController {
 		user.setFoto(imagenUser);
 		usuarioServiceImpl.actualizarUsuario(user);
 		
+		return "redirect:/home/perfil";
+	}
+	
+	@PostMapping("/actualizar/perfil")
+	public String guardarRegistro(@RequestParam("nombre") String nombre
+			,@RequestParam("apellidos") String apellidos
+			,@RequestParam("calle") String calle
+			,@RequestParam("numDir") String numDir
+			,@RequestParam("region") Long id_region
+			,@RequestParam("comuna") Long id_comuna
+			,HttpSession session) {
+		
+		Long idUsuario = (Long) session.getAttribute("idUsuario");
+		Usuario user = usuarioServiceImpl.obtenerUsuario(idUsuario);
+		Direccion direccion = user.getDireccion();
+		
+		if (nombre.isBlank() == false) {
+			user.setNombre(nombre);
+		} 
+		if (apellidos.isBlank() == false) {
+			user.setApellidos(apellidos);
+		}
+		if (calle.isBlank() == false & numDir.isBlank() == false & id_region != 0L & id_comuna != 0L) {
+			direccion.setNumeroDireccion(numDir);
+			direccion.setComuna(comunaServiceImpl.obtenerComuna(id_comuna));
+			direccion.setNombreCalle(calle);
+			direccionServiceImpl.actualizarDireccion(direccion);
+			user.setDireccion(direccion);
+		}
+		
+		usuarioServiceImpl.actualizarUsuario(user);
+	
 		return "redirect:/home/perfil";
 	}
 	
