@@ -4,6 +4,7 @@ package cl.gargolas.web.controllers;
 
 
 
+import java.util.Base64;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -116,55 +117,70 @@ public class RegistroMascotaController {
 		, Model model
 		, HttpSession session) {
 		
-		
-		//Rescatar Id usuario
-		Long idUsuario = (Long) session.getAttribute("idUsuario");
-		
-		
-		ComboBoxDatos(model);
-
-		if(  rangoEtario == 0 || 
-				raza == 0 || color == 0 || patron  == 0 ||
-				tamanio == 0  || sexo == 0) {
-			model.addAttribute("Error","Datos vacio");
+		if(session.getAttribute("idUsuario")!=null) {
+			//Rescatar Id usuario
+			Long idUsuario = (Long) session.getAttribute("idUsuario");
 			
+			
+			ComboBoxDatos(model);
+
+			
+			
+			if(  rangoEtario == 0 || 
+					raza == 0 || color == 0 || patron  == 0 ||
+					tamanio == 0  || sexo == 0) {
+				model.addAttribute("Error","Datos vacio");
+				
+				return "registroMascota.jsp";
+			}
+			
+			Descripcion descripcion2 = new Descripcion(); //creamos objeto para  pasar string
+			descripcion2.setDescripcion(descripcion); //pasamos string al objeto descripcion2
+			
+			Usuario usuario = usuarioServiceImpl.obtenerUsuario(idUsuario);
+			Sexo sexoId = sexoServiceImpl.obtenerSexo(sexo); //a
+			RangoEtario rangoEtarioId = rangoEtarioServiceImpl.obtenerRangoEtario(rangoEtario);
+			Raza razaId = razaServiceImpl.obtenerRaza(raza);
+			Color colorId = colorServiceImpl.obtenerColor(color);
+			Patron patronId = patronServiceImpl.obtenerPatron(patron);
+			Tamanio tamanioId = tamanioServiceImpl.obtenerTamanio(tamanio);
+			descripcionServiceImpl.guardarDescripcion(descripcion2); // usamos service implement de descripcion para guardar en base de datos la descrippcion y id de descriccion 
+			
+			
+			
+			PerfilMascota perfilMascota = new PerfilMascota();
+			perfilMascota.setUsuario(usuario);
+			perfilMascota.setNombre(nombre);
+			perfilMascota.setNChip(nChip);
+			perfilMascota.setRangoEtario(rangoEtarioId);
+			perfilMascota.setRaza(razaId);
+			perfilMascota.setColor(colorId);
+			perfilMascota.setPatron(patronId);
+			perfilMascota.setTamanio(tamanioId);
+			perfilMascota.setDescripcion(descripcion2);//guardamos en base de datos el id del objeto descripcion del perfil mascota
+			//perfilMascota.setFoto(imagen);
+			perfilMascota.setSexo(sexoId);
+			//perfilMascota.setFoto(foto);
+			
+			
+			
+			
+			
+		
+			
+			perfilMascotaServiceImpl.guardarPerfilMascota(perfilMascota);
 			return "registroMascota.jsp";
+			
+
+		}else {
+			return "redirect:/index/login";
 		}
 		
-		Descripcion descripcion2 = new Descripcion(); //creamos objeto para  pasar string
-		descripcion2.setDescripcion(descripcion); //pasamos string al objeto descripcion2
-		
-		Usuario usuario = usuarioServiceImpl.obtenerUsuario(idUsuario);
-		Sexo sexoId = sexoServiceImpl.obtenerSexo(sexo); //a
-		RangoEtario rangoEtarioId = rangoEtarioServiceImpl.obtenerRangoEtario(rangoEtario);
-		Raza razaId = razaServiceImpl.obtenerRaza(raza);
-		Color colorId = colorServiceImpl.obtenerColor(color);
-		Patron patronId = patronServiceImpl.obtenerPatron(patron);
-		Tamanio tamanioId = tamanioServiceImpl.obtenerTamanio(tamanio);
-		descripcionServiceImpl.guardarDescripcion(descripcion2); // usamos service implement de descripcion para guardar en base de datos la descrippcion y id de descriccion 
 		
 		
 		
-		PerfilMascota perfilMascota = new PerfilMascota();
-		perfilMascota.setUsuario(usuario);
-		perfilMascota.setNombre(nombre);
-		perfilMascota.setNChip(nChip);
-		perfilMascota.setRangoEtario(rangoEtarioId);
-		perfilMascota.setRaza(razaId);
-		perfilMascota.setColor(colorId);
-		perfilMascota.setPatron(patronId);
-		perfilMascota.setTamanio(tamanioId);
-		perfilMascota.setDescripcion(descripcion2);//guardamos en base de datos el id del objeto descripcion del perfil mascota
-		//perfilMascota.setFoto(imagen);
-		perfilMascota.setSexo(sexoId);
-		perfilMascota.setFoto(foto);
 		
 		
-		
-	
-		
-		perfilMascotaServiceImpl.guardarPerfilMascota(perfilMascota);
-		return "registroMascota.jsp";
 	}
 	
 	
