@@ -252,7 +252,7 @@
 		            	$("#raza").append('<option value="0">Seleccione raza</option>');  
 		           for (var i = 0; i < data.length; i++) {
 					
-					 $("#raza").append('<option value='+data[i].id+'>'+data[i].descripcion+'</option>');  
+					 $("#raza").append('<option value='+data[i].idRaza+'>'+data[i].descripcion+'</option>');  
 				}
 		                
 		            }
