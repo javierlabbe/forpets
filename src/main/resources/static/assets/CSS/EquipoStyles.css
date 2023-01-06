@@ -48,6 +48,7 @@
     --bs-btn-active-border-color: #C6D166;
     width:130px; margin-right: 5px;
     margin-right: 16px;
+    font-size:15px;
 } 
 
 #BotonNav2{
@@ -75,12 +76,17 @@
 
 h1 {
   text-shadow: 0 .05rem .1rem rgba(0, 0, 0, .5);
+  font-family: 'Baloo';
 
 }
 
 h4 {
   text-shadow: 0 .05rem .1rem rgba(0, 0, 0, .5);
 
+}
+
+pre {
+  font-family: 'Poppins';
 }
 
  /*

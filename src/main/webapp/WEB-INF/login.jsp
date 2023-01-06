@@ -115,19 +115,19 @@
 	            <!-- Facebook -->
         <ul class="nav flex-column" >
           <li class="nav-item">
-            <span class="footer-title" style="color: #C6D166; font-size: 20px" align="left"><strong>Links de interés</strong></span>
+            <span class="footer-title" style="color: #C6D166; font-size: 16px" align="left"><strong>Links de interés</strong></span>
           </li>
           <li class="nav-item">
-            <a class="link1"  href="https://www.chileatiende.gob.cl/fichas/51436-ley-de-tenencia-responsable-de-mascotas-y-animales-de-compania-ley-cholito">Ley tenencia responsable</a>
+            <a class="link1"  style="font-size: 13px" href="https://www.chileatiende.gob.cl/fichas/51436-ley-de-tenencia-responsable-de-mascotas-y-animales-de-compania-ley-cholito" target="_blank" rel="noopener noreferrer">Ley tenencia responsable</a>
           </li>
           <li class="nav-item">
-            <a class="link1"  href="https://registratumascota.cl/inicio.xhtml">Registro nacional de mascotas</a>
+            <a class="link1"  style="font-size: 13px" href="https://registratumascota.cl/inicio.xhtml" target="_blank" rel="noopener noreferrer">Registro nacional de mascotas</a>
           </li>
           <li class="nav-item">
-            <span class="footer-title" style="color: #C6D166;font-size: 20px" align="left"><strong>Contacto y ayuda</strong></span>
+            <span class="footer-title" style="color: #C6D166;font-size: 16px" align="left"><strong>Contacto</strong></span>
           </li>
           <li class="nav-item" >
-            <a class="link1" href="mailto:holaforpets@gmail.com?Subject=Hola%20ForPets!"><i class="fas fa-envelope"></i>holaforpets@gmail.com</a>
+            <a class="link1" style="font-size: 13px" href="mailto:holaforpets@gmail.com?Subject=Hola%20ForPets!"><i class="fas fa-envelope"></i>holaforpets@gmail.com</a>
           </li>
         </ul>
 	        </div>
