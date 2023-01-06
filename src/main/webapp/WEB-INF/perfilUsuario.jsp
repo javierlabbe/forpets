@@ -182,23 +182,25 @@
                 <div class="row align-items-start" id="rowform">
                     <h3>Mis Mascotas</h3>
                 </div>
-                 <div class="row align-items-start" id="rowform">
-	                 <div class="col-4">
-	                     <select class="form-select" aria-label="Default select example" id="mascotas" name="mascotas">
-                        	<c:forEach var="perfilMascota" items="${listaMascotas}">
-								<option value="${perfilMascota.id}">${perfilMascota.nombre}</option>			  
-							</c:forEach>
-	                     </select>
-	                 </div>
-	            </div>
-                <div class="row align-items-start" id="rowFotoMascota" >
-                	<img src="" id="fotoMascota">
-                </div>
-                <div class="row align-items-center">
-                	<div class="col">
-                		<button type="button" class="btn btn-primary" id="botonBody" style="width: 20%">Ver más</button>
-                	</div>	
-                </div>
+	                 <form action="/perfilMascota" method="post" enctype="multipart/form-data">
+		                 <div class="row align-items-start" id="rowform">
+			                 <div class="col-4">
+			                     <select class="form-select" aria-label="Default select example" id="mascotas" name="idMascota">
+		                        	<c:forEach var="perfilMascota" items="${listaMascotas}">
+										<option value="${perfilMascota.id}">${perfilMascota.nombre}</option>			  
+									</c:forEach>
+			                     </select>
+			                 </div>
+			            </div>
+		                <div class="row align-items-start" id="rowFotoMascota" >
+		                	<img src="" id="fotoMascota">
+		                </div>
+		                <div class="row align-items-center">
+		                	<div class="col">
+		                		<button type="submit" class="btn btn-primary" id="botonBody" style="width: 20%">Ver más</button>
+		                	</div>
+		                </div>
+                	</form>	
             </div>
         </div>
     </div>

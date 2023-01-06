@@ -13,8 +13,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-
+import org.springframework.web.bind.annotation.RequestParam;
 
 import cl.gargolas.web.models.PerfilMascota;
 import cl.gargolas.web.models.Usuario;
@@ -77,7 +78,7 @@ public class PerfilMascotaController {
 		
 		if(session.getAttribute("idUsuario")!=null) {
 			
-			Long idMascotaSeleccionada = 1L;
+			Long idMascotaSeleccionada = (Long) session.getAttribute("idMascota");
 			Long idUsuario = (Long) session.getAttribute("idUsuario");
 			Usuario usuario = usuarioServiceImpl.obtenerUsuario(idUsuario);
 			PerfilMascota perfilMascota = perfilMascotaServiceImpl.obtenerPerfilMascota(idMascotaSeleccionada);
@@ -115,6 +116,12 @@ public class PerfilMascotaController {
 		
 	}
 	
-	
-	
+	@PostMapping("")
+	public String idMascota(@RequestParam("idMascota") Long id
+			,HttpSession session) {
+		session.setAttribute("idMascota", id);
+		return "redirect:/perfilMascota";
+	}
+
 }
+
