@@ -169,7 +169,7 @@
                     </a>
                 </div>
             </div>
-            <div class="col" id="rigthCol">
+            <div class="col" id="rightCol">
                 <div class="row align-items-start" id="rowform">
                     <h3>Mi Perfil</h3>
                 </div>
@@ -260,10 +260,10 @@
 		                </div>\
 	           		</form>'
    					
-   				$("#rigthCol").append(string);
+   				$("#rightCol").append(string);
    			  } else {
-   				let string = '<p>Aun no cuentas con mascotas añadidas. ¡Añade tu primera mascota haciendo click en "Añadir Mascota"!</p>'
-   				$("#rigthCol").append();
+   				let string = '<p>Aun no cuentas con mascotas añadidas.<br>¡Añade tu primera mascota haciendo click en "Añadir Mascota"!</p>'
+   				$("#rightCol").append(string);
    			  }
    			})
    			.done(function() {
