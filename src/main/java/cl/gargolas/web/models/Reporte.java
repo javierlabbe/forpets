@@ -12,6 +12,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 import org.springframework.format.annotation.DateTimeFormat;
@@ -36,18 +37,24 @@ public class Reporte {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long idReporte;
 	
-	
-	@Size(min=1,max=40)
+	@Size(min=1,max=50)
 	private String tituloReporte;
 	
 	private String tipoReporte;
 	
-	@Size(min=1,max=20)
+	@Size(min=1,max=30)
 	private String nombre;
 	 
 	private String imagen;
 	 
 	private String nChip;
+	
+	@NotNull
+	@Size(min=0, max=201)
+	private String Descripcion;
+	
+	@Column(name="foto", length= Integer.MAX_VALUE,nullable= true)
+	private byte[] foto;
 	
 	@JsonIgnore
 	@ManyToOne(fetch = FetchType.LAZY)
@@ -76,6 +83,11 @@ public class Reporte {
 	
 	@JsonIgnore
 	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "patron_id")
+	private Patron patron;
+	
+	@JsonIgnore
+	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "descripcion_id")
 	private Descripcion descripcion;
 	
@@ -95,6 +107,4 @@ public class Reporte {
 	protected void onUpdate() {
 		this.updatedAt = new Date();
 	}
-
-	
 }

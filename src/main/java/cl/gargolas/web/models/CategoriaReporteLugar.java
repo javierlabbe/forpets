@@ -10,6 +10,8 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
@@ -39,9 +41,15 @@ public class CategoriaReporteLugar {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long idCategoria;
 	
-	@NotNull
-	@Size(min=0, max=201)
-	private String Descripcion;
+	private String direccion;
+	
+	private String horario;
+	
+	@Size(min=1,max=30)
+	private String nombre1;
+	
+	@Column(name="foto", length= Integer.MAX_VALUE,nullable= true)
+	private byte[] foto;
 	
 	@JsonIgnore
 	@OneToMany(mappedBy = "categoriaReporteLugar",cascade = CascadeType.ALL,fetch = FetchType.LAZY)

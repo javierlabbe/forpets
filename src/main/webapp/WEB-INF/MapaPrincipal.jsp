@@ -1,5 +1,6 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -17,10 +18,21 @@
 <link href="Style.css" rel="stylesheet">
 <link href="/assets/css/mapaStyle.css" rel="stylesheet">
 
+<!-- JQUERY -->
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+
+<script src="https://kit.fontawesome.com/64af136b72.js"
+	crossorigin="anonymous"></script>
+
 <style>
 * {
 	margin: 0;
 	padding: 0;
+}
+
+body {
+	background-image: url('/assets/img/fondogris.png');
 }
 </style>
 
@@ -32,10 +44,11 @@
 
 
 </head>
+<!-- Navbar -->
 <nav class="navbar navbar-expand-lg"
 	style="background-color: #48C6AF; height: 120px;">
 	<div class="container-fluid">
-		<a class="navbar-brand" href="#"> <!--IR AL HOME en href--> <img
+		<a class="navbar-brand" href="home"> <!--IR AL HOME en href--> <img
 			src="/assets/img/logonegro" height="40px" alt="forpets Logo"
 			loading="lazy" style="margin-top: -1px;" />
 		</a>
@@ -52,63 +65,175 @@
 		<div class="collapse navbar-collapse" id="navbarSupportedContent">
 			<ul class="navbar-nav me-auto mb-2 mb-lg-0">
 				<!-- Left links -->
-				<li class="nav-item"><a class="nav-link active"
-					aria-current="page" href="http://localhost:9082/home">Home</a></li>
+				<li class="nav-item"><a class="nav-link" aria-current="page"
+					href="/index"><strong>Home</strong></a></li>
+				<li><a class="nav-link" aria-current="page"
+					href="/index/nosotros"><strong>Nosotros</strong></a></li>
+				<li><a class="nav-link" aria-current="page" href="/home/perfil"><strong>Mi
+							perfil</strong></a></li>
 			</ul>
 
 			<!-- Left links -->
+
 			<div class="d-flex align-items-center">
-				<a class="btn btn-primary" href="#"
-					role="button" id="BotonNav1">Cerrar sesión</a>
+				<div class="row">
+					<div class="col">
+						<!-- BOTONES -->
+						<button type="button" class="btn btn-primary" id="BotonNav1"
+							data-bs-toggle="modal" data-bs-target="#modalCierreSesiÃ³n">Cerrar
+							sesiÃ³n</button>
+						<div class="modal fade" id="modalCierreSesiÃ³n" tabindex="-1"
+							aria-labelledby="modalLogout" aria-hidden="true">
+							<div class="modal-dialog">
+								<div class="modal-content">
+									<div class="modal-header">
+										<h6 class="modal-title fs-5" id="modalLogout">Cerrando
+											sesiÃ³n...</h6>
+										<button type="button" class="btn-close"
+											data-bs-dismiss="modal" aria-label="Close"></button>
+									</div>
+									<div class="modal-body" id="modalLogout"></div>
+									<h3 style="margin-left: 20%; margin-bottom: 20px">Â¿Deseas
+										cerrar sesiÃ³n?</h3>
+									<a class="btn btn-primary" href="/index/logout" role="button"
+										id="BotonNav1" style="margin-left: 35%; margin-bottom: 10px;">Cerrar
+										sesiÃ³n</a> <a class="btn btn-primary" type="button" id="BotonNav1"
+										data-bs-dismiss="modal"
+										style="margin-left: 35%; margin-bottom: 20px;">Permanecer</a>
+								</div>
+							</div>
+						</div>
+						<!-- Fin modal -->
+						<!-- BOTONES -->
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>
 </nav>
+<!-- Navbar -->
 <body>
-			<!-- ============ MAPA ============ -->
-			<div class="col-8" style="height: 690px;">
-				<div id='map'></div>
-				<br>
-			</div>
-		</div>
+	<!-- ============ MAPA ============ -->
+	<div class="col" style="height: 690px;">
+		<div id='map'></div>
 		<br>
 	</div>
+	<br>
 	<!-- ============ FIN MAPA ============ -->
-
-	<!-- ============ BOTONES ============ ->
-	<!-- Button trigger modal ->
-	<div class="col-12 d-grid gap-2 d-md-flex justify-content-md-end">
-		<button type="button" class="btn btn-primary" data-bs-toggle="modal"
-			id="BotonBody" data-bs-target="#exampleModal">Crear reporte
-		</button>
-
-		<button type="button" class="btn btn-primary" data-bs-toggle="modal"
-			id="BotonBody" data-bs-target="#exampleModal1" style="">
-			Agregar ubicación</button>
+	<!-- ============ AGREGAR UBICACIÃ“N ============ -->
+	<!-- Button trigger modal -->
+	<form action="/mapaPrincipal" method="post" action="/upload/form" >
+	<div class="col" style="text-align: center; margin-bottom:10px;">
+	<button type="button" class="btn btn-primary" data-bs-toggle="modal"
+		data-bs-target="#exampleModal1" id="BotonBody2">Agregar
+		ubicaciÃ³n</button>
 	</div>
 
-	<!-- Modal ->
-	<div class="modal fade" id="exampleModal" tabindex="-1"
+	<!-- Modal -->
+	<div class="modal fade" id="exampleModal1" tabindex="-1"
 		aria-labelledby="exampleModalLabel" aria-hidden="true">
-		<div class="modal-dialog modal-lg">
+		<div class="modal-dialog">
 			<div class="modal-content">
 				<div class="modal-header">
-					<h1 class="modal-title fs-5" id="exampleModalLabel">Crear
-						reporte</h1>
+					<h1 class="modal-title fs-3" id="exampleModalLabel">Â¡Comparte
+						un lugar!</h1>
 					<button type="button" class="btn-close" data-bs-dismiss="modal"
 						aria-label="Close"></button>
 				</div>
 				<div class="modal-body">
-					<!-- ============ FIN BOTONES ============ ->
-					<!-- ============ IMAGEN ============ ->
+
+					<div class="container">
+						<div class="row align-items-start">
+								<div class="col">
+									<label for="nombre" class="form-label"><b>Nombre</b></label><input
+										type="text" class="form-control" id="nombre" name="nombre"
+										placeholder="Ej. Parque InÃ©s de SuarÃ©z" required>
+									<div class="form-text">Ingrese nombre del lugar</div>
+								</div>
+						</div>
+
+						<!--==========================================-->
+
+						<div class="row align-items-start">
+							<div class="col">
+								<label for="etiqueta" class="form-label"><b>CategorÃ­a</b></label>
+								<select class="form-select" aria-label="Default select example"
+									id="etiqueta" name="etiqueta" required>
+									<option selected>Seleccione categorÃ­a del lugar</option>
+									<c:forEach var="etiqueta" items="${listaEtiquetas}">
+										<option value="${etiqueta.idEtiqueta}">${etiqueta.descripcion}</option>
+									</c:forEach>
+								</select>
+							</div>
+						</div>
+
+						<!--==========================================-->
+
+						<div class="row align-items-start">
+							<div class="col">
+								<label for="direccion" class="form-label"><b>DirecciÃ³n</b></label><input
+									type="text" class="form-control" id="direccion"
+									name="direccion"
+									placeholder="Ej. Antonio Varas 1510, Providencia, RegiÃ³n Metropolitana"
+									required>
+								<div class="form-text">Ingrese direcciÃ³n del lugar</div>
+							</div>
+						</div>
+
+						<!--==========================================-->
+
+						<div class="row align-items-start">
+							<div class="col">
+								<label for="horario" class="form-label"><b>Horario</b></label><input
+									type="text" class="form-control" id="horario" name="horario"
+									placeholder="Ej. Lunes a SÃ¡bado de 09:00 a 20:00" required>
+								<div class="form-text">Ingrese horario del lugar</div>
+							</div>
+						</div>
+						<!--==========================================-->
+
+						<div class="row align-items-start">
+							<div class="col">
+								<div class="mb-3">
+									<label for="formFile" class="form-label"><b>Imagen</b></label><input
+										class="form-control" type="file" id="formFile"> <span
+										class="small" style="color: gray;">Subir imagen del
+										lugar</span>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary"
+						data-bs-dismiss="modal" id="BotonBody1">Cancelar</button>
+					<input type="submit" class="btn btn-primary" value="Enviar"
+						id="BotonBody1">
+				</div>
+			</div>
+		</div>
+	</div>
+	</form>
+	<!-- ============CREAR REPORTE============ -->
+	<form action="/mapaPrincipal" method="post" action="/upload/form" >
+	<div class="col" style="text-align: center; margin-bottom:10px;">
+	<button type="button" class="btn btn-primary" data-bs-toggle="modal"
+		data-bs-target="#modalPrincipal" id="BotonBody">Crear reporte</button>
+	</div>
+
+	<div id="modalPrincipal" class="modal fade" role="dialog">
+		<div class="modal-dialog modal-lg">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h4 class="modal-tittle">Crear reporte</h4>
+				</div>
+				<div class="modal-body">
 					<div class="container">
 						<div class="row">
 							<div class="col text-center">
 								<img src="/assets/img/cat.png"
 									class="rounded-circle mx-auto d-block" alt="Foto de la mascota"
 									style="border: 1px solid; border-color: rgb(143, 142, 142); width: 200px;"><br>
-								<a class="btn btn-primary" role="button" id="BotonBody">Escoger
-									mascota desde perfil</a>
 								<div class="mb-3">
 									<label for="formFile" class="col-form-label"></label> <input
 										class="form-control" type="file" id="formFile"> <span
@@ -116,155 +241,116 @@
 										mascota</span>
 								</div>
 							</div>
-							<!-- ============ FIN IMAGEN ============ ->
+						</div>
+						<!-- ============ FIN IMAGEN ============ -->
 
-							<!--======================================->
-							
-							<div class="row align-items-start">
-                            <div class="col align-items-end">
-                                <label for="reporte" class="form-label"><b>Título de reporte</b>
-                                    <input class="form-control" type="text" id="tituloReporte" name="tituloReporte" style="width: 492px;" placeholder="Ej: Busco/Encontré mascota">
-                                    <span class="small" style="color: gray;">Ingrese título para su reporte</span>
-                                    </label>
-                        </div>
-                        <div class="col-4">
-                            <label for="form-label" id="TipoReporte"><b>Tipo reporte</b></label>
-                            <select class="form-select" aria-label="Default select example">
-                                <option selected>Seleccione tipo reporte</option>
-                            </select>
-                        </div>
-                        </div>
-                        
-                        	<!--======================================->
-                        	
-                        <div class="row align-items-start">
-                            <div class="col-4">
-                                <label for="Nombre" class="form-label"><b>Nombre</b>
-                                    <input class="form-control" type="text" id="reporte" name="reporte" style="width: 235px;" placeholder="Ej: Michito">
-                                    <span class="small" style="color: gray;">Ingrese nombre de la mascota</span>
-                                    </label>
-                        </div>
-                        <div class="col-4">
-                            <label for="NChip" class="form-label"><b>Nº Chip</b>
-                                <input class="form-control" type="text" id="reporte" name="reporte" style="width: 235px;" placeholder="Ej: 123456789012345">
-                                <span class="small" style="color: gray;">Ingrese número de chip (Opcional)</span>
-                                </label>
-                        </div>
-                        <div class="col-4">
-                            <label for="especie" id="seleccion"><b>Especie</b></label>
-                            <select class="form-select" aria-label="Default select example">
-                                <option selected>Seleccione especie de la mascota</option>
-                            </select>
-                        </div>
-                        </div>
-                        
-                        <!--======================================->
-                        
-                        <div class="row align-items-start">
-                            <div class="col">
-                                <label for="raza" id="seleccion"><b>Raza</b></label>
-                            <select class="form-select" aria-label="Default select example">
-                                <option selected>Seleccione raza de la mascota</option>
-                            </select>
-                            </div>
-                            <div class="col">
-                                <label for="patron" id="seleccion"><b>Patrón</b></label>
-                            <select class="form-select" aria-label="Default select example">
-                                <option selected>Seleccione patrón de su mascota</option>
-                                <c:forEach var="patron" items="${listaPatrones}">
-                            </select>
-                            </div>
-                            <div class="col">
-                                <label for="tamaño" id="seleccion"><b>Tamaño</b></label>
-                            <select class="form-select" aria-label="Default select example">
-                                <option selected>Seleccione tamaño de su mascota</option>
-                            </select>
-                            </div>
-                        </div>
-                        
-                        <!--======================================->
-                        
-                            <div class="row align-items-start">
-                                <div class="col"><br>
-                                    <label for="descripcion" class="form-label"><b>Descripción</b></label>
-                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"
-                            placeholder="Escribe las características de tu mascota aquí..."></textarea>
-                            <span class="small" style="color: gray;">Describe detalladamete a tu mascota</span>
-                                </div>
-                            </div>
-        						</div>
-							<div class="modal-footer">
-								<button type="button" class="btn btn-primary" id="BotonBody">Cancelar</button>
-								<button type="button" class="btn btn-primary" id="BotonBody">Enviar</button>
+						<div class="row align-items-start">
+							<div class="col-8">
+									<label for="tituloReporte" class="form-label"><b>TÃ­tulo
+											de reporte</b></label><input type="text" class="form-control"
+										id="tituloReporte" name="tituloReporte"
+										placeholder="Ej: EncontrÃ© este gatito" required>
+									<div class="form-text">Ingrese tÃ­tulo para el reporte</div>
+							</div>
+							<div class="col">
+								<label for="reporte" class="form-label"><b>Tipo de
+										reporte</b></label><select class="form-select"
+									aria-label="Default select example" id="reporte" name="reporte"
+									required>
+									<option selected>Seleccione tipo de reporte</option>
+									<c:forEach var="reporte" items="${listaReportes}">
+										<option value="${reporte.idReporte}">${reporte.descripcion}</option>
+									</c:forEach>
+								</select>
 							</div>
 						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-
-	<!-- ============ AGREGAR UBICACIÓN ============ ->
-	<!-- ============ Modal ============ ->
-	<form action="/agregar/lugar" method="post" enctype="multipart/form-data">
-	<div class="modal fade" id="exampleModal1" tabindex="-1"
-		aria-labelledby="exampleModalLabel" aria-hidden="true">
-		<div class="modal-dialog">
-			<div class="modal-content">
-				<div class="modal-header">
-					<h1 class="modal-title fs-5" id="exampleModalLabel">¡Comparte
-						un lugar!</h1>
-					<button type="button" class="btn-close" data-bs-dismiss="modal"
-						aria-label="Close"></button>
-				</div>
-				<div class="modal-body">
-					<div class="container">
-						<div class="row">
+						<!--===================2=======================-->
+						<div class="row align-items-start">
 							<div class="col">
-								<label for="" class="col-form-label"><b>Nombre del
-										lugar</b> <input class="form-control" type="text" id="" name=""
-									style="width: 470px;" placeholder="Ej: Parque Inés de Suárez">
-								</label>
-								<!--=====================================->
-								<div class="col">
-									<label for="Especie class col-form-label" id="seleccion"><b>Categoría</b></label>
-									<select class="form-select" aria-label="Default select example"
-										style="width: 470px;">
-										<option class="form-control" selected>Seleccione
-											categoría</option>
-									</select>
-								</div>
-								<!--=====================================->
-								<label for="" class="col-form-label"><b>Dirección</b> <input
-									class="form-control" type="text" id="" name=""
-									style="width: 470px;"
-									placeholder="Ej: Antonio varas 1510, Providencia, Región Metropolitana">
-								</label>
-								<!--=====================================->
-								<label for="" class="col-form-label"><b>Horario</b> <input
-									class="form-control" type="text" id="" name=""
-									style="width: 470px;"
-									placeholder="Ej: Lunes a sábado de 09:00 a 18:00"> </label><br>
-								<!--=====================================->
-								<label for="formFile" class="col-form-label"></label> <input
-									class="form-control" type="file" id="formFile"
-									style="width: 470px;"> <span class="small"
-									style="color: gray;">Subir imagen</span>
+								<label for="Nombre" class="form-label"><b>Nombre</b></label><input
+									type="text" class="form-control" id="Nombre" name="Nombre"
+									placeholder="Ej: Copito" required>
+								<div class="form-text">Ingrese nombre de su mascota</div>
+							</div>
+							<div class="col">
+								<label for="nChip" class="form-label"><b>NÂº Chip</b></label><input
+									type="text" class="form-control" id="nChip" name="nChip"
+									placeholder="Ej: 123456789012345" required>
+								<div class="form-text">Ingrese nÃºmero de Chip (Opcional)</div>
+							</div>
+							<div class="col">
+								<label for="especie" class="form-label"><b>Especie</b></label> <select
+									class="form-select" aria-label="Default select example"
+									id="especie" name="especie" required>
+									<option selected>Seleccione especie de su mascota</option>
+									<c:forEach var="especie" items="${listaEspecies}">
+										<option value="${especie.idEspecie}">${especie.descripcion}</option>
+									</c:forEach>
+								</select>
+							</div>
+						</div>
+						<!--===================3=======================-->
+						<div class="row align-items-start">
+							<div class="col">
+								<label for="raza" class="form-label"><b>Raza</b></label> <select
+									class="form-select" aria-label="Default select example"
+									id="raza" name="raza" required>
+									<option selected>Seleccione raza de su mascota</option>
+									<c:forEach var="raza" items="${listaRazas}">
+										<option value="${raza.idRaza}">${raza.descripcion}</option>
+									</c:forEach>
+								</select>
+							</div>
+							<div class="col">
+								<label for="color" class="form-label"><b>Color</b></label> <select
+									class="form-select" aria-label="Default select example"
+									id="color" name="color" required>
+									<option selected>Seleccione color de su mascota</option>
+									<c:forEach var="color" items="${listaColores}">
+										<option value="${color.idColor}">${color.descripcion}</option>
+									</c:forEach>
+								</select>
+							</div>
+							<div class="col">
+								<label for="tamanio" class="form-label"><b>TamaÃ±o</b></label> <select
+									class="form-select" aria-label="Default select example"
+									id="tamanio" name="tamanio" required>
+									<option selected>Seleccione tamaÃ±o de su mascota</option>
+									<c:forEach var="tamanio" items="${listaTamanios}">
+										<option value="${tamanio.idTamanio}">${tamanio.descripcion}</option>
+									</c:forEach>
+								</select>
+							</div>
+						</div>
+						<!--===================4=======================-->
+						<div class="row align-items-start">
+							<div class="col">
+								<label for="exampleFormControlTextarea1" class="form-label"><b>DescripciÃ³n</b></label>
+								<textarea class="form-control" id="exampleFormControlTextarea1"
+									rows="3"
+									placeholder="Escribe las caracteristicas de tu mascota aquÃ­..."
+									required></textarea>
+								<div class="form-text">Describe detalladamente a tu
+									mascota</div>
+								<br>
 							</div>
 						</div>
 					</div>
 				</div>
 				<div class="modal-footer">
-					<button type="button" class="btn btn-primary" id="BotonBody">Cancelar</button>
-					<button type="button" class="btn btn-primary" id="BotonBody">Enviar</button>
+					<button type="button" class="btn btn-secondary"
+						data-bs-dismiss="modal" id="BotonBody">Cancelar</button>
+					<input type="submit" class="btn btn-primary" value="Enviar"
+						id="BotonBody">
 				</div>
 			</div>
 		</div>
 	</div>
 	</form>
-</body>-->
-
+</body>
+<!-- FOOTER -->
 <footer class="text-center text-white"
-	style="background-color: #004445; margin-top: 50px;">
+	style="background-color: #004445;">
 	<div class="container-fluid">
 		<div class="row">
 			<div class="col">
@@ -273,30 +359,81 @@
 					<!-- Section: Social media -->
 					<section class="mb-4">
 						<!-- Facebook -->
-						<a class="btn btn-link btn-floating btn-lg text-dark m-1"
-							href="#!" role="button" data-mdb-ripple-color="dark"><i
-							class="fab fa-facebook-f" style="color: #C6D166;"></i></a>
-						<!-- Twitter -->
-						<a class="btn btn-link btn-floating btn-lg text-dark m-1"
-							href="#!" role="button" data-mdb-ripple-color="dark"><i
-							class="fab fa-twitter" style="color: #C6D166;"></i></a>
-						<!-- Instagram -->
-						<a class="btn btn-link btn-floating btn-lg text-dark m-1"
-							href="#!" role="button"><i class="fab fa-instagram"
-							style="color: #C6D166;"></i> </a>
-						<h6 style="color: #C6D166;">¡Síguenos!</h6>
+						<ul class="nav flex-column">
+							<li class="nav-item"><span class="footer-title"
+								style="color: #C6D166; font-size: 16px" align="left"><strong>Links
+										de interÃ©s</strong></span></li>
+							<li class="nav-item"><a class="link1"
+								style="font-size: 13px"
+								href="https://www.chileatiende.gob.cl/fichas/51436-ley-de-tenencia-responsable-de-mascotas-y-animales-de-compania-ley-cholito"
+								target="_blank" rel="noopener noreferrer">Ley tenencia
+									responsable</a></li>
+							<li class="nav-item"><a class="link1"
+								style="font-size: 13px"
+								href="https://registratumascota.cl/inicio.xhtml" target="_blank"
+								rel="noopener noreferrer">Registro nacional de mascotas</a></li>
+							<li class="nav-item"><span class="footer-title"
+								style="color: #C6D166; font-size: 16px" align="left"><strong>Contacto</strong></span>
+							</li>
+							<li class="nav-item"><a class="link1"
+								style="font-size: 13px"
+								href="mailto:holaforpets@gmail.com?Subject=Hola%20ForPets!"><i
+									class="fas fa-envelope"></i>holaforpets@gmail.com</a></li>
+						</ul>
 				</div>
 			</div>
 			<div class="col" style="margin-left: 200px; margin-top: 35px;">
 				<img src="/assets/img/logoverde" alt="" style="height: 50px;">
+				<div>
+					<ul class="list-inline social-buttons" style="margin-top: 35px;">
+						<li class="list-inline-item"><a href="#"> <i
+								class="fab fa-twitter" style="color: #C6D166;"></i>
+						</a></li>
+						<li class="list-inline-item"><a href="#"> <i
+								class="fab fa-facebook-f" style="color: #C6D166;"></i>
+						</a></li>
+						<li class="list-inline-item"><a href="#"> <i
+								class="fab fa-linkedin-in" style="color: #C6D166;"></i>
+						</a></li>
+					</ul>
+				</div>
 			</div>
 			<div class="text-center text-dark p-3"
 				style="background-color: rgba(0, 0, 0, 0.2);">
-				<p style="color: #C6D166;">ForPets©2022</p>
+				<span class="copyright quick-links" style="color: #C6D166;">Copyright
+					&copy; Forpets <script>document.write(new Date().getFullYear())</script>
+				</span>
 			</div>
 		</div>
 	</div>
 </footer>
+
+<script>
+		$('select[name="especie"]').on('change', function() {
+		    let especieId = $(this).val();
+		    console.log(especieId)
+		        $.ajax({
+		            method: "get",
+		            url: "/apiEspecie/obtenerRaza",
+		            dataType: 'json',
+		            data: { id : especieId },
+		            success: function (data) {
+		    
+		            	$("#raza").find("option").remove();
+		            	$("#raza").append('<option value="0">Seleccione raza</option>');  
+		           for (var i = 0; i < data.length; i++) {
+					
+					 $("#raza").append('<option value='+data[i].id+'>'+data[i].descripcion+'</option>');  
+				}
+		                
+		            }
+		        
+		      
+		        });
+		//cierre jquery
+		    });
+
+	</script>
 
 <script src="https://kit.fontawesome.com/64af136b72.js"
 	crossorigin="anonymous"></script>
@@ -308,4 +445,5 @@
 	
 </script>
 <script src="/assets/js/maps.js"></script>
+<script src="/assets/js/mapa.html"></script>
 </html>
