@@ -125,9 +125,7 @@
 					</div>
 					<!-- Fin modal -->         
 				
-				<button class="btn btn" type="button"
-					style="background-color: #C6D166; margin-top: 50px;">Sube
-					tu foto de perfil</button>
+				
 			</div>
 
 			<div class="col">
@@ -166,7 +164,7 @@
 				<div class="row">
 					<div class="col">
 						<p>
-						<h1>Mis caractetísticas</h1>
+						<h1>Mis características</h1>
 						</p>
 						<p>
 						<h6><c:out value="${Descripcion}"></c:out>
