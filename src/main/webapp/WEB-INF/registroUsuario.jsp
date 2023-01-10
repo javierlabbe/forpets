@@ -13,6 +13,11 @@
         integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
     <link href="/assets/css/stylesRegUser.css" rel="stylesheet">
 
+	<!-- TIPOGRAFIAS -->
+ 	<link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Baloo' rel='stylesheet'>
+    <!-- TIPOGRAFIAS -->
+
     <script src="https://kit.fontawesome.com/64af136b72.js" crossorigin="anonymous"></script>
     
     <!-- JQuery -->
@@ -26,8 +31,17 @@
             width: 100%;
         }
         
-        body{
-        background-image: url('/assets/img/fondogris.png');
+        body {
+            background-color:white;
+            font-family: 'Poppins';
+            background-image: url('/assets/img/fondogris.png');
+        }
+        h4 {
+        	font-family:'Baloo';
+        	text-shadow: 0 .05rem .1rem rgba(0, 0, 0, .5);
+        	font-size: 45px;
+        	margin-top: 35px;
+        	
         }
     </style>
 
@@ -195,37 +209,63 @@
         crossorigin="anonymous "></script>
 </body>
 
-<footer class="text-center text-white" style="background-color: #004445; margin-top: 50px; ">
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col">
-                <!-- Grid container -->
-                <div class="container pt-4">
-                    <!-- Section: Social media -->
-                    <section class="mb-4">
-                        <!-- Facebook -->
-                        <a class="btn btn-link btn-floating btn-lg text-dark m-1" href="#!" role="button"
-                            data-mdb-ripple-color="dark"><i class="fab fa-facebook-f" style="color: #C6D166;"></i></a>
-                        <!-- Twitter -->
-                        <a class="btn btn-link btn-floating btn-lg text-dark m-1" href="#!" role="button"
-                            data-mdb-ripple-color="dark"><i class="fab fa-twitter" style="color: #C6D166;"></i></a>
-                        <!-- Instagram -->
-                        <a class="btn btn-link btn-floating btn-lg text-dark m-1" href="#!" role="button"><i
-                                class="fab fa-instagram" style="color: #C6D166;"></i>
-                        </a>
-                        <h6 style="color:#C6D166 ;">¡Síguenos!</h6>
-
-                </div>
-            </div>
-            <div class="col" style="margin-left: 200px; margin-top: 35px;">
-                <img src="/assets/img/logoverde" alt="" style="height: 50px;">
-            </div>
-            <div class="text-center text-dark p-3" style="background-color: rgba(0, 0, 0, 0.2);">
-                <p style="color:#C6D166 ;">ForPets©2022</p>
-            </div>
+<footer class="text-center text-white" style="background-color: #004445; ">
+	<div class="container-fluid">
+	    <div class="row">
+	      <div class="col">
+	        <!-- Grid container -->
+	        <div class="container pt-4">
+	          <!-- Section: Social media -->
+	          <section class="mb-4">
+	            <!-- Facebook -->
+        <ul class="nav flex-column" >
+          <li class="nav-item">
+            <span class="footer-title" style="color: #C6D166; font-size: 16px" align="left"><strong>Links de interés</strong></span>
+          </li>
+          <li class="nav-item">
+            <a class="link1"  style="font-size: 13px" href="https://www.chileatiende.gob.cl/fichas/51436-ley-de-tenencia-responsable-de-mascotas-y-animales-de-compania-ley-cholito" target="_blank" rel="noopener noreferrer">Ley tenencia responsable</a>
+          </li>
+          <li class="nav-item">
+            <a class="link1"  style="font-size: 13px" href="https://registratumascota.cl/inicio.xhtml" target="_blank" rel="noopener noreferrer">Registro nacional de mascotas</a>
+          </li>
+          <li class="nav-item">
+            <span class="footer-title" style="color: #C6D166;font-size: 16px" align="left"><strong>Contacto</strong></span>
+          </li>
+          <li class="nav-item" >
+            <a class="link1" style="font-size: 13px" href="mailto:holaforpets@gmail.com?Subject=Hola%20ForPets!"><i class="fas fa-envelope"></i>holaforpets@gmail.com</a>
+          </li>
+        </ul>
+	        </div>
+	      </div>
+	      <div class="col" style="margin-left: 200px; margin-top: 35px;">
+	        <img src="/assets/img/logoverde" alt="" style="height: 50px;">
+	       <div> 
+	        <ul class="list-inline social-buttons" style=" margin-top: 35px;">
+          <li class="list-inline-item">
+            <a href="#">
+            <i class="fab fa-twitter" style="color: #C6D166;"></i>
+          </a>
+          </li>
+          <li class="list-inline-item">
+            <a href="#">
+            <i class="fab fa-facebook-f" style="color: #C6D166;"></i>
+          </a>
+          </li>
+          <li class="list-inline-item">
+            <a href="#">
+            <i class="fab fa-linkedin-in" style="color: #C6D166;"></i>
+          </a>
+          </li>
+        </ul>
         </div>
+	      </div>
+	      <div class="text-center text-dark p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+	                <span class="copyright quick-links" style="color:#C6D166 ;">Copyright &copy; Forpets <script>document.write(new Date().getFullYear())</script>
+        </span>
+	      </div>
+	    </div>
     </div>
-</footer>
+  </footer>
 
 
 </html>
