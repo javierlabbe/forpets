@@ -46,10 +46,10 @@
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <!-- Left links -->
                 <li class="nav-item">
-                    <a class="nav-link" aria-current="page" href="/index/nosotros"><strong>Nosotros</strong></a>
+                    <a class="nav-link activate" aria-current="page" href="/index/nosotros"><strong>Nosotros</strong></a>
                 </li>
                 <li>
-                <a class="nav-link" aria-current="page" href="/mapa/mapaPrincipal"><strong>Ver mapa</strong></a>
+                <a class="nav-link" aria-current="page" href="/mapaPrincipal"><strong>Ver mapa</strong></a>
               	</li>
               	                <li>
                 <a class="nav-link" aria-current="page" href="/home/perfil"><strong>Mi perfil</strong></a>
@@ -178,7 +178,7 @@
                 El principal objetivo de ForPets es ayudar a toda persona 
             tutora de una mascota, en diferentes áreas de interés.
             
-            Nuestro proyecto nace desde la problemática de perder un miembro
+            Nuestro proyecto nace desde la problemática de extraviar un miembro
             importante de la familia, como lo son las mascotas.
             Buscamos como equipo ofrecer una solución digital para buscar y
             encontrar a las mascotas perdidas a nuestro alrededor mediante reportes,
