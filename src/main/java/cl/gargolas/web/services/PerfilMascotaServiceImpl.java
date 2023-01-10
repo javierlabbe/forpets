@@ -31,11 +31,10 @@ public class PerfilMascotaServiceImpl implements PerfilMascotaService{
 		Boolean existe = perfilMascotaRepository.existsById(perfilMascota.getId()); //aqui o en repository?
 		if (existe) {
 			perfilMascotaRepository.save(perfilMascota);
-		} else {
-			
-		}
+			return "perfil Mascota actualizado";
+		} 
 		
-		return null;
+		return "perfil Mascota actualizado";
 	}
 
 	@Override
