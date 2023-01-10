@@ -46,7 +46,7 @@
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <!-- Left links -->
                 <li class="nav-item">
-                    <a class="nav-link activated" aria-current="page" href="/index/nosotros"><strong>Nosotros</strong></a>
+                    <a class="nav-link active" aria-current="page" href="/index/nosotros"><strong>Nosotros</strong></a>
                 </li>
                 <li>
                 <a class="nav-link" aria-current="page" href="/mapaPrincipal"><strong>Ver mapa</strong></a>
@@ -102,10 +102,10 @@
                         <br>
                         <h4>Julián Ordens</h4>
                         <!-- Linkedin -->
-                        <a class="btn btn-link btn-floating btn-lg text-dark m-1" href="https://www.linkedin.com/in/juli-ordens" role="button"
+                        <a class="btn btn-link btn-floating btn-lg text-dark m-1" href="#!" target="_blank" rel="noopener noreferrer" role="button"
                         data-mdb-ripple-color="dark"><i class="fab fa-linkedin"></i></a>
                         <!-- Github -->
-                        <a class="btn btn-link btn-floating btn-lg text-dark m-1" href="#!" role="button"
+                        <a class="btn btn-link btn-floating btn-lg text-dark m-1" href="#!" target="_blank" rel="noopener noreferrer" role="button"
                         data-mdb-ripple-color="dark"><i class="fab fa-github"></i></a>
                         </center>
                     </div>
@@ -116,10 +116,10 @@
                         <br>
                         <h4>Francisca Lazo</h4>
                         <!-- Linkedin -->
-                        <a class="btn btn-link btn-floating btn-lg text-dark m-1" href="https://www.linkedin.com/in/francisca-lazo-cerpa/" role="button"
+                        <a class="btn btn-link btn-floating btn-lg text-dark m-1" href="https://www.linkedin.com/in/francisca-lazo-cerpa/" target="_blank" rel="noopener noreferrer" role="button"
                         data-mdb-ripple-color="dark"><i class="fab fa-linkedin"></i></a>
                         <!-- Github -->
-                        <a class="btn btn-link btn-floating btn-lg text-dark m-1" href="https://github.com/FranMarvelous" role="button"
+                        <a class="btn btn-link btn-floating btn-lg text-dark m-1" href="https://github.com/FranMarvelous" target="_blank" rel="noopener noreferrer" role="button"
                         data-mdb-ripple-color="dark"><i class="fab fa-github"></i></a>
                     </center>
                     </div>
@@ -130,12 +130,10 @@
                         <br>
                         <h4>Javier Labbé</h4>
                         <!-- Linkedin -->
-                        <a class="btn btn-link btn-floating btn-lg text-dark m-1" href="https://www.linkedin.com/in/labbejavier/
-" role="button"
+                        <a class="btn btn-link btn-floating btn-lg text-dark m-1" href="https://www.linkedin.com/in/labbejavier/" target="_blank" rel="noopener noreferrer" role="button"
                         data-mdb-ripple-color="dark"><i class="fab fa-linkedin"></i></a>
                         <!-- Github -->
-                        <a class="btn btn-link btn-floating btn-lg text-dark m-1" href="https://github.com/javierlabbe
-" role="button"
+                        <a class="btn btn-link btn-floating btn-lg text-dark m-1" href="https://github.com/javierlabbe" target="_blank" rel="noopener noreferrer" role="button"
                         data-mdb-ripple-color="dark"><i class="fab fa-github"></i></a>
                     </center>
                     </div>
@@ -148,10 +146,10 @@
                         <br>
                         <h4>Luis Serrano</h4>
                         <!-- Linkedin -->
-                        <a class="btn btn-link btn-floating btn-lg text-dark m-1" href="https://www.linkedin.com/in/luis-israel-serrano-miranda-888aa61b9/" role="button"
+                        <a class="btn btn-link btn-floating btn-lg text-dark m-1" href="https://www.linkedin.com/in/luis-israel-serrano-miranda-888aa61b9/" target="_blank" rel="noopener noreferrer" role="button"
                         data-mdb-ripple-color="dark"><i class="fab fa-linkedin"></i></a>
                         <!-- Github -->
-                        <a class="btn btn-link btn-floating btn-lg text-dark m-1" href="https://github.com/luisserranom" role="button"
+                        <a class="btn btn-link btn-floating btn-lg text-dark m-1" href="https://github.com/luisserranom" target="_blank" rel="noopener noreferrer" role="button"
                         data-mdb-ripple-color="dark"><i class="fab fa-github"></i></a>
                         </center>
                     </div>
@@ -162,10 +160,10 @@
                         <br>
                         <h4>Rocio Quezada</h4>
                         <!-- Linkedin -->
-                        <a class="btn btn-link btn-floating btn-lg text-dark m-1" href="https://www.linkedin.com/in/rocio-jiresh-quezada-rodriguez-436008256/" role="button"
+                        <a class="btn btn-link btn-floating btn-lg text-dark m-1" href="https://www.linkedin.com/in/rocio-jiresh-quezada-rodriguez-436008256/" target="_blank" rel="noopener noreferrer" role="button"
                         data-mdb-ripple-color="dark"><i class="fab fa-linkedin"></i></a>
                         <!-- Github -->
-                        <a class="btn btn-link btn-floating btn-lg text-dark m-1" href="https://github.com/RocioQ01" role="button"
+                        <a class="btn btn-link btn-floating btn-lg text-dark m-1" href="https://github.com/RocioQ01"target="_blank" rel="noopener noreferrer" role="button"
                         data-mdb-ripple-color="dark"><i class="fab fa-github"></i></a>
                         </center>
                     </div>
