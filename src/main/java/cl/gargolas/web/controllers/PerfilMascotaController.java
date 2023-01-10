@@ -4,6 +4,7 @@ package cl.gargolas.web.controllers;
 
 
 
+import java.io.IOException;
 import java.util.Base64;
 import java.util.List;
 
@@ -16,6 +17,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
 import cl.gargolas.web.models.PerfilMascota;
 import cl.gargolas.web.models.Usuario;
@@ -121,6 +123,28 @@ public class PerfilMascotaController {
 			,HttpSession session) {
 		session.setAttribute("idMascota", id);
 		return "redirect:/perfilMascota";
+	}
+	
+	
+	@PostMapping("/actualizarFotoMascota")
+	public String actualizarFoto(final @RequestParam("fotoPerfilPets") MultipartFile foto
+			, HttpSession session) throws IOException {
+		
+		Long idMascota = (Long) session.getAttribute("idMascota");
+		if (idMascota != null) {
+			PerfilMascota pet = perfilMascotaServiceImpl.obtenerPerfilMascota(idMascota); 
+			byte[] imagenPet = foto.getBytes();
+			
+			pet.setFoto(imagenPet);
+			perfilMascotaServiceImpl.actualizarPerfilMascota(pet);
+			
+			return "redirect:/perfilMascota";
+		} else {
+			return "redirect:/perfilMascota";
+		}
+		
+		
+		
 	}
 
 }
