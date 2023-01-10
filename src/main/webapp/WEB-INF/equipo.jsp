@@ -46,7 +46,7 @@
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <!-- Left links -->
                 <li class="nav-item">
-                    <a class="nav-link activate" aria-current="page" href="/index/nosotros"><strong>Nosotros</strong></a>
+                    <a class="nav-link activated" aria-current="page" href="/index/nosotros"><strong>Nosotros</strong></a>
                 </li>
                 <li>
                 <a class="nav-link" aria-current="page" href="/mapaPrincipal"><strong>Ver mapa</strong></a>
