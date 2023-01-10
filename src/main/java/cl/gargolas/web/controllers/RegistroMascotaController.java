@@ -169,7 +169,7 @@ public class RegistroMascotaController {
 		
 			
 			perfilMascotaServiceImpl.guardarPerfilMascota(perfilMascota);
-			return "registroMascota.jsp";
+			return "perfilMascota.jsp";
 			
 
 		}else {
