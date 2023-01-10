@@ -32,7 +32,7 @@
 <nav class="navbar navbar-expand-lg"
 	style="background-color: #48C6AF; height: 120px;">
 	<div class="container-fluid">
-		<a class="navbar-brand" href="#"> <!--IR AL HOME en href--> <img
+		<a class="navbar-brand" href="/home"> <!--IR AL HOME en href--> <img
 			src="/assets/img/logonegro" height="40px" alt="forpets Logo"
 			loading="lazy" style="margin-top: -1px;" />
 		</a>
@@ -50,8 +50,8 @@
 			<ul class="navbar-nav me-auto mb-2 mb-lg-0">
 				<!-- Left links -->
 				<li class="nav-item"><a class="nav-link active"
-					aria-current="page" href="#">Home</a></li>
-				<li class="nav-item"><a class="nav-link" href="#">Ver Mapa</a>
+					aria-current="page" href="/home">Home</a></li>
+				<li class="nav-item"><a class="nav-link" href="/mapa/principal">Ver Mapa</a>
 				</li>
 				<li class="nav-item"><a class="nav-link" href="#">Hacer
 						Reporte</a></li>
@@ -59,8 +59,25 @@
 
 			<!-- Left links -->
 			<div class="d-flex align-items-center">
-				<button type="button" class="btn btn-primary" id="BotonNav1">Cerrar
-					Sesión</button>
+				 <!-- BOTONES -->
+           		 <button type="button" class="btn btn-primary" id="BotonNav1" data-bs-toggle="modal" data-bs-target="#modalCierreSesión">Cerrar sesión</button>
+					<div class="modal fade" id="modalCierreSesión" tabindex="-1" aria-labelledby="modalLogout" aria-hidden="true">
+					  <div class="modal-dialog">
+					    <div class="modal-content">
+					      <div class="modal-header">
+					        <h6 class="modal-title fs-5" id="modalLogout">Cerrando sesión...</h6>
+					        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+					      </div>
+					      <div class="modal-body" id="modalLogout" >
+					      </div>
+					      	<h3  style="margin-left:20%; margin-bottom:20px" >¿Deseas cerrar sesión?</h3>
+					     	<a class="btn btn-primary" href="/index/logout" role="button" id="BotonNav1" style="margin-left:35%; margin-bottom:10px;">Cerrar sesión</a>
+					    	<a class="btn btn-primary" type="button" id="BotonNav1" data-bs-dismiss="modal" style="margin-left:35%; margin-bottom:20px;">Permanecer</a>
+					    </div>
+					  </div>
+					</div>
+					<!-- Fin modal -->         
+                <!-- BOTONES -->
 			</div>
 		</div>
 	</div>
