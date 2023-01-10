@@ -25,7 +25,7 @@
 <nav class="navbar navbar-expand-lg"
 	style="background-color: #48C6AF; height: 120px;">
 	<div class="container-fluid">
-		<a class="navbar-brand" href="#"> <!--IR AL HOME en href--> <img
+		<a class="navbar-brand" href="/home"> <!--IR AL HOME en href--> <img
 			src="/assets/img/logonegro" height="40px" alt="forpets Logo"
 			loading="lazy" style="margin-top: -1px;" />
 		</a>
@@ -43,17 +43,34 @@
 			<ul class="navbar-nav me-auto mb-2 mb-lg-0">
 				<!-- Left links -->
 				<li class="nav-item"><a class="nav-link active"
-					aria-current="page" href="#">Home</a></li>
-				<li class="nav-item"><a class="nav-link" href="#">Ver Mapa</a>
+					aria-current="page" href="/home">Home</a></li>
+				<li class="nav-item"><a class="nav-link" href="/mapa/principal">Ver Mapa</a>
 				</li>
-				<li class="nav-item"><a class="nav-link" href="#">Hacer
+				<li class="nav-item"><a class="nav-link" href="">Hacer
 						Reporte</a></li>
 			</ul>
 
 			<!-- Left links -->
 			<div class="d-flex align-items-center">
-				<button type="button" class="btn btn-primary" id="BotonNav1">Cerrar
-					Sesión</button>
+				 <!-- BOTONES -->
+           		 <button type="button" class="btn btn-primary" id="BotonNav1" data-bs-toggle="modal" data-bs-target="#modalCierreSesión">Cerrar sesión</button>
+					<div class="modal fade" id="modalCierreSesión" tabindex="-1" aria-labelledby="modalLogout" aria-hidden="true">
+					  <div class="modal-dialog">
+					    <div class="modal-content">
+					      <div class="modal-header">
+					        <h6 class="modal-title fs-5" id="modalLogout">Cerrando sesión...</h6>
+					        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+					      </div>
+					      <div class="modal-body" id="modalLogout" >
+					      </div>
+					      	<h3  style="margin-left:20%; margin-bottom:20px" >¿Deseas cerrar sesión?</h3>
+					     	<a class="btn btn-primary" href="/index/logout" role="button" id="BotonNav1" style="margin-left:35%; margin-bottom:10px;">Cerrar sesión</a>
+					    	<a class="btn btn-primary" type="button" id="BotonNav1" data-bs-dismiss="modal" style="margin-left:35%; margin-bottom:20px;">Permanecer</a>
+					    </div>
+					  </div>
+					</div>
+					<!-- Fin modal -->         
+                <!-- BOTONES -->
 			</div>
 		</div>
 	</div>
@@ -63,9 +80,30 @@
 	<div class="container-fluid">
 		<div class="row">
 			<div class="col-4 text-center" id="FotoM">
-				<img src=""
-					class="rounded-circle mx-auto d-block" alt="Foto perfil mascota"
-					style="margin-top: 50px; border: 1px solid; border-color: rgb(143, 142, 142); width: 230px;" id="FotoM">
+				 
+				
+				<!-- modal -->
+				<div class="modal fade" id="fotoUserModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+					  <div class="modal-dialog">
+					    <div class="modal-content">
+					      <div class="modal-header">
+					        <h1 class="modal-title fs-5" id="exampleModalLabel">Foto del Perfil</h1>
+					        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+					      </div>
+					      <div class="modal-body" id="fotoUserBodyModal">
+					      </div>
+					      <form action="/perfilMascota/actualizarFotoMascota" method="post" enctype="multipart/form-data">
+						      <div class="modal-footer">
+								<label class="btn btn-primary" id="buttonModal" for="inputGroupFile01">Editar</label>
+								<input type="file" class="form-control" id="inputGroupFile01" style="display: none" name="fotoPerfilPets">
+						        <button type="submit" class="btn btn-primary" id="buttonModal">Guardar</button>
+						      </div>
+					      </form>
+					    </div>
+					  </div>
+					</div>
+					<!-- Fin modal -->         
+				
 				<button class="btn btn" type="button"
 					style="background-color: #C6D166; margin-top: 50px;">Sube
 					tu foto de perfil</button>
@@ -172,9 +210,9 @@
 		            	console.log(existFotoPerfil)
 		            	$("#FotoM").find("img").remove();
 		            	if (existFotoPerfil) {
-		            		$("#FotoM").prepend('<img class="rounded-circle mx-auto d-block" src="data:image/jpeg;base64,${fotoPerfilMascota}" alt="a" width="200px" height="200px" style="margin: 0% 0% 5% 0%;">');
+		            		$("#FotoM").prepend('<img role="button"  data-bs-toggle="modal" data-bs-target="#fotoUserModal" class="rounded-circle mx-auto d-block" src="data:image/jpeg;base64,${FotoM}" alt="a" width="50px" height="50px" style="margin: 0% 0% 5% 0%;">');
 		            	} else {
-		            		$("#FotoM").prepend('<img class="rounded-circle mx-auto d-block" src="/assets/img/mascotaGenerico.png" id="FotoM">'); 		            		
+		            		$("#FotoM").prepend('<img role="button"  data-bs-toggle="modal" data-bs-target="#fotoUserModal" class="rounded-circle mx-auto d-block" src="/assets/img/mascotaGenerico.png" id="FotoM">'); 		            		
 		            	}
 		            }      		      
 		        });
