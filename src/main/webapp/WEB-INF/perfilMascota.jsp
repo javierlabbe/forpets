@@ -61,7 +61,7 @@
                     <a class="nav-link" aria-current="page" href="/index/nosotros"><strong>Nosotros</strong></a>
                 </li>
                 <li>
-                <a class="nav-link" aria-current="page" href="/mapa/mapaPrincipal"><strong>Ver mapa</strong></a>
+                <a class="nav-link" aria-current="page" href="/mapaPrincipal"><strong>Ver mapa</strong></a>
               	</li>
               	                <li>
                 <a class="nav-link" aria-current="page" href="/home/perfil"><strong>Mi perfil</strong></a>
