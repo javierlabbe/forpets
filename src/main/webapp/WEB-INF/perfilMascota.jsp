@@ -20,39 +20,60 @@
 <script src="https://kit.fontawesome.com/64af136b72.js" crossorigin="anonymous"></script>
 
 <title>Perfil mascota</title>
+<!-- TIPOGRAFIAS -->
+ 	<link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Baloo' rel='stylesheet'>
+    <!-- TIPOGRAFIAS -->
+ 	    <style>
+        body {
+            background-color:white;
+            font-family: 'Poppins';
+            background-image: url('/assets/img/fondogris.png');
+        }
+        h4 {
+        	font-family:'Baloo';
+        	text-shadow: 0 .05rem .1rem rgba(0, 0, 0, .5);
+        	font-size: 45px;
+        	margin-top: 35px;
+        	
+        }
+    </style>
 </head>
 <!-- Navbar -->
-<nav class="navbar navbar-expand-lg"
-	style="background-color: #48C6AF; height: 120px;">
-	<div class="container-fluid">
-		<a class="navbar-brand" href="/home"> <!--IR AL HOME en href--> <img
-			src="/assets/img/logonegro" height="40px" alt="forpets Logo"
-			loading="lazy" style="margin-top: -1px;" />
-		</a>
+<nav class="navbar navbar-expand-lg" style="background-color: #48C6AF; height: 120px;" >
+    <div class="container-fluid">
+        <a class="navbar-brand" href="home">
+            <!--IR AL HOME en href-->
+            <img src="/assets/img/logonegro" height="40px" alt="forpets Logo" loading="lazy" style="margin-top: -1px;" />
+        </a>
 
-		<!-- Toggle button -->
-		<button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-			data-bs-target="#navbarSupportedContent"
-			aria-controls="navbarSupportedContent" aria-expanded="false"
-			aria-label="Toggle navigation">
-			<span class="navbar-toggler-icon"></span>
-		</button>
+        <!-- Toggle button -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
 
-		<!-- Collapsible wrapper -->
-		<div class="collapse navbar-collapse" id="navbarSupportedContent">
-			<ul class="navbar-nav me-auto mb-2 mb-lg-0">
-				<!-- Left links -->
-				<li class="nav-item"><a class="nav-link active"
-					aria-current="page" href="/home">Home</a></li>
-				<li class="nav-item"><a class="nav-link" href="/mapa/principal">Ver Mapa</a>
-				</li>
-				<li class="nav-item"><a class="nav-link" href="">Hacer
-						Reporte</a></li>
-			</ul>
+        <!-- Collapsible wrapper -->
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <!-- Left links -->
+                <li class="nav-item">
+                    <a class="nav-link" aria-current="page" href="/index/nosotros"><strong>Nosotros</strong></a>
+                </li>
+                <li>
+                <a class="nav-link" aria-current="page" href="/mapa/mapaPrincipal"><strong>Ver mapa</strong></a>
+              	</li>
+              	                <li>
+                <a class="nav-link" aria-current="page" href="/home/perfil"><strong>Mi perfil</strong></a>
+              	</li>
+            </ul>
 
-			<!-- Left links -->
-			<div class="d-flex align-items-center">
-				 <!-- BOTONES -->
+            <!-- Left links -->
+
+            <div class="d-flex align-items-center">
+            <div class="row">
+           <div class="col">
+           		 <!-- BOTONES -->
            		 <button type="button" class="btn btn-primary" id="BotonNav1" data-bs-toggle="modal" data-bs-target="#modalCierreSesión">Cerrar sesión</button>
 					<div class="modal fade" id="modalCierreSesión" tabindex="-1" aria-labelledby="modalLogout" aria-hidden="true">
 					  <div class="modal-dialog">
@@ -71,9 +92,9 @@
 					</div>
 					<!-- Fin modal -->         
                 <!-- BOTONES -->
-			</div>
-		</div>
-	</div>
+            </div>
+        </div>
+    </div>
 </nav>
 <!-- Navbar -->
 <body>
@@ -162,7 +183,7 @@
 	</div>
 </body>
 <!-- FOOTER -->
-<footer class="text-center text-white" style="background-color: #004445; margin-top:200px; ">
+<footer class="text-center text-white" style="background-color: #004445; margin-top: 50px; ">
     <div class="container-fluid">
         <div class="row">
             <div class="col">
