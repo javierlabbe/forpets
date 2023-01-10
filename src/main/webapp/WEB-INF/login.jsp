@@ -12,6 +12,24 @@
     <script src="https://kit.fontawesome.com/64af136b72.js" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" crossorigin="anonymous" async></script>
    <link href="/Assets/CSS/LoginStyles.css" rel="stylesheet">
+ 	<!-- TIPOGRAFIAS -->
+ 	<link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Baloo' rel='stylesheet'>
+    <!-- TIPOGRAFIAS -->
+ 	    <style>
+        body {
+            background-color:white;
+            font-family: 'Poppins';
+        }
+        
+        h3 {
+        	font-family:'Baloo';
+        	text-shadow: 0 .05rem .1rem rgba(0, 0, 0, .5);
+        	font-size: 40px;
+        	margin-top: 35px;	
+        }
+
+    </style>
  
 </head>
 
@@ -155,7 +173,7 @@
         </div>
 	      </div>
 	      <div class="text-center text-dark p-3" style="background-color: rgba(0, 0, 0, 0.2);">
-	                <span class="copyright quick-links" style="color:#C6D166 ;">Copyright &copy; Forpets <script>document.write(new Date().getFullYear())</script>
+	                <span class="copyright quick-links" style="color:#C6D166 ;">Copyright &copy; ForPets <script>document.write(new Date().getFullYear())</script>
         </span>
 	      </div>
 	    </div>

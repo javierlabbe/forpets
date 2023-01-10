@@ -210,7 +210,7 @@
         </div>
 	      </div>
 	      <div class="text-center text-dark p-3" style="background-color: rgba(0, 0, 0, 0.2);">
-	                <span class="copyright quick-links" style="color:#C6D166 ;">Copyright &copy; Forpets <script>document.write(new Date().getFullYear())</script>
+	                <span class="copyright quick-links" style="color:#C6D166 ;">Copyright &copy; ForPets <script>document.write(new Date().getFullYear())</script>
         </span>
 	      </div>
 	    </div>

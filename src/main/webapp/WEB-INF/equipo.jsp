@@ -102,7 +102,7 @@
                         <br>
                         <h4>Julián Ordens</h4>
                         <!-- Linkedin -->
-                        <a class="btn btn-link btn-floating btn-lg text-dark m-1" href="#!" role="button"
+                        <a class="btn btn-link btn-floating btn-lg text-dark m-1" href="https://www.linkedin.com/in/juli-ordens" role="button"
                         data-mdb-ripple-color="dark"><i class="fab fa-linkedin"></i></a>
                         <!-- Github -->
                         <a class="btn btn-link btn-floating btn-lg text-dark m-1" href="#!" role="button"
@@ -251,7 +251,7 @@
         </div>
 	      </div>
 	      <div class="text-center text-dark p-3" style="background-color: rgba(0, 0, 0, 0.2);">
-	                <span class="copyright quick-links" style="color:#C6D166 ;">Copyright &copy; Forpets <script>document.write(new Date().getFullYear())</script>
+	                <span class="copyright quick-links" style="color:#C6D166 ;">Copyright &copy; ForPets <script>document.write(new Date().getFullYear())</script>
         </span>
 	      </div>
 	    </div>
