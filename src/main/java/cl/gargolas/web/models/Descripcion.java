@@ -40,7 +40,7 @@ public class Descripcion {
 	private Long idDescripcion;
 
 	@NotNull
-	@Size(min = 1, max = 30)
+	@Size(min = 1, max = 350)
 	private String descripcion;
 
 	@JsonIgnore
