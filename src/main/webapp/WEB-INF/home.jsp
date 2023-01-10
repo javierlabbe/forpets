@@ -54,7 +54,7 @@
                     <a class="nav-link" aria-current="page" href="/index/nosotros"><strong>Nosotros</strong></a>
                 </li>
                 <li>
-                <a class="nav-link" aria-current="page" href="/mapa/mapaPrincipal"><strong>Ver mapa</strong></a>
+                <a class="nav-link" aria-current="page" href="/mapaPrincipal"><strong>Ver mapa</strong></a>
               	</li>
               	                <li>
                 <a class="nav-link" aria-current="page" href="/home/perfil"><strong>Mi perfil</strong></a>
@@ -135,7 +135,7 @@
     		<h5 class="card-title"><strong>Reportar una mascota perdida</strong></h5>
    			<p class="card-text">Si extraviaste a tu mascota y necesitas ayuda,
          puedes reportarla para que la comunidad acceda a la información y se inicie la cadena de búsqueda.</p>
-    		<a href="/mapa/mapaPrincipal" class="btn btn-primary" id="BotonNav1">Reportar</a>
+    		<a href="/mapaPrincipal" class="btn btn-primary" id="BotonNav1">Reportar</a>
   		</div>
 		</div>
 	</div>
@@ -146,7 +146,7 @@
     		<h5 class="card-title"><strong>Agregar lugar de interés</strong></h5>
    			<p class="card-text">Si conoces algún sitio relacionado con mascotas, venta de artículos, servicios, parques petfriendly, entre otros,
    			puedes compartirla con la comunidad!</p>
-    		<a href="/mapa/mapaPrincipal" class="btn btn-primary" id="BotonNav1">Agregar lugar</a>
+    		<a href="/mapaPrincipal" class="btn btn-primary" id="BotonNav1">Agregar lugar</a>
   		</div>
 		</div>
 	</div>
@@ -157,7 +157,7 @@
     		<h5 class="card-title"><strong>Reportar una mascota encontrada</strong></h5>
    			<p class="card-text">En caso de que hayas encontrado una mascota que parezca pertenecer a una familia,
          puedes reportarla para que la comunidad acceda a la información y se inicie la cadena de búsqueda.</p>
-    		<a href="/mapa/mapaPrincipal" class="btn btn-primary" id="BotonNav1">Reportar</a>
+    		<a href="/mapaPrincipal" class="btn btn-primary" id="BotonNav1">Reportar</a>
   		</div>
 		</div>
 	</div>
@@ -168,7 +168,7 @@
     		<h5 class="card-title"><strong>Encontrar lugar de interés</strong></h5>
    			<p class="card-text">Explora el mapa para encontrar lugares exclusivos y relacionados con tu mascota,
    			podrás además ver las referencias de los usuarios que han visitado los sitios, y la valoración.</p>
-    		<a href="/mapa/mapaPrincipal" class="btn btn-primary" id="BotonNav1">Explorar mapa</a>
+    		<a href="/mapaPrincipal" class="btn btn-primary" id="BotonNav1">Explorar mapa</a>
   		</div>
 		</div>
 	</div>
