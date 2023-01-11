@@ -167,7 +167,7 @@
 						<h1>Mis características</h1>
 						</p>
 						<p>
-						<h6><c:out value="${Descripcion}"></c:out>
+						<h6 style="margin-bottom: 8%"><c:out value="${Descripcion}"></c:out>
 						</h6>
 						</p>
 					</div>
@@ -255,9 +255,9 @@
 		            	console.log(existFotoPerfil)
 		            	$("#FotoM").find("img").remove();
 		            	if (existFotoPerfil) {
-		            		$("#FotoM").prepend('<img role="button"  data-bs-toggle="modal" data-bs-target="#fotoUserModal" class="rounded-circle mx-auto d-block" src="data:image/jpeg;base64,${FotoM}" alt="a" width="50px" height="50px" style="margin: 0% 0% 5% 0%;">');
+		            		$("#FotoM").prepend('<img role="button"  data-bs-toggle="modal" data-bs-target="#fotoUserModal" class="rounded-circle mx-auto d-block" src="data:image/jpeg;base64,${FotoM}" alt="a" width="250px" height="250px" style="margin: 20% 0% 5% 0%;">');
 		            	} else {
-		            		$("#FotoM").prepend('<img role="button"  data-bs-toggle="modal" data-bs-target="#fotoUserModal" class="rounded-circle mx-auto d-block" src="/assets/img/mascotaGenerico.png" id="FotoM">'); 		            		
+		            		$("#FotoM").prepend('<img role="button"  data-bs-toggle="modal" data-bs-target="#fotoUserModal" class="rounded-circle mx-auto d-block" src="/assets/img/mascotaGenerico.png" id="FotoM" width="250px" height="250px" style="margin: 20% 0% 5% 0%;">'); 		            		
 		            	}
 		            }      		      
 		        });
