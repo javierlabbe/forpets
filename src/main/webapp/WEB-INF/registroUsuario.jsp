@@ -50,7 +50,7 @@
 <!-- Navbar -->
 <nav class="navbar navbar-expand-lg" style="background-color: #48C6AF; height: 120px;">
     <div class="container-fluid">
-        <a class="navbar-brand" href="#">
+        <a class="navbar-brand" href="/index">
             <!--IR AL HOME en href-->
             <img src="/assets/img/logonegro" height="40px" alt="forpets Logo" loading="lazy" style="margin-top: -1px;" />
         </a>
@@ -66,13 +66,13 @@
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <!-- Left links -->
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="http://localhost:9082/index">Home</a>
+                    <a class="nav-link" aria-current="page" href="http://localhost:9082/index">Home</a>
                 </li>
             </ul>
 
             <!-- Left links -->
             <div class="d-flex align-items-center">
-                <button type="button" class="btn btn-primary" id="BotonNav1">Login</button>
+                <a role="button" class="btn btn-primary" href="/index/login" id="BotonNav1">Login</a>
             </div>
         </div>
     </div>
@@ -83,7 +83,7 @@
 	<div class="container-fluid">
 	    <div class="row" style="display: grid; place-content: center;">
 	        <form action="/registro/usuario" method="post" enctype="multipart/form-data">
-	        	<div class="card" style="margin-top: 2%;">
+	        	<div class="card" style="margin-top: 2%; margin-bottom: 2%">
 		            <div class="card-body">
 		                <div class="row align-items-start" id="rowform">
 		                    <h3>Crear tu cuenta de Forpets</h3>

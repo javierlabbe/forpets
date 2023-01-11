@@ -55,6 +55,7 @@ public class HomeController {
 		Long idUsuario = (Long) session.getAttribute("idUsuario");
 		if(idUsuario != null) {
 			Usuario user = usuarioServiceImpl.obtenerUsuario(idUsuario);
+			
 			List<PerfilMascota> listaMascotas = user.getPerfilMascota();
 			List<Region> listaRegiones = regionServiceImpl.obtenerListaRegiones();
 			List<Comuna> listaComunas = comunaServiceImpl.obtenerListaComunas();

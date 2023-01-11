@@ -46,7 +46,7 @@
 <!-- Navbar -->
 <nav class="navbar navbar-expand-lg" style="background-color: #48C6AF; height: 120px;" >
     <div class="container-fluid">
-        <a class="navbar-brand" href="home">
+        <a class="navbar-brand" href="/home">
             <!--IR AL HOME en href-->
             <img src="/assets/img/logonegro" height="40px" alt="forpets Logo" loading="lazy" style="margin-top: -1px;" />
         </a>
@@ -228,18 +228,19 @@
     <script>
     	//Definicion de variables
 	    var usuarioId = ${idUser}
-
+		var mascotaId = 1; 
+		
 	    //Definicion de funciones
 	    function fotoMascota() {
 			return	$.ajax({
 			            method: "get",
 			            url: "/apiPerfilMascota/existImgMascota",
-			            data: { id : document.getElementById("mascotas").value },
+			            data: { id : mascotaId },
 			            success: function (data) {	    
-			            	let existFotoPerfil = data;
+			            	let fotoPerfil = data;
 			            	$("#rowFotoMascota").find("img").remove();
-			            	if (existFotoPerfil) {
-			            		$("#rowFotoMascota").prepend('<img class="rounded-circle mx-auto d-block" src="data:image/jpeg;base64,${fotoPerfil}" alt="${userName}" width="200px" height="200px" style="margin: 0% 0% 5% 0%;">');
+			            	if (fotoPerfil) {
+			            		$("#rowFotoMascota").prepend('<img class="rounded-circle mx-auto d-block" src="data:image/jpeg;base64,'+fotoPerfil+'" alt="FotoMascota" id="fotoMascota">');
 			            	} else {
 			            		$("#rowFotoMascota").prepend('<img class="rounded-circle mx-auto d-block" src="/assets/img/mascotaGenerico.png" id="fotoMascota">'); 		            		
 			            	}
@@ -267,11 +268,6 @@
 	    }
 	    
 	    //JQuery
-    	$("#mascotas")
-		  .change(function(){
-			  fotoMascota();
-			;})
-	    
 	    $(document).ready(function(){
 	    	fotoUsuario();
    		  	$.getJSON( "/apiUsuario/listaMascotas", {id: usuarioId} ,function( data ) {
@@ -306,14 +302,19 @@
    			})
    			.done(function() {
    		  		fotoMascota();
+	   	    	$("#mascotas").change(function() {
+	  			  	mascotaId = document.getElementById("mascotas").value;
+	   	    		fotoMascota();
+	  			;})
    		  	});
-   		      
+ 	
 	    	
 	    	  $("#botonBody").click(function(){	
-	    		  console.log();
+	    		  console.log("hola");
 	    	  });
 	    	  
 	    });
+	    
 	    
 		$('select[name="region"]').on('change', function() {
 		    let regionId = $(this).val();
