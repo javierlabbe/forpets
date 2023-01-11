@@ -97,15 +97,15 @@
                 <div class="row" style="background-color: white; margin-top: 10%;">
                     <div class="col" style="background-color: white;">
                         <center>
-                        <img src="../assets/img/julian.jpeg" class="rounded" alt="FotoJulian" style="width: 135px; border: 1px solid;border-color: rgb(143, 142, 142);">
+                        <img src="../assets/img/luis.jpeg" class="rounded" alt="FotoLuis" style="width: 135px; border: 1px solid;border-color: rgb(143, 142, 142);">
                         <br>
                         <br>
-                        <h4>Julián Ordens</h4>
+                        <h4>Luis Serrano</h4>
                         <!-- Linkedin -->
-                        <a class="btn btn-link btn-floating btn-lg text-dark m-1" href="#!" target="_blank" rel="noopener noreferrer" role="button"
+                        <a class="btn btn-link btn-floating btn-lg text-dark m-1" href="https://www.linkedin.com/in/luisisraelserranomiranda" target="_blank" rel="noopener noreferrer" role="button"
                         data-mdb-ripple-color="dark"><i class="fab fa-linkedin"></i></a>
                         <!-- Github -->
-                        <a class="btn btn-link btn-floating btn-lg text-dark m-1" href="#!" target="_blank" rel="noopener noreferrer" role="button"
+                        <a class="btn btn-link btn-floating btn-lg text-dark m-1" href="https://github.com/luisserranom" target="_blank" rel="noopener noreferrer" role="button"
                         data-mdb-ripple-color="dark"><i class="fab fa-github"></i></a>
                         </center>
                     </div>
@@ -141,21 +141,7 @@
                 <div class="row" style="background-color: white; margin-top: 5%;" >
                     <div class="col" style="background-color: white;">
                         <center>
-                        <img src="../assets/img/luis.jpeg" class="rounded" alt="FotoLuis" style="width: 135px; border: 1px solid;border-color: rgb(143, 142, 142);">
-                        <br>
-                        <br>
-                        <h4>Luis Serrano</h4>
-                        <!-- Linkedin -->
-                        <a class="btn btn-link btn-floating btn-lg text-dark m-1" href="https://www.linkedin.com/in/luis-israel-serrano-miranda-888aa61b9/" target="_blank" rel="noopener noreferrer" role="button"
-                        data-mdb-ripple-color="dark"><i class="fab fa-linkedin"></i></a>
-                        <!-- Github -->
-                        <a class="btn btn-link btn-floating btn-lg text-dark m-1" href="https://github.com/luisserranom" target="_blank" rel="noopener noreferrer" role="button"
-                        data-mdb-ripple-color="dark"><i class="fab fa-github"></i></a>
-                        </center>
-                    </div>
-                    <div class="col" style="background-color:white;">
-                        <center>
-                        <img src="../assets/img/rocio.jpeg" class="rounded" alt="FotoRocio" style="width: 135px; border: 1px solid;border-color: rgb(143, 142, 142);">
+                        <img src="../assets/img/rocio.jpeg" class="rounded" alt="FotoJulian" style="width: 135px; border: 1px solid;border-color: rgb(143, 142, 142);">
                         <br>
                         <br>
                         <h4>Rocio Quezada</h4>
@@ -163,7 +149,21 @@
                         <a class="btn btn-link btn-floating btn-lg text-dark m-1" href="https://www.linkedin.com/in/rocio-jiresh-quezada-rodriguez-436008256/" target="_blank" rel="noopener noreferrer" role="button"
                         data-mdb-ripple-color="dark"><i class="fab fa-linkedin"></i></a>
                         <!-- Github -->
-                        <a class="btn btn-link btn-floating btn-lg text-dark m-1" href="https://github.com/RocioQ01"target="_blank" rel="noopener noreferrer" role="button"
+                        <a class="btn btn-link btn-floating btn-lg text-dark m-1" href="https://github.com/RocioQ01" target="_blank" rel="noopener noreferrer" role="button"
+                        data-mdb-ripple-color="dark"><i class="fab fa-github"></i></a>
+                        </center>
+                    </div>
+                    <div class="col" style="background-color:white;">
+                        <center>
+                        <img src="../assets/img/julian.jpeg" class="rounded" alt="FotoRocio" style="width: 135px; border: 1px solid;border-color: rgb(143, 142, 142);">
+                        <br>
+                        <br>
+                        <h4>Julian Ordens</h4>
+                        <!-- Linkedin -->
+                        <a class="btn btn-link btn-floating btn-lg text-dark m-1" href="#!" target="_blank" rel="noopener noreferrer" role="button"
+                        data-mdb-ripple-color="dark"><i class="fab fa-linkedin"></i></a>
+                        <!-- Github -->
+                        <a class="btn btn-link btn-floating btn-lg text-dark m-1" href="#!" target="_blank" rel="noopener noreferrer" role="button"
                         data-mdb-ripple-color="dark"><i class="fab fa-github"></i></a>
                         </center>
                     </div>
