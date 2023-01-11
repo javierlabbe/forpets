@@ -118,9 +118,7 @@
 		<div class="container-fluid">
 			<div class="row">
 				<div class="col-4 text-center">
-					<img src="/assets/img/PerfilMascota.png" class="rounded-circle mx-auto d-block"
-						alt="Foto perfil gato"
-						style="margin-top: 50px; border: 1px solid; border-color: rgb(143, 142, 142); width: 230px;">
+					<
 						<br>
 					<!-- Button trigger modal -->
 					
