@@ -42,6 +42,16 @@
         	margin-top: 35px;
         	
         }
+        
+        #rowform {
+            margin-bottom: 10px;
+        }
+        #birthday {
+            width: 100%;
+        }
+        
+       
+        
     </style>
 </head>
 
@@ -105,137 +115,134 @@
 <!-- Navbar -->
 
 <body>
-	<form action="/registro/mascota" method="post" action="/upload/form" >
-		
-		<!--<c:out value="${Error}"></c:out>-->
-		<c:if test="${Error!=null}"> 
-			    		<div class="alert alert-danger" role="alert">
-							<c:out value="${Error}"></c:out> 
-						</div>
-			    	</c:if>
-		
-		<!--=============COLUMNA UNO=============-->
-		<div class="container-fluid">
-			<div class="row">
-				<div class="col-4 text-center">
-					<
-						<br>
-					<!-- Button trigger modal -->
+
+<div class="container-fluid">
+	<div class="row" style="display: grid; place-content: center;">
+	
+	
+		<form action="/registro/mascota" method="post" action="/upload/form" >
+			<div class="card" style="margin-top: 2%; margin-bottom: 2%">
+				<!--<c:out value="${Error}"></c:out>-->
+				<c:if test="${Error!=null}"> 
+					    		<div class="alert alert-danger" role="alert">
+									<c:out value="${Error}"></c:out> 
+								</div>
+					    	</c:if>
+				
+				<!--=============COLUMNA UNO=============-->
+				<div class="container-fluid">
 					
-					
-					
-				</div>
-				<div class="col">
-					<div class="row">
-						<p style="margin-top: 45px;">
-						<h1>Registro mascota</h1>
-						</p>
-					</div>
-					<!--=============COLUMNA DOS=============-->
-					<div class="row">
-						<div class="col">
-							<label for="nombre" class="col-form-label"><b>Nombre:</b>
-								<input class="form-control" type="text" id="nombre" name="nombre"
-								placeholder="Ej: Copito" required style="padding-left:-1000px;"> </label>
-						</div>
-						<div class="col">
-							<label for="especie" class="col-form-label" id="seleccion"><b>Especie:</b></label>
-							<select class="form-select" aria-label="Default select example" id="especie" name="especie"style="width: 250px;">
-								<option class="form-control" value=0>Seleccione especie</option>
-								<c:forEach var="especie" items="${listaEspecies}">
-				 					<option value="${especie.idEspecie}">${especie.descripcion}</option>			  
-				 				</c:forEach>
-							</select>
-						</div>
-						<div class="col">
-							<label for="sexo" class="col-form-label" id="seleccion"><b>Sexo:</b></label>
-							<select class="form-select" aria-label="Default select example" id="sexo" name="sexo" style="width: 250px;">
-								<option class="form-control" value=0>Seleccione sexo</option>
-								<c:forEach var="sexo" items="${listaSexos}">
-				 					<option value="${sexo.idSexo}">${sexo.descripcion}</option>			  
-				 				</c:forEach>
-							</select>
-						</div>
-					</div>
-					<!--=============COLUMNA TRES=============-->
-					<div class="row">
-						<div class="col">
-							<label for="nChip" class="col-form-label">
-								<b>Nº Chip:</b>
-							</label>
-							<input class="form-control" type="text" id="nChip" name="nChip" placeholder="Ej: 123456789012345" required>
-						</div>
-						<div class="col">
-							<label for="rangoEtario" class="col-form-label" id="seleccion"><b>Rango Etario:</b></label> 
-							<select class="form-select" aria-label="Default select example" id="rangoEtario" name="rangoEtario" style="width: 250px;">
-								<option class="form-control" value=0>Seleccione rango etario</option>
-								<c:forEach var="rangoEtario" items="${listaRangosEtarios}">
-				 					<option value="${rangoEtario.idRangoEtario}">${rangoEtario.descripcion}</option>			  
-				 				</c:forEach>
-							</select>
-						</div>
-						<div class="col">
-							<label for="raza" class="col-form-label" id="seleccion"><b>Raza:</b></label>
-							<select class="form-select" aria-label="Default select example" id="raza" name="raza" style="width: 250px;">
-								<option class="form-control" value=0>Seleccione raza</option>
-								<c:forEach var="raza" items="${listaRazas}">
-				 					<option value="${raza.idRaza}">${raza.descripcion}</option>			  
-				 				</c:forEach>
-							</select>
-						</div>
-					</div>
-					<!--=============COLUMNA CUATRO=============-->
-					<div class="row">
-						<div class="col">
-							<label for="color" class="col-form-label" id="seleccion"><b>Color:</b> 
-							</label>
-							<select class="form-select" aria-label="Default select example" id="color" name="color" style="width: 250px;">
-								<option class="form-control" value=0>Seleccione color principal</option>
-								<c:forEach var="color" items="${listaColores}">
-				 					<option value="${color.idColor}">${color.descripcion}</option>			  
-				 				</c:forEach>
-							</select>
-						</div>
-						<div class="col">
-							<label for="patron" class="col-form-label" id="seleccion"><b>Patrón:</b></label>
-							<select class="form-select" aria-label="Default select example" id="patron" name="patron" style="width: 250px;">
-								<option class="form-control" value=0>Seleccione patrón de pelaje</option>
-								<c:forEach var="patron" items="${listaPatrones}">
-				 					<option value="${patron.idPatron}">${patron.descripcion}</option>			  
-				 				</c:forEach>
-							</select>
-						</div>
-						<div class="col">
-							<label for="tamanio" class="col-form-label" id="seleccion"><b>Tamaño:</b></label>
-							<select class="form-select" aria-label="Default select example" id="tamanio" name="tamanio" style="width: 250px;">
-								<option class="form-control" value=0>Seleccione tamaño</option>
-								<c:forEach var="tamanio" items="${listaTamanios}">
-				 					<option value="${tamanio.idTamanio}">${tamanio.descripcion}</option>			  
-				 				</c:forEach>
-							</select>
-						</div>
-					</div>
-					<!--=============COLUMNA CINCO=============-->
-					<div class="row">
-						<div class="col">
-							<label for="descripcion" class="form-label"><b>Descripción:</b></label>
-							<textarea class="form-control" id="descripcion" name="descripcion"
-								rows="3"
-								placeholder="Escribe sus características especiales aquí..."
-								style="width: 910px;"></textarea>
-						</div>
-						<!--=============COLUMNA BOTÓN=============-->
-						<div class="row">
-							<div class="col">
-								<input  type="submit" class="btn btn-outline-primary btn-lg" value="Enviar" required>
-								
+							<div class="row">
+								<p style="margin-top: 45px;">
+								<h1>Registro mascota</h1>
+								</p>
+							</div>
+							<!--=============COLUMNA DOS=============-->
+							<div class="row">
+								<div class="col">
+									<label for="nombre" class="col-form-label"><b>Nombre:</b>
+										<input class="form-control" type="text" id="nombre" name="nombre"
+										placeholder="Ej: Copito" required style="padding-left:-1000px;"> </label>
+								</div>
+								<div class="col">
+									<label for="especie" class="col-form-label" id="seleccion"><b>Especie:</b></label>
+									<select class="form-select" aria-label="Default select example" id="especie" name="especie"style="width: 250px;">
+										<option class="form-control" value=0>Seleccione especie</option>
+										<c:forEach var="especie" items="${listaEspecies}">
+						 					<option value="${especie.idEspecie}">${especie.descripcion}</option>			  
+						 				</c:forEach>
+									</select>
+								</div>
+								<div class="col">
+									<label for="sexo" class="col-form-label" id="seleccion"><b>Sexo:</b></label>
+									<select class="form-select" aria-label="Default select example" id="sexo" name="sexo" style="width: 250px;">
+										<option class="form-control" value=0>Seleccione sexo</option>
+										<c:forEach var="sexo" items="${listaSexos}">
+						 					<option value="${sexo.idSexo}">${sexo.descripcion}</option>			  
+						 				</c:forEach>
+									</select>
+								</div>
+							</div>
+							<!--=============COLUMNA TRES=============-->
+							<div class="row">
+								<div class="col">
+									<label for="nChip" class="col-form-label">
+										<b>Nº Chip:</b>
+									</label>
+									<input class="form-control" type="text" id="nChip" name="nChip" placeholder="Ej: 123456789012345" required>
+								</div>
+								<div class="col">
+									<label for="rangoEtario" class="col-form-label" id="seleccion"><b>Rango Etario:</b></label> 
+									<select class="form-select" aria-label="Default select example" id="rangoEtario" name="rangoEtario" style="width: 250px;">
+										<option class="form-control" value=0>Seleccione rango etario</option>
+										<c:forEach var="rangoEtario" items="${listaRangosEtarios}">
+						 					<option value="${rangoEtario.idRangoEtario}">${rangoEtario.descripcion}</option>			  
+						 				</c:forEach>
+									</select>
+								</div>
+								<div class="col">
+									<label for="raza" class="col-form-label" id="seleccion"><b>Raza:</b></label>
+									<select class="form-select" aria-label="Default select example" id="raza" name="raza" style="width: 250px;">
+										<option class="form-control" value=0>Seleccione raza</option>
+										<c:forEach var="raza" items="${listaRazas}">
+						 					<option value="${raza.idRaza}">${raza.descripcion}</option>			  
+						 				</c:forEach>
+									</select>
+								</div>
+							</div>
+							<!--=============COLUMNA CUATRO=============-->
+							<div class="row">
+								<div class="col">
+									<label for="color" class="col-form-label" id="seleccion"><b>Color:</b> 
+									</label>
+									<select class="form-select" aria-label="Default select example" id="color" name="color" style="width: 250px;">
+										<option class="form-control" value=0>Seleccione color principal</option>
+										<c:forEach var="color" items="${listaColores}">
+						 					<option value="${color.idColor}">${color.descripcion}</option>			  
+						 				</c:forEach>
+									</select>
+								</div>
+								<div class="col">
+									<label for="patron" class="col-form-label" id="seleccion"><b>Patrón:</b></label>
+									<select class="form-select" aria-label="Default select example" id="patron" name="patron" style="width: 250px;">
+										<option class="form-control" value=0>Seleccione patrón de pelaje</option>
+										<c:forEach var="patron" items="${listaPatrones}">
+						 					<option value="${patron.idPatron}">${patron.descripcion}</option>			  
+						 				</c:forEach>
+									</select>
+								</div>
+								<div class="col">
+									<label for="tamanio" class="col-form-label" id="seleccion"><b>Tamaño:</b></label>
+									<select class="form-select" aria-label="Default select example" id="tamanio" name="tamanio" style="width: 250px;">
+										<option class="form-control" value=0>Seleccione tamaño</option>
+										<c:forEach var="tamanio" items="${listaTamanios}">
+						 					<option value="${tamanio.idTamanio}">${tamanio.descripcion}</option>			  
+						 				</c:forEach>
+									</select>
+								</div>
+							</div>
+							<!--=============COLUMNA CINCO=============-->
+							<div class="row">
+								<div class="col">
+									<label for="descripcion" class="form-label"><b>Descripción:</b></label>
+									<textarea class="form-control" id="descripcion" name="descripcion"
+										rows="3"
+										placeholder="Escribe sus características especiales aquí..."
+										style="width: 910px;"></textarea>
+								</div>
+								<!--=============COLUMNA BOTÓN=============-->
+								<div class="row">
+									<div class="col" style="margin-bottom: 4%; margin-top: 3%;" >
+										<input  type="submit" class="btn btn-outline-primary btn-lg" value="Añadir" required id="botonBody">
+										
+									</div>
+								</div>
 							</div>
 						</div>
 					</div>
-				</div>
-			</div>
-		</div>
-	</form>
+		</form>
+	</div>
+</div>
 </body>
 <!-- FOOTER -->
 <footer class="text-center text-white" style="background-color: #004445; ">
