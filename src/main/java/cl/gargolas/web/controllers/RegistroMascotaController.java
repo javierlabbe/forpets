@@ -113,7 +113,6 @@ public class RegistroMascotaController {
 		,@RequestParam("patron") Long patron
 		,@RequestParam("tamanio") Long tamanio
 		,@RequestParam("descripcion") String descripcion
-		,@RequestParam("foto") byte[] foto
 		, Model model
 		, HttpSession session) {
 		
@@ -169,7 +168,7 @@ public class RegistroMascotaController {
 		
 			
 			perfilMascotaServiceImpl.guardarPerfilMascota(perfilMascota);
-			return "redirect:perfilUsuario.jsp";
+			return "redirect:/home/perfil";
 			
 
 		}else {
