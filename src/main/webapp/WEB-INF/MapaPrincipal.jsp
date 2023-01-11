@@ -25,8 +25,23 @@
 <script src="https://kit.fontawesome.com/64af136b72.js"
 	crossorigin="anonymous"></script>
 
+<!-- TIPOGRAFIAS -->
+ 	<link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Baloo' rel='stylesheet'>
+    <!-- TIPOGRAFIAS -->
 <style>
-* {
+body {
+	background-color:white;
+	font-family: 'Poppins';
+	background-image: url('/assets/img/fondogris.png');
+}
+h4 {
+	font-family:'Baloo';
+	text-shadow: 0 .05rem .1rem rgba(0, 0, 0, .5);
+	font-size: 45px;
+	margin-top: 35px;     	
+}
+*{
 	margin: 0;
 	padding: 0;
 }
@@ -160,7 +175,7 @@ body {
 								<select class="form-select" aria-label="Default select example"
 									id="etiqueta" name="etiqueta" required>
 									<option selected>Seleccione categoría del lugar</option>
-									<c:forEach var="etiqueta" items="${listaEtiquetas}">
+									<c:forEach var="etiqueta" items="${listaEtiqueta}">
 										<option value="${etiqueta.idEtiqueta}">${etiqueta.descripcion}</option>
 									</c:forEach>
 								</select>
