@@ -1,15 +1,30 @@
 document.addEventListener("DOMContentLoaded", function(event) {
 
-
-	//LLave del mapbox = ingresar y autorizar a la api
-	mapboxgl.accessToken = 'pk.eyJ1Ijoicm9jaW8wMSIsImEiOiJjbGM1aDlmZDAwYno2M29sN2U4aTVtOW93In0.E6jVmJaaXvBW_8zr44-t1A';
-
-	//se crea variable con mapa que sera visualizada en html
-	let map = new mapboxgl.Map({
-		container: 'map', // container ID
-		style: 'mapbox://styles/mapbox/streets-v12', // style URL
-		center: [-70.669650, -33.429850], // starting position [lng, lat]
-		zoom: 14, // starting zoom
-	});
-
+// create the popup
+    mapboxgl.accessToken = 'pk.eyJ1IjoibHVpc3NtOTkiLCJhIjoiY2xheng4ZHNuMWRweTN2cWo3amd2eGE0dyJ9.a8Et3ECvv0b-F--ykPkIuQ';
+    const monument = [-70.66, -33.46416667];
+    const map = new mapboxgl.Map({
+    container: 'map',
+    // Choose from Mapbox's core styles, or make your own style with Mapbox Studio
+    style: 'mapbox://styles/mapbox/light-v11',
+    center: monument,
+    zoom: 15
+    });
+    
+    // create the popup
+    const popup = new mapboxgl.Popup({ offset: 25 }).setText(
+     'Lugar: Parque' + 'OHiggins |' +
+     ' Direccion: Tupper, Santiago, Región Metropolitana OHiggins'
+    );
+    
+    // create DOM element for the marker
+    const el = document.createElement('div');
+    el.id = 'marker';
+    
+    // create the marker
+    new mapboxgl.Marker(el)
+    .setLngLat(monument)
+    .setPopup(popup) // sets a popup on this marker
+    .addTo(map);
+	
 });
