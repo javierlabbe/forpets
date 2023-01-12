@@ -59,6 +59,11 @@ public class CategoriaReporteLugar {
 	@OneToMany(mappedBy = "categoriaReporteLugar",cascade = CascadeType.ALL,fetch = FetchType.LAZY)
 	private List<LugarInteres> lugaresInteres;
 	
+	@JsonIgnore
+	@ManyToOne(fetch = FetchType.EAGER)
+	@JoinColumn(name="etiqueta_id")
+	private Etiqueta etiqueta;
+	
 	@Column(updatable = false)
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date createdAt;
